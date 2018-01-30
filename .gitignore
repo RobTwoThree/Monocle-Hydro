@@ -1,0 +1,5 @@
+
+monocle/config.py
+*.pyc
+*.pickle
+*.log
