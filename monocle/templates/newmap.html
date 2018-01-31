@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Monocle - {{ area_name }}</title>
+  <title>{{ area_name }}</title>
   <link rel="stylesheet" href='static/css/leaflet.css'>
   <link rel="stylesheet" href='static/css/bootstrap.min.css'>
-  <link rel="stylesheet" href='static/css/main.css'>
+  <link rel="stylesheet" href='static/css/main.css?322'>
+  <link rel="stylesheet" href='static/css/spritesheet_medium_v9_og.css?319'>
+  <link rel="stylesheet" href='static/css/spritesheet_medium_v3_cart.css?319'>
+  <link rel="stylesheet" href='static/css/spritesheet_medium_v6_alt.css?319'>
+  <link rel="stylesheet" href='static/css/stylesheet-types.css?319'>
+  <link rel="stylesheet" href='static/css/stylesheet-weather.css?319'>
+  <link rel="stylesheet" href='static/css/MarkerCluster.css'>
+  <link rel="stylesheet" href='static/css/MarkerCluster.default.css'>
+  <link rel="stylesheet" href='static/css/ticker.css?319'>
   <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
@@ -15,11 +23,31 @@
   <meta name="theme-color" content="#772c30">
 </head>
 <body>
-  <h1>Monocle is initializing, please wait.</h1>
+  <h1>{{ area_name }} is initializing, please wait.</h1>
   <script>
         var _MapCoords = [{{ map_center[0] }}, {{ map_center[1] }}];
         var _MapProviderUrl = '{{ map_provider_url }}';
         var _MapProviderAttribution = '{{ map_provider_attribution|safe }}';
+        var _MapCoords = [{{ map_center[0] }}, {{ map_center[1] }}];
+        var _DarkMapProviderUrl = '{{ dark_map_provider_url }}';
+        var _DarkMapProviderAttribution = '{{ dark_map_provider_attribution|safe }}';
+        var _DarkMapOpacity = '{{ dark_map_opacity }}';
+        var _LightMapProviderUrl = '{{ light_map_provider_url }}';
+        var _LightMapProviderAttribution = '{{ light_map_provider_attribution|safe }}';
+        var _LightMapOpacity = '{{ light_map_opacity }}';
+        var _PoGoSDRegion = '{{ pogosd_region }}';
+        var _DisplayPokemonLayer = '{{ display_pokemon }}';
+        var _DisplayGymsLayer = '{{ display_gyms }}';
+        var _DisplayRaidsLayer = '{{ display_raids }}';
+        var _DisplayParksInS2CellsLayer = '{{ display_parks_in_s2_cells }}';
+        var _DisplayEXGymsLayer = '{{ display_ex_gyms }}';
+        var _DisplayWeatherLayer = '{{ display_weather }}';
+        var _DisplayScanAreaLayer = '{{ display_scan_area }}';
+        var _DisplayFilteredPokemonLayer  = '{{ display_filtered_pokemon }}';
+        var _DisplaySpawnpointsLayer = '{{ display_spawnpoints }}';
+        var _ForceSplashMessage = '{{ force_splash }}';
+        _defaultSettings = {};
+        _updateTimeInterval = null;
         _defaultSettings = {};
         _updateTimeInterval = null;
   </script>
@@ -27,70 +55,190 @@
   <a class="map_btn my-location"></a>
   <a class="map_btn my-settings"></a>
   {{ social_links }}
+  <a class="map_btn hide-marker"></a>
+  <div class="gym-btn-group" role="group" data-group="gym_selection">
+      <a class="gym_btn instinct-gym-filter active" data-value="3"></a>
+      <a class="gym_btn valor-gym-filter active" data-value="2"></a>
+      <a class="gym_btn mystic-gym-filter active" data-value="1"></a>
+      <a class="gym_btn empty-gym-filter active" data-value="0"></a>
+      <a class="gym_btn open-spot-gym-filter active" data-value="5"></a>
+      <a class="gym_btn all-gyms-filter active" data-value="4"></a>
+  </div>
+  {{ ticker_items }}
+  {{ motd }}
+  {{ splash }}
   <div id="settings" class="container text-center">
-    <div class="page-header">
-      <h2>Monocle Settings<button id="settings_close_btn" type="button" class="close">×</button></h2>
-    </div>
-    <ul class="nav nav-pills nav-justified nav-settings">
-      <li class="active">
-        <a href="#" data-panel="filters">Filters</a>
-      </li>
-      <li>
-        <a href="#" data-panel="raids">Raids</a>
-      </li>
-      <li>
-        <a href="#" data-panel="more">More</a>
-      </li>
-    </ul>
-    <div class="panel panel-default settings-panel active" data-panel="filters">
-      <div class="panel-heading">
-        Filters Settings
+      <button type="button" class="close scroll-up glyphicon glyphicon glyphicon-circle-arrow-up"></button>
+      <div class="page-header">
+          <h2>{{ area_name }} Settings<button id="settings_close_btn" type="button" class="close">×</button></h2>
       </div>
-      <div class="panel-body">
-        Panel Content
+      <ul class="nav nav-pills nav-justified nav-settings">
+          <li class="active"><a href="#" data-panel="filters">Filters</a></li>
+          <li><a href="#" data-panel="more">More</a></li>
+          {{ show_donate_tab }}
+          {{ show_announcements_tab }}
+      </ul>
+      <div class="panel panel-default settings-panel active" data-panel="filters">
+          <div class="panel-heading">Filter Settings</div>
+          <div class="panel-body">Panel Content</div>
       </div>
-    </div>
-    <div class="panel panel-default settings-panel" data-panel="raids">
-      <div class="panel-heading">
-        Raids Settings
+      <div class="panel panel-default settings-panel" data-panel="more">
+          <div class="panel-heading">More Settings</div>
+          <div class="panel-body">
+              {{ show_form_menu_item }}
+              <h5>Fixed markers opacity</h5>
+              <div class="btn-group" role="group" data-group="FIXED_OPACITY">
+                  <button type="button" class="btn btn-default" data-value="1">Yes</button>
+                  <button type="button" class="btn btn-default" data-value="0">No</button>
+              </div>
+              <hr />
+              <h5>Show timer under Pokemon markers</h5>
+              <div class="btn-group" role="group" data-group="SHOW_TIMER">
+                  <button type="button" class="btn btn-default" data-value="1">Display</button>
+                  <button type="button" class="btn btn-default" data-value="0">Hide</button>
+              </div>
+              {{ display_boosted_feature }}
+              <hr />
+              <h5>Show type above Pokemon markers</h5>
+              <div class="btn-group" role="group" data-group="show_pokemon_type">
+                  <button type="button" class="btn btn-default" data-value="display">Display</button>
+                  <button type="button" class="btn btn-default" data-value="hide">Hide</button>
+              </div>
+              <hr />
+              <h5>Show Gym and Raid landmark images in popup</h5>
+              <div class="btn-group" role="group" data-group="gym_landmark">
+                  <button type="button" class="btn btn-default" data-value="display">Display</button>
+                  <button type="button" class="btn btn-default" data-value="hide">Hide</button>
+              </div>
+              <hr />
+              <h5>Show timer above Raid markers</h5>
+              <div class="btn-group" role="group" data-group="SHOW_RAID_TIMER">
+                  <button type="button" class="btn btn-default" data-value="1">Display</button>
+                  <button type="button" class="btn btn-default" data-value="0">Hide</button>
+              </div>
+              {{ show_iv_menu_item }}
+              <hr />
+              <h5>Change Map</h5>
+              <div class="btn-group" role="group" data-group="MAP_CHOICE">
+                  <button type="button" class="btn btn-default" data-value="1">Dark</button>
+                  <button type="button" class="btn btn-default" data-value="0">Light</button>
+              </div>
+              <hr />
+              <h5>Show Gym filter buttons by default</h5>
+              <div id="gym_filter_button_group" class="btn-group" role="group" data-group="gym_filter_buttons">
+                  <button type="button" class="btn btn-default" data-value="display_gym_filters">Display</button>
+                  <button type="button" class="btn btn-default" data-value="hide_gym_filters">Hide</button>
+              </div>
+              <h5>Display sponsored Gym logo (8pm - 4am)</h5>
+              <div id="sponsored_gym_logo_group" class="btn-group" role="group" data-group="show_sponsored_gym_logo">
+                  <button type="button" class="btn btn-default" data-value="display_sponsored_gym_logo">Display</button>
+                  <button type="button" class="btn btn-default" data-value="hide_sponsored_gym_logo">Hide</button>
+              </div>
+              <hr />
+              <h5>Choose icon theme</h5>
+              <div id="icon_theme_button_group" class="btn-group" role="group" data-group="icon_theme_buttons">
+                  <button type="button" class="btn btn-default og_btn" data-value="og">Original</button>
+                  <button type="button" class="btn btn-default cart_btn" data-value="cart">2D Cartoon</button>
+                  <button type="button" class="btn btn-default alt_btn" data-value="alt">Alternate</button>
+              </div>
+              <div class="theme_selection_icon_group">
+                  <img class="theme_icon" src='static/img/original.png'>
+                  <img class="theme_icon" src='static/img/cartoon.png'>
+                  <img class="theme_icon" src='static/img/alternate.png'>
+              </div>
+              <hr />
+              <h5>Default layers to display</h5>
+              <div class="text-center">
+                  <div class="layer_label">Pokemon Gen 1</div>
+                  <div id="pokemon_gen1_layer" class="btn-group" role="group" data-group="POKEMON_GEN1_LAYER">
+                      <button type="button" class="btn btn-default pokemon_gen1_layer_display" data-value="display">Display</button>
+                      <button type="button" class="btn btn-default pokemon_gen1_layer_hide" data-value="hide">Hide</button>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <div class="layer_label">Pokemon Gen 2</div>
+                  <div id="pokemon_gen2_layer" class="btn-group" role="group" data-group="POKEMON_GEN2_LAYER">
+                      <button type="button" class="btn btn-default" data-value="display">Display</button>
+                      <button type="button" class="btn btn-default" data-value="hide">Hide</button>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <div class="layer_label">Pokemon Gen 3</div>
+                  <div id="pokemon_gen3_layer" class="btn-group" role="group" data-group="POKEMON_GEN3_LAYER">
+                      <button type="button" class="btn btn-default" data-value="display">Display</button>
+                      <button type="button" class="btn btn-default" data-value="hide">Hide</button>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <div class="layer_label">Gyms</div>
+                  <div id="gyms_layer" class="btn-group" role="group" data-group="GYMS_LAYER">
+                      <button type="button" class="btn btn-default" data-value="display">Display</button>
+                      <button type="button" class="btn btn-default" data-value="hide">Hide</button>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <div class="layer_label">Raids</div>
+                  <div id="raids_layer" class="btn-group" role="group" data-group="RAIDS_LAYER">
+                      <button type="button" class="btn btn-default" data-value="display">Display</button>
+                      <button type="button" class="btn btn-default" data-value="hide">Hide</button>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <div class="layer_label">Parks In S2 Cells</div>
+                  <div id="parks_in_s2_cells_layer" class="btn-group" role="group" data-group="PARKS_IN_S2_CELLS_LAYER">
+                      <button type="button" class="btn btn-default" data-value="display">Display</button>
+                      <button type="button" class="btn btn-default" data-value="hide">Hide</button>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <div class="layer_label">EX Eligible Gyms</div>
+                  <div id="ex_eligible_layer" class="btn-group" role="group" data-group="EX_ELIGIBLE_LAYER">
+                      <button type="button" class="btn btn-default" data-value="display">Display</button>
+                      <button type="button" class="btn btn-default" data-value="hide">Hide</button>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <div class="layer_label">Weather</div>
+                  <div id="weather_layer" class="btn-group" role="group" data-group="WEATHER_LAYER">
+                      <button type="button" class="btn btn-default" data-value="display">Display</button>
+                      <button type="button" class="btn btn-default" data-value="hide">Hide</button>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <div class="layer_label">Scan Area</div>
+                  <div id="scan_area_layer" class="btn-group" role="group" data-group="SCAN_AREA_LAYER">
+                      <button type="button" class="btn btn-default" data-value="display">Display</button>
+                      <button type="button" class="btn btn-default" data-value="hide">Hide</button>
+                  </div>
+              </div>
+              <div class="text-center">
+                  <div class="layer_label">Filterd Pokemon</div>
+                  <div id="filtered_pokemon_layer" class="btn-group" role="group" data-group="FILTERED_POKEMON_LAYER">
+                      <button type="button" class="btn btn-default" data-value="display">Display</button>
+                      <button type="button" class="btn btn-default" data-value="hide">Hide</button>
+                  </div>
+              </div>
+              <hr />
+              <h5>Reset all preferences</h5>
+              <button id="reset_btn" type="button" class="btn btn-danger">Reset</button>
+          </div>
       </div>
-      <div class="panel-body">
-        Panel Content
-      </div>
-    </div>
-    <div class="panel panel-default settings-panel" data-panel="more">
-      <div class="panel-heading">
-        More Settings
-      </div>
-      <div class="panel-body">
-        <h5>Fixed markers opacity</h5>
-        <div class="btn-group" role="group" data-group="FIXED_OPACITY">
-          <button type="button" class="btn btn-default" data-value="1">Yes</button>
-          <button type="button" class="btn btn-default" data-value="0">No</button>
+      {{ show_donate_tab_content }}
+      <div class="panel panel-default settings-panel" data-panel="info">
+        <div class="panel-heading">Information/Announcements</div>
+        <div class="panel-body">
+        {{ announcements }}
         </div>
-        <hr>
-        <h5>Show timer under Pokémons</h5>
-        <div class="btn-group" role="group" data-group="SHOW_TIMER">
-          <button type="button" class="btn btn-default" data-value="1">Yes</button>
-          <button type="button" class="btn btn-default" data-value="0">No</button>
-        </div>
-        <hr>
-        <h5>Show timer under Raids</h5>
-        <div class="btn-group" role="group" data-group="SHOW_TIMER_RAIDS">
-          <button type="button" class="btn btn-default" data-value="1">Yes</button>
-          <button type="button" class="btn btn-default" data-value="0">No</button>
-        </div>
-        <hr>
-        <h5>Reset all preferences</h5>
-        <button id="reset_btn" type="button" class="btn btn-danger">Reset</button>
       </div>
-    </div>
   </div>
   <script>{{ init_js_vars }}</script>
   <script src='static/js/jquery-3.2.1.min.js'></script>
   <script src='static/js/leaflet.js'></script>
+  <script src='static/js/leaflet.markercluster.js'></script>
   <script src='static/js/bootstrap.min.js'></script>
-  <script src='static/js/main.js'></script>
+  <script src='static/js/pokemon_names.js?319'></script>
+  <script src='static/js/main.js?321'></script>
+  <script src='static/js/ticker.js?319'></script>
   {{ extra_css_js }}
 </body>
 </html>

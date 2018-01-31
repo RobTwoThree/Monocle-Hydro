@@ -3,3 +3,4 @@ monocle/config.py
 *.pyc
 *.pickle
 *.log
+monocle/static/monocle-icons

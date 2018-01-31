@@ -22,11 +22,68 @@ from monocle.bounds import area, center
 app = Flask(__name__, template_folder=resource_filename('monocle', 'templates'), static_folder=resource_filename('monocle', 'static'))
 
 
+def balance():
+    show_balance = ''
+    
+    if conf.BALANCE and conf.FUNDING_GOAL:
+        show_balance = '<div>Monthly Operational Cost: $' + conf.FUNDING_GOAL + '</div>'
+        show_balance += '<div>Current Balance: $' + conf.BALANCE + ' (updated daily)</div>'
+    return Markup(show_balance)
+
+def ticker():
+    ticker_items = ''
+    
+    if conf.TICKER_ITEMS:
+        ticker_items = '<div id="message_ticker_' + conf.TICKER_COLOR + '"><div class="ticker">' + conf.TICKER_ITEMS + '</div></div>'
+    return Markup(ticker_items)
+
+def motd():
+    motd = ''
+
+    if conf.MOTD:
+        motd = '<div class="motd">' + conf.MOTD + '</div>'
+    return Markup(motd)
+
+def splash():
+    splash = ''
+    splash_message = ''
+    
+    if conf.SHOW_SPLASH:
+        if conf.SPLASH_MESSAGE is None:
+            splash = '<div id="splash_popup" class="splash_container">'
+            splash += '<div class="splash_text">'
+            splash += 'Funding levels to maintain scans and maps are running low.<br>Please consider donating.<br><br>Thank you for your support.'
+            splash += '</div>'
+            splash += '<div class="splash_btn_container">'
+            splash += '<div class="splash_donate_btn">'
+            splash += '<form id="splash_donate_close_btn" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">'
+            splash += '<input type="hidden" name="cmd" value="_s-xclick">'
+            splash += '<input type="hidden" name="hosted_button_id" value="' + conf.PAYPAL_BUTTON_CODE + '">'
+            splash += '<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">'
+            splash += '<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">'
+            splash += '</form>'
+            splash += '</div>'
+            splash += '<button id="splash_popup_close_btn" type="button" class="splash_clear_btn">Next Time</button>'
+            splash += '</div>'
+            splash += '</div>'
+        else:
+            splash = '<div id="splash_popup" class="splash_container">'
+            splash += '<div class="splash_text">'
+            splash += conf.SPLASH_MESSAGE
+            splash += '</div>'
+            splash += '<div class="splash_btn_container">'
+            splash += '<button id="splash_popup_close_btn" type="button" class="splash_clear_btn">OK</button>'
+            splash += '</div>'
+            splash += '</div>'
+    return Markup(splash)
+
 def social_links():
     social_links = ''
 
+    if conf.PAYPAL_URL:
+        social_links = '<a class="map_btn paypal-icon" target="_blank" href="' + conf.PAYPAL_URL + '"></a>'
     if conf.FB_PAGE_ID:
-        social_links = '<a class="map_btn facebook-icon" target="_blank" href="https://www.facebook.com/' + conf.FB_PAGE_ID + '"></a>'
+        social_links += '<a class="map_btn facebook-icon" target="_blank" href="https://www.facebook.com/' + conf.FB_PAGE_ID + '"></a>'
     if conf.TWITTER_SCREEN_NAME:
         social_links += '<a class="map_btn twitter-icon" target="_blank" href="https://www.twitter.com/' + conf.TWITTER_SCREEN_NAME + '"></a>'
     if conf.DISCORD_INVITE_ID:
@@ -36,6 +93,85 @@ def social_links():
 
     return Markup(social_links)
 
+def donate_tab():
+    donate_tab = ''
+    
+    if conf.PAYPAL_URL:
+        donate_tab = '<li><a href="#" data-panel="donate">Donate</a></li>'
+    return Markup(donate_tab)
+
+def donate_tab_content():
+    donate_tab_content = ''
+    
+    if conf.PAYPAL_URL:
+        donate_tab_content = '<div class="panel panel-default settings-panel" data-panel="donate">'
+        donate_tab_content += '<div class="panel-heading">Donations Welcome</div>'
+        donate_tab_content += '<div class="panel-body"><br>Maps are free to use. Donations are more than welcome to help fund the scans that power these maps.<br><br>'
+        donate_tab_content += '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">'
+        donate_tab_content += '<input type="hidden" name="cmd" value="_s-xclick">'
+        donate_tab_content += '<input type="hidden" name="hosted_button_id" value="' + conf.PAYPAL_BUTTON_CODE + '">'
+        donate_tab_content += '<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">'
+        donate_tab_content += '<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">'
+        donate_tab_content += '</form>'
+        donate_tab_content += '<br>Monthly operational costs and current balance will be provided when funds run low.<br><br>'
+        if conf.BALANCE and conf.FUNDING_GOAL:
+            donate_tab_content += '<div>Monthly Operational Cost: $' + conf.FUNDING_GOAL + '</div>'
+            donate_tab_content += '<div>Current Balance: $' + conf.BALANCE + ' (updated daily)</div>'
+        donate_tab_content += '</div>'
+        donate_tab_content += '</div>'
+    
+    return Markup(donate_tab_content)
+
+def announcements_tab():
+    announcements_tab = ''
+    
+    if conf.ANNOUNCEMENTS:
+        announcements_tab = '<li><a href="#" data-panel="info">Info</a></li>'
+    return Markup(announcements_tab)
+
+def announcements():
+    announcements = ''
+
+    if conf.ANNOUNCEMENTS:
+        announcements = '<div class="info-body"><ul type="square">' + conf.ANNOUNCEMENTS + '</ul></div>'
+    return Markup(announcements)
+
+def show_iv_menu_item():
+    show_iv_menu_item = ''
+
+    if conf.MAP_SHOW_DETAILS:
+        show_iv_menu_item = '<hr />'
+        show_iv_menu_item += '<h5>Show IV under marker</h5>'
+        show_iv_menu_item += '<div class="btn-group" role="group" data-group="SHOW_IV">'
+        show_iv_menu_item += '<button type="button" class="btn btn-default" data-value="1" onClick="window.location.reload()">Yes</button>'
+        show_iv_menu_item += '<button type="button" class="btn btn-default" data-value="0" onClick="window.location.reload()">No</button>'
+        show_iv_menu_item += '</div>'
+        show_iv_menu_item += '<h6>*IV not accurate at this time</h6>'
+    return Markup(show_iv_menu_item)
+
+def show_form_menu_item():
+    show_form_menu_item = ''
+
+    if conf.SHOW_FORM_MENU_ITEM:
+        show_form_menu_item = '<h5>Show Unown letter above Unown marker</h5>'
+        show_form_menu_item += '<div class="btn-group" role="group" data-group="SHOW_FORM">'
+        show_form_menu_item += '<button type="button" class="btn btn-default" data-value="1" onClick="window.location.reload()">Yes</button>'
+        show_form_menu_item += '<button type="button" class="btn btn-default" data-value="0" onClick="window.location.reload()">No</button>'
+        show_form_menu_item += '</div>'
+        show_form_menu_item += '<hr />'
+    return Markup(show_form_menu_item)
+
+def display_boosted_feature():
+    display_boosted_feature = ''
+
+    if conf.DISPLAY_BOOSTED_FEATURE:
+        display_boosted_feature = '<hr />'
+        display_boosted_feature += '<h5>Highlight Boosted Pokemon</h5>'
+        display_boosted_feature += '<div class="btn-group" role="group" data-group="show_boosted_pokemon">'
+        display_boosted_feature +=  '<button type="button" class="btn btn-default" data-value="display">Display</button>'
+        display_boosted_feature +=  '<button type="button" class="btn btn-default" data-value="hide">Hide</button>'
+        display_boosted_feature +=  '</div>'
+    return Markup(display_boosted_feature)
 
 def render_map():
     css_js = ''
@@ -46,21 +182,54 @@ def render_map():
         css_js += '<script type="text/javascript" src="static/js/custom.js"></script>'
 
     js_vars = Markup(
-        "_defaultSettings['RAIDS_FILTER'] = [{}];"
         "_defaultSettings['FIXED_OPACITY'] = '{:d}'; "
         "_defaultSettings['SHOW_TIMER'] = '{:d}'; "
-        "_defaultSettings['SHOW_TIMER_RAIDS'] = '{:d}'; "
-        "_defaultSettings['TRASH_IDS'] = [{}]; ".format(', '.join(str(p_id) for p_id in conf.RAIDS_FILTER), conf.FIXED_OPACITY, conf.SHOW_TIMER, conf.SHOW_TIMER_RAIDS, ', '.join(str(p_id) for p_id in conf.TRASH_IDS)))
+        "_defaultSettings['SHOW_SPLASH'] = '{:d}'; "
+        "_defaultSettings['SHOW_RAID_TIMER'] = '{:d}'; "
+        "_defaultSettings['SHOW_IV'] = '{:d}'; "
+        "_defaultSettings['SHOW_FORM'] = '{:d}'; "
+        "_defaultSettings['MAP_CHOICE'] = '{:d}'; "
+        "_defaultSettings['RAIDS_FILTER'] = [{}];"
+        "_defaultSettings['TRASH_IDS'] = [{}]; "
+        "_defaultSettings['RAID_IDS'] = [{}]; ".format(conf.FIXED_OPACITY, conf.SHOW_TIMER, conf.SHOW_SPLASH, conf.SHOW_RAID_TIMER, conf.SHOW_IV, conf.SHOW_FORM, 0, ', '.join(str(p_id) for p_id in conf.RAIDS_FILTER), ', '.join(str(p_id) for p_id in conf.TRASH_IDS), ', '.join(str(r_id) for r_id in conf.RAID_IDS)))
 
     template = app.jinja_env.get_template('custom.html' if conf.LOAD_CUSTOM_HTML_FILE else 'newmap.html')
     return template.render(
+        announcements=announcements(),
         area_name=conf.AREA_NAME,
+        dark_map_opacity=conf.DARK_MAP_OPACITY,
+        dark_map_provider_url=conf.DARK_MAP_PROVIDER_URL,
+        dark_map_provider_attribution=conf.DARK_MAP_PROVIDER_ATTRIBUTION,
+        display_pokemon=conf.SHOW_POKEMON_BY_DEFAULT,
+        display_gyms=conf.SHOW_GYMS_BY_DEFAULT,
+        display_raids=conf.SHOW_RAIDS_BY_DEFAULT,
+        display_weather=conf.SHOW_WEATHER_BY_DEFAULT,
+        display_parks_in_s2_cells=conf.SHOW_PARKS_IN_S2_CELLS_BY_DEFAULT,
+        display_ex_gyms=conf.SHOW_EX_GYMS_BY_DEFAULT,
+        display_scan_area=conf.SHOW_SCAN_AREA_BY_DEFAULT,
+        display_filtered_pokemon=conf.SHOW_FILTERED_POKEMON_BY_DEFAULT,
+        display_spawnpoints=conf.SHOW_SPAWNPOINTS_BY_DEFAULT,
+        display_boosted_feature=display_boosted_feature(),
+        extra_css_js=Markup(css_js),
+        force_splash=conf.FORCE_SPLASH,
+        init_js_vars=js_vars,
+        light_map_opacity=conf.LIGHT_MAP_OPACITY,
+        light_map_provider_url=conf.LIGHT_MAP_PROVIDER_URL,
+        light_map_provider_attribution=conf.LIGHT_MAP_PROVIDER_ATTRIBUTION,
         map_center=center,
         map_provider_url=conf.MAP_PROVIDER_URL,
         map_provider_attribution=conf.MAP_PROVIDER_ATTRIBUTION,
+        motd=motd(),
+        pogosd_region=conf.POGOSD_REGION,
+        splash=splash(),
+        show_announcements_tab=announcements_tab(),
+        show_balance=balance(),
+        show_donate_tab=donate_tab(),
+        show_donate_tab_content=donate_tab_content(),
+        show_form_menu_item=show_form_menu_item(),
+        show_iv_menu_item=show_iv_menu_item(),
         social_links=social_links(),
-        init_js_vars=js_vars,
-        extra_css_js=Markup(css_js)
+        ticker_items=ticker()
     )
 
 
@@ -85,22 +254,18 @@ def pokemon_data():
     last_id = request.args.get('last_id', 0)
     return jsonify(get_pokemarkers(last_id))
 
-
-@app.route('/raids')
-def get_raids():
-    return jsonify(get_raid_markers())
-
-
 @app.route('/weather')
 def weather():
     return jsonify(get_weather())
-
 
 @app.route('/gym_data')
 def gym_data():
     return jsonify(get_gym_markers())
 
-
+@app.route('/raid_data')
+def raid_data():
+    return jsonify(get_raid_markers())
+    
 @app.route('/spawnpoints')
 def spawn_points():
     return jsonify(get_spawnpoint_markers())

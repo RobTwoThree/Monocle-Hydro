@@ -1971,6 +1971,7 @@ class Worker:
             'last_modified': raw.last_modified_timestamp_ms // 1000,
             'is_in_battle': raw.is_in_battle,
             'slots_available': raw.gym_display.slots_available,
+            'time_occupied': raw.gym_display.occupied_millis // 1000,
             'name': None,
             'url': None,
             'total_cp': raw.gym_display.total_gym_cp,

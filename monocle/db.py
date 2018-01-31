@@ -514,6 +514,7 @@ class FortSighting(Base):
     slots_available = Column(SmallInteger)
     is_in_battle = Column(Boolean, default=False)
     updated = Column(Integer,default=time,onupdate=time)
+    time_occupied = Column(Integer)
 
     __table_args__ = (
         UniqueConstraint(
@@ -892,6 +893,7 @@ def add_fort_sighting(session, raw_fort):
     fort_sighting.last_modified = raw_fort['last_modified']
     fort_sighting.slots_available = raw_fort['slots_available']
     fort_sighting.is_in_battle = raw_fort['is_in_battle']
+    fort_sighting.time_occupied = raw_fort['time_occupied']
     fort_sighting.updated = int(time())
 
     session.merge(fort_sighting)
@@ -1049,8 +1051,10 @@ def _get_forts_sqlite(session):
             f.lat,
             f.lon,
             f.name,
+            f.external_id,
             f.url,
-            fs.slots_available
+            fs.slots_available,
+            fs.time_occupied
         FROM fort_sightings fs
         JOIN forts f ON f.id=fs.fort_id
         WHERE fs.fort_id || '-' || fs.last_modified IN (
@@ -1072,8 +1076,10 @@ def _get_forts(session):
             f.lat,
             f.lon,
             f.name,
+            f.external_id,
             f.url,
-            fs.slots_available
+            fs.slots_available,
+            fs.time_occupied
         FROM fort_sightings fs
         JOIN forts f ON f.id=fs.fort_id
         WHERE (fs.fort_id, fs.last_modified) IN (

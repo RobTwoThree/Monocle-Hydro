@@ -145,17 +145,23 @@ def get_raid_markers(names=POKEMON, moves=MOVES):
                 .first()
             markers.append({
                 'id': 'raid-' + str(raid.id),
-                'level': raid.level,
-                'team': fortsighting.team,
-                'pokemon_id': raid.pokemon_id,
-                'pokemon_name': names[raid.pokemon_id],
-                'move1': moves[raid.move_1],
-                'move2': moves[raid.move_2],
+                'raid_id': raid.id,
+                'fort_id': fortsighting.fort_id,
+                'gym_name': fort.name,
+                'image_url': fort.url,
+                'external_id': fort.external_id,
+                'gym_team': fortsighting.team,
+                'raid_battle': raid.time_battle,
+                'raid_spawn': raid.time_spawn,
+                'raid_end': raid.time_end,
+                'raid_level': raid.level,
+                'raid_pokemon_id': raid.pokemon_id,
+                'raid_pokemon_name': names[raid.pokemon_id],
+                'raid_pokemon_cp': raid.cp,
+                'raid_pokemon_move_1': moves[raid.move_1],
+                'raid_pokemon_move_2': moves[raid.move_2],
                 'lat': fort.lat,
-                'lon': fort.lon,
-                'time_spawn': raid.time_spawn,
-                'time_battle': raid.time_battle,
-                'time_end': raid.time_end
+                'lon': fort.lon
                 })
 
         return markers
@@ -190,16 +196,19 @@ def get_gym_markers(names=POKEMON):
         forts = get_forts(session)
     return [{
         'id': 'fort-' + str(fort['fort_id']),
+        'fort_id': fort['fort_id'],
         'sighting_id': fort['id'],
+        'gym_name': fort['name'],
+        'image_url': fort['url'],
+        'external_id': fort['external_id'],
         'pokemon_id': fort['guard_pokemon_id'],
         'pokemon_name': names[fort['guard_pokemon_id']],
+        'slots_available': fort['slots_available'],
+        'time_occupied': fort['time_occupied'],
+        'last_modified': fort['last_modified'],
         'team': fort['team'],
         'lat': fort['lat'],
-        'lon': fort['lon'],
-        'slots_available': fort['slots_available'],
-        'last_modified': fort['last_modified'],
-        'gym_name': fort['name'],
-        'img_url': fort['url']
+        'lon': fort['lon']
     } for fort in forts]
 
 
