@@ -34,27 +34,9 @@ def render_map():
 def fullmap(map_html=render_map()):
     return map_html
 
-@app.route('/gym_data')
+@app.route('/ex_gym_data')
 def gym_data():
-    gyms = []
-    parks = get_all_parks()
-    for g in get_gym_markers():
-        gym_point = Point(g['lat'], g['lon'])
-        cell = Polygon(get_s2_cell_as_polygon(g['lat'], g['lon'], 20)) # s2 lvl 20
-        for p in parks:
-            coords = p['coords']
-            # osm polygon can be a line
-            if len(coords) == 2:
-                shape = LineString(coords)
-                if shape.within(cell.centroid):
-                    gyms.append(g)
-                    break
-            if len(coords) > 2:
-                shape = Polygon(coords)
-                if shape.contains(cell.centroid):
-                    gyms.append(g)
-                    break
-    return jsonify(gyms)
+    return jsonify(get_ex_gyms())
 
 @app.route('/parks_cells')
 def parks_cells():
@@ -62,14 +44,14 @@ def parks_cells():
     parks = get_all_parks()
     for g in get_gym_markers():
         gym_point = Point(g['lat'], g['lon'])
-        cell = Polygon(get_s2_cell_as_polygon(g['lat'], g['lon'], 20)) # s2 lvl 20
+        cell = Polygon(get_s2_cell_as_polygon(g['lat'], g['lon'], level=20)) # s2 lvl 20
         for p in parks:
             coords = p['coords']
             if len(coords) > 2:
                 shape = Polygon(coords)
                 if shape.contains(gym_point) or cell.intersects(shape):
                     bounds = shape.bounds
-                    markers += get_s2_cells(bounds[0], bounds[1], bounds[2], bounds[3], 20)
+                    markers += get_s2_cells(bounds[0], bounds[1], bounds[2], bounds[3], level=20)
                     break
     return jsonify(markers)
 

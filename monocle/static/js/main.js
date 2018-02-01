@@ -1481,6 +1481,9 @@ map.whenReady(function () {
     getPokemon();
 
     overlays.Gyms.once('add', function(e) {
+        getExGyms();
+    })
+    overlays.Gyms.once('add', function(e) {
         getGyms();
     })
     overlays.Raids.once('add', function(e) {

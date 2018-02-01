@@ -8,9 +8,9 @@ var FortIcon = L.Icon.extend({
 
 var markers = {};
 var overlays = {
-    Gyms: L.layerGroup([]),
+    Ex_Gyms: L.layerGroup([]),
     Parks: L.layerGroup([]),
-    ParksCells: L.layerGroup([]),
+    //ParksCells: L.layerGroup([]),
     Cells: L.layerGroup([]),
     ScanArea: L.layerGroup([])
 };
@@ -29,10 +29,10 @@ function monitor (group, initial) {
     group.on('remove', setHidden);
 }
 
-monitor(overlays.Gyms, true)
+monitor(overlays.Ex_Gyms, true)
 
 function FortMarker (raw) {
-    var icon = new FortIcon({iconUrl: '/static/monocle-icons/forts/' + raw.team + '.png'});
+    var icon = new FortIcon({iconUrl: '/static/img/hollow_boosted.png'});
     var marker = L.marker([raw.lat, raw.lon], {icon: icon, opacity: 1});
     marker.raw = raw;
     markers[raw.id] = marker;
@@ -53,11 +53,11 @@ function addGymsToMap (data, map) {
             if (existing.raw.sighting_id === item.sighting_id) {
                 return;
             }
-            existing.removeFrom(overlays.Gyms);
+            existing.removeFrom(overlays.Ex_Gyms);
             markers[item.id] = undefined;
         }
         marker = FortMarker(item);
-        marker.addTo(overlays.Gyms);
+        marker.addTo(overlays.Ex_Gyms);
     });
 }
 
@@ -90,11 +90,11 @@ function addScanAreaToMap (data, map) {
 }
 
 function getGyms() {
-    if (overlays.Gyms.hidden) {
+    if (overlays.Ex_Gyms.hidden) {
         return;
     }
     new Promise(function (resolve, reject) {
-        $.get('/gym_data', function (response) {
+        $.get('/ex_gym_data', function (response) {
             resolve(response);
         });
     }).then(function (data) {
@@ -157,14 +157,14 @@ overlays.ScanArea.addTo(map);
 
 var control = L.control.layers(null, overlays).addTo(map);
 L.tileLayer(_MapProviderUrl, {
-    opacity: 0.75,
+    opacity: 1.0,
     attribution: _MapProviderAttribution
 }).addTo(map);
 map.whenReady(function () {
     $('.my-location').on('click', function () {
         map.locate({ enableHighAccurracy: true, setView: true });
     });
-    overlays.Gyms.once('add', function(e) {
+    overlays.Ex_Gyms.once('add', function(e) {
         getGyms();
     })
     overlays.Parks.once('add', function(e) {
@@ -173,8 +173,8 @@ map.whenReady(function () {
     overlays.Cells.once('add', function(e) {
         getCells();
     })
-    overlays.ParksCells.once('add', function(e) {
-        getParksCells();
-    })
+    //overlays.ParksCells.once('add', function(e) {
+    //    getParksCells();
+    //})
     getScanAreaCoords();
 });

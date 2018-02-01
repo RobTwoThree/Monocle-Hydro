@@ -274,9 +274,9 @@ def get_all_parks():
     try:
         parks = load_pickle('parks', raise_exception=True)
     except (FileNotFoundError, TypeError, KeyError):
-        # all osm parks at 10/07/2016
+        # all osm parks at 07/17/2016
         api = overpy.Overpass()
-        request = '[timeout:620][date:"2016-07-17T00:00:00Z"];(way["leisure"="park"];way["landuse"="recreation_ground"];way["leisure"="recreation_ground"];way["leisure"="pitch"];way["leisure"="garden"];way["leisure"="golf_course"];way["leisure"="playground"];way["landuse"="meadow"];way["landuse"="grass"];way["landuse"="greenfield"];way["natural"="scrub"];way["natural"="heath"];way["natural"="grassland"];way["landuse"="farmyard"];way["landuse"="vineyard"];);out;>;out skel qt;'
+        request = '[timeout:620][date:"2016-07-17T00:00:00Z"];(way["leisure"="park"];way["landuse"="recreation_ground"];way["leisure"="recreation_ground"];way["leisure"="pitch"];way["leisure"="garden"];way["leisure"="golf_course"];way["leisure"="playground"];way["landuse"="meadow"];way["landuse"="grass"];way["landuse"="greenfield"];way["natural"="scrub"];way["natural"="heath"];way["natural"="grassland"];way["landuse"="farmyard"];way["landuse"="vineyard"];way["natural"="plateau"];way["leisure"="nature_reserve"];way["natural"="moor"];way["landuse"="farmland"];way["landuse"="orchard"];);out;>;out skel qt;'
         request = '[bbox:{},{},{},{}]{}'.format(south, west, north, east, request)
         response = api.query(request)
         for w in response.ways:
@@ -285,7 +285,7 @@ def get_all_parks():
                 'coords': [[float(c.lat), float(c.lon)] for c in w.nodes]
             })
         dump_pickle('parks', parks)
-    
+
     return parks
 
 def get_s2_cells(n=north, w=west, s=south, e=east, level=12):
@@ -310,4 +310,43 @@ def get_s2_cells(n=north, w=west, s=south, e=east, level=12):
 def get_s2_cell_as_polygon(lat, lon, level=12):
     cell = s2sphere.Cell(s2sphere.CellId.from_lat_lng(s2sphere.LatLng.from_degrees(lat, lon)).parent(level))
     return [(get_vertex(cell, v)) for v in range(0, 4)]
+
+def get_ex_gyms():
+    ex_gyms = []
+    parks = get_all_parks()
+    try:
+        ex_gyms = load_pickle('ex_gyms', raise_exception=True)
+    except (FileNotFoundError, TypeError, KeyError):
+        for g in get_gym_markers():
+            g['id'] = 'ex-' + g['id']
+            gym_point = Point(g['lat'], g['lon'])
+            cell = Polygon(get_s2_cell_as_polygon(g['lat'], g['lon'], level=20)) # s2 lvl 20
+            for p in parks:
+                coords = p['coords']
+                # osm polygon can be a line
+                if len(coords) == 2:
+                    shape = LineString(coords)
+                    if shape.within(cell.centroid):
+                        ex_gyms.append({
+                            'id': g['id'],
+                            'external_id': g['external_id'],
+                            'fort_id': g['fort_id'],
+                            'name': g['gym_name'],
+                            'lat': g['lat'],
+                            'lon': g['lon']
+                        })
+                if len(coords) > 2:
+                    shape = Polygon(coords)
+                    if shape.contains(cell.centroid):
+                        ex_gyms.append({
+                            'id': g['id'],
+                            'external_id': g['external_id'],
+                            'fort_id': g['fort_id'],
+                            'name': g['gym_name'],
+                            'lat': g['lat'],
+                            'lon': g['lon']
+                        })
+
+        dump_pickle('ex_gyms', ex_gyms)
+    return ex_gyms
 

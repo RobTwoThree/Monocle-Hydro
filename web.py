@@ -248,7 +248,6 @@ def render_worker_map():
 def fullmap(map_html=render_map()):
     return map_html
 
-
 @app.route('/data')
 def pokemon_data():
     last_id = request.args.get('last_id', 0)
@@ -270,16 +269,25 @@ def raid_data():
 def spawn_points():
     return jsonify(get_spawnpoint_markers())
 
-
 @app.route('/pokestops')
 def get_pokestops():
     return jsonify(get_pokestop_markers())
-
 
 @app.route('/scan_coords')
 def scan_coords():
     return jsonify(get_scan_coords())
 
+@app.route('/ex_gym_data')
+def ex_gym_data():
+    return jsonify(get_ex_gyms())
+
+@app.route('/parks')
+def parks():
+    return jsonify(get_all_parks())
+
+@app.route('/cells')
+def cells():
+    return jsonify(get_s2_cells(level=12))
 
 if conf.MAP_WORKERS:
     workers = Workers()
