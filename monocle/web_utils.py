@@ -101,7 +101,9 @@ def sighting_to_marker(pokemon, names=POKEMON, moves=MOVES, damage=DAMAGE):
         'lon': pokemon.lon,
         'expires_at': pokemon.expire_timestamp,
         'gender': pokemon.gender,
-        'form': pokemon.form
+        'form': pokemon.form,
+        'weather_boosted_condition': pokemon.weather_boosted_condition,
+        'weather_cell_id': pokemon.weather_cell_id
     }
     move1 = pokemon.move_1
     if pokemon.move_1:
@@ -179,6 +181,7 @@ def get_weather():
         for weather in weathers:
             cell = s2sphere.Cell(s2sphere.CellId(weather.s2_cell_id).parent(10))
             center = s2sphere.LatLng.from_point(cell.get_center())
+            converted_s2_cell_id = s2sphere.CellId.from_lat_lng(s2sphere.LatLng.from_degrees(center.lat().degrees, center.lng().degrees)).parent(10)
             markers.append({
                 'id': 'weather-' + str(weather.id),
                 'coords': [(get_vertex(cell, v)) for v in range(0, 4)],
@@ -186,7 +189,8 @@ def get_weather():
                 'condition': weather.condition,
                 'alert_severity': weather.alert_severity,
                 'warn': weather.warn,
-                'day': weather.day
+                'day': weather.day,
+                's2_cell_id': converted_s2_cell_id.id()
             })
         return markers
 

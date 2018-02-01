@@ -356,7 +356,7 @@ function getPopupContent (item, boost_status) {
     content += '</div>';
 
     if ( boost_status != "normal" ) {
-        content += '<div class="boosted_popup"><img id="weather" class="weather_' + weather[parseInt(item.pokemon_s2_cell_id)].condition + '_' + day[weather[parseInt(item.pokemon_s2_cell_id)].day] + '" src="static/img/blank_1x1.png"><div class="boosted_popup_text"><b>Boosted</b></div></div>';
+        content += '<div class="boosted_popup"><img id="weather" class="weather_' + weather[parseInt(item.weather_cell_id)].condition + '_' + day[weather[parseInt(item.weather_cell_id)].day] + '" src="static/img/blank_1x1.png"><div class="boosted_popup_text"><b>Boosted</b></div></div>';
     }
   
     content += '<div class="pokemon_popup_text">';
@@ -627,11 +627,17 @@ function PokemonMarker (raw) {
     var unown_letter = getForm(raw.form);
   
     // Don't call boost status function if 0
-    if ( ( parseInt(raw.pokemon_s2_cell_id) === 0 ) || ( raw.pokemon_s2_cell_id === null ) ) {
-        var boost_status = 'normal';
-    } else {
+    //if ( ( parseInt(raw.pokemon_s2_cell_id) === 0 ) || ( raw.pokemon_s2_cell_id === null ) ) {
+    //    var boost_status = 'normal';
+    //} else {
         //var boost_status = getBoostStatus(raw);
-        var boost_status = 'normal'; //DEBUG
+    //    var boost_status = 'normal'; //DEBUG
+    //}
+  
+    if ( raw.weather_boosted_condition ) {
+        var boost_status = 'boosted';
+    } else {
+        var boost_status = 'normal';
     }
   
     var icon = new PokemonIcon({iconID: raw.pokemon_id, iv: totaliv, cp: raw.cp, form: unown_letter, expires_at: raw.expires_at, boost_status: boost_status});
@@ -1055,7 +1061,8 @@ function addWeatherToMap (data, map) {
         var conditions = ['Extreme', 'Clear', 'Rainy', 'Partly Cloudy', 'Overcast', 'Windy', 'Snow', 'Fog'];
         
         weather[item.s2_cell_id] = item;
-
+        
+/* DEPRECATED IF UPDATED NOT PROVIDED
         if ( localStorage.getItem(item.id) === null ) {
             localStorage.setItem(item.id, item.updated); // Save initial last update to local storage
         } else {
@@ -1071,7 +1078,7 @@ function addWeatherToMap (data, map) {
                 location.reload();
             }
         }
-        
+*/
         if (item.alert_severity > 0) {
             color = 'red';
         }
@@ -1469,11 +1476,8 @@ map.whenReady(function () {
         map.on('locationfound', onLocationFound);
         $('.hide-marker').show(); //Show hide My Location marker
     });
-    
-    overlays.Weather.once('add', function(e) {
-        getWeather();
-    })
-    
+
+    getWeather();
     getPokemon();
 
     overlays.Gyms.once('add', function(e) {
