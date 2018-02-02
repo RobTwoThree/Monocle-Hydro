@@ -1084,6 +1084,14 @@ class Notifier:
         else:
             gym_name, gym_url, sponsor, park = None, None, None, None
 
+        gym_team = 'Neutral'
+        if fort['team'] == 1:
+            gym_team = 'Mystic'
+        elif fort['team'] == 2:
+            gym_team = 'Valor'
+        elif fort['team'] == 3:
+            gym_team = 'Instinct'
+
         if park == 'None': park = None
         if sponsor == 0: sponsor = None
 
@@ -1096,7 +1104,7 @@ class Notifier:
                 m.get("longitude", "longitude"): fort['lon'],
                 m.get("level", "level"): raid['level'],
                 m.get("pokemon_id", "pokemon_id"): raid['pokemon_id'],
-                m.get("team", "team"): fort['team'],
+                m.get("team", "team"): gym_team,
                 m.get("cp", "cp"): raid['cp'],
                 m.get("move_1", "move_1"): raid['move_1'],
                 m.get("move_2", "move_2"): raid['move_2'],
