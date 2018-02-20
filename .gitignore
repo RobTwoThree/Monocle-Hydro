@@ -5,3 +5,4 @@ monocle/config.py
 *.log
 *.log.*
 monocle/static/monocle-icons
+*.csv

@@ -41,6 +41,7 @@ var PokemonIcon = L.Icon.extend({
         var div = document.createElement('div');
         var form_text = '';
         var type_icon_html = getTypeIcons(this.options.iconID);
+        var type_icon_html_above_iv = getTypeIconsAboveIV(this.options.iconID);
         var boosted_icon_html = checkBoost(this.options.boost_status);
         
         typeIconDisplay();
@@ -49,7 +50,7 @@ var PokemonIcon = L.Icon.extend({
         if ( this.options.form ) {
             form_text = '<div class="form_text">' + this.options.form + '</div>';
         }
-                                
+        
         if ( this.options.iv > 0 && this.options.iv < 80 ) {
             div.innerHTML =
                 '<div class="pokemarker">' +
@@ -59,6 +60,8 @@ var PokemonIcon = L.Icon.extend({
                     '<div class="iv_text">' + this.options.iv.toFixed(0) + '%</div>' +
                     '<div class="remaining_text" data-expire="' + this.options.expires_at + '">' + calculateRemainingTime(this.options.expires_at) + '</div>' +
                     form_text +
+                    type_icon_html_above_iv +
+                    boosted_icon_html +
                     '</div>';
         }else if ( this.options.iv >= 80 && this.options.iv < 90 ) {
             div.innerHTML =
@@ -69,6 +72,8 @@ var PokemonIcon = L.Icon.extend({
                     '<div class="iv_gt_80_text">' + this.options.iv.toFixed(0) + '%</div>' +
                     '<div class="remaining_text" data-expire="' + this.options.expires_at + '">' + calculateRemainingTime(this.options.expires_at) + '</div>' +
                     form_text +
+                    type_icon_html_above_iv +
+                    boosted_icon_html +
                     '</div>';
         }else if ( this.options.iv >= 90 && this.options.iv < 100) {
             div.innerHTML =
@@ -79,6 +84,8 @@ var PokemonIcon = L.Icon.extend({
                     '<div class="iv_gt_90_text">' + this.options.iv.toFixed(0) + '%</div>' +
                     '<div class="remaining_text" data-expire="' + this.options.expires_at + '">' + calculateRemainingTime(this.options.expires_at) + '</div>' +
                     form_text +
+                    type_icon_html_above_iv +
+                    boosted_icon_html +
                     '</div>';
         }else if ( this.options.iv == 100 ) {
             div.innerHTML =
@@ -89,6 +96,8 @@ var PokemonIcon = L.Icon.extend({
                 '<div class="iv_eq_100_img"><img class="iv_eq_100_img" src="static/img/100.png"></div>' +
                 '<div class="remaining_text" data-expire="' + this.options.expires_at + '">' + calculateRemainingTime(this.options.expires_at) + '</div>' +
                 form_text +
+                type_icon_html_above_iv +
+                boosted_icon_html +
                 '</div>';
         }else{
             div.innerHTML =
@@ -2451,8 +2460,10 @@ function boostedPokemonDisplay() {
 function typeIconDisplay() {
     if (getPreference("show_pokemon_type") === "display") {
         $('.type_icons').css('visibility','visible');
+        $('.type_icons_above_iv').css('visibility','visible');
     } else {
         $('.type_icons').css('visibility','hidden');
+        $('.type_icons_above_iv').css('visibility','hidden');
     }
 }
 
@@ -3180,6 +3191,16 @@ function getVertices(center_point) {
 
 function getTypeIcons(pokemon_id) {
     var innerHTML = '<div class="type_icons"><img id="type" class="type-' + pokemon_name_type[pokemon_id][2] + '" src="static/img/blank_1x1.png">';
+
+    if ( pokemon_name_type[pokemon_id][3] != "none") {
+        innerHTML += '<img id="type" class="type-' + pokemon_name_type[pokemon_id][3] + '" src="static/img/blank_1x1.png">';
+    }
+    innerHTML += '</div>';
+    return innerHTML;
+}
+
+function getTypeIconsAboveIV(pokemon_id) {
+    var innerHTML = '<div class="type_icons_above_iv"><img id="type" class="type-' + pokemon_name_type[pokemon_id][2] + '" src="static/img/blank_1x1.png">';
 
     if ( pokemon_name_type[pokemon_id][3] != "none") {
         innerHTML += '<img id="type" class="type-' + pokemon_name_type[pokemon_id][3] + '" src="static/img/blank_1x1.png">';

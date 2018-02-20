@@ -141,12 +141,13 @@ def show_iv_menu_item():
 
     if conf.MAP_SHOW_DETAILS:
         show_iv_menu_item = '<hr />'
-        show_iv_menu_item += '<h5>Show IV under marker</h5>'
+        show_iv_menu_item += '<h5>Show IV above marker</h5>'
         show_iv_menu_item += '<div class="btn-group" role="group" data-group="SHOW_IV">'
         show_iv_menu_item += '<button type="button" class="btn btn-default" data-value="1" onClick="window.location.reload()">Yes</button>'
         show_iv_menu_item += '<button type="button" class="btn btn-default" data-value="0" onClick="window.location.reload()">No</button>'
         show_iv_menu_item += '</div>'
-        show_iv_menu_item += '<h6>*IV not accurate at this time</h6>'
+        if conf.IV_NOTE:
+            show_iv_menu_item += '<h6>' + conf.IV_NOTE + '</h6>'
     return Markup(show_iv_menu_item)
 
 def show_form_menu_item():
@@ -264,7 +265,7 @@ def gym_data():
 @app.route('/raid_data')
 def raid_data():
     return jsonify(get_raid_markers())
-    
+
 @app.route('/spawnpoints')
 def spawn_points():
     return jsonify(get_spawnpoint_markers())

@@ -352,7 +352,7 @@
     font-size: 8px;
     width: 100%;
     position: absolute;
-    top: 40px;
+    top: 0px;
     left: 7px;
 }
 
@@ -363,7 +363,7 @@
     font-size: 10px;
     width: 100%;
     position: absolute;
-    top: 40px;
+    top: 0px;
     left: 7px;
 }
 
@@ -375,17 +375,17 @@
     font-weight: bold;
     width: 100%;
     position: absolute;
-    top: 40px;
+    top: 0px;
     left: 7px;
 }
 
 .iv_eq_100_img {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     display: block;
     position: absolute;
-    top: 40px;
-    left: 7px;
+    top: -2px;
+    left: 5px;
 }
 
 .form_text {
@@ -492,8 +492,8 @@
     color: white;
     width: 100%;
     visibility: hidden;
-    position: relative;
-    top: 8px;
+    position: absolute;
+    top: 45px;
     left: 7px;
 }
 
@@ -756,8 +756,16 @@
 .type_icons {
     text-align: center;
     width: 48px;
-    position: relative;
-    top: -50px;
+    position: absolute;
+    top: 0px;
+    visibility: hidden;
+}
+
+.type_icons_above_iv {
+    text-align: center;
+    width: 48px;
+    position: absolute;
+    top: -20px;
     visibility: hidden;
 }
 
@@ -774,11 +782,11 @@
 
 .boosted_type {
     text-align: center;
-    position: relative;
+    position: absolute;
     width: 40px;
     height: 40px;
-    top: -70px;
-    right: -5px;
+    top: 10px;
+    left: 5px;
     z-index: -100;
     visibility: hidden;
 }

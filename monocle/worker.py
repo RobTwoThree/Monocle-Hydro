@@ -263,7 +263,7 @@ class Worker:
             raise err
 
         self.error_code = '°'
-        version = 8900
+        version = 9100
         async with self.sim_semaphore:
             self.error_code = 'APP SIMULATION'
             if conf.APP_SIMULATION:
@@ -690,9 +690,9 @@ class Worker:
             else:
                 if (not dl_hash
                         and conf.FORCED_KILL
-                        and dl_settings.settings.minimum_client_version != '0.89.1'):
+                        and dl_settings.settings.minimum_client_version != '0.91.1'):
                     forced_version = StrictVersion(dl_settings.settings.minimum_client_version)
-                    if forced_version > StrictVersion('0.89.1'):
+                    if forced_version > StrictVersion('0.91.1'):
                         err = '{} is being forced, exiting.'.format(forced_version)
                         self.log.error(err)
                         print(err)
@@ -1923,6 +1923,18 @@ class Worker:
             'username': username,
             'despawn': despawn,
         }
+        
+        ####DEBUG
+        if raw.pokemon_data.pokemon_id == 1:
+            norm['individual_attack'] = 15
+            norm['individual_defense'] = 15
+            norm['individual_stamina'] = 15
+            norm['move_1'] = 224
+            norm['move_2'] = 20
+            norm['cp'] = 2500
+            norm['level'] = 20
+        ####END DEBUG
+        
         if tth > 0 and tth <= 90000:
             norm['expire_timestamp'] = round((tsm + tth) / 1000)
             norm['time_till_hidden'] = tth / 1000
