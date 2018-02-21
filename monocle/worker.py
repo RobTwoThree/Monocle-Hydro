@@ -225,7 +225,7 @@ class Worker:
             if not self.overseer.running:
                 raise OverseerNotRunningException("During login attempt.")
             try:
-                self.error_code = '»'
+                self.error_code = 'w'
                 async with self.login_semaphore:
                     self.error_code = 'LOGIN'
                     await self.api.set_authentication(
@@ -262,7 +262,7 @@ class Worker:
         if err:
             raise err
 
-        self.error_code = '°'
+        self.error_code = 'o'
         version = 9100
         async with self.sim_semaphore:
             self.error_code = 'APP SIMULATION'
