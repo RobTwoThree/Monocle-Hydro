@@ -1926,14 +1926,16 @@ class Worker:
         }
         
         ####DEBUG
-        if raw.pokemon_data.pokemon_id == 1:
-            norm['individual_attack'] = 15
-            norm['individual_defense'] = 15
-            norm['individual_stamina'] = 15
-            norm['move_1'] = 224
-            norm['move_2'] = 20
-            norm['cp'] = 2500
-            norm['level'] = 20
+        #if raw.pokemon_data.pokemon_id == 66:
+        #    norm['individual_attack'] = 15
+        #    norm['individual_defense'] = 15
+        #    norm['individual_stamina'] = 15
+        #    norm['move_1'] = 224
+        #    norm['move_2'] = 20
+        #    norm['cp'] = 2500
+        #    norm['level'] = 20
+        #    norm['weight'] = 5
+        #    norm['height'] = 5
         ####END DEBUG
         
         if tth > 0 and tth <= 90000:
