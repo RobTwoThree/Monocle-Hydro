@@ -1698,7 +1698,8 @@ class Worker:
                 acclient = AnticaptchaClient(conf.CAPTCHA_KEY)
                 actask = NoCaptchaTaskProxylessTask(challenge_url, '6LeeTScTAAAAADqvhqVMhPpr_vB9D364Ia-1dSgK')
                 acjob = acclient.createTask(actask)
-                acjob.join()
+                while not acjob.check_is_ready():
+                    await sleep(5, loop=LOOP)
                 token = acjob.get_solution_response()
             except AnticatpchaException as e:
                 self.log.error('AntiCaptcha error: {}, {}', e.error_code, e.error_description)
@@ -1925,16 +1926,19 @@ class Worker:
         }
         
         ####DEBUG
-        #if raw.pokemon_data.pokemon_id == 1:
-        #    norm['individual_attack'] = 15
-        #    norm['individual_defense'] = 15
-        #    norm['individual_stamina'] = 15
+        #norm['pokemon_id'] = 201
+        #norm['form'] = 2
+        #norm['gender'] = 1
+        #if raw.pokemon_data.pokemon_id == 223:
+        #    norm['individual_attack'] = 5
+        #    norm['individual_defense'] = 5
+        #    norm['individual_stamina'] = 5
         #    norm['move_1'] = 224
         #    norm['move_2'] = 20
-        #    norm['cp'] = 2500
+        #    norm['cp'] = 800
         #    norm['level'] = 20
-        #    norm['height'] = 6
         #    norm['weight'] = 5
+        #    norm['height'] = 5
         ####END DEBUG
         
         if tth > 0 and tth <= 90000:
