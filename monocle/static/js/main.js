@@ -1512,9 +1512,9 @@ map.whenReady(function () {
     overlays.Gyms.once('add', function(e) {
         getExGyms();
     })
-    overlays.Gyms.once('add', function(e) {
+    //overlays.Gyms.once('add', function(e) {
         getGyms();
-    })
+    //})
     overlays.Raids.once('add', function(e) {
         getRaids();
     })
@@ -1531,7 +1531,7 @@ map.whenReady(function () {
     }
     
     setInterval(getPokemon, 30000);
-    setInterval(getGyms, 110000);
+    setInterval(getGyms, 60000);
     setInterval(getRaids, 60000);
     setInterval(getWeather, 300000);
     
