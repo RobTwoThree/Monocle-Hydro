@@ -350,10 +350,10 @@
     background-color: rgba(100, 100, 100, 0.7);
     color: white;
     font-size: 8px;
-    width: 100%;
+    width: 75%;
     position: absolute;
     top: 0px;
-    left: 7px;
+    left: 0px;
 }
 
 .iv_gt_80_text {
@@ -361,10 +361,10 @@
     background-color:rgba(88, 124, 44, .5);
     color: white;
     font-size: 10px;
-    width: 100%;
+    width: 85%;
     position: absolute;
     top: 0px;
-    left: 7px;
+    left: -5px;
 }
 
 .iv_gt_90_text {
@@ -376,7 +376,7 @@
     width: 100%;
     position: absolute;
     top: 0px;
-    left: 7px;
+    left: -10px;
 }
 
 .iv_eq_100_img {
@@ -386,6 +386,18 @@
     position: absolute;
     top: -2px;
     left: 5px;
+}
+
+.iv_eq_100 {
+    border-radius: 10px;
+    background-color:rgba(0, 135, 51, .5);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    width: 50%;
+    position: absolute;
+    top: -20px;
+    left: 6px;
 }
 
 .form_text {
@@ -621,7 +633,7 @@
     position: absolute;
     left: -24px;
     top: -20px;
-    width: 32px;
+    width: 70px;
     text-align: center;
     margin: 0;
     padding: 0;

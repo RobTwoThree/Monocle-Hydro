@@ -60,7 +60,6 @@ var PokemonIcon = L.Icon.extend({
             case 351:
                 if (this.options.form) {
                     pokemon_icon_id = this.options.iconID + '_' + this.options.form;
-                    console.log(pokemon_icon_id);
                 }
                 break;
             default:
@@ -81,7 +80,7 @@ var PokemonIcon = L.Icon.extend({
                     '<div class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '">' +
                     '<span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-' + pokemon_icon_id + '" />' +
                     '</div>' +
-                    '<div class="iv_text">' + this.options.iv.toFixed(0) + '%</div>' +
+                    '<div class="iv_text">' + this.options.iv.toFixed(0) + '% L(' + this.options.pokemon_lvl + ')</div>' +
                     '<div class="remaining_text" data-expire="' + this.options.expires_at + '">' + calculateRemainingTime(this.options.expires_at) + '</div>' +
                     form_text +
                     type_icon_html_above_iv +
@@ -93,7 +92,7 @@ var PokemonIcon = L.Icon.extend({
                     '<div class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '">' +
                     '<span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-' + pokemon_icon_id + '" />' +
                     '</div>' +
-                    '<div class="iv_gt_80_text">' + this.options.iv.toFixed(0) + '%</div>' +
+                    '<div class="iv_gt_80_text">' + this.options.iv.toFixed(0) + '% L(' + this.options.pokemon_lvl + ')</div>' +
                     '<div class="remaining_text" data-expire="' + this.options.expires_at + '">' + calculateRemainingTime(this.options.expires_at) + '</div>' +
                     form_text +
                     type_icon_html_above_iv +
@@ -105,7 +104,7 @@ var PokemonIcon = L.Icon.extend({
                     '<div class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '">' +
                     '<span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-' + pokemon_icon_id + '" />' +
                     '</div>' +
-                    '<div class="iv_gt_90_text">' + this.options.iv.toFixed(0) + '%</div>' +
+                    '<div class="iv_gt_90_text">' + this.options.iv.toFixed(0) + '% L(' + this.options.pokemon_lvl + ')</div>' +
                     '<div class="remaining_text" data-expire="' + this.options.expires_at + '">' + calculateRemainingTime(this.options.expires_at) + '</div>' +
                     form_text +
                     type_icon_html_above_iv +
@@ -118,6 +117,7 @@ var PokemonIcon = L.Icon.extend({
                 '<span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-' + pokemon_icon_id + '" />' +
                 '</div>' +
                 '<div class="iv_eq_100_img"><img class="iv_eq_100_img" src="static/img/100.png"></div>' +
+                '<div class="iv_eq_100"><b>L(' + this.options.pokemon_lvl + ')</b></div>' +
                 '<div class="remaining_text" data-expire="' + this.options.expires_at + '">' + calculateRemainingTime(this.options.expires_at) + '</div>' +
                 form_text +
                 type_icon_html_above_iv +
@@ -396,7 +396,7 @@ function getPopupContent (item, boost_status) {
     if(item.atk != undefined){
         var totaliv = 100 * (item.atk + item.def + item.sta) / 45;
         content += 'IV: <b>' + totaliv.toFixed(2) + '%</b> (' + item.atk + '/' + item.def + '/' + item.sta + ')<br>';
-        content += 'CP: <b>' + item.cp + '</b><br>';
+        content += 'CP: <b>' + item.cp + ' L(' + item.level + ')</b><br>';
         content += 'Disappears in: ' + expires_at + '<br>';
         content += 'Available until: ' + expires_time + '<br>';
         content += 'Quick: ' + item.move1 + ' ( ' + item.damage1 + ' dps )<br>';
@@ -536,6 +536,7 @@ function getRaidPopupContent (item) {
         content += '<a href="https://pokemongo.gamepress.gg/pokemon/' + item.raid_pokemon_id + '#raid-boss-counters" target="_blank" title="Raid Boss Counters">Raid Boss Counters</a>';
     }
     content += '</div>'
+  
     return content;
 }
 
@@ -618,7 +619,7 @@ function getFortPopupContent (item) {
     }
     content += '<br><a href=https://www.google.com/maps/?daddr='+ item.lat + ','+ item.lon +' target="_blank" title="See in Google Maps">Get directions</a>';
     content += '</div>'
-
+  
     return content;
 }
 
@@ -669,7 +670,7 @@ function PokemonMarker (raw) {
         var boost_status = 'normal';
     }
   
-    var icon = new PokemonIcon({iconID: raw.pokemon_id, iv: totaliv, cp: raw.cp, form: raw.form, expires_at: raw.expires_at, boost_status: boost_status});
+    var icon = new PokemonIcon({iconID: raw.pokemon_id, iv: totaliv, cp: raw.cp, pokemon_lvl: raw.level, form: raw.form, expires_at: raw.expires_at, boost_status: boost_status});
     var marker = L.marker([raw.lat, raw.lon], {icon: icon, opacity: 1});
     var intId = parseInt(raw.id.split('-')[1]);
     if (_last_pokemon_id < intId){
@@ -843,7 +844,7 @@ function RaidMarker (raw) {
             
             raid_marker.removeFrom(overlays.Raids);
             markers[raid_marker.raw.id] = undefined;
-            
+
             if ( expired_ex_marker != undefined ) { // Raid ended, remove EX Eligible Raid markers
                 ex_markers[ex_raid_marker_id].removeFrom(overlays.EX_Gyms);
                 ex_markers[ex_raid_marker_id] = undefined;
@@ -974,9 +975,6 @@ function addGymsToMap (data, map) {
         var existing = markers[item.id];
         
         if (typeof existing !== 'undefined') {
-            if (existing.raw.sighting_id === item.sighting_id) {
-                return;
-            }
             existing.removeFrom(overlays.Gyms);
             markers[item.id] = undefined;
         }
@@ -1250,6 +1248,7 @@ function addExRaidsToMap (data, map) {
     data.forEach(function (item) {
         var raid_id = 'raid-' + item.fort_id;
         var ex_item = {};
+
         if (markers[raid_id])
         {
             ex_item.id = 'ex-raid-' + item.fort_id;
@@ -1507,18 +1506,11 @@ map.whenReady(function () {
     });
 
     getWeather();
+    getExGyms();
     getPokemon();
-
-    overlays.Gyms.once('add', function(e) {
-        getExGyms();
-    })
-    //overlays.Gyms.once('add', function(e) {
-        getGyms();
-    //})
-    overlays.Raids.once('add', function(e) {
-        getRaids();
-    })
-
+    getGyms();
+    getRaids();
+    
     overlays.Parks_In_S2_Cells.once('add', function(e) {
         getCells();
         getParks();

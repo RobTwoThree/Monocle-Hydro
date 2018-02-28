@@ -288,7 +288,7 @@ def parks():
 
 @app.route('/cells')
 def cells():
-    return jsonify(get_s2_cells(level=13))
+    return jsonify(get_s2_cells(level=12))
 
 if conf.MAP_WORKERS:
     workers = Workers()
