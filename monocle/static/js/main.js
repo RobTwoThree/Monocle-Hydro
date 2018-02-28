@@ -208,6 +208,15 @@ var ExGymIcon = L.Icon.extend({
     }
 });
 
+var ExGymSponsoredIcon = L.Icon.extend({
+    options: {
+        iconSize: [20, 20],
+        shadowSize: [20, 20],
+        popupAnchor: [0, -10],
+        className: 'ex_gym_icon'
+    }
+});
+
 var ExRaidIcon = L.Icon.extend({
     options: {
         iconSize: [20, 20],
@@ -859,7 +868,12 @@ function RaidMarker (raw) {
 }
 
 function ExGymMarker (raw) {
-    var icon = new ExGymIcon({iconUrl: 'static/img/blank_1x1.png', shadowUrl: 'static/img/hollow_boosted.png'});
+    if ( raw.sponsor != 'park' ) {
+        var icon = new ExGymSponsoredIcon({iconUrl: 'static/img/blank_1x1.png', shadowUrl: 'static/img/ex_' + raw.sponsor + '.png'});
+    } else {
+        var icon = new ExGymIcon({iconUrl: 'static/img/blank_1x1.png', shadowUrl: 'static/img/hollow_boosted.png'});
+    }
+  
     var marker = L.marker([raw.lat, raw.lon], {icon: icon, opacity: 1, pane: 'sub_shadow'});
   
     marker.raw = raw;

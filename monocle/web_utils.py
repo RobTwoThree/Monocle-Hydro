@@ -212,7 +212,8 @@ def get_gym_markers(names=POKEMON):
         'last_modified': fort['last_modified'],
         'team': fort['team'],
         'lat': fort['lat'],
-        'lon': fort['lon']
+        'lon': fort['lon'],
+        'sponsor': fort['sponsor']
     } for fort in forts]
 
 
@@ -321,6 +322,11 @@ def get_ex_gyms():
             g['id'] = 'ex-' + g['id']
             gym_point = Point(g['lat'], g['lon'])
             cell = Polygon(get_s2_cell_as_polygon(g['lat'], g['lon'], level=20)) # s2 lvl 20
+            sponsor_value = 'park'
+            if g['sponsor'] == 7:
+                sponsor_value = 'starbucks'
+            if g['sponsor'] == 9:
+                sponsor_value = 'sprint'
             for p in parks:
                 coords = p['coords']
                 # osm polygon can be a line
@@ -333,7 +339,8 @@ def get_ex_gyms():
                             'fort_id': g['fort_id'],
                             'name': g['gym_name'],
                             'lat': g['lat'],
-                            'lon': g['lon']
+                            'lon': g['lon'],
+                            'sponsor': sponsor_value
                         })
                 if len(coords) > 2:
                     shape = Polygon(coords)
@@ -344,7 +351,8 @@ def get_ex_gyms():
                             'fort_id': g['fort_id'],
                             'name': g['gym_name'],
                             'lat': g['lat'],
-                            'lon': g['lon']
+                            'lon': g['lon'],
+                            'sponsor': sponsor_value
                         })
 
         dump_pickle('ex_gyms', ex_gyms)

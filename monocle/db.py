@@ -1078,6 +1078,7 @@ def _get_forts(session):
             f.name,
             f.external_id,
             f.url,
+            f.sponsor,
             fs.slots_available,
             fs.time_occupied
         FROM fort_sightings fs
