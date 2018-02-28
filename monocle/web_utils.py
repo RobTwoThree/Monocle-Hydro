@@ -12,7 +12,7 @@ from monocle.bounds import north, south, east, west
 
 import s2sphere
 import overpy
-from shapely.geometry import Polygon, Point
+from shapely.geometry import Polygon, Point, LineString
 
 if conf.MAP_WORKERS:
     try:
