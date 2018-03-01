@@ -325,8 +325,26 @@ def get_ex_gyms():
             sponsor_value = 'park'
             if g['sponsor'] == 7:
                 sponsor_value = 'starbucks'
+                ex_gyms.append({
+                            'id': g['id'],
+                            'external_id': g['external_id'],
+                            'fort_id': g['fort_id'],
+                            'name': g['gym_name'],
+                            'lat': g['lat'],
+                            'lon': g['lon'],
+                            'sponsor': sponsor_value
+                })
             if g['sponsor'] == 9:
                 sponsor_value = 'sprint'
+                ex_gyms.append({
+                            'id': g['id'],
+                            'external_id': g['external_id'],
+                            'fort_id': g['fort_id'],
+                            'name': g['gym_name'],
+                            'lat': g['lat'],
+                            'lon': g['lon'],
+                            'sponsor': sponsor_value
+                })
             for p in parks:
                 coords = p['coords']
                 # osm polygon can be a line
