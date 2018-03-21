@@ -6,3 +6,6 @@ monocle/config.py
 *.log.*
 monocle/static/monocle-icons
 *.csv
+check_key_to_log.sh
+check_key.sh
+import_accounts_single_instance.sh

@@ -211,6 +211,7 @@ def render_map():
         display_filtered_pokemon=conf.SHOW_FILTERED_POKEMON_BY_DEFAULT,
         display_spawnpoints=conf.SHOW_SPAWNPOINTS_BY_DEFAULT,
         display_boosted_feature=display_boosted_feature(),
+        display_pokemon_level_filter=conf.DISPLAY_POKEMON_LEVEL_FILTER,
         extra_css_js=Markup(css_js),
         force_splash=conf.FORCE_SPLASH,
         init_js_vars=js_vars,

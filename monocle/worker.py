@@ -1936,6 +1936,36 @@ class Worker:
         #    norm['move_1'] = 224
         #    norm['move_2'] = 20
         #    norm['cp'] = 800
+        #    norm['level'] = 33
+        #    norm['weight'] = 5
+        #    norm['height'] = 5
+        #if raw.pokemon_data.pokemon_id == 333:
+        #    norm['individual_attack'] = 15
+        #    norm['individual_defense'] = 15
+        #    norm['individual_stamina'] = 15
+        #    norm['move_1'] = 224
+        #    norm['move_2'] = 20
+        #    norm['cp'] = 800
+        #    norm['level'] = 15
+        #    norm['weight'] = 5
+        #    norm['height'] = 5
+        #if raw.pokemon_data.pokemon_id == 155:
+        #    norm['individual_attack'] = 13
+        #    norm['individual_defense'] = 13
+        #    norm['individual_stamina'] = 13
+        #    norm['move_1'] = 224
+        #    norm['move_2'] = 20
+        #    norm['cp'] = 800
+        #    norm['level'] = 35
+        #    norm['weight'] = 5
+        #    norm['height'] = 5
+        #if raw.pokemon_data.pokemon_id == 322:
+        #    norm['individual_attack'] = 10
+        #    norm['individual_defense'] = 10
+        #    norm['individual_stamina'] = 10
+        #    norm['move_1'] = 224
+        #    norm['move_2'] = 20
+        #    norm['cp'] = 800
         #    norm['level'] = 20
         #    norm['weight'] = 5
         #    norm['height'] = 5
