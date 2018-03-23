@@ -629,6 +629,43 @@
     z-index: -1;
 }
 
+.event_marker {
+    position: absolute;
+    z-index: -100;
+}
+
+.event_marker_container {
+    position: absolute;
+    left: -25px;
+    top: -25px;
+}
+
+.event_icon {
+    width: 50px;
+    height: 50px;
+}
+
+.event_marker_popup {
+    text-align: center;
+    width: 250px;
+}
+
+.event_marker_popup h2 {
+    font-size: 30px;
+    font-style: bold;
+    margin: 0px;
+    padding: 0px;
+}
+
+.event_marker_popup h3 {
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.event_url_image {
+    max-width: 225px;
+}
 .pokemarker {
     position: absolute;
     left: -24px;

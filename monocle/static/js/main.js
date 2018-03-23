@@ -140,6 +140,22 @@ var PokemonIcon = L.Icon.extend({
     }
 });
 
+var EventIcon = L.Icon.extend({
+    options: {
+        popupAnchor: [0, -10],
+    },
+    createIcon: function() {
+        var div = document.createElement('div');
+        div.innerHTML =
+            '<div class="event_marker">' +
+                '<div class="event_marker_container">' +
+                    '<img class="event_icon" src="static/img/MiraMesaCommunityDayCoin.png" />' +
+                '</div>' +
+            '</div>';
+        return div;
+    }
+});
+
 var FortIcon = L.Icon.extend({
     options: {
         popupAnchor: [0, 5],
@@ -302,7 +318,6 @@ var PokestopIcon = L.Icon.extend({
         iconUrl: _PokestopIconUrl
     }
 });
-
 var markers = {};
 var ex_markers = {};
 var weather = {};
@@ -333,7 +348,8 @@ if (_DisplaySpawnpointsLayer === 'True') {
         EX_Gyms: L.markerClusterGroup({ disableClusteringAtZoom: 8 }),
         Weather: L.layerGroup([]),
         ScanArea: L.layerGroup([]),
-        FilteredPokemon: L.markerClusterGroup({ disableClusteringAtZoom: 12 })
+        FilteredPokemon: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
+        Events: L.layerGroup([])
     };
 }
 
@@ -1282,6 +1298,23 @@ function addExRaidsToMap (data, map) {
     });
 }
 
+function addEventsToMap () {
+    event_lat = 32.934369;
+    event_lon = -117.148105;
+    //TEST COORDS BELOW
+    //event_lat = 32.739479;
+    //event_lon = -117.139282
+  
+    var event_icon = new EventIcon();
+    var event_marker = L.marker([event_lat,event_lon], {icon: event_icon});
+  
+    event_marker.bindPopup('<div class="event_marker_popup"><b><h2>Mira Mesa Community Day!</h2>' +
+                           '<br><h3>at<br>Camino Ruiz Park<br>10:30am to 2:30pm</h3>' +
+                           '<br><img class="event_url_image" src="https://cdn.discordapp.com/attachments/381849782160719875/419722218579296266/123_1.jpg">' +
+                           '<br><br><a href="https://www.google.com/maps/?daddr='+ event_lat + ','+ event_lon +'" target="_blank" title="See in Google Maps">Get directions</a></div>');
+    event_marker.addTo(overlays.Events);
+}
+
 function getPokemon () {
     if (overlays.Pokemon_Gen1.hidden && overlays.Pokemon_Gen2.hidden && overlays.Pokemon_Gen3.hidden && overlays.FilteredPokemon.hidden) {
         return;
@@ -1502,6 +1535,8 @@ if (_DisplaySpawnpointsLayer === 'True') {
     map.addLayer(overlays.Spawns);
     map.addLayer(overlays.Workers); }
 
+map.addLayer(overlays.Events);
+
 var control = L.control.layers(null, overlays).addTo(map);
 
 loadMapLayer();
@@ -1524,6 +1559,8 @@ map.whenReady(function () {
     getPokemon();
     getGyms();
     getRaids();
+    
+    addEventsToMap();
     
     overlays.Parks_In_S2_Cells.once('add', function(e) {
         getCells();
