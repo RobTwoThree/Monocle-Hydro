@@ -952,9 +952,9 @@ function addPokemonToMap (data, map) {
             marker.addTo(overlays[marker.overlay])
         }
     });
-    updateTime();
-    if (_updateTimeInterval === null){
-        _updateTimeInterval = setInterval(updateTime, 1000);
+    updatePokemonTime();
+    if (_updatePokemonTimeInterval === null){
+        _updatePokemonTimeInterval = setInterval(updatePokemonTime, 1000);
     }
 }
 
@@ -1079,6 +1079,10 @@ function addRaidsToMap (data, map) {
 
         }
     });
+    updateRaidTime();
+    if (_updateRaidTimeInterval === null){
+        _updateRaidTimeInterval = setInterval(updateRaidTime, 1000);
+    }
 }
 
 function addSpawnsToMap (data, map) {
@@ -3131,7 +3135,7 @@ function calculateRemainingRaidTime(expire_at_timestamp1,expire_at_timestamp2) {
     return minutes + ':' + (seconds > 9 ? "" + seconds: "0" + seconds);
 }
 
-function updateTime() {
+function updatePokemonTime() {
     if (getPreference("SHOW_TIMER") === "1"){
         $(".remaining_text").each(function() {
             $(this).css('visibility', 'visible');
@@ -3143,6 +3147,19 @@ function updateTime() {
         });
     }
   
+    // Straight up copying and pasting my code
+    if (getPreference("SHOW_FORM") === "1"){
+        $(".form_text").each(function() {
+            $(this).css('visibility', 'visible');
+        });
+    }else{
+        $(".form_text").each(function() {
+            $(this).css('visibility', 'hidden');
+        });
+    }
+}
+
+function updateRaidTime() {
     if (getPreference("SHOW_RAID_TIMER") === "1"){
         $(".raid_remaining_text").each(function() {
             $(this).css('visibility', 'visible');
@@ -3160,17 +3177,6 @@ function updateTime() {
             $(this).css('visibility', 'hidden');
         });
         $(".during_raid_remaining_text").each(function() {
-            $(this).css('visibility', 'hidden');
-        });
-    }
-
-    // Straight up copying and pasting my code
-    if (getPreference("SHOW_FORM") === "1"){
-        $(".form_text").each(function() {
-            $(this).css('visibility', 'visible');
-        });
-    }else{
-        $(".form_text").each(function() {
             $(this).css('visibility', 'hidden');
         });
     }
