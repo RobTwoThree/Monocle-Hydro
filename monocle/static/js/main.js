@@ -812,6 +812,18 @@ function FortMarker (raw) {
 }
 
 function RaidMarker (raw) {
+    var hatched = ((new Date().getTime() / 1000) - raw.raid_battle);
+    // Automatically hatch legendary if db was not updated accordingly
+    if ((raw.raid_level == 5) && (raw.raid_pokemon_id == 0) && (hatched > 0)) {
+        raw.raid_pokemon_id = _LegendaryRaidPokemonID
+        //DEBUG
+        raw.raid_pokemon_name = pokemon_name_type[raw.raid_pokemon_id][1]
+        raw.raid_pokemon_cp = _LegendaryRaidCP
+        raw.raid_pokemon_move_1 = 'Unknown'
+        raw.raid_pokemon_move_2 = 'Unknown'
+        console.log("name: " + raw.raid_pokemon_name);
+    }
+  
     var raid_boss_icon = new RaidIcon({raid_pokemon_id: raw.raid_pokemon_id, raid_level: raw.raid_level, raid_ends_at: raw.raid_end, raid_starts_at: raw.raid_battle, raid_gym_name: raw.gym_name, external_id: raw.external_id});
     var raid_marker = L.marker([raw.lat, raw.lon], {icon: raid_boss_icon, opacity: 1, zIndexOffset: 5000});
 

@@ -782,3 +782,89 @@ MINIMUM_SCORE = 0.4  # the required score after FULL_TIME seconds have passed
 ### Discord webhook url for sending scan log messages
 #SCAN_LOG_WEBHOOK = None
 
+################## CUSTOMIZED CONFIGURATION ITEMS FOR POGOSD ####################
+## For POGOSD_REGION blank should be '', region should be '/se_sd', '/sw_sd', etc. Used with nginx to statically change data URL data flows for public access
+POGOSD_REGION = ''
+
+## Show Discord Link
+DISCORD_INVITE_ID = 'AbcDEFg'
+
+## Show details like IV and Moves in Map
+MAP_SHOW_DETAILS = True
+SHOW_IV = False # Show IV below each pokemon marker by default
+IV_NOTE = 'IV is currently unavailable.' # Indicate a note under IV button.  None will not display note.
+
+## For DARK_MAP_OPACITY and LIGHT_MAP_OPACITY choose value between 1.0 and 0.0
+DARK_MAP_OPACITY = 0.80
+DARK_MAP_PROVIDER_URL = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'
+DARK_MAP_PROVIDER_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://cartodb.com/attributions">CartoDB</a>'
+LIGHT_MAP_OPACITY = 1.0
+LIGHT_MAP_PROVIDER_URL = 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png'
+LIGHT_MAP_PROVIDER_ATTRIBUTION = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+
+## Show monetary balances in Donations tab. For BALANCE and FUNDING_GOAL use single quotes ''
+#BALANCE = '200'
+BALANCE = '54'
+#FUNDING_GOAL = '250'
+FUNDING_GOAL = 'TBD'
+
+
+## Show raid timers by default above raid icons
+SHOW_RAID_TIMER = True
+
+## Raid IDs to hide (filter) by default. Specify in (1,2) or for none ()
+RAID_IDS = ()
+
+## Show Unown letter (form) menu item to hide/display letter
+SHOW_FORM_MENU_ITEM = False
+
+## Default setting to hide/display Unown letter above Unown icon
+SHOW_FORM = True
+
+## If set to True, enables a splash message to be displayed once until the button is clicked to clear it. User will not see splash message again unless FORCE_SPLASH = True below.
+SHOW_SPLASH = True
+
+## Force splash message to show regardless of clicking clear button
+FORCE_SPLASH = False
+
+## If SHOW_SPLASH = True, the following configuration item changes the splash message from default which is currently a donation request plus a paypal button.  PAYPAL_BUTTON_CODE needs to be defined below for button to work correctly.
+## Example: SPLASH_MESSAGE = 'Scans are currently only reporting Raids and Gyms due to shadow bans. We will work to restore full scanning capabilities ASAP.'
+## Default: SPLASH_MESSAGE = 'Funding levels to maintain scans and maps are running low.<br>Please consider donating.<br><br>Thank you for your support.'
+SPLASH_MESSAGE = ''
+
+## Show PayPal link if URL is provided below within ''. If set to None, the Donations tab will not be displayed on map settings. If PAYPAL_URL is defined, PAYPAL_BUTTON_CODE must be either defined or set to ''
+#PAYPAL_URL = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ABCDEFG'
+PAYPAL_URL = None
+#PAYPAL_BUTTON_CODE = '1234ABCD'
+PAYPAL_BUTTON_CODE = ''
+
+## Default layers control. Anything set to True will have the layer shown on the map by default (checked)
+SHOW_POKEMON_BY_DEFAULT = False
+SHOW_GYMS_BY_DEFAULT = False
+SHOW_RAIDS_BY_DEFAULT = True
+SHOW_PARKS_IN_S2_CELLS_BY_DEFAULT = False
+SHOW_EX_GYMS_BY_DEFAULT = True
+SHOW_WEATHER_BY_DEFAULT = False
+SHOW_SCAN_AREA_BY_DEFAULT = True
+SHOW_FILTERED_POKEMON_BY_DEFAULT = False
+SHOW_SPAWNPOINTS_BY_DEFAULT = False
+
+# Display boosted pokemon.  Default is True.  Setting False may improve load speed.
+DISPLAY_BOOSTED_FEATURE = True
+
+
+## If defined, displays a scrolling ticker across the top of the map frontend.
+## Example: TICKER_ITEMS = '<p>Scans out of commission until further notice.</p><p>Shadow bans are resulting in complete bans.</p><p>You will not see Raids or Pokemon.</p>'
+TICKER_ITEMS = None
+TICKER_COLOR = 'red'  # Color choices are: red (default), orange, yellow
+
+## If defined within '', displays a static splash screen on the map frontend.
+## Example: MOTD = 'We are currently offline until further notice.'
+MOTD = None
+
+## For ANNOUNCEMENTS use the following for each line <li>blah blah</li><br><br>
+ANNOUNCEMENTS = '<li>blah blah</li><br><br>'
+
+# Enable automatic hatch of legendary raid.  Specify Pokemon ID and CP.
+LEGENDARY_RAID_POKEMON_ID =  381
+LEGENDARY_RAID_CP = 49322
