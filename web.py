@@ -230,7 +230,9 @@ def render_map():
         show_form_menu_item=show_form_menu_item(),
         show_iv_menu_item=show_iv_menu_item(),
         social_links=social_links(),
-        ticker_items=ticker()
+        ticker_items=ticker(),
+        raid_pokemon_id=conf.LEGENDARY_RAID_POKEMON_ID,
+        raid_pokemon_cp=conf.LEGENDARY_RAID_CP
     )
 
 
