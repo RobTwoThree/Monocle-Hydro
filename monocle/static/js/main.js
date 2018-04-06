@@ -1315,8 +1315,8 @@ function addExRaidsToMap (data, map) {
 }
 
 function addEventsToMap () {
-    event_lat = 32.908119;
-    event_lon = -117.121012;
+    event_lat = 32.905825;
+    event_lon = -117.123948;
     //TEST COORDS BELOW
     //event_lat = 32.739479;
     //event_lon = -117.139282
