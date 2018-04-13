@@ -189,7 +189,7 @@ var AltFortIcon = L.Icon.extend({
         // Copying my code? HAHA!
         if (this.options.external_id.includes(".")) {
         } else {
-            if (this.options.gym_name.includes("Starbucks") {
+            if (this.options.gym_name.includes("Starbucks")) {
                 sponsor = 'starbucks';
             } else {
                 sponsor = 'sprint';
