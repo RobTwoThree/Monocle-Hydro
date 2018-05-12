@@ -149,7 +149,7 @@ var EventIcon = L.Icon.extend({
         div.innerHTML =
             '<div class="event_marker">' +
                 '<div class="event_marker_container">' +
-                    '<img class="event_icon" src="static/img/MiraMesaCommunityDayCoin_Mareep.png" />' +
+                    '<img class="event_icon" src="static/img/MiraMesaCommunityDayCoin_Charmander.png" />' +
                 '</div>' +
             '</div>';
         return div;
@@ -1326,7 +1326,6 @@ function addEventsToMap () {
   
     event_marker.bindPopup('<div class="event_marker_popup"><b><h2>Mira Mesa Community Day!</h2>' +
                            '<br><h3>at<br>Hourglass Park<br>10:30am to 2:30pm</h3>' +
-                           '<br><img class="event_url_image" src="https://media.discordapp.net/attachments/381849782160719875/431860516600807426/Community_Day_4-15-18-2.jpg">' +
                            '<br><br><a href="https://www.google.com/maps/?daddr='+ event_lat + ','+ event_lon +'" target="_blank" title="See in Google Maps">Get directions</a></div>');
     event_marker.addTo(overlays.Events);
 }
