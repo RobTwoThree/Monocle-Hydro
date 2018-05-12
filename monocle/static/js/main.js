@@ -1325,6 +1325,7 @@ function addEventsToMap () {
     var event_marker = L.marker([event_lat,event_lon], {icon: event_icon});
   
     event_marker.bindPopup('<div class="event_marker_popup"><b><h2>Mira Mesa Community Day!</h2>' +
+                           '<br><h3>Saturday, May 19, 2018</h3>' + 
                            '<br><h3>at<br>Hourglass Park<br>10:30am to 2:30pm</h3>' +
                            '<br><br><a href="https://www.google.com/maps/?daddr='+ event_lat + ','+ event_lon +'" target="_blank" title="See in Google Maps">Get directions</a></div>');
     event_marker.addTo(overlays.Events);
