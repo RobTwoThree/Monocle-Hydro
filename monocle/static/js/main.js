@@ -149,7 +149,7 @@ var EventIcon = L.Icon.extend({
         div.innerHTML =
             '<div class="event_marker">' +
                 '<div class="event_marker_container">' +
-                    '<img class="event_icon" src="static/img/MiraMesaCommunityDayCoin_Charmander.png" />' +
+                    '<img class="event_icon" src="static/img/MiraMesaCommunityDayCoin_Larvitar.png" />' +
                 '</div>' +
             '</div>';
         return div;
@@ -1315,18 +1315,18 @@ function addExRaidsToMap (data, map) {
 }
 
 function addEventsToMap () {
-    event_lat = 32.905825;
-    event_lon = -117.123948;
+    event_lat = 32.934207;
+    event_lon = -117.148070;
     //TEST COORDS BELOW
     //event_lat = 32.739479;
     //event_lon = -117.139282
-  
+
     var event_icon = new EventIcon();
     var event_marker = L.marker([event_lat,event_lon], {icon: event_icon});
   
     event_marker.bindPopup('<div class="event_marker_popup"><b><h2>Mira Mesa Community Day!</h2>' +
-                           '<br><h3>Saturday, May 19, 2018</h3>' + 
-                           '<br><h3>at<br>Hourglass Park<br>10:30am to 2:30pm</h3>' +
+                           '<br><h3>Saturday, June 16, 2018</h3>' +
+                           '<br><h3>at<br>Camino Ruiz Park<br>10:30am to 2:30pm</h3>' +
                            '<br><br><a href="https://www.google.com/maps/?daddr='+ event_lat + ','+ event_lon +'" target="_blank" title="See in Google Maps">Get directions</a></div>');
     event_marker.addTo(overlays.Events);
 }
