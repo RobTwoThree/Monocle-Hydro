@@ -170,6 +170,11 @@
     text-decoration: none;
 }
 
+.pokestop-popup {
+    text-align: center;
+    margin-top: 5px;
+}
+
 .fort-popup {
     text-align: center;
     margin-top: 100px;
@@ -178,6 +183,16 @@
 .raid-popup {
     text-align: center;
     margin-top: 100px;
+}
+
+.pokestop_popup-icon_container {
+    display: inline-block;
+    text-align: center;
+}
+
+.quest_item-icon_container{
+    display: inline-block;
+    text-align: center;
 }
 
 .fort_popup-icon_container {
@@ -249,6 +264,75 @@
     left: 15px;
     top: 15px;
     z-index: 2;
+}
+
+.quest_popup_item_icon {
+    max-width: 25px;
+}
+
+.quest_popup_pokemon_icon {
+    max-width: 75px;
+}
+
+.quest_settings_item_icon_container {
+    position: relative;
+    left: 10px;
+}
+
+.quest_settings_item_icon {
+    width: 35px;
+}
+
+.quest_settings_pokemon_icon_container {
+    position: relative;
+    left: 2px;
+    top: -15px;
+}
+
+.quest_settings_pokemon_icon {
+    width: 50px;
+}
+
+.quest_settings_task_container {
+    position: relative;
+    top: 10px;
+}
+
+.pokestop_icon_container {
+    position: absolute;
+    width: 50px;
+    left: -38px;
+}
+
+.pokestop_icon {
+    position: absolute;
+    max-width: 50px;
+    z-index: -1;
+}
+
+.quest_item_reward_container {
+    position: absolute;
+    left: -15px;
+}
+
+.quest_item_reward_icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    z-index: 100;
+}
+
+.quest_pokemon_reward_container {
+    position: absolute;
+    left: -25px;
+    top: -20px;
+}
+
+.quest_pokemon_reward_icon {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    z-index: 100;
 }
 
 .fort-icon {
@@ -588,9 +672,19 @@
     height: 77px;
 }
 
+.pokestop_image_container {
+
+}
 
 .gym_image_container {
 
+}
+
+.pokestop_image {
+    max-width: 100px;
+    height: auto;
+    border-style: solid;
+    border-width: 2px;
 }
 
 .gym_image {
@@ -616,6 +710,13 @@
 .fort_slots_icon {
     width: 20px;
     height: 20px;
+}
+
+.pokestopmarker {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    text-align: center;
 }
 
 .fortmarker {
@@ -855,6 +956,141 @@
 
 .alt_btn{
     width: 90px;
+}
+
+.small_text {
+    font-size: 75%;
+}
+
+.quest_filters {
+    float: left;
+}
+
+.quest_button_container{
+    position: relative;
+    display: inline-block;
+    left: -5px;
+    width: 80px;
+}
+
+.quest_button_column {
+    position: float;
+    width: 20%;
+    height: 45px;
+}
+
+.quest_left_column {
+    position: float;
+    width: 15%;
+    height: 45px;
+    text-align: left;
+    font-size: 50%;
+}
+
+.quest_right_column {
+    position: float;
+    width: 65%;
+    height: 45px;
+    text-align: left;
+    font-size: 80%;
+}
+
+.quest_filters_row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.quest_task_dividers {
+    font-size: 100%;
+}
+
+.quest_task_pokemon_label {
+    display: inline-table;
+    width: 125px;
+    padding-top: 20px;
+}
+
+.quest_task_items_label {
+    display: inline-table;
+    width: 125px;
+    padding-top: 0px;
+}
+
+.popup_filter_buttons_container {
+     display: inline-table;
+     position: float;
+     width: 125px;
+}
+
+.visited_pokestop_image_container {
+     float: left;
+}
+
+.quest_complete_button_text {
+    font-size: 65%;
+    text-align: center;
+}
+
+.quest_complete_button {
+    display: block;
+    max-width: 50px;
+}
+
+.hide_quest_type_image_container {
+     float: right;
+}
+
+.hide_quest_type_button_text {
+    font-size: 65%;
+    text-align: center;
+}
+
+.hide_quest_type_button {
+    display: block;
+    max-width: 50px;
+}
+
+.quest_settings_hide_buttons {
+    display: block;
+    max-width: 20px;
+}
+
+.visited_pokestop_button {
+
+}
+
+.quest_left_button_container {
+    position: relative;
+    left: -2px;
+    display: block;
+    width: 14px;
+    text-align: center;
+}
+
+.quest_right_button_container {
+    position: relative;
+    left: -3px;
+    display: block;
+    width: 12px;
+    text-align: center;
+}
+
+.all_item_quests_text {
+    text-align: center;
+    font-size: 75%;
+}
+
+.all_pokemon_quests_text {
+    text-align: center;
+    font-size: 75%;
+}
+
+.quest_hide_all_button {
+    position: relative;
+    display: inline-block;
+    max-width: 15px;
+    text-align: center;
 }
 
 a{

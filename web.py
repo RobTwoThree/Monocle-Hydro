@@ -105,7 +105,7 @@ def donate_tab_content():
     
     if conf.PAYPAL_URL:
         donate_tab_content = '<div class="panel panel-default settings-panel" data-panel="donate">'
-        donate_tab_content += '<div class="panel-heading">Donations Welcome</div>'
+        donate_tab_content += '<div class="panel-heading"><b>Donations Welcome</b></div>'
         donate_tab_content += '<div class="panel-body"><br>Maps are free to use. Donations are more than welcome to help fund the scans that power these maps.<br><br>'
         donate_tab_content += '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">'
         donate_tab_content += '<input type="hidden" name="cmd" value="_s-xclick">'
@@ -206,6 +206,7 @@ def render_map():
         display_raids=conf.SHOW_RAIDS_BY_DEFAULT,
         display_weather=conf.SHOW_WEATHER_BY_DEFAULT,
         display_parks_in_s2_cells=conf.SHOW_PARKS_IN_S2_CELLS_BY_DEFAULT,
+        display_quests=conf.SHOW_QUESTS_BY_DEFAULT,
         display_ex_gyms=conf.SHOW_EX_GYMS_BY_DEFAULT,
         display_scan_area=conf.SHOW_SCAN_AREA_BY_DEFAULT,
         display_filtered_pokemon=conf.SHOW_FILTERED_POKEMON_BY_DEFAULT,
@@ -291,6 +292,10 @@ def parks():
 @app.route('/cells')
 def cells():
     return jsonify(get_s2_cells(level=13))
+
+@app.route('/quest_tasks')
+def quest_tasks():
+    return jsonify(get_quest_filter_options())
 
 if conf.MAP_WORKERS:
     workers = Workers()

@@ -1034,10 +1034,45 @@ def update_mystery(session, mystery):
     encounter.last_seconds = mystery['last'] - hour
     encounter.seen_range = mystery['last'] - mystery['first']
 
+def get_grouped_quest_task(session):
+    return session.execute('''
+            SELECT
+                quest_task,
+                quest_reward_type_raw,
+                pokemon_id,
+                item_id,
+                count(*) AS count
+            FROM quests
+            GROUP BY quest_task, quest_reward_type_raw, pokemon_id, item_id
+        ''').fetchall()
 
 def get_pokestops(session):
-    return session.query(Pokestop).all()
-
+    return session.execute('''
+        SELECT
+            ps.id,
+            ps.external_id,
+            ps.lat,
+            ps.lon,
+            ps.name,
+            ps.url,
+            ps.updated,
+            q.id AS quest_id,
+            q.pokestop_id,
+            q.quest_type,
+            q.quest_type_raw,
+            q.item_type,
+            q.item_amount,
+            q.item_id,
+            q.pokemon_id,
+            q.quest_reward_type,
+            q.quest_reward_type_raw,
+            q.quest_target,
+            q.quest_task,
+            q.quest_condition,
+            q.timestamp
+        FROM quests q
+        JOIN pokestops ps ON ps.id=q.pokestop_id
+    ''').fetchall()
 
 def _get_forts_sqlite(session):
     # SQLite version is sloooooow compared to MySQL

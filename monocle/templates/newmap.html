@@ -5,11 +5,16 @@
   <title>{{ area_name }}</title>
   <link rel="stylesheet" href='static/css/leaflet.css'>
   <link rel="stylesheet" href='static/css/bootstrap.min.css'>
-  <link rel="stylesheet" href='static/css/main.css?413'>
+  <link rel="stylesheet" href='static/css/main.css?523'>
   <link rel="stylesheet" href='static/css/spritesheet_medium_v9_og.css?319'>
   <link rel="stylesheet" href='static/css/spritesheet_medium_g3v4_og.css?322'>
   <link rel="stylesheet" href='static/css/spritesheet_medium_v3_cart.css?319'>
   <link rel="stylesheet" href='static/css/spritesheet_medium_v6_alt.css?319'>
+  <link rel="stylesheet" href='static/css/spritesheet_medium_g1v1_og.css?001'>
+  <link rel="stylesheet" href='static/css/spritesheet_medium_g2v1_og.css?001'>
+  <link rel="stylesheet" href='static/css/spritesheet_medium_g3v5_og.css?001'>
+  <link rel="stylesheet" href='static/css/spritesheet_medium_g4v1_og.css?001'>
+  <link rel="stylesheet" href='static/css/spritesheet_medium_gXv1_og.css?001'>
   <link rel="stylesheet" href='static/css/stylesheet-types.css?319'>
   <link rel="stylesheet" href='static/css/stylesheet-weather.css?319'>
   <link rel="stylesheet" href='static/css/MarkerCluster.css'>
@@ -41,6 +46,7 @@
         var _DisplayGymsLayer = '{{ display_gyms }}';
         var _DisplayRaidsLayer = '{{ display_raids }}';
         var _DisplayParksInS2CellsLayer = '{{ display_parks_in_s2_cells }}';
+        var _DisplayQuestsLayer = '{{ display_quests }}';
         var _DisplayEXGymsLayer = '{{ display_ex_gyms }}';
         var _DisplayWeatherLayer = '{{ display_weather }}';
         var _DisplayScanAreaLayer = '{{ display_scan_area }}';
@@ -75,17 +81,42 @@
           <h2>{{ area_name }} Settings<button id="settings_close_btn" type="button" class="close">×</button></h2>
       </div>
       <ul class="nav nav-pills nav-justified nav-settings">
-          <li class="active"><a href="#" data-panel="filters">Filters</a></li>
+          <li class="active"><a href="#" data-panel="raids_settings">Raids</a></li>
+          <li class="inactive"><a href="#" data-panel="quests_settings">Quests</a></li>
+          <li class="inactive"><a href="#" data-panel="pokemon_settings">Pokemon</a></li>
           <li><a href="#" data-panel="more">More</a></li>
           {{ show_donate_tab }}
           {{ show_announcements_tab }}
       </ul>
-      <div class="panel panel-default settings-panel active" data-panel="filters">
-          <div class="panel-heading">Filter Settings</div>
+      <div class="panel panel-default settings-panel active" data-panel="raids_settings">
+          <div class="panel-heading"><b>Raid Settings</b></div>
+          <div class="panel-body">Panel Content</div>
+      </div>
+      <div class="panel panel-default settings-panel" data-panel="quests_settings">
+          <div class="panel-heading"><b>Quest Filters</b></div>
+          <div class="panel-body">
+              <div class="quest_task_pokemon_label"><b>Pokemon Tasks  </b></div>
+              <div id="quest_pokemon_filters_group" class="btn-group" role="group" data-group="pokemon_tasks_buttons">
+                  <button type="button" class="btn btn-default" data-value="display_pokemon_tasks">Display Filters</button>
+                  <button type="button" class="btn btn-default" data-value="collapse_pokemon_tasks">Collapse</button>
+              </div>
+              <hr>
+              <div class="panel-body-pokemon">Pokemon Panel Content</div>
+              <div class="quest_task_items_label"><b>Item Tasks  </b></div>
+              <div id="quest_items_filters_group" class="btn-group" role="group" data-group="item_tasks_buttons">
+                  <button type="button" class="btn btn-default" data-value="display_item_tasks">Display Filters</button>
+                  <button type="button" class="btn btn-default" data-value="collapse_item_tasks">Collapse</button>
+              </div>
+              <hr>
+              <div class="panel-body-items">Items Panel Content</div>
+          </div>
+      </div>
+      <div class="panel panel-default settings-panel" data-panel="pokemon_settings">
+          <div class="panel-heading"><b>Pokemon Filters</b></div>
           <div class="panel-body">Panel Content</div>
       </div>
       <div class="panel panel-default settings-panel" data-panel="more">
-          <div class="panel-heading">More Settings</div>
+          <div class="panel-heading"><b>More Settings</b></div>
           <div class="panel-body">
               {{ show_form_menu_item }}
               <h5>Fixed markers opacity</h5>
@@ -227,7 +258,7 @@
       </div>
       {{ show_donate_tab_content }}
       <div class="panel panel-default settings-panel" data-panel="info">
-        <div class="panel-heading">Information/Announcements</div>
+        <div class="panel-heading"><b>Information/Announcements</b></div>
         <div class="panel-body">
         {{ announcements }}
         </div>
@@ -238,8 +269,8 @@
   <script src='static/js/leaflet.js'></script>
   <script src='static/js/leaflet.markercluster.js'></script>
   <script src='static/js/bootstrap.min.js'></script>
-  <script src='static/js/pokemon_names.js?319'></script>
-  <script src='static/js/main.js?411'></script>
+  <script src='static/js/pokemon_names.js?325'></script>
+  <script src='static/js/main.js?677'></script>
   <script src='static/js/ticker.js?319'></script>
   {{ extra_css_js }}
 </body>

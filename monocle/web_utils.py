@@ -4,7 +4,7 @@ from multiprocessing.managers import BaseManager, RemoteError
 from time import time
 
 from monocle import sanitized as conf
-from monocle.db import get_forts, Pokestop, session_scope, Sighting, Spawnpoint, Raid, Fort, FortSighting
+from monocle.db import get_forts, get_pokestops, get_grouped_quest_task, Pokestop, session_scope, Sighting, Spawnpoint, Raid, Fort, FortSighting
 from monocle.weather import Weather
 from monocle.utils import Units, get_address, dump_pickle, load_pickle
 from monocle.names import DAMAGE, MOVES, POKEMON
@@ -255,13 +255,41 @@ else:
 
 def get_pokestop_markers():
     with session_scope() as session:
-        pokestops = session.query(Pokestop)
+        pokestops = get_pokestops(session)
         return [{
+            'id': pokestop.id,
             'external_id': pokestop.external_id,
             'lat': pokestop.lat,
-            'lon': pokestop.lon
+            'lon': pokestop.lon,
+            'name': pokestop.name,
+            'url': pokestop.url,
+            'updated': pokestop.updated,
+            'quest_id': pokestop.quest_id,
+            'pokestop_id': pokestop.pokestop_id,
+            'quest_type': pokestop.quest_type,
+            'quest_type_raw': pokestop.quest_type_raw,
+            'item_type': pokestop.item_type,
+            'item_amount': pokestop.item_amount,
+            'item_id': pokestop.item_id,
+            'pokemon_id': pokestop.pokemon_id,
+            'quest_reward_type': pokestop.quest_reward_type,
+            'quest_reward_type_raw': pokestop.quest_reward_type_raw,
+            'quest_target': pokestop.quest_target,
+            'quest_task': pokestop.quest_task,
+            'quest_condition': pokestop.quest_condition,
+            'timestamp': pokestop.timestamp
         } for pokestop in pokestops]
 
+def get_quest_filter_options():
+    with session_scope() as session:
+        quests = get_grouped_quest_task(session)
+        return [{
+            'quest_task': quest.quest_task,
+            'quest_reward_type_raw': quest.quest_reward_type_raw,
+            'pokemon_id': quest.pokemon_id,
+            'item_id': quest.item_id,
+            'count': quest.count
+        } for quest in quests]
 
 def sighting_to_report_marker(sighting):
     return {
