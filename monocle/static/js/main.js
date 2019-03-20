@@ -654,13 +654,6 @@ function markPokestopComplete ( pokestop_id ) {
     }
 }
 
-function hideQuestTypes ( quest_marker_id ) {
-
-    moveQuestToLayer(quest_marker_id, 'hide_quests');
-
-}
-
-//GOHERE
 function getPokestopPopupContent (item) {
     var content = '<div class="pokestop-popup">';
     var timestamp = convertToTwelveHourTime(item.timestamp);
@@ -677,7 +670,7 @@ function getPokestopPopupContent (item) {
                    '</div>' +
                    '<div class="hide_quest_type_image_container">' +
                        '<div class="hide_quest_type_button_text">Hide Quest<br>Type</div>' +
-                       '<img class="hide_quest_type_button" src="static/img/hide_icon.png" onclick=moveQuestToLayer(\'' + quest_marker_id + '\',\'hide_quests\')>' +
+                       '<img class="hide_quest_type_button" src="static/img/hide_icon.png" onclick=moveQuestToLayer(\'' + quest_marker_id + '\',\'hide_quests\',\'' + item.pokemon_id + '\')>' +
                    '</div>' +
                '</div>';
     content += '<br><b>Task:</b> ' + item.quest_task;
@@ -2448,10 +2441,10 @@ $('#settings').on('click', '.settings-panel button', function () {
         var value = item.data('value');
         
         $("#pokemon_quests div.btn-group").each(function(){
-        var item = $(this);
-        var key = item.data('group');
+            var item = $(this);
+            var key = item.data('group');
 
-        item.children("button").removeClass("active").filter("[data-value='" + value + "']").addClass("active");
+            item.children("button").removeClass("active").filter("[data-value='" + value + "']").addClass("active");
         });
         item.removeClass("active");
         
@@ -2478,10 +2471,10 @@ $('#settings').on('click', '.settings-panel button', function () {
         var value = item.data('value');
 
         $("#item_quests div.btn-group").each(function(){
-        var item = $(this);
-        var key = item.data('group');
+            var item = $(this);
+            var key = item.data('group');
         
-        item.children("button").removeClass("active").filter("[data-value='" + value + "']").addClass("active");
+            item.children("button").removeClass("active").filter("[data-value='" + value + "']").addClass("active");
         });
         item.removeClass("active");
 
@@ -2736,6 +2729,49 @@ function moveQuestToLayer(key, layer) {
                 m.removeFrom(overlays.Quests);
             }
         }
+    }
+}
+
+function moveQuestToLayer(key, layer, pokemon_id) {
+    var questPreference = getPreference('quest_filter');
+    var quest_marker_id = key;
+    var quest_id = key.replace(/quest_filter-/g, '');
+    setPreference(quest_marker_id, layer);
+
+    for(var k in quest_markers) {
+        var m = quest_markers[k];
+
+        if ( m.raw.id === quest_marker_id ) {
+            if ( layer === 'display_pokemon_quests' || layer === 'display_item_quests' ) {
+                m.overlay = "Quests";
+                m.addTo(overlays.Quests);
+                m.removeFrom(hidden_overlays.FilteredQuests);
+            } else {
+                m.overlay = "FilteredQuests";
+                m.addTo(hidden_overlays.FilteredQuests);
+                m.removeFrom(overlays.Quests);
+            }
+        }
+    }
+
+    if ( pokemon_id != 0 ){
+        $("#pokemon_quests div.btn-group").each(function(){
+            var item = $(this);
+            var group = item.data('group');
+
+            if ( key === group ) {
+                item.children("button").removeClass("active").filter("[data-value='hide_pokemon_quests']").addClass("active");
+            }
+        });
+    } else {
+        $("#item_quests div.btn-group").each(function(){
+            var item = $(this);
+            var group = item.data('group');
+
+            if ( key === group ) {
+                item.children("button").removeClass("active").filter("[data-value='hide_item_quests']").addClass("active");
+            }
+        });
     }
 }
 
