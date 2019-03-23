@@ -660,7 +660,7 @@ function getPokestopPopupContent (item) {
     var datestamp = convertEpochToDate(item.timestamp);
     var quest_task = item.quest_task;
     var quest_marker_id = 'quest_filter-' + quest_task.replace(/\s+/g, '') + item.pokemon_id + item.item_id;
-  
+
     content += '<div class="pokestop_image_container"><img class="pokestop_image" src="' + item.url + '"></div>';
     content += '<b>' + item.name + '</b><br>';
     content += '<div class="popup_filter_buttons_container">' +
@@ -1529,12 +1529,12 @@ function addQuestsToSettings (data) {
             var str_item_id = '' + item.item_id;
             var pad = '0000';
             var image_id = pad.substring(0, pad.length - str_item_id.length) + str_item_id;
-            
+            //This needs to be fixed
             questsHtml_items += '<div class="quest_filters quest_button_column">';
             questsHtml_items +=     '<div id="item_quests" class="quest_button_container">' +
                                         '<div id="quest_id-' + quest_marker_id + '" class="btn-group" role="group" data-group="quest_filter-' + quest_marker_id + '">' +
-                                            '<button type="button" class="btn btn-default active" data-value="display_item_quests"><div class="quest_left_button_container">' + item.count + '</div></button>' +
-                                            '<button type="button" class="btn btn-default" data-value="hide_item_quests"><div class="quest_right_button_container"><img class="quest_settings_hide_buttons" src="static/img/hide_icon.png"></div></button>' +
+                                            '<button type="button" class="btn btn-default active" data-value="display_item_quests" data-pokemon_id="' + item.pokemon_id + '"><div class="quest_left_button_container">' + item.count + '</div></button>' +
+                                            '<button type="button" class="btn btn-default" data-value="hide_item_quests" data-pokemon_id="' + item.pokemon_id + '"><div class="quest_right_button_container"><img class="quest_settings_hide_buttons" src="static/img/hide_icon.png"></div></button>' +
                                         '</div>' +
                                     '</div>';
             questsHtml_items += '</div>';
@@ -1557,8 +1557,8 @@ function addQuestsToSettings (data) {
             questsHtml_pokemon += '<div class="quest_filters quest_button_column">';
             questsHtml_pokemon +=     '<div id="pokemon_quests" class="quest_button_container">' +
                                           '<div id="quest_id-' + quest_marker_id + '" class="btn-group" role="group" data-group="quest_filter-' + quest_marker_id + '">' +
-                                              '<button type="button" class="btn btn-default active" data-value="display_pokemon_quests"><div class="quest_left_button_container">' + item.count + '</div></button>' +
-                                              '<button type="button" class="btn btn-default" data-value="hide_pokemon_quests"><div class="quest_right_button_container"><img class="quest_settings_hide_buttons" src="static/img/hide_icon.png"></div></button>' +
+                                              '<button type="button" class="btn btn-default active" data-value="display_pokemon_quests" data-pokemon_id="' + item.pokemon_id + '"><div class="quest_left_button_container">' + item.count + '</div></button>' +
+                                              '<button type="button" class="btn btn-default" data-value="hide_pokemon_quests" data-pokemon_id="' + item.pokemon_id + '"><div class="quest_right_button_container"><img class="quest_settings_hide_buttons" src="static/img/hide_icon.png"></div></button>' +
                                           '</div>' +
                                       '</div>';
             questsHtml_pokemon += '</div>';
@@ -1937,13 +1937,18 @@ function onOverLayAdd(e) {
         display_button.addClass("active");
         setPreference("PARKS_IN_S2_CELLS_LAYER",'display');
     }
-
+    // Broken?
+    // display_quests
     if (e.name == 'Quests') {
-        var hide_button = $("#quests_layer button[data-value='hide_quests']");
-        var display_button = $("#quests_layer button[data-value='display_quests']");
+        var hide_item_button = $("#quests_layer button[data-value='hide_item_quests']");
+        var hide_pokemon_button = $("#quests_layer button[data-value='hide_pokemon_quests']");
+        var display_item_button = $("#quests_layer button[data-value='display_item_quests']");
+        var display_pokemon_button = $("#quests_layer button[data-value='display_pokemon_quests']");
 
-        hide_button.removeClass("active");
-        display_button.addClass("active");
+        hide_item_button.removeClass("active");
+        hide_pokemon_button.removeClass("active");
+        display_item_button.addClass("active");
+        display_pokemon_button.addClass("active");
         setPreference("QUESTS_LAYER",'display_quests');
     }
 
@@ -2046,14 +2051,19 @@ function onOverLayRemove(e) {
         display_button.removeClass("active");
         setPreference("PARKS_IN_S2_CELLS_LAYER",'hide');
     }
-
+    // Broken?
+    // hide_quests
     if (e.name == 'Quests') {
-        var hide_button = $("#quests_layer button[data-value='hide_quests']");
-        var display_button = $("#quests_layer button[data-value='display_quests']");
+        var hide_item_button = $("#quests_layer button[data-value='hide_item_quests']");
+        var hide_pokemon_button = $("#quests_layer button[data-value='hide_pokemon_quests']");
+        var display_item_button = $("#quests_layer button[data-value='display_item_quests']");
+        var display_pokemon_button = $("#quests_layer button[data-value='display_pokemon_quests']");
 
-        hide_button.addClass("active")
-        display_button.removeClass("active");
-        setPreference("QUESTS_LAYER",'hide_quests');
+        hide_item_button.addClass("active");
+        hide_pokemon_button.addClass("active");
+        display_item_button.removeClass("active");
+        display_pokemon_button.removeClass("active");
+        setPreference("QUESTS_LAYER",'display_quests');
     }
   
     if (e.name == 'EX_Gyms') {
@@ -2354,6 +2364,8 @@ $('#settings').on('click', '.settings-panel button', function () {
     var r_id = item.data('raid_id');
     var key = item.parent().data('group');
     var value = item.data('value');
+    var pokemon_id = item.data('pokemon_id');
+
     item.parent().children("button").removeClass("active");
     item.addClass("active");
 
@@ -2535,7 +2547,7 @@ $('#settings').on('click', '.settings-panel button', function () {
 
     if (key.indexOf('quest_filter-') > -1){
         // This is a quest's filter button
-        moveQuestToLayer(key, value);
+        moveQuestToLayer(key, value, pokemon_id);
     }else{
         setPreference(key, value);
     }
@@ -2725,7 +2737,7 @@ function moveQuestToLayer(key, layer) {
     var questPreference = getPreference('quest_filter');
     var quest_marker_id = key;
     setPreference(quest_marker_id, layer);
-  
+
     for(var k in quest_markers) {
         var m = quest_markers[k];
 
@@ -2771,16 +2783,24 @@ function moveQuestToLayer(key, layer, pokemon_id) {
             var group = item.data('group');
 
             if ( key === group ) {
-                item.children("button").removeClass("active").filter("[data-value='hide_pokemon_quests']").addClass("active");
+                if ( layer === 'display_pokemon_quests' ) {
+                    item.children("button").removeClass("active").filter("[data-value='display_pokemon_quests']").addClass("active");
+                } else {
+                    item.children("button").removeClass("active").filter("[data-value='hide_pokemon_quests']").addClass("active");
+                }
             }
         });
     } else {
         $("#item_quests div.btn-group").each(function(){
             var item = $(this);
             var group = item.data('group');
-
+ 
             if ( key === group ) {
-                item.children("button").removeClass("active").filter("[data-value='hide_item_quests']").addClass("active");
+                if ( layer === 'display_item_quests' ) {
+                    item.children("button").removeClass("active").filter("[data-value='display_item_quests']").addClass("active");
+                } else {
+                    item.children("button").removeClass("active").filter("[data-value='hide_item_quests']").addClass("active");
+                }
             }
         });
     }
