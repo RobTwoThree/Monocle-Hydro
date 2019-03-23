@@ -1824,6 +1824,9 @@ map.whenReady(function () {
         $('.hide-marker').show(); //Show hide My Location marker
     });
 
+    // This auto centers map based on user's location
+    autoCenter();
+
     getWeather();
     getExGyms();
     getPokemon();
@@ -1852,6 +1855,14 @@ map.whenReady(function () {
         setInterval(getWorkers, 30000);
     }
 });
+
+function autoCenter () {
+    var currentZoom = map.getZoom();
+    map.locate({ enableHighAccurracy: true, setView: true, maxZoom: currentZoom });
+
+    map.setZoom(currentZoom);
+    map.on('locationfound', onLocationFound);
+}
 
 map.on('overlayadd', onOverLayAdd);
 function onOverLayAdd(e) {
