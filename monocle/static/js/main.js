@@ -1137,11 +1137,11 @@ function addPokemonToMap (data, map) {
         var marker = PokemonMarker(item);
         
         if (typeof marker.overlay === 'undefined') {
-            console.log("undefined detected. abort!");
-        }
-        
-        if (marker.overlay !== "Hidden"){
-            marker.addTo(overlays[marker.overlay])
+            console.log("undefined detected. Abort!");
+        } else {
+            if (marker.overlay !== "Hidden"){
+                marker.addTo(overlays[marker.overlay])
+            }
         }
     });
     updatePokemonTime();
