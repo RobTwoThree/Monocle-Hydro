@@ -84,10 +84,6 @@ console.log("pokemon_icon_id_form: " + pokemon_icon_id_form);
 
         if (getPreference("icon_theme_buttons") === 'og')
         {
-            //if (_spritesheet_g3v4.indexOf(this.options.iconID) > -1)
-            //{
-            //    spritesheet = 'g3v4-sprite';
-            //}
             if (_spritesheet_g1.indexOf(this.options.iconID) > -1)
             {
                 spritesheet = 'g1v1-sprite';
@@ -112,27 +108,6 @@ console.log("pokemon_icon_id_form: " + pokemon_icon_id_form);
             {
                 spritesheet = 'gXv1-sprite';
             }
-/*
-            switch (pokemon_icon_id){
-                case (_spritesheet_g1.indexOf(pokemon_icon_id)):
-                    spritesheet = 'g1v1-sprite';
-                    break;
-                case (_spritesheet_g2.indexOf(pokemon_icon_id)):
-                    spritesheet = 'g2v1-sprite';
-                    break;
-                case (_spritesheet_g3.indexOf(pokemon_icon_id)):
-                    spritesheet = 'g3v5-sprite';
-                    break;
-                case (_spritesheet_g4.indexOf(pokemon_icon_id)):
-                    spritesheet = 'g4v1-sprite';
-                    break;
-                case (_spritesheet_gX.indexOf(pokemon_icon_id)):
-                    spritesheet = 'gXv1-sprite';
-                    break;
-                default:
-                    spritesheet = 'unknown id: ' + pokemon_icon_id;
-            }
-*/
         }
         
         if ( this.options.iv > 0 && this.options.iv < 80 ) {
