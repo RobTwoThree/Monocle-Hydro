@@ -278,11 +278,11 @@ var RaidIcon = L.Icon.extend({
             var str_pokemon_id = '' + this.options.raid_pokemon_id;
             var pad = '0000';
             var image_id = pad.substring(0, pad.length - str_pokemon_id.length) + str_pokemon_id;
-            
+console.log("image_id: " + image_id);
             div.innerHTML =
                 '<div class="raidmarker">' +
                     '<div class="boss_raid_container">' +
-                        '<img class="boss_during_raid" src="static/monocle-icons/larger-icons/' + image_id + '.png?100" />' +
+                        '<img class="boss_during_raid" src="static/monocle-icons/larger-icons/' + image_id + '.png?101" />' +
                     '</div>' +
                     '<div class="raid_platform_container">' +
                         '<img class="pre_raid_icon" src="static/monocle-icons/raids/raid_start_level_' + this.options.raid_level + '.png?201" />' +
