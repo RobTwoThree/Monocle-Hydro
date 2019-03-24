@@ -920,7 +920,7 @@
 .boosted_popup {
     position: relative;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 0px;
     padding-bottom: 0px;
 }
 
