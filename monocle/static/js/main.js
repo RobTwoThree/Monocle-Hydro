@@ -641,7 +641,7 @@ function getRaidPopupContent (item) {
          content += '<br><b>Weak Against:</b><br><img src="static/monocle-icons/raids/counter-' + item.raid_pokemon_id + '.png">';
     }
     */
-    
+  
     content += '<br><br><a href="https://www.google.com/maps/?daddr='+ item.lat + ','+ item.lon +'" target="_blank" title="See in Google Maps">Get Directions</a>';
     if (item.raid_pokemon_id !== 0) {
         content += '&nbsp; | &nbsp;';
@@ -1135,6 +1135,11 @@ function addPokemonToMap (data, map) {
             return;
         }
         var marker = PokemonMarker(item);
+        
+        if (typeof marker.overlay === 'undefined') {
+            console.log("undefined detected. abort!");
+        }
+        
         if (marker.overlay !== "Hidden"){
             marker.addTo(overlays[marker.overlay])
         }
