@@ -88,27 +88,27 @@ console.log("pokemon_icon_id_form: " + pokemon_icon_id_form);
             //{
             //    spritesheet = 'g3v4-sprite';
             //}
-            if (_spritesheet_g1v1.indexOf(this.options.iconID) > -1)
+            if (_spritesheet_g1.indexOf(this.options.iconID) > -1)
             {
                 spritesheet = 'g1v1-sprite';
             }
             
-            if (_spritesheet_g2v1.indexOf(this.options.iconID) > -1)
+            if (_spritesheet_g2.indexOf(this.options.iconID) > -1)
             {
                 spritesheet = 'g2v1-sprite';
             }
 
-            if (_spritesheet_g3v5.indexOf(this.options.iconID) > -1)
+            if (_spritesheet_g3.indexOf(this.options.iconID) > -1)
             {
                 spritesheet = 'g3v5-sprite';
             }
             
-            if (_spritesheet_g4v1.indexOf(this.options.iconID) > -1)
+            if (_spritesheet_g4.indexOf(this.options.iconID) > -1)
             {
                 spritesheet = 'g4v1-sprite';
             }
 
-            if (_spritesheet_gXv1.indexOf(this.options.iconID) > -1)
+            if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
             {
                 spritesheet = 'gXv1-sprite';
             }
