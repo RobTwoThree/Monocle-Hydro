@@ -275,10 +275,11 @@ var RaidIcon = L.Icon.extend({
         }
 
         if (this.options.raid_pokemon_id !== 0) {
-            var str_pokemon_id = '' + this.options.raid_pokemon_id;
-            var pad = '0000';
-            var image_id = pad.substring(0, pad.length - str_pokemon_id.length) + str_pokemon_id;
-console.log("image_id: " + image_id);
+            //var str_pokemon_id = '' + this.options.raid_pokemon_id;
+            //var pad = '0000';
+            //var image_id = pad.substring(0, pad.length - str_pokemon_id.length) + str_pokemon_id;
+            var image_id = this.options.raid_pokemon_id + '_00';
+
             div.innerHTML =
                 '<div class="raidmarker">' +
                     '<div class="boss_raid_container">' +
