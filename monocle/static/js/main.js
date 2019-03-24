@@ -57,6 +57,7 @@ var PokemonIcon = L.Icon.extend({
         var form_text = '';
         var pokemon_icon_id = this.options.iconID;
         var pokemon_icon_id_form = this.options.iconID + '_' + this.options.form;
+console.log("this.options.form: " + this.options.form);
         var type_icon_html = getTypeIcons(this.options.iconID);
         var type_icon_html_above_iv = getTypeIconsAboveIV(this.options.iconID);
         var boosted_icon_html = checkBoost(this.options.boost_status);
