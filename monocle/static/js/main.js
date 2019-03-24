@@ -23,9 +23,7 @@ var _light = L.tileLayer(_LightMapProviderUrl, {opacity: _LightMapOpacity, attri
 
 // Load spritesheet ranges
 for (var i = 0; i <= _pokemon_count_gen_1; i++) { _spritesheet_g1.push(i); }
-for (var i = _pokemon_count_gen_1 + 1; i <= _pokemon_count_gen_2; i++) {
-console.log("i = " + i);
-_spritesheet_g2.push(i); }
+for (var i = _pokemon_count_gen_1 + 1; i <= _pokemon_count_gen_2; i++) { _spritesheet_g2.push(i); }
 for (var i = _pokemon_count_gen_2 + 1; i <= _pokemon_count_gen_3; i++) { _spritesheet_g3.push(i); }
 for (var i = _pokemon_count_gen_3 + 1; i <= _pokemon_count_gen_4; i++) { _spritesheet_g4.push(i); }
 _spritesheet_gX = [808,809];
@@ -90,7 +88,31 @@ console.log("pokemon_icon_id_form: " + pokemon_icon_id_form);
             //{
             //    spritesheet = 'g3v4-sprite';
             //}
+            if (_spritesheet_g1v1.indexOf(this.options.iconID) > -1)
+            {
+                spritesheet = 'g1v1-sprite';
+            }
             
+            if (_spritesheet_g2v1.indexOf(this.options.iconID) > -1)
+            {
+                spritesheet = 'g2v1-sprite';
+            }
+
+            if (_spritesheet_g3v5.indexOf(this.options.iconID) > -1)
+            {
+                spritesheet = 'g3v5-sprite';
+            }
+            
+            if (_spritesheet_g4v1.indexOf(this.options.iconID) > -1)
+            {
+                spritesheet = 'g4v1-sprite';
+            }
+
+            if (_spritesheet_gXv1.indexOf(this.options.iconID) > -1)
+            {
+                spritesheet = 'gXv1-sprite';
+            }
+/*
             switch (pokemon_icon_id){
                 case (_spritesheet_g1.indexOf(pokemon_icon_id)):
                     spritesheet = 'g1v1-sprite';
@@ -110,6 +132,7 @@ console.log("pokemon_icon_id_form: " + pokemon_icon_id_form);
                 default:
                     spritesheet = 'unknown id: ' + pokemon_icon_id;
             }
+*/
         }
         
         if ( this.options.iv > 0 && this.options.iv < 80 ) {
