@@ -23,7 +23,9 @@ var _light = L.tileLayer(_LightMapProviderUrl, {opacity: _LightMapOpacity, attri
 
 // Load spritesheet ranges
 for (var i = 0; i <= _pokemon_count_gen_1; i++) { _spritesheet_g1.push(i); }
-for (var i = _pokemon_count_gen_1 + 1; i <= _pokemon_count_gen_2; i++) { _spritesheet_g2.push(i); }
+for (var i = _pokemon_count_gen_1 + 1; i <= _pokemon_count_gen_2; i++) {
+console.log("i = " + i);
+_spritesheet_g2.push(i); }
 for (var i = _pokemon_count_gen_2 + 1; i <= _pokemon_count_gen_3; i++) { _spritesheet_g3.push(i); }
 for (var i = _pokemon_count_gen_3 + 1; i <= _pokemon_count_gen_4; i++) { _spritesheet_g4.push(i); }
 _spritesheet_gX = [808,809];
