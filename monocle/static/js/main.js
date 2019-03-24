@@ -275,10 +275,14 @@ var RaidIcon = L.Icon.extend({
         }
 
         if (this.options.raid_pokemon_id !== 0) {
+            var str_pokemon_id = '' + this.options.raid_pokemon_id;
+            var pad = '0000';
+            var image_id = pad.substring(0, pad.length - str_pokemon_id.length) + str_pokemon_id;
+            
             div.innerHTML =
                 '<div class="raidmarker">' +
                     '<div class="boss_raid_container">' +
-                        '<img class="boss_during_raid" src="static/monocle-icons/larger-icons/' + this.options.raid_pokemon_id + '.png?100" />' +
+                        '<img class="boss_during_raid" src="static/monocle-icons/larger-icons/' + image_id + '.png?100" />' +
                     '</div>' +
                     '<div class="raid_platform_container">' +
                         '<img class="pre_raid_icon" src="static/monocle-icons/raids/raid_start_level_' + this.options.raid_level + '.png?201" />' +
@@ -906,6 +910,11 @@ function PokemonMarker (raw) {
             if ( marker.overlay === "Pokemon_Gen3" ) {
                 overlays.Pokemon_Gen3.removeLayer(marker);
                 overlays.Pokemon_Gen3.refreshClusters(marker);
+            }
+
+            if ( marker.overlay === "Pokemon_Gen4" ) {
+                overlays.Pokemon_Gen4.removeLayer(marker);
+                overlays.Pokemon_Gen4.refreshClusters(marker);
             }
             
             if ( marker.overlay === "FilteredPokemon" ) {
@@ -1937,8 +1946,7 @@ function onOverLayAdd(e) {
         display_button.addClass("active");
         setPreference("PARKS_IN_S2_CELLS_LAYER",'display');
     }
-    // Broken?
-    // display_quests
+
     if (e.name == 'Quests') {
         var hide_item_button = $("#quests_layer button[data-value='hide_item_quests']");
         var hide_pokemon_button = $("#quests_layer button[data-value='hide_pokemon_quests']");
@@ -2025,6 +2033,15 @@ function onOverLayRemove(e) {
         setPreference("POKEMON_GEN3_LAYER",'hide');
     }
 
+    if (e.name == 'Pokemon_Gen4') {
+        var hide_button = $("#pokemon_gen4_layer button[data-value='hide']");
+        var display_button = $("#pokemon_gen4_layer button[data-value='display']");
+      
+        hide_button.addClass("active");
+        display_button.removeClass("active");
+        setPreference("POKEMON_GEN4_LAYER",'hide');
+    }
+
     if (e.name == 'Gyms') {
         var hide_button = $("#gyms_layer button[data-value='hide']");
         var display_button = $("#gyms_layer button[data-value='display']");
@@ -2063,7 +2080,7 @@ function onOverLayRemove(e) {
         hide_pokemon_button.addClass("active");
         display_item_button.removeClass("active");
         display_pokemon_button.removeClass("active");
-        setPreference("QUESTS_LAYER",'display_quests');
+        setPreference("QUESTS_LAYER",'hide_quests');
     }
   
     if (e.name == 'EX_Gyms') {
@@ -3524,10 +3541,12 @@ function setSettingsDefaults(){
         _defaultSettings['POKEMON_GEN1_LAYER'] = "display";
         _defaultSettings['POKEMON_GEN2_LAYER'] = "display";
         _defaultSettings['POKEMON_GEN3_LAYER'] = "display";
+        _defaultSettings['POKEMON_GEN4_LAYER'] = "display";
     } else {
         _defaultSettings['POKEMON_GEN1_LAYER'] = "hide";
         _defaultSettings['POKEMON_GEN2_LAYER'] = "hide";
         _defaultSettings['POKEMON_GEN3_LAYER'] = "hide";
+        _defaultSettings['POKEMON_GEN4_LAYER'] = "hide";
     }
     if (_DisplayGymsLayer === 'True') {
         _defaultSettings['GYMS_LAYER'] = "display";
@@ -3700,6 +3719,12 @@ if ( getPreference("POKEMON_GEN3_LAYER") === "display" ) {
     map.addLayer(overlays.Pokemon_Gen3);
 } else {
     map.removeLayer(overlays.Pokemon_Gen3);
+}
+
+if ( getPreference("POKEMON_GEN4_LAYER") === "display" ) {
+    map.addLayer(overlays.Pokemon_Gen4);
+} else {
+    map.removeLayer(overlays.Pokemon_Gen4);
 }
 
 if ( getPreference("GYMS_LAYER") === "display" ) {

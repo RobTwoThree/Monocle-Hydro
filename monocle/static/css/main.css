@@ -536,6 +536,10 @@
     z-index: 1000;
 }
 
+.splash_container a{
+    color: #ffcc00;
+}
+
 .splash_text {
     color: white;
     text-align: center;
@@ -1094,7 +1098,7 @@
 }
 
 a{
-    color: #ffcc00;
+    color: #000000;
 }
 
 }
