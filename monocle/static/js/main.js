@@ -62,7 +62,6 @@ var PokemonIcon = L.Icon.extend({
             form = this.options.form;
         }
         var pokemon_icon_id_form = this.options.iconID + '_' + form;
-console.log("pokemon_icon_id_form: " + pokemon_icon_id_form);
         var type_icon_html = getTypeIcons(this.options.iconID);
         var type_icon_html_above_iv = getTypeIconsAboveIV(this.options.iconID);
         var boosted_icon_html = checkBoost(this.options.boost_status);
@@ -160,7 +159,6 @@ console.log("pokemon_icon_id_form: " + pokemon_icon_id_form);
                 boosted_icon_html +
                 '</div>';
         }else{
-console.log("spritesheet call: " + spritesheet + '-' + getPreference("icon_theme_buttons") + '-' + pokemon_icon_id_form);
             div.innerHTML =
                 '<div class="pokemarker">' +
                     '<div class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '">' +
@@ -903,9 +901,7 @@ function PokemonMarker (raw) {
     });
     marker.setOpacity(getOpacity(marker.raw));
     marker.opacityInterval = setInterval(function () {
-        if (typeof marker.overlay === 'undefined') {
-            console.log("undefined detected. Abort!");
-        } else {
+        if (typeof marker.overlay !== 'undefined') {
             if (marker.overlay === "Hidden" || overlays[marker.overlay].hidden) {
                 return;
             }
@@ -1147,9 +1143,7 @@ function addPokemonToMap (data, map) {
         }
         var marker = PokemonMarker(item);
         
-        if (typeof marker.overlay === 'undefined') {
-            console.log("undefined detected. Abort!");
-        } else {
+        if (typeof marker.overlay !== 'undefined') {
             if (marker.overlay !== "Hidden"){
                 marker.addTo(overlays[marker.overlay])
             }
