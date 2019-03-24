@@ -1043,6 +1043,7 @@ def get_grouped_quest_task(session):
                 item_id,
                 count(*) AS count
             FROM quests
+            WHERE timestamp > unix_timestamp(current_date)
             GROUP BY quest_task, quest_reward_type_raw, pokemon_id, item_id
         ''').fetchall()
 
