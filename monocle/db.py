@@ -1072,6 +1072,7 @@ def get_pokestops(session):
             q.timestamp
         FROM quests q
         JOIN pokestops ps ON ps.id=q.pokestop_id
+        WHERE q.timestamp > unix_timestamp(current_date)
     ''').fetchall()
 
 def _get_forts_sqlite(session):
