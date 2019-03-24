@@ -160,6 +160,7 @@ console.log("pokemon_icon_id_form: " + pokemon_icon_id_form);
                 boosted_icon_html +
                 '</div>';
         }else{
+console.log("spritesheet call: " + spritesheet + '-' + getPreference("icon_theme_buttons") + '-' + pokemon_icon_id_form);
             div.innerHTML =
                 '<div class="pokemarker">' +
                     '<div class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '">' +
