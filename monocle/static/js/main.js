@@ -500,9 +500,9 @@ function getPopupContent (item, boost_status) {
         content += '<img id="type" class="type-' + pokemon_name_type[item.pokemon_id][3] + '" src="static/img/blank_1x1.png">';
     }
     content += '</div>';
-console.log("boost_status: " + boost_status);
+
     if ( boost_status != "normal" ) {
-        content += '<div class="boosted_popup"><img id="weather" class="weather_' + weather[parseInt(item.weather_cell_id)].condition + '_' + day[weather[parseInt(item.weather_cell_id)].day] + '" src="static/img/blank_1x1.png"><div class="boosted_popup_text"><b>Boosted</b></div></div>';
+        content += '<div class="boosted_popup"><div class="boosted_popup_text"><b>Boosted</b></div></div>';
     }
   
     content += '<div class="pokemon_popup_text">';
