@@ -896,8 +896,12 @@ function PokemonMarker (raw) {
     });
     marker.setOpacity(getOpacity(marker.raw));
     marker.opacityInterval = setInterval(function () {
-        if (marker.overlay === "Hidden" || overlays[marker.overlay].hidden) {
-            return;
+        if (typeof marker.overlay === 'undefined') {
+            console.log("undefined detected. Abort!");
+        } else {
+            if (marker.overlay === "Hidden" || overlays[marker.overlay].hidden) {
+                return;
+            }
         }
         var diff = marker.raw.expires_at - new Date().getTime() / 1000;
         if (diff > 0) {
