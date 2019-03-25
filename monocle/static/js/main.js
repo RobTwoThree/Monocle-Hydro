@@ -3361,11 +3361,22 @@ function populateSettingsPanels(){
             '</div><br>';
   
     for (var i = 1; i <= _pokemon_count_gen_1; i++){
+        var spritesheet = 'sprite';
+
+        if (getPreference("icon_theme_buttons") === 'og')
+        {
+            if (_spritesheet_g1.indexOf(i) > -1)
+            {
+                spritesheet = 'g1v1-sprite';
+            }
+          
+        }
+      
         var partHtml =
             '<div class="filter_buttons_group">' +
                 '<div class="filter_container">' +
                     '<div class="filter_sprite_container">' +
-                        '<div id="menu" class="sprite-' + getPreference("icon_theme_buttons") + '"><span class="sprite-' + getPreference("icon_theme_buttons") + '-'+i+'"></span></div>' +
+                        '<div id="menu" class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '"><span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-'+i+'_00"></span></div>' +
                     '</div>' +
                     '<div class="filter_button_container">' +
                         '<div class="btn-group" role="group" data-group="filter-' + i + '">' +
@@ -3405,11 +3416,22 @@ function populateSettingsPanels(){
             '</div><br>';
 
     for (var i = _pokemon_count_gen_1 + 1; i <= _pokemon_count_gen_2; i++){
+        var spritesheet = 'sprite';
+
+        if (getPreference("icon_theme_buttons") === 'og')
+        {
+            if (_spritesheet_g2.indexOf(i) > -1)
+            {
+                spritesheet = 'g2v1-sprite';
+            }
+          
+        }
+      
         var partHtml =
             '<div class="filter_buttons_group">' +
                 '<div class="filter_container">' +
                     '<div class="filter_sprite_container">' +
-                        '<div id="menu" class="sprite-' + getPreference("icon_theme_buttons") + '"><span class="sprite-' + getPreference("icon_theme_buttons") + '-'+i+'"></span></div>' +
+                        '<div id="menu" class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '"><span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-'+i+'_00"></span></div>' +
                     '</div>' +
                     '<div class="filter_button_container">' +
                         '<div class="btn-group" role="group" data-group="filter-' + i + '">' +
