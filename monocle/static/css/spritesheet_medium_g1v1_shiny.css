@@ -1,0 +1,1419 @@
+.g1v1-sprite-shiny span {
+    background-image: url(../img/spritesheet_medium_g1v1_shiny.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+#menu.g1v1-sprite-shiny span {
+    float: left;
+}
+
+.g1v1-sprite-shiny-100_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -5px;
+}
+
+.g1v1-sprite-shiny-101_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -5px;
+}
+
+.g1v1-sprite-shiny-102_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -5px;
+}
+
+.g1v1-sprite-shiny-103_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -5px;
+}
+
+.g1v1-sprite-shiny-103_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -5px;
+}
+
+.g1v1-sprite-shiny-104_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -5px;
+}
+
+.g1v1-sprite-shiny-105_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -5px;
+}
+
+.g1v1-sprite-shiny-105_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -5px;
+}
+
+.g1v1-sprite-shiny-106_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -5px;
+}
+
+.g1v1-sprite-shiny-107_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -5px;
+}
+
+.g1v1-sprite-shiny-108_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -5px;
+}
+
+.g1v1-sprite-shiny-109_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -5px;
+}
+
+.g1v1-sprite-shiny-10_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -5px;
+}
+
+.g1v1-sprite-shiny-110_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -5px;
+}
+
+.g1v1-sprite-shiny-111_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -5px;
+}
+
+.g1v1-sprite-shiny-111_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -63px;
+}
+
+.g1v1-sprite-shiny-112_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -63px;
+}
+
+.g1v1-sprite-shiny-112_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -63px;
+}
+
+.g1v1-sprite-shiny-113_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -63px;
+}
+
+.g1v1-sprite-shiny-114_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -63px;
+}
+
+.g1v1-sprite-shiny-115_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -63px;
+}
+
+.g1v1-sprite-shiny-116_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -63px;
+}
+
+.g1v1-sprite-shiny-117_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -63px;
+}
+
+.g1v1-sprite-shiny-118_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -63px;
+}
+
+.g1v1-sprite-shiny-118_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -63px;
+}
+
+.g1v1-sprite-shiny-119_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -63px;
+}
+
+.g1v1-sprite-shiny-119_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -63px;
+}
+
+.g1v1-sprite-shiny-11_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -63px;
+}
+
+.g1v1-sprite-shiny-120_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -63px;
+}
+
+.g1v1-sprite-shiny-121_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -63px;
+}
+
+.g1v1-sprite-shiny-122_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -121px;
+}
+
+.g1v1-sprite-shiny-123_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -121px;
+}
+
+.g1v1-sprite-shiny-123_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -121px;
+}
+
+.g1v1-sprite-shiny-124_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -121px;
+}
+
+.g1v1-sprite-shiny-125_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -121px;
+}
+
+.g1v1-sprite-shiny-126_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -121px;
+}
+
+.g1v1-sprite-shiny-127_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -121px;
+}
+
+.g1v1-sprite-shiny-128_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -121px;
+}
+
+.g1v1-sprite-shiny-129_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -121px;
+}
+
+.g1v1-sprite-shiny-129_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -121px;
+}
+
+.g1v1-sprite-shiny-12_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -121px;
+}
+
+.g1v1-sprite-shiny-12_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -121px;
+}
+
+.g1v1-sprite-shiny-130_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -121px;
+}
+
+.g1v1-sprite-shiny-130_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -121px;
+}
+
+.g1v1-sprite-shiny-131_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -121px;
+}
+
+.g1v1-sprite-shiny-132_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -179px;
+}
+
+.g1v1-sprite-shiny-133_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -179px;
+}
+
+.g1v1-sprite-shiny-133_00_07 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -179px;
+}
+
+.g1v1-sprite-shiny-134_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -179px;
+}
+
+.g1v1-sprite-shiny-134_00_07 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -179px;
+}
+
+.g1v1-sprite-shiny-135_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -179px;
+}
+
+.g1v1-sprite-shiny-135_00_07 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -179px;
+}
+
+.g1v1-sprite-shiny-136_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -179px;
+}
+
+.g1v1-sprite-shiny-136_00_07 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -179px;
+}
+
+.g1v1-sprite-shiny-137_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -179px;
+}
+
+.g1v1-sprite-shiny-138_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -179px;
+}
+
+.g1v1-sprite-shiny-139_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -179px;
+}
+
+.g1v1-sprite-shiny-13_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -179px;
+}
+
+.g1v1-sprite-shiny-140_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -179px;
+}
+
+.g1v1-sprite-shiny-141_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -179px;
+}
+
+.g1v1-sprite-shiny-142_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -237px;
+}
+
+.g1v1-sprite-shiny-143_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -237px;
+}
+
+.g1v1-sprite-shiny-144_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -237px;
+}
+
+.g1v1-sprite-shiny-145_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -237px;
+}
+
+.g1v1-sprite-shiny-146_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -237px;
+}
+
+.g1v1-sprite-shiny-147_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -237px;
+}
+
+.g1v1-sprite-shiny-148_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -237px;
+}
+
+.g1v1-sprite-shiny-149_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -237px;
+}
+
+.g1v1-sprite-shiny-14_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -237px;
+}
+
+.g1v1-sprite-shiny-150_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -237px;
+}
+
+.g1v1-sprite-shiny-151_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -237px;
+}
+
+.g1v1-sprite-shiny-15_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -237px;
+}
+
+.g1v1-sprite-shiny-16_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -237px;
+}
+
+.g1v1-sprite-shiny-17_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -237px;
+}
+
+.g1v1-sprite-shiny-18_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -237px;
+}
+
+.g1v1-sprite-shiny-19_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -295px;
+}
+
+.g1v1-sprite-shiny-19_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -295px;
+}
+
+.g1v1-sprite-shiny-19_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -295px;
+}
+
+.g1v1-sprite-shiny-1_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -295px;
+}
+
+.g1v1-sprite-shiny-20_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -295px;
+}
+
+.g1v1-sprite-shiny-20_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -295px;
+}
+
+.g1v1-sprite-shiny-20_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -295px;
+}
+
+.g1v1-sprite-shiny-21_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -295px;
+}
+
+.g1v1-sprite-shiny-22_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -295px;
+}
+
+.g1v1-sprite-shiny-23_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -295px;
+}
+
+.g1v1-sprite-shiny-24_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -295px;
+}
+
+.g1v1-sprite-shiny-25_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -295px;
+}
+
+.g1v1-sprite-shiny-25_00_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -295px;
+}
+
+.g1v1-sprite-shiny-25_00_02 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -295px;
+}
+
+.g1v1-sprite-shiny-25_00_03 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -295px;
+}
+
+.g1v1-sprite-shiny-25_00_04 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -353px;
+}
+
+.g1v1-sprite-shiny-25_00_05 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -353px;
+}
+
+.g1v1-sprite-shiny-25_00_06 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -353px;
+}
+
+.g1v1-sprite-shiny-25_00_07 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -353px;
+}
+
+.g1v1-sprite-shiny-25_00_08 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -353px;
+}
+
+.g1v1-sprite-shiny-25_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -353px;
+}
+
+.g1v1-sprite-shiny-25_01_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -353px;
+}
+
+.g1v1-sprite-shiny-25_01_02 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -353px;
+}
+
+.g1v1-sprite-shiny-25_01_03 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -353px;
+}
+
+.g1v1-sprite-shiny-25_01_04 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -353px;
+}
+
+.g1v1-sprite-shiny-25_01_05 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -353px;
+}
+
+.g1v1-sprite-shiny-25_01_06 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -353px;
+}
+
+.g1v1-sprite-shiny-25_01_07 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -353px;
+}
+
+.g1v1-sprite-shiny-25_01_08 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -353px;
+}
+
+.g1v1-sprite-shiny-26_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -353px;
+}
+
+.g1v1-sprite-shiny-26_00_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -411px;
+}
+
+.g1v1-sprite-shiny-26_00_02 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -411px;
+}
+
+.g1v1-sprite-shiny-26_00_03 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -411px;
+}
+
+.g1v1-sprite-shiny-26_00_04 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -411px;
+}
+
+.g1v1-sprite-shiny-26_00_05 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -411px;
+}
+
+.g1v1-sprite-shiny-26_00_06 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -411px;
+}
+
+.g1v1-sprite-shiny-26_00_07 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -411px;
+}
+
+.g1v1-sprite-shiny-26_00_08 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -411px;
+}
+
+.g1v1-sprite-shiny-26_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -411px;
+}
+
+.g1v1-sprite-shiny-26_01_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -411px;
+}
+
+.g1v1-sprite-shiny-26_01_02 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -411px;
+}
+
+.g1v1-sprite-shiny-26_01_03 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -411px;
+}
+
+.g1v1-sprite-shiny-26_01_04 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -411px;
+}
+
+.g1v1-sprite-shiny-26_01_05 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -411px;
+}
+
+.g1v1-sprite-shiny-26_01_06 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -411px;
+}
+
+.g1v1-sprite-shiny-26_01_07 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -469px;
+}
+
+.g1v1-sprite-shiny-26_01_08 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -469px;
+}
+
+.g1v1-sprite-shiny-26_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -469px;
+}
+
+.g1v1-sprite-shiny-26_61_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -469px;
+}
+
+.g1v1-sprite-shiny-26_61_02 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -469px;
+}
+
+.g1v1-sprite-shiny-26_61_03 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -469px;
+}
+
+.g1v1-sprite-shiny-26_61_04 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -469px;
+}
+
+.g1v1-sprite-shiny-26_61_05 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -469px;
+}
+
+.g1v1-sprite-shiny-27_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -469px;
+}
+
+.g1v1-sprite-shiny-27_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -469px;
+}
+
+.g1v1-sprite-shiny-28_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -469px;
+}
+
+.g1v1-sprite-shiny-28_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -469px;
+}
+
+.g1v1-sprite-shiny-29_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -469px;
+}
+
+.g1v1-sprite-shiny-2_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -469px;
+}
+
+.g1v1-sprite-shiny-30_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -469px;
+}
+
+.g1v1-sprite-shiny-31_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -527px;
+}
+
+.g1v1-sprite-shiny-32_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -527px;
+}
+
+.g1v1-sprite-shiny-33_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -527px;
+}
+
+.g1v1-sprite-shiny-34_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -527px;
+}
+
+.g1v1-sprite-shiny-35_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -527px;
+}
+
+.g1v1-sprite-shiny-36_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -527px;
+}
+
+.g1v1-sprite-shiny-37_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -527px;
+}
+
+.g1v1-sprite-shiny-37_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -527px;
+}
+
+.g1v1-sprite-shiny-38_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -527px;
+}
+
+.g1v1-sprite-shiny-38_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -527px;
+}
+
+.g1v1-sprite-shiny-39_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -527px;
+}
+
+.g1v1-sprite-shiny-3_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -527px;
+}
+
+.g1v1-sprite-shiny-3_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -527px;
+}
+
+.g1v1-sprite-shiny-40_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -527px;
+}
+
+.g1v1-sprite-shiny-41_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -527px;
+}
+
+.g1v1-sprite-shiny-41_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -585px;
+}
+
+.g1v1-sprite-shiny-42_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -585px;
+}
+
+.g1v1-sprite-shiny-42_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -585px;
+}
+
+.g1v1-sprite-shiny-43_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -585px;
+}
+
+.g1v1-sprite-shiny-44_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -585px;
+}
+
+.g1v1-sprite-shiny-44_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -585px;
+}
+
+.g1v1-sprite-shiny-45_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -585px;
+}
+
+.g1v1-sprite-shiny-45_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -585px;
+}
+
+.g1v1-sprite-shiny-46_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -585px;
+}
+
+.g1v1-sprite-shiny-47_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -585px;
+}
+
+.g1v1-sprite-shiny-48_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -585px;
+}
+
+.g1v1-sprite-shiny-49_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -585px;
+}
+
+.g1v1-sprite-shiny-4_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -585px;
+}
+
+.g1v1-sprite-shiny-50_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -585px;
+}
+
+.g1v1-sprite-shiny-50_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -585px;
+}
+
+.g1v1-sprite-shiny-51_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -643px;
+}
+
+.g1v1-sprite-shiny-51_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -643px;
+}
+
+.g1v1-sprite-shiny-52_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -643px;
+}
+
+.g1v1-sprite-shiny-52_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -643px;
+}
+
+.g1v1-sprite-shiny-53_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -643px;
+}
+
+.g1v1-sprite-shiny-53_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -643px;
+}
+
+.g1v1-sprite-shiny-54_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -643px;
+}
+
+.g1v1-sprite-shiny-55_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -643px;
+}
+
+.g1v1-sprite-shiny-56_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -643px;
+}
+
+.g1v1-sprite-shiny-57_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -643px;
+}
+
+.g1v1-sprite-shiny-58_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -643px;
+}
+
+.g1v1-sprite-shiny-59_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -643px;
+}
+
+.g1v1-sprite-shiny-5_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -643px;
+}
+
+.g1v1-sprite-shiny-60_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -643px;
+}
+
+.g1v1-sprite-shiny-61_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -643px;
+}
+
+.g1v1-sprite-shiny-62_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -701px;
+}
+
+.g1v1-sprite-shiny-63_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -701px;
+}
+
+.g1v1-sprite-shiny-64_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -701px;
+}
+
+.g1v1-sprite-shiny-64_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -701px;
+}
+
+.g1v1-sprite-shiny-65_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -701px;
+}
+
+.g1v1-sprite-shiny-65_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -701px;
+}
+
+.g1v1-sprite-shiny-66_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -701px;
+}
+
+.g1v1-sprite-shiny-67_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -701px;
+}
+
+.g1v1-sprite-shiny-68_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -701px;
+}
+
+.g1v1-sprite-shiny-69_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -701px;
+}
+
+.g1v1-sprite-shiny-6_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -701px;
+}
+
+.g1v1-sprite-shiny-70_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -701px;
+}
+
+.g1v1-sprite-shiny-71_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -701px;
+}
+
+.g1v1-sprite-shiny-72_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -701px;
+}
+
+.g1v1-sprite-shiny-73_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -701px;
+}
+
+.g1v1-sprite-shiny-74_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -759px;
+}
+
+.g1v1-sprite-shiny-74_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -759px;
+}
+
+.g1v1-sprite-shiny-75_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -759px;
+}
+
+.g1v1-sprite-shiny-75_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -759px;
+}
+
+.g1v1-sprite-shiny-76_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -759px;
+}
+
+.g1v1-sprite-shiny-76_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -759px;
+}
+
+.g1v1-sprite-shiny-77_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -759px;
+}
+
+.g1v1-sprite-shiny-78_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -759px;
+}
+
+.g1v1-sprite-shiny-79_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -759px;
+}
+
+.g1v1-sprite-shiny-7_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -759px;
+}
+
+.g1v1-sprite-shiny-7_00_05 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -759px;
+}
+
+.g1v1-sprite-shiny-80_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -759px;
+}
+
+.g1v1-sprite-shiny-81_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -759px;
+}
+
+.g1v1-sprite-shiny-82_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -759px;
+}
+
+.g1v1-sprite-shiny-83_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -759px;
+}
+
+.g1v1-sprite-shiny-84_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -5px -817px;
+}
+
+.g1v1-sprite-shiny-84_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -63px -817px;
+}
+
+.g1v1-sprite-shiny-85_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -121px -817px;
+}
+
+.g1v1-sprite-shiny-85_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -179px -817px;
+}
+
+.g1v1-sprite-shiny-86_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -237px -817px;
+}
+
+.g1v1-sprite-shiny-87_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -295px -817px;
+}
+
+.g1v1-sprite-shiny-88_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -353px -817px;
+}
+
+.g1v1-sprite-shiny-88_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -411px -817px;
+}
+
+.g1v1-sprite-shiny-89_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -469px -817px;
+}
+
+.g1v1-sprite-shiny-89_61 {
+    width: 48px;
+    height: 48px;
+    background-position: -527px -817px;
+}
+
+.g1v1-sprite-shiny-8_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -585px -817px;
+}
+
+.g1v1-sprite-shiny-8_00_05 {
+    width: 48px;
+    height: 48px;
+    background-position: -643px -817px;
+}
+
+.g1v1-sprite-shiny-90_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -701px -817px;
+}
+
+.g1v1-sprite-shiny-91_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -759px -817px;
+}
+
+.g1v1-sprite-shiny-92_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -817px -817px;
+}
+
+.g1v1-sprite-shiny-93_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -875px -5px;
+}
+
+.g1v1-sprite-shiny-94_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -875px -63px;
+}
+
+.g1v1-sprite-shiny-95_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -875px -121px;
+}
+
+.g1v1-sprite-shiny-96_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -875px -179px;
+}
+
+.g1v1-sprite-shiny-97_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -875px -237px;
+}
+
+.g1v1-sprite-shiny-97_01 {
+    width: 48px;
+    height: 48px;
+    background-position: -875px -295px;
+}
+
+.g1v1-sprite-shiny-98_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -875px -353px;
+}
+
+.g1v1-sprite-shiny-99_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -875px -411px;
+}
+
+.g1v1-sprite-shiny-9_00 {
+    width: 48px;
+    height: 48px;
+    background-position: -875px -469px;
+}
+
+.g1v1-sprite-shiny-9_00_05 {
+    width: 48px;
+    height: 48px;
+    background-position: -875px -527px;
+}

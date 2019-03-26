@@ -83,30 +83,58 @@ var PokemonIcon = L.Icon.extend({
 
         if (getPreference("icon_theme_buttons") === 'og')
         {
+            var pokemon_icon_id_form = this.options.iconID + '_' + form;
+            
             if (_spritesheet_g1.indexOf(this.options.iconID) > -1)
-            {
-                spritesheet = 'g1v1-sprite';
-            }
+            { spritesheet = 'g1v1-sprite'; }
             
             if (_spritesheet_g2.indexOf(this.options.iconID) > -1)
-            {
-                spritesheet = 'g2v1-sprite';
-            }
+            { spritesheet = 'g2v1-sprite'; }
 
             if (_spritesheet_g3.indexOf(this.options.iconID) > -1)
-            {
-                spritesheet = 'g3v5-sprite';
-            }
+            { spritesheet = 'g3v5-sprite'; }
             
             if (_spritesheet_g4.indexOf(this.options.iconID) > -1)
-            {
-                spritesheet = 'g4v1-sprite';
-            }
+            { spritesheet = 'g4v1-sprite'; }
 
             if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
-            {
-                spritesheet = 'gXv1-sprite';
-            }
+            { spritesheet = 'gXv1-sprite'; }
+        } else if (getPreference("icon_theme_buttons") === 'cart') {
+        
+            var pokemon_icon_id_form = this.options.iconID;
+            
+            if (_spritesheet_g1.indexOf(this.options.iconID) > -1)
+            { spritesheet = 'g1v1-sprite'; }
+            
+            if (_spritesheet_g2.indexOf(this.options.iconID) > -1)
+            { spritesheet = 'g2v1-sprite'; }
+
+            if (_spritesheet_g3.indexOf(this.options.iconID) > -1)
+            { spritesheet = 'g3v1-sprite'; }
+            
+            if (_spritesheet_g4.indexOf(this.options.iconID) > -1)
+            { spritesheet = 'g4v1-sprite'; }
+
+            if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
+            { spritesheet = 'gXv1-sprite'; }
+        } else if (getPreference("icon_theme_buttons") === 'shiny') {
+            
+            var pokemon_icon_id_form = this.options.iconID + '_' + form;
+            
+            if (_spritesheet_g1.indexOf(this.options.iconID) > -1)
+            { spritesheet = 'g1v1-sprite'; }
+            
+            if (_spritesheet_g2.indexOf(this.options.iconID) > -1)
+            { spritesheet = 'g2v1-sprite'; }
+
+            if (_spritesheet_g3.indexOf(this.options.iconID) > -1)
+            { spritesheet = 'g3v1-sprite'; }
+            
+            if (_spritesheet_g4.indexOf(this.options.iconID) > -1)
+            { spritesheet = 'g4v1-sprite'; }
+
+            if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
+            { spritesheet = 'gXv1-sprite'; }
         }
         
         if ( this.options.iv > 0 && this.options.iv < 80 ) {
@@ -283,8 +311,16 @@ var RaidIcon = L.Icon.extend({
             //var str_pokemon_id = '' + this.options.raid_pokemon_id;
             //var pad = '0000';
             //var image_id = pad.substring(0, pad.length - str_pokemon_id.length) + str_pokemon_id;
-            var image_id = this.options.raid_pokemon_id + '_00';
+            var image_id = this.options.raid_pokemon_id;
 
+            if ( getPreference("icon_theme_buttons") === 'og' ) {
+                image_id += '_00';
+            } else if ( getPreference("icon_theme_buttons") === 'cart' ) {
+                image_id += '_cart';
+            } else if ( getPreference("icon_theme_buttons") === 'shiny' ) {
+                image_id += '_00_shiny';
+            }
+            
             div.innerHTML =
                 '<div class="raidmarker">' +
                     '<div class="boss_raid_container">' +
@@ -568,7 +604,16 @@ function getRaidPopupContent (item) {
     }
   
     var content = '<div class="raid-popup">';
-    var image_id = item.raid_pokemon_id + '_00';
+    var image_id = item.raid_pokemon_id;
+  
+    if ( getPreference("icon_theme_buttons") === 'og' ) {
+        image_id += '_00';
+    } else if ( getPreference("icon_theme_bottons") === 'cart') {
+        image_id += '_cart';
+    } else if ( getPreference("icon_theme_buttons") === 'shiny') {
+        image_id += '_00_shiny';
+    }
+  
     if (item.raid_pokemon_id !== 0) {
         content += '<div class="raid_popup-icon_container"><img class="boss-icon" src="static/monocle-icons/larger-icons/' + image_id + '.png?100">';
         if (item.gym_team > 0) {
@@ -730,9 +775,18 @@ function getFortPopupContent (item) {
     var seconds = parseInt(item.time_occupied - (minutes * 60) - (hours * 3600));
     var fort_occupied_time = hours + 'h ' + minutes + 'm ' + seconds + 's';
     var content = '<div class="fort-popup">'
+    var icon_suffix = '';
   
+    if ( getPreference("icon_theme_buttons") === 'og' ) {
+        icon_suffix = '_00';
+    } else if ( getPreference("icon_theme_buttons") === 'cart' ) {
+        icon_suffix = '_cart';
+    } else if ( getPreference("icon_theme_buttons") === 'shiny' ) {
+        icon_suffix = '_00_shiny';
+    }
+ 
     if (item.pokemon_id !== 0) {
-        content += '<div class="fort_popup-icon_container"><img class="guard-icon" src="static/monocle-icons/larger-icons/' + item.pokemon_id + '.png?100">';
+        content += '<div class="fort_popup-icon_container"><img class="guard-icon" src="static/monocle-icons/larger-icons/' + item.pokemon_id + icon_suffix + '.png?100">';
     }
     if (item.team === 0) {
         content += '<b>An empty Gym!</b>';
@@ -3362,21 +3416,33 @@ function populateSettingsPanels(){
   
     for (var i = 1; i <= _pokemon_count_gen_1; i++){
         var spritesheet = 'sprite';
+        var sprite_suffix = '';
 
-        if (getPreference("icon_theme_buttons") === 'og')
-        {
+        if (getPreference("icon_theme_buttons") === 'og') {
             if (_spritesheet_g1.indexOf(i) > -1)
             {
                 spritesheet = 'g1v1-sprite';
+                sprite_suffix = '_00';
             }
-          
+        } else if (getPreference("icon_theme_buttons") === 'cart') {
+            if (_spritesheet_g1.indexOf(i) > -1)
+            {
+                spritesheet = 'g1v1-sprite';
+                sprite_suffix = '';
+            }
+        } else if (getPreference("icon_theme_buttons") === 'shiny') {
+            if (_spritesheet_g1.indexOf(i) > -1)
+            {
+                spritesheet = 'g1v1-sprite';
+                sprite_suffix = '_00';
+            }
         }
-      
+
         var partHtml =
             '<div class="filter_buttons_group">' +
                 '<div class="filter_container">' +
                     '<div class="filter_sprite_container">' +
-                        '<div id="menu" class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '"><span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-'+i+'_00"></span></div>' +
+                        '<div id="menu" class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '"><span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-' + i + sprite_suffix + '"></span></div>' +
                     '</div>' +
                     '<div class="filter_button_container">' +
                         '<div class="btn-group" role="group" data-group="filter-' + i + '">' +
@@ -3418,20 +3484,31 @@ function populateSettingsPanels(){
     for (var i = _pokemon_count_gen_1 + 1; i <= _pokemon_count_gen_2; i++){
         var spritesheet = 'sprite';
 
-        if (getPreference("icon_theme_buttons") === 'og')
-        {
+        if (getPreference("icon_theme_buttons") === 'og') {
             if (_spritesheet_g2.indexOf(i) > -1)
             {
                 spritesheet = 'g2v1-sprite';
+                sprite_suffix = '_00';
             }
-          
+        } else if (getPreference("icon_theme_buttons") === 'cart') {
+            if (_spritesheet_g2.indexOf(i) > -1)
+            {
+                spritesheet = 'g2v1-sprite';
+                sprite_suffix = '';
+            }
+        } else if (getPreference("icon_theme_buttons") === 'shiny') {
+            if (_spritesheet_g2.indexOf(i) > -1)
+            {
+                spritesheet = 'g2v1-sprite';
+                sprite_suffix = '_00';
+            }
         }
-      
+
         var partHtml =
             '<div class="filter_buttons_group">' +
                 '<div class="filter_container">' +
                     '<div class="filter_sprite_container">' +
-                        '<div id="menu" class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '"><span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-'+i+'_00"></span></div>' +
+                        '<div id="menu" class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '"><span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-' + i + sprite_suffix + '"></span></div>' +
                     '</div>' +
                     '<div class="filter_button_container">' +
                         '<div class="btn-group" role="group" data-group="filter-' + i + '">' +
@@ -3473,20 +3550,31 @@ function populateSettingsPanels(){
     for (var i = _pokemon_count_gen_2 + 1; i <= _pokemon_count_gen_3; i++){
         var spritesheet = 'sprite';
 
-        if (getPreference("icon_theme_buttons") === 'og')
-        {
+        if (getPreference("icon_theme_buttons") === 'og') {
             if (_spritesheet_g3.indexOf(i) > -1)
             {
                 spritesheet = 'g3v5-sprite';
+                sprite_suffix = '_00';
             }
-            
+        } else if (getPreference("icon_theme_buttons") === 'cart') {
+            if (_spritesheet_g3.indexOf(i) > -1)
+            {
+                spritesheet = 'g3v1-sprite';
+                sprite_suffix = '';
+            }
+        } else if (getPreference("icon_theme_buttons") === 'shiny') {
+            if (_spritesheet_g3.indexOf(i) > -1)
+            {
+                spritesheet = 'g3v1-sprite';
+                sprite_suffix = '_00';
+            }
         }
 
         var partHtml =
             '<div class="filter_buttons_group">' +
                 '<div class="filter_container">' +
                     '<div class="filter_sprite_container">' +
-                        '<div id="menu" class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '"><span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-'+i+'_00"></span></div>' +
+                        '<div id="menu" class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '"><span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-' + i + sprite_suffix + '"></span></div>' +
                     '</div>' +
                     '<div class="filter_button_container">' +
                         '<div class="btn-group" role="group" data-group="filter-' + i + '">' +
@@ -3528,20 +3616,31 @@ function populateSettingsPanels(){
     for (var i = _pokemon_count_gen_3 + 1; i <= _pokemon_count_gen_4; i++){
         var spritesheet = 'sprite';
 
-        if (getPreference("icon_theme_buttons") === 'og')
-        {
+        if (getPreference("icon_theme_buttons") === 'og') {
             if (_spritesheet_g4.indexOf(i) > -1)
             {
                 spritesheet = 'g4v1-sprite';
+                sprite_suffix = '_00';
             }
-          
+        } else if (getPreference("icon_theme_buttons") === 'cart') {
+            if (_spritesheet_g4.indexOf(i) > -1)
+            {
+                spritesheet = 'g4v1-sprite';
+                sprite_suffix = '';
+            }
+        } else if (getPreference("icon_theme_buttons") === 'shiny') {
+            if (_spritesheet_g4.indexOf(i) > -1)
+            {
+                spritesheet = 'g4v1-sprite';
+                sprite_suffix = '_00';
+            }
         }
 
         var partHtml =
             '<div class="filter_buttons_group">' +
                 '<div class="filter_container">' +
                     '<div class="filter_sprite_container">' +
-                        '<div id="menu" class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '"><span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-'+i+'_00"></span></div>' +
+                        '<div id="menu" class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '"><span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-' + i + sprite_suffix + '"></span></div>' +
                     '</div>' +
                     '<div class="filter_button_container">' +
                         '<div class="btn-group" role="group" data-group="filter-' + i + '">' +
