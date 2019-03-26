@@ -958,7 +958,7 @@
     width: 90px;
 }
 
-.alt_btn{
+.shiny_btn{
     width: 90px;
 }
 
@@ -1095,6 +1095,10 @@
     display: inline-block;
     max-width: 15px;
     text-align: center;
+}
+
+.theme_selection_icon_group {
+    display: inline-block;
 }
 
 a{
