@@ -4,6 +4,7 @@ var _pokemon_count_gen_1 = 151;
 var _pokemon_count_gen_2 = 251;
 var _pokemon_count_gen_3 = 386;
 var _pokemon_count_gen_4 = 488;
+var _alolan_forms = [19,20,26,27,28,37,38,50,51,52,53,74,75,76,88,89,103,105];
 //var _spritesheet_g3v4 = [276,277,278,279,283,284,313,314,333,334,351,357,358,371,372,373,374,375,376,384];
 var _spritesheet_g1 = [];
 var _spritesheet_g2 = [];
@@ -61,25 +62,51 @@ var PokemonIcon = L.Icon.extend({
         } else {
             form = this.options.form;
         }
-        var pokemon_icon_id_form = this.options.iconID + '_' + form;
-        var type_icon_html = getTypeIcons(this.options.iconID);
-        var type_icon_html_above_iv = getTypeIconsAboveIV(this.options.iconID);
-        var boosted_icon_html = checkBoost(this.options.boost_status);
-        var spritesheet = 'sprite';
-        
-        typeIconDisplay();
-        boostedPokemonDisplay();
-
-        switch (pokemon_icon_id){
-            case 201:
+ 
+        if ( _alolan_forms.includes(pokemon_icon_id) ) {
+            if ( this.options.form !== 0 ) {
+                form = '61';
+            } else {
+                form = '00';
+            }
+        }
+                                
+        switch ( pokemon_icon_id ){
+            case 201: // Handle Unown
                 if (this.options.form) {
-                    // I know you stole this stuff from me
                     form_text = '<div class="form_text">' + getUnownForm(this.options.form) + '</div>';
+                }
+                break;
+            case 351: // Handle Castform form
+                switch ( this.options.form ){
+                    case 29:
+                        form = '11';
+                        break;
+                    case 30:
+                        form = '12';
+                        break;
+                    case 31:
+                        form = '13';
+                        break;
+                    case 32:
+                        form = '14';
+                        break;
+                    default:
+                        form = this.options.form;
                 }
                 break;
             default:
                 pokemon_icon_id = this.options.iconID;
         }
+
+        var pokemon_icon_id_form = this.options.iconID + '_' + form;
+        var type_icon_html = getTypeIcons(this.options.iconID);
+        var type_icon_html_above_iv = getTypeIconsAboveIV(this.options.iconID);
+        var boosted_icon_html = checkBoost(this.options.boost_status);
+        var spritesheet = 'sprite';
+
+        typeIconDisplay();
+        boostedPokemonDisplay();
 
         if (getPreference("icon_theme_buttons") === 'og')
         {
@@ -535,7 +562,15 @@ function getPopupContent (item, boost_status) {
 
     var content = '<div class="pokemon_popup">';
   
-    content += '<div class="pokemon_popup_name"><b>' + pokemon_name + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
+    if ( _alolan_forms.includes(item.pokemon_id) ) {
+        if ( item.form !== 0 ) {
+            content += '<div class="pokemon_popup_name"><b>Alolan ' + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
+        } else {
+            content += '<div class="pokemon_popup_name"><b>' + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
+        }
+    }
+  
+  
 
     content += '<div class="pokemon_popup_icons"><img id="type" class="type-' + pokemon_name_type[item.pokemon_id][2] + '" src="static/img/blank_1x1.png">';
 
@@ -888,10 +923,10 @@ function getOpacity (diff) {
 
 function getGender (g) {
     if (g === 1) {
-        return " (Male)";
+        return " &#9794;";
     }
     if (g === 2) {
-        return " (Female)";
+        return " &#9792;";
     }
     return "";
 }
@@ -3477,7 +3512,7 @@ function populateSettingsPanels(){
                             '<button type="button" class="btn btn-default" data-id="' + i + '" data-value="trash">Hide</button>' +
                         '</div>' +
                     '</div>' +
-                    '<div class="pokemon_name_container">' + pokemon_name_type[i][1] + '</div>' +
+                    '<div class="pokemon_name_container">' + pokemon_name_type[i][1] + ' (#' + i + ')</div>' +
                 '</div>' +
             '</div>';
 
@@ -3543,7 +3578,7 @@ function populateSettingsPanels(){
                             '<button type="button" class="btn btn-default" data-id="' + i + '" data-value="trash">Hide</button>' +
                         '</div>' +
                     '</div>' +
-                    '<div class="pokemon_name_container">' + pokemon_name_type[i][1] + '</div>' +
+                    '<div class="pokemon_name_container">' + pokemon_name_type[i][1] + ' (#' + i + ')</div>' +
                 '</div>' +
             '</div>';
 
@@ -3609,7 +3644,7 @@ function populateSettingsPanels(){
                             '<button type="button" class="btn btn-default" data-id="' + i + '" data-value="trash">Hide</button>' +
                         '</div>' +
                     '</div>' +
-                    '<div class="pokemon_name_container">' + pokemon_name_type[i][1] + '</div>' +
+                    '<div class="pokemon_name_container">' + pokemon_name_type[i][1] + ' (#' + i + ')</div>' +
                 '</div>' +
             '</div>';
 
@@ -3675,7 +3710,7 @@ function populateSettingsPanels(){
                             '<button type="button" class="btn btn-default" data-id="' + i + '" data-value="trash">Hide</button>' +
                         '</div>' +
                     '</div>' +
-                    '<div class="pokemon_name_container">' + pokemon_name_type[i][1] + '</div>' +
+                    '<div class="pokemon_name_container">' + pokemon_name_type[i][1] + ' (#' + i + ')</div>' +
                 '</div>' +
             '</div>';
 
