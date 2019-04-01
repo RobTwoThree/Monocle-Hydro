@@ -568,6 +568,8 @@ function getPopupContent (item, boost_status) {
         } else {
             content += '<div class="pokemon_popup_name"><b>' + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
         }
+    } else {
+        content += '<div class="pokemon_popup_name"><b>' + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
     }
   
   
