@@ -842,6 +842,8 @@ function getFortPopupContent (item) {
  
     if (item.pokemon_id !== 0) {
         content += '<div class="fort_popup-icon_container"><img class="guard-icon" src="static/monocle-icons/larger-icons/' + item.pokemon_id + icon_suffix + '.png?100">';
+    } else {
+        content += '<div class="fort_popup-icon_container"><img class="no-guard-icon" src="static/img/question_mark.png?100">';
     }
     if (item.team === 0) {
         content += '<b>An empty Gym!</b>';
