@@ -904,7 +904,7 @@ function getFortPopupContent (item) {
             content += '<br>Guarding Pokemon: ' + item.pokemon_name + ' (#' + item.pokemon_id + ')' +
                        '<br>Slots Open: <b>' + item.slots_available + '/6</b>' +
                        '<br>Occupied time: ' + fort_occupied_time +
-                       '<br>Last changed: ' + this.convertToTwelveHourTime(item.last_modified);
+                       '<br>Last scanned: ' + this.convertToTwelveHourTime(item.last_modified);
         } else {
             content += '<br>Guarding Pokemon: ' + item.pokemon_name + ' (#' + item.pokemon_id + ')' +
                        '<br>Slots Open: <b>Unknown</b>' +
