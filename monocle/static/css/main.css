@@ -896,10 +896,10 @@
 
 .type_icons img{
     text-align: center;
-    width: 48px;
+    width: 15px;
     position: absolute;
-    top: -20px;
-    left: 16px;
+    top: 5px;
+    left: 32px;
 }
 
 #boost {
