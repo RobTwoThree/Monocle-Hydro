@@ -897,9 +897,8 @@
 .type_icons img{
     text-align: center;
     width: 15px;
-    position: absolute;
     top: 5px;
-    left: 32px;
+    left: 30px;
 }
 
 #boost {
