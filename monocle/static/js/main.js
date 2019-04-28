@@ -113,55 +113,55 @@ var PokemonIcon = L.Icon.extend({
             var pokemon_icon_id_form = this.options.iconID + '_' + form;
             
             if (_spritesheet_g1.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g1v1-sprite'; }
+            { spritesheet = 'g1v2-sprite'; }
             
             if (_spritesheet_g2.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g2v1-sprite'; }
+            { spritesheet = 'g2v2-sprite'; }
 
             if (_spritesheet_g3.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g3v5-sprite'; }
+            { spritesheet = 'g3v2-sprite'; }
             
             if (_spritesheet_g4.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g4v1-sprite'; }
+            { spritesheet = 'g4v2-sprite'; }
 
             if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'gXv1-sprite'; }
+            { spritesheet = 'gXv2-sprite'; }
         } else if (getPreference("icon_theme_buttons") === 'cart') {
         
             var pokemon_icon_id_form = this.options.iconID;
             
             if (_spritesheet_g1.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g1v1-sprite'; }
+            { spritesheet = 'g1v2-sprite'; }
             
             if (_spritesheet_g2.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g2v1-sprite'; }
+            { spritesheet = 'g2v2-sprite'; }
 
             if (_spritesheet_g3.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g3v1-sprite'; }
+            { spritesheet = 'g3v2-sprite'; }
             
             if (_spritesheet_g4.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g4v1-sprite'; }
+            { spritesheet = 'g4v2-sprite'; }
 
             if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'gXv1-sprite'; }
+            { spritesheet = 'gXv2-sprite'; }
         } else if (getPreference("icon_theme_buttons") === 'shiny') {
             
             var pokemon_icon_id_form = this.options.iconID + '_' + form;
             
             if (_spritesheet_g1.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g1v1-sprite'; }
+            { spritesheet = 'g1v2-sprite'; }
             
             if (_spritesheet_g2.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g2v1-sprite'; }
+            { spritesheet = 'g2v2-sprite'; }
 
             if (_spritesheet_g3.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g3v1-sprite'; }
+            { spritesheet = 'g3v2-sprite'; }
             
             if (_spritesheet_g4.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g4v1-sprite'; }
+            { spritesheet = 'g4v2-sprite'; }
 
             if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'gXv1-sprite'; }
+            { spritesheet = 'gXv2-sprite'; }
         }
         
         if ( this.options.iv > 0 && this.options.iv < 80 ) {
@@ -3487,19 +3487,19 @@ function populateSettingsPanels(){
         if (getPreference("icon_theme_buttons") === 'og') {
             if (_spritesheet_g1.indexOf(i) > -1)
             {
-                spritesheet = 'g1v1-sprite';
+                spritesheet = 'g1v2-sprite';
                 sprite_suffix = '_00';
             }
         } else if (getPreference("icon_theme_buttons") === 'cart') {
             if (_spritesheet_g1.indexOf(i) > -1)
             {
-                spritesheet = 'g1v1-sprite';
+                spritesheet = 'g1v2-sprite';
                 sprite_suffix = '';
             }
         } else if (getPreference("icon_theme_buttons") === 'shiny') {
             if (_spritesheet_g1.indexOf(i) > -1)
             {
-                spritesheet = 'g1v1-sprite';
+                spritesheet = 'g1v2-sprite';
                 sprite_suffix = '_00';
             }
         }
@@ -3553,19 +3553,19 @@ function populateSettingsPanels(){
         if (getPreference("icon_theme_buttons") === 'og') {
             if (_spritesheet_g2.indexOf(i) > -1)
             {
-                spritesheet = 'g2v1-sprite';
+                spritesheet = 'g2v2-sprite';
                 sprite_suffix = '_00';
             }
         } else if (getPreference("icon_theme_buttons") === 'cart') {
             if (_spritesheet_g2.indexOf(i) > -1)
             {
-                spritesheet = 'g2v1-sprite';
+                spritesheet = 'g2v2-sprite';
                 sprite_suffix = '';
             }
         } else if (getPreference("icon_theme_buttons") === 'shiny') {
             if (_spritesheet_g2.indexOf(i) > -1)
             {
-                spritesheet = 'g2v1-sprite';
+                spritesheet = 'g2v2-sprite';
                 sprite_suffix = '_00';
             }
         }
@@ -3619,19 +3619,19 @@ function populateSettingsPanels(){
         if (getPreference("icon_theme_buttons") === 'og') {
             if (_spritesheet_g3.indexOf(i) > -1)
             {
-                spritesheet = 'g3v5-sprite';
+                spritesheet = 'g3v2-sprite';
                 sprite_suffix = '_00';
             }
         } else if (getPreference("icon_theme_buttons") === 'cart') {
             if (_spritesheet_g3.indexOf(i) > -1)
             {
-                spritesheet = 'g3v1-sprite';
+                spritesheet = 'g3v2-sprite';
                 sprite_suffix = '';
             }
         } else if (getPreference("icon_theme_buttons") === 'shiny') {
             if (_spritesheet_g3.indexOf(i) > -1)
             {
-                spritesheet = 'g3v1-sprite';
+                spritesheet = 'g3v2-sprite';
                 sprite_suffix = '_00';
             }
         }
@@ -3685,19 +3685,19 @@ function populateSettingsPanels(){
         if (getPreference("icon_theme_buttons") === 'og') {
             if (_spritesheet_g4.indexOf(i) > -1)
             {
-                spritesheet = 'g4v1-sprite';
+                spritesheet = 'g4v2-sprite';
                 sprite_suffix = '_00';
             }
         } else if (getPreference("icon_theme_buttons") === 'cart') {
             if (_spritesheet_g4.indexOf(i) > -1)
             {
-                spritesheet = 'g4v1-sprite';
+                spritesheet = 'g4v2-sprite';
                 sprite_suffix = '';
             }
         } else if (getPreference("icon_theme_buttons") === 'shiny') {
             if (_spritesheet_g4.indexOf(i) > -1)
             {
-                spritesheet = 'g4v1-sprite';
+                spritesheet = 'g4v2-sprite';
                 sprite_suffix = '_00';
             }
         }

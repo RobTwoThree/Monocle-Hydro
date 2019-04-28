@@ -1,0 +1,1032 @@
+.g3v2-sprite-og span {
+    background-image: url(../img/spritesheet_medium_g3v2_og.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+#menu.g3v2-sprite-og span {
+    float: left;
+    position: relative;
+    top: -15px;
+    left: -10px;
+}
+
+.g3v2-sprite-og-252_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -5px;
+}
+
+.g3v2-sprite-og-253_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -5px;
+}
+
+.g3v2-sprite-og-254_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -169px -5px;
+}
+
+.g3v2-sprite-og-255_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -251px -5px;
+}
+
+.g3v2-sprite-og-255_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -333px -5px;
+}
+
+.g3v2-sprite-og-256_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -415px -5px;
+}
+
+.g3v2-sprite-og-256_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -497px -5px;
+}
+
+.g3v2-sprite-og-257_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -579px -5px;
+}
+
+.g3v2-sprite-og-257_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -661px -5px;
+}
+
+.g3v2-sprite-og-258_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -743px -5px;
+}
+
+.g3v2-sprite-og-259_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -825px -5px;
+}
+
+.g3v2-sprite-og-260_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -907px -5px;
+}
+
+.g3v2-sprite-og-261_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -989px -5px;
+}
+
+.g3v2-sprite-og-262_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -87px;
+}
+
+.g3v2-sprite-og-263_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -87px;
+}
+
+.g3v2-sprite-og-264_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -169px -87px;
+}
+
+.g3v2-sprite-og-265_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -251px -87px;
+}
+
+.g3v2-sprite-og-266_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -333px -87px;
+}
+
+.g3v2-sprite-og-267_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -415px -87px;
+}
+
+.g3v2-sprite-og-267_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -497px -87px;
+}
+
+.g3v2-sprite-og-268_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -579px -87px;
+}
+
+.g3v2-sprite-og-269_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -661px -87px;
+}
+
+.g3v2-sprite-og-269_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -743px -87px;
+}
+
+.g3v2-sprite-og-270_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -825px -87px;
+}
+
+.g3v2-sprite-og-271_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -907px -87px;
+}
+
+.g3v2-sprite-og-272_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -989px -87px;
+}
+
+.g3v2-sprite-og-272_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -169px;
+}
+
+.g3v2-sprite-og-273_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -169px;
+}
+
+.g3v2-sprite-og-274_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -169px -169px;
+}
+
+.g3v2-sprite-og-274_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -251px -169px;
+}
+
+.g3v2-sprite-og-275_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -333px -169px;
+}
+
+.g3v2-sprite-og-275_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -415px -169px;
+}
+
+.g3v2-sprite-og-276_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -497px -169px;
+}
+
+.g3v2-sprite-og-277_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -579px -169px;
+}
+
+.g3v2-sprite-og-278_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -661px -169px;
+}
+
+.g3v2-sprite-og-279_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -743px -169px;
+}
+
+.g3v2-sprite-og-280_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -825px -169px;
+}
+
+.g3v2-sprite-og-281_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -907px -169px;
+}
+
+.g3v2-sprite-og-282_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -989px -169px;
+}
+
+.g3v2-sprite-og-283_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -251px;
+}
+
+.g3v2-sprite-og-284_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -251px;
+}
+
+.g3v2-sprite-og-285_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -169px -251px;
+}
+
+.g3v2-sprite-og-286_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -251px -251px;
+}
+
+.g3v2-sprite-og-287_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -333px -251px;
+}
+
+.g3v2-sprite-og-288_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -415px -251px;
+}
+
+.g3v2-sprite-og-289_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -497px -251px;
+}
+
+.g3v2-sprite-og-290_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -579px -251px;
+}
+
+.g3v2-sprite-og-291_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -661px -251px;
+}
+
+.g3v2-sprite-og-292_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -743px -251px;
+}
+
+.g3v2-sprite-og-293_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -825px -251px;
+}
+
+.g3v2-sprite-og-294_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -907px -251px;
+}
+
+.g3v2-sprite-og-295_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -989px -251px;
+}
+
+.g3v2-sprite-og-296_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -333px;
+}
+
+.g3v2-sprite-og-297_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -333px;
+}
+
+.g3v2-sprite-og-298_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -169px -333px;
+}
+
+.g3v2-sprite-og-299_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -251px -333px;
+}
+
+.g3v2-sprite-og-300_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -333px -333px;
+}
+
+.g3v2-sprite-og-301_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -415px -333px;
+}
+
+.g3v2-sprite-og-302_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -497px -333px;
+}
+
+.g3v2-sprite-og-303_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -579px -333px;
+}
+
+.g3v2-sprite-og-304_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -661px -333px;
+}
+
+.g3v2-sprite-og-305_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -743px -333px;
+}
+
+.g3v2-sprite-og-306_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -825px -333px;
+}
+
+.g3v2-sprite-og-307_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -907px -333px;
+}
+
+.g3v2-sprite-og-307_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -989px -333px;
+}
+
+.g3v2-sprite-og-308_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -415px;
+}
+
+.g3v2-sprite-og-308_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -415px;
+}
+
+.g3v2-sprite-og-309_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -169px -415px;
+}
+
+.g3v2-sprite-og-310_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -251px -415px;
+}
+
+.g3v2-sprite-og-311_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -333px -415px;
+}
+
+.g3v2-sprite-og-312_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -415px -415px;
+}
+
+.g3v2-sprite-og-313_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -497px -415px;
+}
+
+.g3v2-sprite-og-314_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -579px -415px;
+}
+
+.g3v2-sprite-og-315_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -661px -415px;
+}
+
+.g3v2-sprite-og-315_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -743px -415px;
+}
+
+.g3v2-sprite-og-316_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -825px -415px;
+}
+
+.g3v2-sprite-og-316_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -907px -415px;
+}
+
+.g3v2-sprite-og-317_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -989px -415px;
+}
+
+.g3v2-sprite-og-317_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -497px;
+}
+
+.g3v2-sprite-og-318_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -497px;
+}
+
+.g3v2-sprite-og-319_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -169px -497px;
+}
+
+.g3v2-sprite-og-320_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -251px -497px;
+}
+
+.g3v2-sprite-og-321_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -333px -497px;
+}
+
+.g3v2-sprite-og-322_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -415px -497px;
+}
+
+.g3v2-sprite-og-322_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -497px -497px;
+}
+
+.g3v2-sprite-og-323_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -579px -497px;
+}
+
+.g3v2-sprite-og-323_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -661px -497px;
+}
+
+.g3v2-sprite-og-324_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -743px -497px;
+}
+
+.g3v2-sprite-og-325_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -825px -497px;
+}
+
+.g3v2-sprite-og-326_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -907px -497px;
+}
+
+.g3v2-sprite-og-327_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -989px -497px;
+}
+
+.g3v2-sprite-og-327_11 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -579px;
+}
+
+.g3v2-sprite-og-327_12 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -579px;
+}
+
+.g3v2-sprite-og-327_13 {
+    width: 72px;
+    height: 72px;
+    background-position: -169px -579px;
+}
+
+.g3v2-sprite-og-327_14 {
+    width: 72px;
+    height: 72px;
+    background-position: -251px -579px;
+}
+
+.g3v2-sprite-og-327_15 {
+    width: 72px;
+    height: 72px;
+    background-position: -333px -579px;
+}
+
+.g3v2-sprite-og-327_16 {
+    width: 72px;
+    height: 72px;
+    background-position: -415px -579px;
+}
+
+.g3v2-sprite-og-327_17 {
+    width: 72px;
+    height: 72px;
+    background-position: -497px -579px;
+}
+
+.g3v2-sprite-og-327_18 {
+    width: 72px;
+    height: 72px;
+    background-position: -579px -579px;
+}
+
+.g3v2-sprite-og-327_19 {
+    width: 72px;
+    height: 72px;
+    background-position: -661px -579px;
+}
+
+.g3v2-sprite-og-328_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -743px -579px;
+}
+
+.g3v2-sprite-og-329_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -825px -579px;
+}
+
+.g3v2-sprite-og-330_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -907px -579px;
+}
+
+.g3v2-sprite-og-331_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -989px -579px;
+}
+
+.g3v2-sprite-og-332_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -661px;
+}
+
+.g3v2-sprite-og-332_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -661px;
+}
+
+.g3v2-sprite-og-333_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -169px -661px;
+}
+
+.g3v2-sprite-og-334_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -251px -661px;
+}
+
+.g3v2-sprite-og-335_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -333px -661px;
+}
+
+.g3v2-sprite-og-336_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -415px -661px;
+}
+
+.g3v2-sprite-og-337_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -497px -661px;
+}
+
+.g3v2-sprite-og-338_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -579px -661px;
+}
+
+.g3v2-sprite-og-339_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -661px -661px;
+}
+
+.g3v2-sprite-og-340_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -743px -661px;
+}
+
+.g3v2-sprite-og-341_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -825px -661px;
+}
+
+.g3v2-sprite-og-342_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -907px -661px;
+}
+
+.g3v2-sprite-og-343_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -989px -661px;
+}
+
+.g3v2-sprite-og-344_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -743px;
+}
+
+.g3v2-sprite-og-345_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -743px;
+}
+
+.g3v2-sprite-og-346_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -169px -743px;
+}
+
+.g3v2-sprite-og-347_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -251px -743px;
+}
+
+.g3v2-sprite-og-348_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -333px -743px;
+}
+
+.g3v2-sprite-og-349_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -415px -743px;
+}
+
+.g3v2-sprite-og-350_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -497px -743px;
+}
+
+.g3v2-sprite-og-350_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -579px -743px;
+}
+
+.g3v2-sprite-og-351_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -661px -743px;
+}
+
+.g3v2-sprite-og-351_11 {
+    width: 72px;
+    height: 72px;
+    background-position: -743px -743px;
+}
+
+.g3v2-sprite-og-351_12 {
+    width: 72px;
+    height: 72px;
+    background-position: -825px -743px;
+}
+
+.g3v2-sprite-og-351_13 {
+    width: 72px;
+    height: 72px;
+    background-position: -907px -743px;
+}
+
+.g3v2-sprite-og-351_14 {
+    width: 72px;
+    height: 72px;
+    background-position: -989px -743px;
+}
+
+.g3v2-sprite-og-352_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -825px;
+}
+
+.g3v2-sprite-og-353_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -825px;
+}
+
+.g3v2-sprite-og-354_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -169px -825px;
+}
+
+.g3v2-sprite-og-355_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -251px -825px;
+}
+
+.g3v2-sprite-og-356_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -333px -825px;
+}
+
+.g3v2-sprite-og-357_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -415px -825px;
+}
+
+.g3v2-sprite-og-358_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -497px -825px;
+}
+
+.g3v2-sprite-og-359_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -579px -825px;
+}
+
+.g3v2-sprite-og-360_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -661px -825px;
+}
+
+.g3v2-sprite-og-361_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -743px -825px;
+}
+
+.g3v2-sprite-og-362_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -825px -825px;
+}
+
+.g3v2-sprite-og-363_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -907px -825px;
+}
+
+.g3v2-sprite-og-364_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -989px -825px;
+}
+
+.g3v2-sprite-og-365_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -907px;
+}
+
+.g3v2-sprite-og-366_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -907px;
+}
+
+.g3v2-sprite-og-367_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -169px -907px;
+}
+
+.g3v2-sprite-og-368_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -251px -907px;
+}
+
+.g3v2-sprite-og-369_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -333px -907px;
+}
+
+.g3v2-sprite-og-369_01 {
+    width: 72px;
+    height: 72px;
+    background-position: -415px -907px;
+}
+
+.g3v2-sprite-og-370_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -497px -907px;
+}
+
+.g3v2-sprite-og-371_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -579px -907px;
+}
+
+.g3v2-sprite-og-372_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -661px -907px;
+}
+
+.g3v2-sprite-og-373_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -743px -907px;
+}
+
+.g3v2-sprite-og-374_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -825px -907px;
+}
+
+.g3v2-sprite-og-375_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -907px -907px;
+}
+
+.g3v2-sprite-og-376_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -989px -907px;
+}
+
+.g3v2-sprite-og-377_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -989px;
+}
+
+.g3v2-sprite-og-378_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -989px;
+}
+
+.g3v2-sprite-og-379_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -169px -989px;
+}
+
+.g3v2-sprite-og-380_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -251px -989px;
+}
+
+.g3v2-sprite-og-381_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -333px -989px;
+}
+
+.g3v2-sprite-og-382_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -415px -989px;
+}
+
+.g3v2-sprite-og-383_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -497px -989px;
+}
+
+.g3v2-sprite-og-384_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -579px -989px;
+}
+
+.g3v2-sprite-og-385_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -661px -989px;
+}
+
+.g3v2-sprite-og-386_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -743px -989px;
+}
+
+.g3v2-sprite-og-386_11 {
+    width: 72px;
+    height: 72px;
+    background-position: -825px -989px;
+}
+
+.g3v2-sprite-og-386_12 {
+    width: 72px;
+    height: 72px;
+    background-position: -907px -989px;
+}
+
+.g3v2-sprite-og-386_13 {
+    width: 72px;
+    height: 72px;
+    background-position: -989px -989px;
+}
+
+.g3v2-sprite-og-386_14 {
+    width: 72px;
+    height: 72px;
+    background-position: -1071px -5px;
+}

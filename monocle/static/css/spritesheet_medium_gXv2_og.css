@@ -1,0 +1,36 @@
+.gXv2-sprite-og span {
+    background-image: url(../img/spritesheet_medium_gXv2_og.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+#menu.gXv2-sprite-og span {
+    float: left;
+    position: relative;
+    top: -15px;
+    left: -10px;
+}
+
+.gXv2-sprite-og-808_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -5px;
+}
+
+.gXv2-sprite-og-809_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -5px;
+}
+
+.gXv2-sprite-og-891_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -5px -87px;
+}
+
+.gXv2-sprite-og-892_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -87px -87px;
+}
