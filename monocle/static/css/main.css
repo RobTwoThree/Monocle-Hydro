@@ -890,13 +890,16 @@
     width: 48px;
     position: absolute;
     top: -20px;
-    left: 20px;
+    left: 16px;
     visibility: hidden;
 }
 
 .type_icons img{
-    width: 15px;
     text-align: center;
+    width: 48px;
+    position: absolute;
+    top: -20px;
+    left: 16px;
 }
 
 #boost {
