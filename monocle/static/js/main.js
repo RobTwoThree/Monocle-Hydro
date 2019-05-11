@@ -409,7 +409,7 @@ var PokestopIcon = L.Icon.extend({
 
 var PokestopIcon = L.Icon.extend({
     options: {
-        popupAnchor: [0, 0],
+        popupAnchor: [0, -15],
     },
     createIcon: function() {
         var div = document.createElement('div');
