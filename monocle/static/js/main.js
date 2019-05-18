@@ -106,10 +106,10 @@ var PokemonIcon = L.Icon.extend({
                 break;
             case 421: // Handle Cherrim form
                 switch ( this.options.form ){
-                    case 95:
+                    case 94:
                         form = '11';
                         break;
-                    case 94:
+                    case 95:
                         form = '12';
                         break;
                     default:
