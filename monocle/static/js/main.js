@@ -65,9 +65,9 @@ var PokemonIcon = L.Icon.extend({
  
         if ( _alolan_forms.includes(pokemon_icon_id) ) {
             if ( this.options.form !== 0 ) {
-                form = '61';
-            } else {
                 form = '00';
+            } else {
+                form = '61';
             }
         }
                                 
@@ -90,6 +90,39 @@ var PokemonIcon = L.Icon.extend({
                         break;
                     case 32:
                         form = '14';
+                        break;
+                    default:
+                        form = this.options.form;
+                }
+                break;
+            case 412: // Handle Burmy form
+                switch ( this.options.form ){
+                    case 120:
+                        form = '11';
+                        break;
+                    default:
+                        form = this.options.form;
+                }
+                break;
+            case 421: // Handle Cherrim form
+                switch ( this.options.form ){
+                    case 95:
+                        form = '11';
+                        break;
+                    case 94:
+                        form = '12';
+                        break;
+                    default:
+                        form = this.options.form;
+                }
+                break;
+            case 422: // Handle Shellos form
+                switch ( this.options.form ){
+                    case 96:
+                        form = '11';
+                        break;
+                    case 97:
+                        form = '12';
                         break;
                     default:
                         form = this.options.form;
