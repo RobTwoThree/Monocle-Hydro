@@ -378,13 +378,13 @@ var RaidIcon = L.Icon.extend({
                     switch (this.options.raid_pokemon_id) {
                         case 412: // Handle Burmy Forms
                             switch (this.options.raid_pokemon_form) {
-                                case 111:
+                                case 118:
                                     image_id += '_11';
                                     break;
-                                case 112:
+                                case 119:
                                     image_id += '_12';
                                     break;
-                                case 113:
+                                case 120:
                                     image_id += '_13';
                                     break;
                                 default:
@@ -405,13 +405,13 @@ var RaidIcon = L.Icon.extend({
                     switch (this.options.raid_pokemon_id) {
                         case 412: // Handle Burmy Forms
                             switch (this.options.raid_pokemon_form) {
-                                case 111:
+                                case 118:
                                     image_id += '_11_shiny';
                                     break;
-                                case 112:
+                                case 119:
                                     image_id += '_12_shiny';
                                     break;
-                                case 113:
+                                case 120:
                                     image_id += '_13_shiny';
                                     break;
                                 default:
@@ -735,13 +735,13 @@ function getRaidPopupContent (item) {
             switch (item.raid_pokemon_id) {
                 case 412: // Handle Burmy Forms
                     switch (item.raid_pokemon_form) {
-                        case 111:
+                        case 118:
                             image_id += '_11';
                             break;
-                        case 112:
+                        case 119:
                             image_id += '_12';
                             break;
-                        case 113:
+                        case 120:
                             image_id += '_13';
                             break;
                         default:
@@ -761,13 +761,13 @@ function getRaidPopupContent (item) {
             switch (item.raid_pokemon_id) {
                 case 412: // Handle Burmy Forms
                     switch (item.raid_pokemon_form) {
-                        case 111:
+                        case 118:
                             image_id += '_11_shiny';
                             break;
-                        case 112:
+                        case 119:
                             image_id += '_12_shiny';
                             break;
-                        case 113:
+                        case 120:
                             image_id += '_13_shiny';
                             break;
                         default:
