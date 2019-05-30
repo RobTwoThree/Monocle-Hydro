@@ -374,7 +374,7 @@ var RaidIcon = L.Icon.extend({
             var image_id = this.options.raid_pokemon_id;
 
             if ( getPreference("icon_theme_buttons") === 'og' ) {
-                if (this.options.raid_pokemon_form != 0) {
+                if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
                     switch (this.options.raid_pokemon_id) {
                         case 412: // Handle Burmy Forms
                             switch (this.options.raid_pokemon_form) {
@@ -401,7 +401,7 @@ var RaidIcon = L.Icon.extend({
             } else if ( getPreference("icon_theme_buttons") === 'cart' ) {
                 image_id += '_cart';
             } else if ( getPreference("icon_theme_buttons") === 'shiny' ) {
-                if (this.options.raid_pokemon_form != 0) {
+                if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
                     switch (this.options.raid_pokemon_id) {
                         case 412: // Handle Burmy Forms
                             switch (this.options.raid_pokemon_form) {
@@ -731,7 +731,7 @@ function getRaidPopupContent (item) {
     var image_id = item.raid_pokemon_id;
   
     if ( getPreference("icon_theme_buttons") === 'og' ) {
-        if (item.raid_pokemon_form != 0) {
+        if ((item.raid_pokemon_form != 0) && (item.raid_pokemon_form != null)) {
             switch (item.raid_pokemon_id) {
                 case 412: // Handle Burmy Forms
                     switch (item.raid_pokemon_form) {
@@ -757,7 +757,7 @@ function getRaidPopupContent (item) {
     } else if ( getPreference("icon_theme_bottons") === 'cart') {
         image_id += '_cart';
     } else if ( getPreference("icon_theme_buttons") === 'shiny') {
-        if (item.raid_pokemon_form != 0) {
+        if ((item.raid_pokemon_form != 0) && (item.raid_pokemon_form != null)) {
             switch (item.raid_pokemon_id) {
                 case 412: // Handle Burmy Forms
                     switch (item.raid_pokemon_form) {
