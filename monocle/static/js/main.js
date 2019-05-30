@@ -97,6 +97,12 @@ var PokemonIcon = L.Icon.extend({
                 break;
             case 412: // Handle Burmy form
                 switch ( this.options.form ){
+                    case 118:
+                        form = '13';
+                        break;
+                    case 119:
+                        form = '12';
+                        break;
                     case 120:
                         form = '11';
                         break;
@@ -376,19 +382,33 @@ var RaidIcon = L.Icon.extend({
             if ( getPreference("icon_theme_buttons") === 'og' ) {
                 if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
                     switch (this.options.raid_pokemon_id) {
+                        case 26: // Handle Alolan Raichu
+                            if (this.options.raid_pokemon_form == 50) {
+                                image_id += '_61_01';
+                            } else {
+                                image_id += '_01';
+                            }
+                            break;
+                        case 105: // Handle Alolan Marowak
+                            if (this.options.raid_pokemon_form == 80) {
+                                image_id += '_61';
+                            } else {
+                                image_id += '_00';
+                            }
+                            break;
                         case 412: // Handle Burmy Forms
                             switch (this.options.raid_pokemon_form) {
                                 case 118:
-                                    image_id += '_11';
+                                    image_id += '_13';
                                     break;
                                 case 119:
                                     image_id += '_12';
                                     break;
                                 case 120:
-                                    image_id += '_13';
+                                    image_id += '_11';
                                     break;
                                 default:
-                                    image_id += '_11';
+                                    image_id += '_13';
                             }
                             break;
                         default:
@@ -403,19 +423,33 @@ var RaidIcon = L.Icon.extend({
             } else if ( getPreference("icon_theme_buttons") === 'shiny' ) {
                 if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
                     switch (this.options.raid_pokemon_id) {
+                        case 26: // Handle Alolan Raichu
+                            if (this.options.raid_pokemon_form == 50) {
+                                image_id += '_61_01_shiny';
+                            } else {
+                                image_id += '_01_shiny';
+                            }
+                            break;
+                        case 105: // Handle Alolan Marowak
+                            if (this.options.raid_pokemon_form == 80) {
+                                image_id += '_61_shiny';
+                            } else {
+                                image_id += '_00_shiny';
+                            }
+                            break;
                         case 412: // Handle Burmy Forms
                             switch (this.options.raid_pokemon_form) {
                                 case 118:
-                                    image_id += '_11_shiny';
+                                    image_id += '_13_shiny';
                                     break;
                                 case 119:
                                     image_id += '_12_shiny';
                                     break;
                                 case 120:
-                                    image_id += '_13_shiny';
+                                    image_id += '_11_shiny';
                                     break;
                                 default:
-                                    image_id += '_11_shiny';
+                                    image_id += '_13_shiny';
                             }
                             break;
                         default:
@@ -733,19 +767,33 @@ function getRaidPopupContent (item) {
     if ( getPreference("icon_theme_buttons") === 'og' ) {
         if ((item.raid_pokemon_form != 0) && (item.raid_pokemon_form != null)) {
             switch (item.raid_pokemon_id) {
+                case 26: // Handle Alolan Raichu
+                    if (item.raid_pokemon_form == 50) {
+                        image_id += '_61_01';
+                    } else {
+                        image_id += '_01';
+                    }
+                    break;
+                case 105: // Handle Alolan Marowak
+                    if (item.raid_pokemon_form == 80) {
+                        image_id += '_61';
+                    } else {
+                        image_id += '_00';
+                    }
+                    break;
                 case 412: // Handle Burmy Forms
                     switch (item.raid_pokemon_form) {
                         case 118:
-                            image_id += '_11';
+                            image_id += '_13';
                             break;
                         case 119:
                             image_id += '_12';
                             break;
                         case 120:
-                            image_id += '_13';
+                            image_id += '_11';
                             break;
                         default:
-                            image_id += '_11';
+                            image_id += '_13';
                     }
                     break;
                 default:
@@ -759,19 +807,33 @@ function getRaidPopupContent (item) {
     } else if ( getPreference("icon_theme_buttons") === 'shiny') {
         if ((item.raid_pokemon_form != 0) && (item.raid_pokemon_form != null)) {
             switch (item.raid_pokemon_id) {
+                case 26: // Handle Alolan Raichu
+                    if (item.raid_pokemon_form == 50) {
+                        image_id += '_61_01_shiny';
+                    } else {
+                        image_id += '_01_shiny';
+                    }
+                    break;
+                case 105: // Handle Alolan Marowak
+                    if (item.raid_pokemon_form == 80) {
+                        image_id += '_61_shiny';
+                    } else {
+                        image_id += '_00_shiny';
+                    }
+                    break;
                 case 412: // Handle Burmy Forms
                     switch (item.raid_pokemon_form) {
                         case 118:
-                            image_id += '_11_shiny';
+                            image_id += '_13_shiny';
                             break;
                         case 119:
                             image_id += '_12_shiny';
                             break;
                         case 120:
-                            image_id += '_13_shiny';
+                            image_id += '_11_shiny';
                             break;
                         default:
-                            image_id += '_11_shiny';
+                            image_id += '_13_shiny';
                     }
                     break;
                 default:
