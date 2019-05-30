@@ -374,13 +374,57 @@ var RaidIcon = L.Icon.extend({
             var image_id = this.options.raid_pokemon_id;
 
             if ( getPreference("icon_theme_buttons") === 'og' ) {
-                image_id += '_00';
+                if (this.options.raid_pokemon_form != 0) {
+                    switch (this.options.raid_pokemon_id) {
+                        case 412: // Handle Burmy Forms
+                            switch (this.options.raid_pokemon_form) {
+                                case 111:
+                                    image_id += '_11';
+                                    break;
+                                case 112:
+                                    image_id += '_12';
+                                    break;
+                                case 113:
+                                    image_id += '_13';
+                                    break;
+                                default:
+                                    image_id += '_11';
+                            }
+                            break;
+                        default:
+                            image_id += '_' + this.options.raid_pokemon_form;
+                    }
+                } else {
+                    image_id += '_00';
+                }
+                
             } else if ( getPreference("icon_theme_buttons") === 'cart' ) {
                 image_id += '_cart';
             } else if ( getPreference("icon_theme_buttons") === 'shiny' ) {
-                image_id += '_00_shiny';
+                if (this.options.raid_pokemon_form != 0) {
+                    switch (this.options.raid_pokemon_id) {
+                        case 412: // Handle Burmy Forms
+                            switch (this.options.raid_pokemon_form) {
+                                case 111:
+                                    image_id += '_11_shiny';
+                                    break;
+                                case 112:
+                                    image_id += '_12_shiny';
+                                    break;
+                                case 113:
+                                    image_id += '_13_shiny';
+                                    break;
+                                default:
+                                    image_id += '_11_shiny';
+                            }
+                            break;
+                        default:
+                            image_id += '_' + this.options.raid_pokemon_form + '_shiny';
+                    }
+                } else {
+                    image_id += '_00_shiny';
+                }
             }
-            
             div.innerHTML =
                 '<div class="raidmarker">' +
                     '<div class="boss_raid_container">' +
@@ -687,13 +731,56 @@ function getRaidPopupContent (item) {
     var image_id = item.raid_pokemon_id;
   
     if ( getPreference("icon_theme_buttons") === 'og' ) {
-        image_id += '_00';
+        if (item.raid_pokemon_form != 0) {
+            switch (item.raid_pokemon_id) {
+                case 412: // Handle Burmy Forms
+                    switch (item.raid_pokemon_form) {
+                        case 111:
+                            image_id += '_11';
+                            break;
+                        case 112:
+                            image_id += '_12';
+                            break;
+                        case 113:
+                            image_id += '_13';
+                            break;
+                        default:
+                            image_id += '_11';
+                    }
+                    break;
+                default:
+                    image_id += '_' + item.raid_pokemon_form;
+            }
+        } else {
+            image_id += '_00';
+        }
     } else if ( getPreference("icon_theme_bottons") === 'cart') {
         image_id += '_cart';
     } else if ( getPreference("icon_theme_buttons") === 'shiny') {
-        image_id += '_00_shiny';
+        if (item.raid_pokemon_form != 0) {
+            switch (item.raid_pokemon_id) {
+                case 412: // Handle Burmy Forms
+                    switch (item.raid_pokemon_form) {
+                        case 111:
+                            image_id += '_11_shiny';
+                            break;
+                        case 112:
+                            image_id += '_12_shiny';
+                            break;
+                        case 113:
+                            image_id += '_13_shiny';
+                            break;
+                        default:
+                            image_id += '_11_shiny';
+                    }
+                    break;
+                default:
+                    image_id += '_' + item.raid_pokemon_form + '_shiny';
+            }
+        } else {
+            image_id += '_00_shiny';
+        }
     }
-  
     if (item.raid_pokemon_id !== 0) {
         content += '<div class="raid_popup-icon_container"><img class="boss-icon" src="static/monocle-icons/larger-icons/' + image_id + '.png?100">';
         if (item.gym_team > 0) {
@@ -1162,16 +1249,22 @@ function PokestopMarker (raw) {
 function RaidMarker (raw) {
     var hatched = ((new Date().getTime() / 1000) - raw.raid_battle);
     // Automatically hatch legendary if db was not updated accordingly
-    if ((raw.raid_level == 5) && (raw.raid_pokemon_id == 0) && (hatched > 0)) {
-        raw.raid_pokemon_id = _LegendaryRaidPokemonID
-        //DEBUG
-        raw.raid_pokemon_name = pokemon_name_type[raw.raid_pokemon_id][1]
-        raw.raid_pokemon_cp = _LegendaryRaidCP
-        raw.raid_pokemon_move_1 = 'Unknown'
-        raw.raid_pokemon_move_2 = 'Unknown'
+//console.log("raw.raid_pokemon_id = " + raw.raid_pokemon_id);
+//console.log("raw.raid_pokemon_form = " + raw.raid_pokemon_form);
+
+    if (_LegendaryRaidPokemonID != "False") {
+        if ((raw.raid_level == 5) && (raw.raid_pokemon_id == 0) && (hatched > 0)) {
+            raw.raid_pokemon_id = _LegendaryRaidPokemonID
+            //DEBUG
+            raw.raid_pokemon_name = pokemon_name_type[raw.raid_pokemon_id][1]
+            raw.raid_pokemon_cp = _LegendaryRaidCP
+            raw.raid_pokemon_move_1 = 'Unknown'
+            raw.raid_pokemon_move_2 = 'Unknown'
+            raw.raid_pokemon_form = 'Unknown'
+        }
     }
   
-    var raid_boss_icon = new RaidIcon({raid_pokemon_id: raw.raid_pokemon_id, raid_level: raw.raid_level, raid_ends_at: raw.raid_end, raid_starts_at: raw.raid_battle, raid_gym_name: raw.gym_name, external_id: raw.external_id});
+    var raid_boss_icon = new RaidIcon({raid_pokemon_id: raw.raid_pokemon_id, raid_pokemon_form: raw.raid_pokemon_form, raid_level: raw.raid_level, raid_ends_at: raw.raid_end, raid_starts_at: raw.raid_battle, raid_gym_name: raw.gym_name, external_id: raw.external_id});
     var raid_marker = L.marker([raw.lat, raw.lon], {icon: raid_boss_icon, opacity: 1, zIndexOffset: 5000});
 
     if (raw.hide_raid) {

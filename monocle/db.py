@@ -412,6 +412,7 @@ class Raid(Base):
     time_battle = Column(Integer)
     time_end = Column(Integer)
     cp = Column(Integer)
+    form = Column(SmallInteger)
 
 
 class Mystery(Base):
@@ -912,6 +913,7 @@ def add_raid(session, raw_raid):
             raid.cp = raw_raid['cp']
             raid.move_1 = raw_raid['move_1']
             raid.move_2 = raw_raid['move_2']
+            raid.form = raw_raid['form']
             session.merge(raid)
             touch_fort_sighting(session, fort_id)
         return
@@ -936,6 +938,7 @@ def add_raid(session, raw_raid):
         raid.time_battle = raw_raid['time_battle']
         raid.time_end = raw_raid['time_end']
         raid.cp = raw_raid['cp']
+        raid.form = raw_raid['form']
         raid.move_1 = raw_raid['move_1']
         raid.move_2 = raw_raid['move_2']
 

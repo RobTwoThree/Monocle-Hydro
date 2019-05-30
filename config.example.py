@@ -866,6 +866,6 @@ MOTD = None
 ## For ANNOUNCEMENTS use the following for each line <li>blah blah</li><br><br>
 ANNOUNCEMENTS = '<li>blah blah</li><br><br>'
 
-# Enable automatic hatch of legendary raid.  Specify Pokemon ID and CP.
-LEGENDARY_RAID_POKEMON_ID =  381
-LEGENDARY_RAID_CP = 49322
+# Enable automatic hatch of legendary raid.  Specify Pokemon ID and CP. Set to False to turn off
+LEGENDARY_RAID_POKEMON_ID =  False
+LEGENDARY_RAID_CP = False
