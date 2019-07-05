@@ -5,7 +5,6 @@ var _pokemon_count_gen_2 = 251;
 var _pokemon_count_gen_3 = 386;
 var _pokemon_count_gen_4 = 488;
 var _alolan_forms = [19,20,26,27,28,37,38,50,51,52,53,74,75,76,88,89,103,105];
-//var _spritesheet_g3v4 = [276,277,278,279,283,284,313,314,333,334,351,357,358,371,372,373,374,375,376,384];
 var _spritesheet_g1 = [];
 var _spritesheet_g2 = [];
 var _spritesheet_g3 = [];
@@ -415,6 +414,11 @@ var RaidIcon = L.Icon.extend({
             //var image_id = pad.substring(0, pad.length - str_pokemon_id.length) + str_pokemon_id;
             var image_id = this.options.raid_pokemon_id;
 
+            // Handle potential Armored MewTwo ID
+            if (image_id == 4150) {
+                image_id = '150';
+            }
+
             if ( getPreference("icon_theme_buttons") === 'og' ) {
                 if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
                     switch (this.options.raid_pokemon_id) {
@@ -716,17 +720,6 @@ function getPopupContent (item, boost_status) {
     }
 
     var content = '<div class="pokemon_popup">';
-  
-//    if ( _alolan_forms.includes(item.pokemon_id) ) {
-//        if ( item.form !== 0 ) {
-//            content += '<div class="pokemon_popup_name"><b>' + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
-//
-//        } else {
-//            content += '<div class="pokemon_popup_name"><b>Alolan ' + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
-//        }
-//    } else {
-//        content += '<div class="pokemon_popup_name"><b>' + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
-//    }
 
     switch ( item.pokemon_id ){
         case 19: // Handle Alolan Rattata form
