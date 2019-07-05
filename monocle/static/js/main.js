@@ -707,6 +707,7 @@ function getPopupContent (item, boost_status) {
     var seconds = parseInt(diff - (minutes * 60));
     var expires_at = minutes + 'm ' + seconds + 's';
     var expires_time = convertToTwelveHourTime(item.expires_at);
+    var form_name = '';
     var day = ['none','day','night'];
     if ((item.pokemon_id === 201) && (item.form > 0)) {
        var pokemon_name = item.name + ' - ' + getUnownForm(item.form);
@@ -716,18 +717,59 @@ function getPopupContent (item, boost_status) {
 
     var content = '<div class="pokemon_popup">';
   
-    if ( _alolan_forms.includes(item.pokemon_id) ) {
-        if ( item.form !== 0 ) {
-            content += '<div class="pokemon_popup_name"><b>' + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
-          
-        } else {
-            content += '<div class="pokemon_popup_name"><b>Alolan ' + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
-        }
-    } else {
-        content += '<div class="pokemon_popup_name"><b>' + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
+//    if ( _alolan_forms.includes(item.pokemon_id) ) {
+//        if ( item.form !== 0 ) {
+//            content += '<div class="pokemon_popup_name"><b>' + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
+//
+//        } else {
+//            content += '<div class="pokemon_popup_name"><b>Alolan ' + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
+//        }
+//    } else {
+//        content += '<div class="pokemon_popup_name"><b>' + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
+//    }
+
+    switch ( item.pokemon_id ){
+        case 19: // Handle Alolan Rattata form
+            switch ( item.form ){
+                case 46:
+                    form_name = 'Alolan ';
+                    break;
+                default:
+                    form_name = '';
+            }
+            break;
+        case 50: // Handle Alolan Diglett form
+            switch ( item.form ){
+                case 59:
+                    form_name = 'Alolan ';
+                    break;
+                default:
+                    form_name = '';
+            }
+            break;
+        case 74: // Handle Alolan Geodude form
+            switch ( item.form ){
+                case 68:
+                    form_name = 'Alolan ';
+                    break;
+                default:
+                    form_name = '';
+            }
+            break;
+        case 103: // Handle Alolan Exeggutor form
+            switch ( item.form ){
+                case 78:
+                    form_name = 'Alolan ';
+                    break;
+                default:
+                    form_name = '';
+            }
+            break;
+        default:
+            form_name = '';
     }
-  
-  
+
+    content += '<div class="pokemon_popup_name"><b>' + form_name + pokemon_name + ' ' + getGender(item.gender) + '</b> - <a href="https://pokemongo.gamepress.gg/pokemon/' + item.pokemon_id + '" target="_blank">#' + item.pokemon_id + '</a></div>';
 
     content += '<div class="pokemon_popup_icons"><img id="type" class="type-' + pokemon_name_type[item.pokemon_id][2] + '" src="static/img/blank_1x1.png">';
 
