@@ -78,7 +78,7 @@ var PokemonIcon = L.Icon.extend({
                         form = '61';
                         break;
                     default:
-                        form = this.options.form;
+                        form = '00';
                 }
                 break;
             case 50: // Handle Alolan Diglett form
@@ -87,7 +87,7 @@ var PokemonIcon = L.Icon.extend({
                         form = '61';
                         break;
                     default:
-                        form = this.options.form;
+                        form = '00';
                 }
                 break;
             case 74: // Handle Alolan Geodude form
@@ -96,7 +96,7 @@ var PokemonIcon = L.Icon.extend({
                         form = '61';
                         break;
                     default:
-                        form = this.options.form;
+                        form = '00';
                 }
                 break;
             case 103: // Handle Alolan Exegguter form
@@ -105,7 +105,7 @@ var PokemonIcon = L.Icon.extend({
                         form = '61';
                         break;
                     default:
-                        form = this.options.form;
+                        form = '00';
                 }
                 break;
             case 201: // Handle Unown
