@@ -72,6 +72,42 @@ var PokemonIcon = L.Icon.extend({
         }
                                 
         switch ( pokemon_icon_id ){
+            case 19: // Handle Alolan Rattata form
+                switch ( this.options.form ){
+                    case 46:
+                        form = '61';
+                        break;
+                    default:
+                        form = this.options.form;
+                }
+                break;
+            case 50: // Handle Alolan Diglett form
+                switch ( this.options.form ){
+                    case 59:
+                        form = '61';
+                        break;
+                    default:
+                        form = this.options.form;
+                }
+                break;
+            case 74: // Handle Alolan Geodude form
+                switch ( this.options.form ){
+                    case 68:
+                        form = '61';
+                        break;
+                    default:
+                        form = this.options.form;
+                }
+                break;
+            case 103: // Handle Alolan Exegguter form
+                switch ( this.options.form ){
+                    case 78:
+                        form = '61';
+                        break;
+                    default:
+                        form = this.options.form;
+                }
+                break;
             case 201: // Handle Unown
                 if (this.options.form) {
                     form_text = '<div class="form_text">' + getUnownForm(this.options.form) + '</div>';
@@ -387,6 +423,13 @@ var RaidIcon = L.Icon.extend({
                                 image_id += '_61_01';
                             } else {
                                 image_id += '_01';
+                            }
+                            break;
+                        case 103: // Handle Alolan Exeggutor
+                            if (this.options.raid_pokemon_form == 77) {
+                                image_id += '_61';
+                            } else {
+                                image_id += '_00';
                             }
                             break;
                         case 105: // Handle Alolan Marowak
