@@ -418,6 +418,7 @@ var RaidIcon = L.Icon.extend({
             if (image_id == 4150) {
                 image_id = '150';
             }
+            
 
             if ( getPreference("icon_theme_buttons") === 'og' ) {
                 if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
@@ -443,6 +444,13 @@ var RaidIcon = L.Icon.extend({
                                 image_id += '_00';
                             }
                             break;
+                        case 150: // Handle Armored MewTwo
+                            if (this.options.raid_pokemon_form == 00) {
+                                image_id += '_10';
+                            } else {
+                                image_id += '_10';
+                            }
+                            break;
                         case 412: // Handle Burmy Forms
                             switch (this.options.raid_pokemon_form) {
                                 case 118:
@@ -462,7 +470,12 @@ var RaidIcon = L.Icon.extend({
                             image_id += '_' + this.options.raid_pokemon_form;
                     }
                 } else {
-                    image_id += '_00';
+                    //Handle Armored MewTwo
+                    if (image_id == 150){
+                        image_id += '_10';
+                    } else {
+                        image_id += '_00';
+                    }
                 }
                 
             } else if ( getPreference("icon_theme_buttons") === 'cart' ) {
@@ -482,6 +495,13 @@ var RaidIcon = L.Icon.extend({
                                 image_id += '_61_shiny';
                             } else {
                                 image_id += '_00_shiny';
+                            }
+                            break;
+                        case 150: // Handle Armored MewTwo
+                            if (this.options.raid_pokemon_form == 00) {
+                                image_id += '_10_shiny';
+                            } else {
+                                image_id += '_10_shiny';
                             }
                             break;
                         case 412: // Handle Burmy Forms
@@ -864,6 +884,13 @@ function getRaidPopupContent (item) {
                         image_id += '_61';
                     } else {
                         image_id += '_00';
+                    }
+                    break;
+                case 150: // Handle Armored MewTwo
+                    if (item.raid_pokemon_form == 00) {
+                        image_id += '_10';
+                    } else {
+                        image_id += '_10';
                     }
                     break;
                 case 412: // Handle Burmy Forms
