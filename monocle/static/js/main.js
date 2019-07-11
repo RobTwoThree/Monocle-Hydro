@@ -414,12 +414,6 @@ var RaidIcon = L.Icon.extend({
             //var image_id = pad.substring(0, pad.length - str_pokemon_id.length) + str_pokemon_id;
             var image_id = this.options.raid_pokemon_id;
 
-            // Handle potential Armored MewTwo ID
-            if (image_id == 4150) {
-                image_id = '150';
-            }
-            
-
             if ( getPreference("icon_theme_buttons") === 'og' ) {
                 if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
                     switch (this.options.raid_pokemon_id) {
@@ -445,10 +439,10 @@ var RaidIcon = L.Icon.extend({
                             }
                             break;
                         case 150: // Handle Armored MewTwo
-                            if (this.options.raid_pokemon_form == 00) {
+                            if (this.options.raid_pokemon_form == 133) {
                                 image_id += '_10';
                             } else {
-                                image_id += '_10';
+                                image_id += '_00';
                             }
                             break;
                         case 412: // Handle Burmy Forms
@@ -470,12 +464,7 @@ var RaidIcon = L.Icon.extend({
                             image_id += '_' + this.options.raid_pokemon_form;
                     }
                 } else {
-                    //Handle Armored MewTwo
-                    if (image_id == 150){
-                        image_id += '_10';
-                    } else {
-                        image_id += '_00';
-                    }
+                    image_id += '_00';
                 }
                 
             } else if ( getPreference("icon_theme_buttons") === 'cart' ) {
@@ -498,10 +487,10 @@ var RaidIcon = L.Icon.extend({
                             }
                             break;
                         case 150: // Handle Armored MewTwo
-                            if (this.options.raid_pokemon_form == 00) {
+                            if (this.options.raid_pokemon_form == 133) {
                                 image_id += '_10_shiny';
                             } else {
-                                image_id += '_10_shiny';
+                                image_id += '_00_shiny';
                             }
                             break;
                         case 412: // Handle Burmy Forms
@@ -1019,7 +1008,37 @@ function getRaidPopupContent (item) {
             content += '<br><b>Occupied by Team Instinct</b>';
         }
     }
-    content += '<br><b>Boss:</b> ' + raid_boss_name +
+  
+    var raid_boss_form_name = '';
+
+    switch (item.raid_pokemon_id) {
+        case 26: // Handle Alolan Raichu
+            if (item.raid_pokemon_form == 50) {
+                raid_boss_form_name = 'Alolan ';
+            } else {
+                raid_boss_form_name = '';
+            }
+            break;
+        case 105: // Handle Alolan Marowak
+            if (item.raid_pokemon_form == 80) {
+                raid_boss_form_name = 'Alolan ';
+            } else {
+                raid_boss_form_name = '';
+            }
+            break;
+        case 150: // Handle Armored MewTwo
+            if (item.raid_pokemon_form == 133) {
+                raid_boss_form_name = 'Armored ';
+            } else {
+                raid_boss_form_name = '';
+            }
+            break;
+        default:
+            raid_boss_form_name = '';
+    }
+  
+  
+    content += '<br><b>Boss:</b> ' + raid_boss_form_name + raid_boss_name +
                '<br><b>CP:</b> ' + raid_boss_cp +
                '<br><b>Quick Move:</b> ' + raid_boss_move_1 +
                '<br><b>Charge Move:</b> ' + raid_boss_move_2 +
