@@ -175,6 +175,11 @@
     margin-top: 5px;
 }
 
+.darkstop-popup {
+    text-align: center;
+    margin-top: 5px;
+}
+
 .fort-popup {
     text-align: center;
     margin-top: 100px;
@@ -310,7 +315,20 @@
     left: -38px;
 }
 
+.darkstop_icon_container {
+    position: absolute;
+    width: 50px;
+    left: -30px;
+    top: -30px;
+}
+
 .pokestop_icon {
+    position: absolute;
+    max-width: 50px;
+    z-index: -1;
+}
+
+.darkstop_icon img {
     position: absolute;
     max-width: 50px;
     z-index: -1;
@@ -603,6 +621,23 @@
     left: 23px;
 }
 
+.darkstop_remaining_text {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 25px;
+    top: -55px;
+    left: -25px;
+    position: absolute;
+    background-color: black;
+    text-align: center;
+    background-color: rgba(51, 204, 51, 0.7);
+    font-size: 10px;
+    padding: 0;
+    color: white;
+    width: 50px;
+    visibility: visible;
+}
+
 .raid_remaining_text {
     border-style: solid;
     border-width: 2px;
@@ -723,6 +758,14 @@
 }
 
 .pokestopmarker {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -35px;
+    text-align: center;
+}
+
+.darkstopmarker {
     position: absolute;
     width: 50px;
     height: 50px;

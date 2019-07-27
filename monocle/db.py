@@ -559,6 +559,12 @@ class Pokestop(Base):
     name = Column(String(128))
     url = Column(String(200))
     updated = Column(Integer,default=time,onupdate=time)
+    incident_start = Column(Integer)
+    incident_expiration = Column(Integer)
+    last_modified = Column(Integer)
+    last_updated = Column(Integer)
+    lure_expiraton = Column(Integer)
+    lure_start = Column(Integer)
 
 
 @contextmanager
@@ -1077,6 +1083,26 @@ def get_pokestops(session):
         FROM quests q
         JOIN pokestops ps ON ps.id=q.pokestop_id
         WHERE q.timestamp > unix_timestamp(current_date)
+    ''').fetchall()
+
+def get_darkstops(session):
+    return session.execute('''
+        SELECT
+            ps.id,
+            ps.external_id,
+            ps.lat,
+            ps.lon,
+            ps.name,
+            ps.url,
+            ps.updated,
+            ps.incident_start,
+            ps.incident_expiration,
+            ps.last_modified,
+            ps.last_updated,
+            ps.lure_expiration,
+            ps.lure_start
+        FROM pokestops ps
+        WHERE ps.incident_expiration > unix_timestamp(current_date)
     ''').fetchall()
 
 def _get_forts_sqlite(session):

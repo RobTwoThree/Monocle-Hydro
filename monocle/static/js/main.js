@@ -14,6 +14,7 @@ var _raids_count = 5;
 var _raids_labels = ['Normal', 'Normal', 'Rare', 'Rare', 'Legendary'];
 var _WorkerIconUrl = 'static/monocle-icons/assets/ball.png';
 var _PokestopIconUrl = 'static/img/pokestop_stroked.png?001';
+var _DarkstopIconUrl = 'static/img/rocket_badge_3.png';
 var _LocationMarker;
 var _LocationRadar;
 // Why you stealing my code?
@@ -566,11 +567,20 @@ var WorkerIcon = L.Icon.extend({
     }
 });
 
-var PokestopIcon = L.Icon.extend({
+var DarkstopIcon = L.Icon.extend({
     options: {
-        iconSize: [10, 20],
-        className: 'pokestop-icon',
-        iconUrl: _PokestopIconUrl
+        popupAnchor: [0, -15],
+    },
+    createIcon: function() {
+        var div = document.createElement('div');
+        div.innerHTML =
+            '<div class="darktopmarker">' +
+                '<div class="darkstop_icon_container">' +
+                    '<img class="darkstop_icon" src="' + _DarkstopIconUrl + '">' +
+                '</div>' +
+                '<div class="darkstop_remaining_text" data-expire="' + this.options.incident_expiration + '">' + this.options.incident_expiration + '</div>' +
+            '</div>';
+        return div;
     }
 });
 
@@ -639,6 +649,7 @@ var PokestopIcon = L.Icon.extend({
 var markers = {};
 var ex_markers = {};
 var quest_markers = {};
+var darkstop_markers = {};
 var quest_filters_list = {};
 var weather = {};
 
@@ -651,7 +662,8 @@ if (_DisplaySpawnpointsLayer === 'True') {
         Gyms: L.markerClusterGroup({ disableClusteringAtZoom: 8 }),
         Raids: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Parks_In_S2_Cells: L.layerGroup({ disableClusteringAtZoom: 8 }),
-        Quests: L.markerClusterGroup({ disableClusteringAtZoom: 8 }),
+        Quests: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
+        Darkstops: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         EX_Gyms: L.markerClusterGroup({ disableClusteringAtZoom: 8 }),
         Weather: L.layerGroup([]),
         ScanArea: L.layerGroup([]),
@@ -669,6 +681,7 @@ if (_DisplaySpawnpointsLayer === 'True') {
         Raids: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Parks_In_S2_Cells: L.markerClusterGroup({ disableClusteringAtZoom: 8 }),
         Quests: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
+        Darkstops: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         EX_Gyms: L.markerClusterGroup({ disableClusteringAtZoom: 8 }),
         Weather: L.layerGroup([]),
         ScanArea: L.layerGroup([]),
@@ -704,6 +717,7 @@ monitor(overlays.Gyms, false)
 monitor(overlays.Raids, false)
 monitor(overlays.Parks_In_S2_Cells, false)
 monitor(overlays.Quests, false)
+monitor(overlays.Darkstops, false)
 monitor(overlays.EX_Gyms, false)
 monitor(overlays.Weather, false)
 monitor(overlays.ScanArea, false)
@@ -1138,6 +1152,16 @@ function getPokestopPopupContent (item) {
     return content;
 }
 
+function getDarkstopPopupContent (item) {
+    var content = '<div class="darkstop-popup">';
+  
+    content += 'Started: ' + item.incident_start + '<br>';
+    content += 'Ends: ' + item.incident_expiration;
+    content += '</div>';
+
+    return content;
+}
+
 function getFortPopupContent (item) {
     var hours = parseInt(item.time_occupied / 3600);
     var minutes = parseInt((item.time_occupied / 60) - (hours * 60));
@@ -1437,6 +1461,23 @@ function PokestopMarker (raw) {
 
     pokestop_marker.bindPopup();
     return pokestop_marker;
+}
+
+function DarkstopMarker (raw) {
+    var darkstop_icon = new DarkstopIcon({pokestop_id: raw.id, incident_start: raw.incident_start, incident_expiration: raw.incident_expiration});
+    var darkstop_marker = L.marker([raw.lat, raw.lon], {icon: darkstop_icon, opacity: 1, zIndexOffset: 1000});
+
+    darkstop_marker.raw = raw;
+  
+    darkstop_markers[raw.id] = darkstop_marker;
+    darkstop_marker.on('popupopen',function popupopen (event) {
+        event.popup.options.autoPan = true; // Pan into view once
+        event.popup.setContent(getDarkstopPopupContent(event.target.raw));
+        event.popup.options.autoPan = false; // Don't fight user panning
+    });
+  
+    darkstop_marker.bindPopup();
+    return darkstop_marker;
 }
 
 function RaidMarker (raw) {
@@ -1755,6 +1796,26 @@ function addPokestopsToMap (data, map) {
             quest_marker.raw.id = "quest_filter-"+quest_marker_id;
         }
     });
+}
+
+function addDarkstopsToMap (data, map) {
+    data.forEach(function (item) {
+        darkstop_marker = DarkstopMarker(item);
+
+        var darkstop_marker_id = item.id;
+        //if (darkstop_marker_id in darkstop_markers) {
+        //    return;
+        //}
+
+        //if (darkstop_marker.overlay !== "hide_quests"){
+            darkstop_marker.addTo(overlays.Darkstops);
+            darkstop_marker.raw.id = "darkstop_filter-"+darkstop_marker_id;
+        //}
+    });
+    updateDarkstopTime();
+    if (_updateDarkstopTimeInterval === null){
+        _updateDarkstopTimeInterval = setInterval(updateDarkstopTime, 1000);
+    }
 }
 
 function addWeatherToMap (data, map) {
@@ -2115,6 +2176,16 @@ function getPokestops() {
     });
 }
 
+function getDarkstops() {
+    new Promise(function (resolve, reject) {
+        $.get(_PoGoSDRegion+'/darkstops', function (response) {
+            resolve(response);
+        });
+    }).then(function (data) {
+        addDarkstopsToMap(data, map);
+    });
+}
+
 function getWeather() {
     new Promise(function (resolve, reject) {
         $.get(_PoGoSDRegion+'/weather', function (response) {
@@ -2267,6 +2338,8 @@ if (_DisplayParksInS2CellsLayer === 'True') {
     map.addLayer(overlays.Parks_In_S2_Cells); }
 if (_DisplayQuestsLayer === 'True') {
     map.addLayer(overlays.Quests); }
+if (_DisplayDarkstopsLayer === 'True') {
+    map.addLayer(overlays.Darkstops); }
 if (_DisplayEXGymsLayer === 'True') {
     map.addLayer(overlays.EX_Gyms); }
 if (_DisplayWeatherLayer === 'True') {
@@ -2305,6 +2378,7 @@ map.whenReady(function () {
     getGyms();
     getRaids();
     getPokestops();
+    getDarkstops();
     
     overlays.Parks_In_S2_Cells.once('add', function(e) {
         getCells();
@@ -2321,6 +2395,7 @@ map.whenReady(function () {
     setInterval(getGyms, 60000);
     setInterval(getRaids, 60000);
     setInterval(getWeather, 300000);
+    setInterval(getDarkstops, 30000);
     
     if (_DisplaySpawnpointsLayer === 'True') {
         setInterval(getSpawnPoints, 30000);
@@ -2423,6 +2498,15 @@ function onOverLayAdd(e) {
         setPreference("QUESTS_LAYER",'display_quests');
     }
 
+    if (e.name == 'Darkstops') {
+        var hide_darkstop_button = $("#darkstops_layer button[data-value='hide_darkstops']");
+        var display_darkstop_button = $("#darkstops_layer button[data-value='display_darkstops']");
+
+        hide_darkstop_button.removeClass("active");
+        display_darkstop_button.addClass("active");
+        setPreference("DARKSTOPS_LAYER",'display_darkstops');
+    }
+  
     if (e.name == 'EX_Gyms') {
         var hide_button = $("#ex_eligible_layer button[data-value='hide']");
         var display_button = $("#ex_eligible_layer button[data-value='display']");
@@ -3161,6 +3245,12 @@ $('#settings').on('click', '.settings-panel button', function () {
         setPreference(key, value);
     }
 
+    if (key.indexOf('DARKSTOPS_LAYER') > -1){
+        setDarkstopsLayerDisplay(value);
+    } else {
+        setPreference(key, value);
+    }
+    
     if (key.indexOf('EX_ELIGIBLE_LAYER') > -1){
         setExGymsLayerDisplay(value);
     } else {
@@ -3620,6 +3710,15 @@ function setQuestsLayerDisplay(value) {
         map.addLayer(overlays.Quests);
     } else {
         map.removeLayer(overlays.Quests);
+    }
+}
+
+function setDarkstopsLayerDisplay(value) {
+    setPreference("DARKSTOPS_LAYER", value)
+    if ( value === "display_darkstops" ) {
+        map.addLayer(overlays.Darkstops);
+    } else {
+        map.removeLayer(overlays.Darkstops);
     }
 }
 
@@ -4101,6 +4200,11 @@ function setSettingsDefaults(){
     } else {
         _defaultSettings['QUESTS_LAYER'] = "hide_quests";
     }
+    if (_DisplayDarkstopsLayer === 'True') {
+        _defaultSettings['DARKSTOPS_LAYER'] = "display_darkstops";
+    } else {
+        _defaultSettings['DARKSTOPS_LAYER'] = "hide_darkstops";
+    }
     if (_DisplayEXGymsLayer === 'True') {
         _defaultSettings['EX_ELIGIBLE_LAYER'] = "display";
     } else {
@@ -4284,6 +4388,12 @@ if ( getPreference("QUESTS_LAYER") === "display_quests" ) {
     map.removeLayer(overlays.Quests);
 }
 
+if ( getPreference("DARKSTOPS_LAYER") === "display_darkstops" ) {
+    map.addLayer(overlays.Darkstops);
+} else {
+    map.removeLayer(overlays.Darkstops);
+}
+
 if ( getPreference("EX_ELIGIBLE_LAYER") === "display" ) {
     map.addLayer(overlays.EX_Gyms);
 } else {
@@ -4383,6 +4493,13 @@ function updatePokemonTime() {
             $(this).css('visibility', 'hidden');
         });
     }
+}
+
+function updateDarkstopTime() {
+    $(".darkstop_remaining_text").each(function() {
+        $(this).css('visibility', 'visible');
+        this.innerHTML = calculateRemainingTime($(this).data('expire'));
+    });
 }
 
 function updateRaidTime() {

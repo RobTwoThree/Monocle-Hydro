@@ -4,7 +4,7 @@ from multiprocessing.managers import BaseManager, RemoteError
 from time import time
 
 from monocle import sanitized as conf
-from monocle.db import get_forts, get_pokestops, get_grouped_quest_task, Pokestop, session_scope, Sighting, Spawnpoint, Raid, Fort, FortSighting
+from monocle.db import get_forts, get_pokestops, get_darkstops, get_grouped_quest_task, Pokestop, session_scope, Sighting, Spawnpoint, Raid, Fort, FortSighting
 from monocle.weather import Weather
 from monocle.utils import Units, get_address, dump_pickle, load_pickle
 from monocle.names import DAMAGE, MOVES, POKEMON
@@ -280,6 +280,25 @@ def get_pokestop_markers():
             'quest_condition': pokestop.quest_condition,
             'timestamp': pokestop.timestamp
         } for pokestop in pokestops]
+
+def get_darkstop_markers():
+    with session_scope() as session:
+        darkstops = get_darkstops(session)
+        return [{
+            'id': darkstop.id,
+            'external_id': darkstop.external_id,
+            'lat': darkstop.lat,
+            'lon': darkstop.lon,
+            'name': darkstop.name,
+            'url': darkstop.url,
+            'updated': darkstop.updated,
+            'incident_start': darkstop.incident_start,
+            'incident_expiration': darkstop.incident_expiration,
+            'last_modified': darkstop.last_modified,
+            'last_updated': darkstop.last_updated,
+            'lure_expiration': darkstop.lure_expiration,
+            'lure_start': darkstop.lure_start
+        } for darkstop in darkstops]
 
 def get_quest_filter_options():
     with session_scope() as session:

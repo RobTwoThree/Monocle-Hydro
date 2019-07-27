@@ -207,6 +207,7 @@ def render_map():
         display_weather=conf.SHOW_WEATHER_BY_DEFAULT,
         display_parks_in_s2_cells=conf.SHOW_PARKS_IN_S2_CELLS_BY_DEFAULT,
         display_quests=conf.SHOW_QUESTS_BY_DEFAULT,
+        display_darkstops=conf.SHOW_DARKSTOPS_BY_DEFAULT,
         display_ex_gyms=conf.SHOW_EX_GYMS_BY_DEFAULT,
         display_scan_area=conf.SHOW_SCAN_AREA_BY_DEFAULT,
         display_filtered_pokemon=conf.SHOW_FILTERED_POKEMON_BY_DEFAULT,
@@ -276,6 +277,10 @@ def spawn_points():
 @app.route('/pokestops')
 def get_pokestops():
     return jsonify(get_pokestop_markers())
+
+@app.route('/darkstops')
+def get_darkstops():
+    return jsonify(get_darkstop_markers())
 
 @app.route('/scan_coords')
 def scan_coords():
