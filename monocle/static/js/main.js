@@ -2634,6 +2634,15 @@ function onOverLayRemove(e) {
         display_pokemon_button.removeClass("active");
         setPreference("QUESTS_LAYER",'hide_quests');
     }
+
+    if (e.name == 'Darkstops') {
+        var hide_darkstop_button = $("#darkstops_layer button[data-value='hide_darkstops']");
+        var display_darkstop_button = $("#darkstops_layer button[data-value='display_darkstops']");
+
+        hide_darkstop_button.addClass("active");
+        display_darkstop_button.removeClass("active");
+        setPreference("DARKSTOPS_LAYER",'display_darkstops');
+    }
   
     if (e.name == 'EX_Gyms') {
         var hide_button = $("#ex_eligible_layer button[data-value='hide']");
@@ -2652,7 +2661,7 @@ function onOverLayRemove(e) {
         display_button.removeClass("active");
         setPreference("WEATHER_LAYER",'hide');
     }
-*/
+
     if (e.name == 'ScanArea') {
         var hide_button = $("#scan_area_layer button[data-value='hide']");
         var display_button = $("#scan_area_layer button[data-value='display']");
@@ -2661,7 +2670,7 @@ function onOverLayRemove(e) {
         display_button.removeClass("active");
         setPreference("SCAN_AREA_LAYER",'hide');
     }
-
+*/
     if (e.name == 'FilteredPokemon') {
         var hide_button = $("#filtered_pokemon_layer button[data-value='hide']");
         var display_button = $("#filtered_pokemon_layer button[data-value='display']");
