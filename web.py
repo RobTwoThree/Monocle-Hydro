@@ -70,7 +70,7 @@ def splash():
             splash = '<div id="splash_popup" class="splash_container">'
             splash += '<div class="splash_text">'
             splash += conf.SPLASH_MESSAGE
-            splash += '</div>'
+            splash += '</div><br>'
             splash += '<div class="splash_btn_container">'
             splash += '<button id="splash_popup_close_btn" type="button" class="splash_clear_btn">OK</button>'
             splash += '</div>'
