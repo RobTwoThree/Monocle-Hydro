@@ -1825,8 +1825,9 @@ console.log("removing darkstop: " + item.id);
 console.log("m.raw.id: " + m.raw.id);
             }
 */
-            //darkstop_marker = DarkstopMarker(item);
-            item.removeFrom(overlays.Darkstops);
+            darkstop_marker = DarkstopMarker(item);
+            darkstop_marker.removeFrom(overlays.Darkstops);
+            overlays.Darkstops.removeLayer(darkstop_marker);
             darkstop_markers["darkstop-" + item.id] = undefined;
         } else {
 
