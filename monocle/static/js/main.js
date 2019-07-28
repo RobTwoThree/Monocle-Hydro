@@ -1481,6 +1481,7 @@ console.log("diff: " + diff);
     if ( ( darkstop_marker.raw.id != undefined ) && ( diff < 0 )) { // Darkstop ended remove marker
         darkstop_marker.removeFrom(overlays.Darkstops);
         markers[darkstop_marker.raw.id] = undefined;
+console.log("darkstop removed: " + darkstop_marker.raw.id);
     }
   
     darkstop_marker.bindPopup();
@@ -1810,9 +1811,9 @@ function addDarkstopsToMap (data, map) {
         darkstop_marker = DarkstopMarker(item);
 
         var darkstop_marker_id = item.id;
-        //if (darkstop_marker_id in darkstop_markers) {
-        //    return;
-        //}
+        if (darkstop_marker_id in darkstop_markers) {
+            return;
+        }
 
         //if (darkstop_marker.overlay !== "hide_quests"){
             darkstop_marker.addTo(overlays.Darkstops);
