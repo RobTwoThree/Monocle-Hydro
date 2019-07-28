@@ -1822,7 +1822,6 @@ console.log(darkstop_marker_id + " is in darkstop_markers!!!!");
         
         
 console.log("adding darkstop_marker_id: " + darkstop_marker_id);
-console.log("marker_id = " + marker_id);
         darkstop_marker = DarkstopMarker(item);
 //        for (var k in darkstop_markers) {
 //            var m = darkstop_markers[k];
