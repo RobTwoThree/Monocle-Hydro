@@ -1482,7 +1482,7 @@ function DarkstopMarker (raw) {
   
     var diff = (darkstop_marker.raw.incident_expiration - new Date().getTime() / 1000);
 console.log("diff: " + diff);
-    if ( ( darkstop_marker.raw.id != undefined ) && ( diff < 0 )) { // Darkstop ended remove marker
+    if ( diff < 0 ) { // Darkstop ended remove marker
         darkstop_marker.removeFrom(overlays.Darkstops);
         markers[darkstop_marker.raw.id] = undefined;
 console.log("darkstop removed: " + darkstop_marker.raw.id);
