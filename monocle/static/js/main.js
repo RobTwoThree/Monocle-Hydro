@@ -662,12 +662,9 @@ if (_DisplaySpawnpointsLayer === 'True') {
         Sinnoh: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Gyms: L.markerClusterGroup({ disableClusteringAtZoom: 8 }),
         Raids: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
-        Parks_In_S2_Cells: L.layerGroup({ disableClusteringAtZoom: 8 }),
         Quests: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Darkstops: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         EX_Gyms: L.markerClusterGroup({ disableClusteringAtZoom: 8 }),
-        Weather: L.layerGroup([]),
-        ScanArea: L.layerGroup([]),
         FilteredPokemon: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Spawns: L.layerGroup([]),
         Workers: L.layerGroup([])
@@ -680,12 +677,9 @@ if (_DisplaySpawnpointsLayer === 'True') {
         Sinnoh: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Gyms: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Raids: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
-        Parks_In_S2_Cells: L.markerClusterGroup({ disableClusteringAtZoom: 8 }),
         Quests: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Darkstops: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         EX_Gyms: L.markerClusterGroup({ disableClusteringAtZoom: 8 }),
-        Weather: L.layerGroup([]),
-        ScanArea: L.layerGroup([]),
         FilteredPokemon: L.markerClusterGroup({ disableClusteringAtZoom: 12 })
     };
 }
@@ -716,12 +710,12 @@ monitor(overlays.Hoenn, true)
 monitor(overlays.Sinnoh, true)
 monitor(overlays.Gyms, false)
 monitor(overlays.Raids, false)
-monitor(overlays.Parks_In_S2_Cells, false)
+//monitor(overlays.Parks_In_S2_Cells, false)
 monitor(overlays.Quests, false)
 monitor(overlays.Darkstops, false)
 monitor(overlays.EX_Gyms, false)
-monitor(overlays.Weather, false)
-monitor(overlays.ScanArea, false)
+//monitor(overlays.Weather, false)
+//monitor(overlays.ScanArea, false)
 monitor(overlays.FilteredPokemon, true)
 monitor(hidden_overlays.FilteredRaids, false)
 if (_DisplaySpawnpointsLayer === 'True') {
@@ -2382,7 +2376,7 @@ map.whenReady(function () {
     // This auto centers map based on user's location
     autoCenter();
 
-    getWeather();
+    //getWeather();
     getExGyms();
     getPokemon();
     getGyms();
@@ -2390,10 +2384,10 @@ map.whenReady(function () {
     getPokestops();
     getDarkstops();
     
-    overlays.Parks_In_S2_Cells.once('add', function(e) {
-        getCells();
-        getParks();
-    })
+    //overlays.Parks_In_S2_Cells.once('add', function(e) {
+    //    getCells();
+    //    getParks();
+    //})
     
     getScanAreaCoords();
     if (_DisplaySpawnpointsLayer === 'True') {
@@ -2404,7 +2398,7 @@ map.whenReady(function () {
     setInterval(getPokemon, 30000);
     setInterval(getGyms, 60000);
     setInterval(getRaids, 60000);
-    setInterval(getWeather, 300000);
+    //setInterval(getWeather, 300000);
     setInterval(getDarkstops, 30000);
     
     if (_DisplaySpawnpointsLayer === 'True') {
@@ -2485,7 +2479,7 @@ function onOverLayAdd(e) {
         display_button.addClass("active");
         setPreference("RAIDS_LAYER",'display');
     }
-
+/*
     if (e.name == 'Parks_In_S2_Cells') {
         var hide_button = $("#parks_in_s2_cells_layer button[data-value='hide']");
         var display_button = $("#parks_in_s2_cells_layer button[data-value='display']");
@@ -2494,7 +2488,7 @@ function onOverLayAdd(e) {
         display_button.addClass("active");
         setPreference("PARKS_IN_S2_CELLS_LAYER",'display');
     }
-
+*/
     if (e.name == 'Quests') {
         var hide_item_button = $("#quests_layer button[data-value='hide_item_quests']");
         var hide_pokemon_button = $("#quests_layer button[data-value='hide_pokemon_quests']");
@@ -2527,7 +2521,7 @@ function onOverLayAdd(e) {
         getExGyms();
         getExRaids();
     }
-
+/*
     if (e.name == 'Weather') {
         var hide_button = $("#weather_layer button[data-value='hide']");
         var display_button = $("#weather_layer button[data-value='display']");
@@ -2536,7 +2530,7 @@ function onOverLayAdd(e) {
         display_button.addClass("active");
         setPreference("WEATHER_LAYER",'display');
     }
-
+*/
     if (e.name == 'ScanArea') {
         var hide_button = $("#scan_area_layer button[data-value='hide']");
         var display_button = $("#scan_area_layer button[data-value='display']");
@@ -2616,7 +2610,7 @@ function onOverLayRemove(e) {
         display_button.removeClass("active");
         setPreference("RAIDS_LAYER",'hide');
     }
-
+/*
     if (e.name == 'Parks_In_S2_Cells') {
         var hide_button = $("#parks_in_s2_cells_layer button[data-value='hide']");
         var display_button = $("#parks_in_s2_cells_layer button[data-value='display']");
@@ -2625,6 +2619,7 @@ function onOverLayRemove(e) {
         display_button.removeClass("active");
         setPreference("PARKS_IN_S2_CELLS_LAYER",'hide');
     }
+*/
     // Broken?
     // hide_quests
     if (e.name == 'Quests') {
@@ -2648,7 +2643,7 @@ function onOverLayRemove(e) {
         display_button.removeClass("active");
         setPreference("EX_ELIGIBLE_LAYER",'hide');
     }
-  
+/*
     if (e.name == 'Weather') {
         var hide_button = $("#weather_layer button[data-value='hide']");
         var display_button = $("#weather_layer button[data-value='display']");
@@ -2657,7 +2652,7 @@ function onOverLayRemove(e) {
         display_button.removeClass("active");
         setPreference("WEATHER_LAYER",'hide');
     }
-  
+*/
     if (e.name == 'ScanArea') {
         var hide_button = $("#scan_area_layer button[data-value='hide']");
         var display_button = $("#scan_area_layer button[data-value='display']");
