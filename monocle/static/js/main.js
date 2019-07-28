@@ -15,6 +15,7 @@ var _raids_labels = ['Normal', 'Normal', 'Rare', 'Rare', 'Legendary'];
 var _WorkerIconUrl = 'static/monocle-icons/assets/ball.png';
 var _PokestopIconUrl = 'static/img/pokestop_stroked.png?001';
 var _DarkstopIconUrl = 'static/img/rocket_badge_3.png';
+var _teamRLogo = 'static/img/team_go_rocket_logo.png';
 var _LocationMarker;
 var _LocationRadar;
 // Why you stealing my code?
@@ -1156,9 +1157,10 @@ function getDarkstopPopupContent (item) {
     var content = '<div class="darkstop-popup">';
 
     content += '<div class="darkstop_image_container"><img class="darkstop_image" src="' + item.url + '"></div>';
-    content += 'id: ' + item.id + '<br>';
-    content += 'Started: ' + convertToTwelveHourTime(item.incident_start) + '<br>';
-    content += 'Ends: ' + convertToTwelveHourTime(item.incident_expiration);
+    content += '<b>Team GO Rocket has turned the ' + item.name + ' Pokestop</b><br>';
+    content += '<div class="teamR_image_container"><img class="teamR_image" src="' + _teamRLogo + '"></div>';
+    content += '<b>Started: </b>' + convertToTwelveHourTime(item.incident_start) + '<br>';
+    content += '<b>Ends: </b>' + convertToTwelveHourTime(item.incident_expiration);
     content += '<br><a href="https://www.google.com/maps/?daddr='+ item.lat + ','+ item.lon + '" target="_blank" title="See in Google Maps">Get directions</a>';
     content += '</div>';
 
@@ -1472,23 +1474,11 @@ function DarkstopMarker (raw) {
 
     darkstop_marker.raw = raw;
   
-//    darkstop_markers["darkstop-" + raw.id] = darkstop_marker;
     darkstop_marker.on('popupopen',function popupopen (event) {
         event.popup.options.autoPan = true; // Pan into view once
         event.popup.setContent(getDarkstopPopupContent(event.target.raw));
         event.popup.options.autoPan = false; // Don't fight user panning
     });
-/*
-    var diff = (darkstop_marker.raw.incident_expiration - new Date().getTime() / 1000);
-console.log("diff: " + diff);
-console.log("darkstop_marker.raw.id: " + darkstop_marker.raw.id);
-    if ( diff < 0 ) { // Darkstop ended remove marker
-        darkstop_marker.removeFrom(overlays.Darkstops);
-        overlays.Darkstops.removeLayer(darkstop_marker);
-        darkstop_markers["darkstop-" + darkstop_marker.raw.id] = undefined;
-console.log("darkstop removed: " + darkstop_marker.raw.id);
-    }
-*/
     darkstop_marker.bindPopup();
     return darkstop_marker;
 }
@@ -1814,59 +1804,24 @@ function addPokestopsToMap (data, map) {
 function addDarkstopsToMap (data, map) {
     data.forEach(function (item) {
         var existing = darkstop_markers["darkstop-" + item.id];
-console.log("existing: " + existing);
-        
-//        if (typeof existing !== 'undefined') {
-//            existing.removeFrom(overlays.Darkstops);
-//            darkstop_markers[item.id] = undefined;
-//        }
-        
         var darkstop_marker_id = "darkstop-" + item.id;
         var diff = (item.incident_expiration - new Date().getTime() / 1000);
-console.log("diff: " + diff + " for " + item.id);
 
         if ( diff < 0 ) { // Darkstop ended remove marker
-console.log("removing darkstop: " + item.id);
-/*
-            for (var k in darkstop_markers) {
-                var m = darkstop_markers[k];
-console.log("m.raw.id: " + m.raw.id);
-            }
-*/
-            //darkstop_marker = DarkstopMarker(item);
             existing.removeFrom(overlays.Darkstops);
             darkstop_markers["darkstop-" + item.id] = undefined;
-console.log(darkstop_markers);
         } else {
-
-//console.log(darkstop_markers);
+            // If darkstop_marker already added, ignore
             if (darkstop_marker_id in darkstop_markers) {
-console.log(darkstop_marker_id + " is in darkstop_markers!!!!");
                 return;
             }
             
-            
-console.log("adding darkstop_marker_id: " + darkstop_marker_id);
             darkstop_marker = DarkstopMarker(item);
-    //        for (var k in darkstop_markers) {
-    //            var m = darkstop_markers[k];
-    //            console.log("m.raw.id: " + m.raw.id);
-    //        }
-            
-            //if (darkstop_marker.overlay !== "hide_quests"){
-            
             darkstop_marker.addTo(overlays.Darkstops);
             darkstop_marker.raw.id = darkstop_marker_id;
             darkstop_markers[item.id] = darkstop_marker;
-            //}
         }
     });
-/*
-    for (var k in darkstop_markers) {
-        var m = darkstop_markers[k];
-        console.log("m.raw.id: " + m.raw.id);
-    }
-*/
     updateDarkstopTime();
     if (_updateDarkstopTimeInterval === null){
         _updateDarkstopTimeInterval = setInterval(updateDarkstopTime, 1000);
