@@ -1819,7 +1819,7 @@ console.log("item.id: " + item.id);
         if ( diff < 0 ) { // Darkstop ended remove marker
             darkstop_marker = DarkstopMarker(item);
             darkstop_marker.removeFrom(overlays.Darkstops);
-            darkstop_markers["darkstop-" + item.id] = undefined;
+            darkstop_markers[item.id] = undefined;
 console.log("darkstop removed: " + item.id);
         } else {
 
@@ -1841,7 +1841,7 @@ console.log("adding darkstop_marker_id: " + darkstop_marker_id);
             
             darkstop_marker.addTo(overlays.Darkstops);
             darkstop_marker.raw.id = darkstop_marker_id;
-            darkstop_markers["darkstop-" + item.id] = darkstop_marker;
+            darkstop_markers[item.id] = darkstop_marker;
             //}
         }
     });
