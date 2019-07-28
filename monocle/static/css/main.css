@@ -1115,7 +1115,7 @@
 }
 
 .visited_darkstop_image_container {
-     float: left;
+     display: inline-block;
 }
 
 .quest_complete_button_text {

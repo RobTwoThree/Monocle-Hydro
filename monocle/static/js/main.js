@@ -1088,7 +1088,7 @@ function markDarkstopComplete ( darkstop_id ) {
     for(var k in darkstop_markers) {
         var m = darkstop_markers[k];
 
-        if ( m.raw.id == darkstop_id ) {
+        if ( m.id == darkstop_id ) {
             m.overlay = "FilteredDarkstops";
             m.addTo(hidden_overlays.FilteredDarkstops);
             m.removeFrom(overlays.Darkstops);
