@@ -1813,7 +1813,7 @@ function addPokestopsToMap (data, map) {
 
 function addDarkstopsToMap (data, map) {
     data.forEach(function (item) {
-        var existing = darkstop_markers[item.id];
+        var existing = darkstop_markers["darkstop-" + item.id];
 console.log("existing: " + existing);
         
         var darkstop_marker_id = "darkstop-" + item.id;
