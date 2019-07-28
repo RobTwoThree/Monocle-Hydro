@@ -1102,7 +1102,7 @@ def get_darkstops(session):
             ps.lure_expiration,
             ps.lure_start
         FROM pokestops ps
-        WHERE ps.incident_expiration > unix_timestamp(now() + 60)
+        WHERE ps.incident_expiration > ( unix_timestamp(now()) + 60 )
     ''').fetchall()
 
 def _get_forts_sqlite(session):
