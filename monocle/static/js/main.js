@@ -1824,7 +1824,7 @@ console.log("darkstop_markers: " + darkstop_markers);
         
         //if (darkstop_marker.overlay !== "hide_quests"){
             darkstop_marker.addTo(overlays.Darkstops);
-            darkstop_marker.raw.id = "darkstop_filter-"+darkstop_marker_id;
+            darkstop_marker.raw.id = darkstop_marker_id;
         //}
     });
     updateDarkstopTime();
