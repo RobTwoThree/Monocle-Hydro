@@ -4536,20 +4536,9 @@ function updateDarkstopTime() {
     
         var current_time = new Date().getTime() / 1000;
         if ($(this).data('expire') < current_time) {
-            $(this).css('visibility', 'hidden'); // Hide when expired
-            $(this).parent().css('visibility', 'hidden');
+            $(this).parent().css('visibility', 'hidden'); // Hide marker when expired
         }
     });
-/*
-    $(".darkstopmarker").each(function() {
-        this.innerHTML = calculateRemainingTime($(this).data('expire'));
-    
-        var current_time = new Date().getTime() / 1000;
-        if ($(this).data('expire') < current_time) {
-            $(".darkstop_icon").css('visibility', 'hidden'); // Hide when expired
-        }
-    });
-*/
 }
 
 function updateRaidTime() {
