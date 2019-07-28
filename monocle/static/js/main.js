@@ -1815,7 +1815,7 @@ function addDarkstopsToMap (data, map) {
         darkstop_marker = DarkstopMarker(item);
 
         var darkstop_marker_id = "darkstop-" + item.id;
-
+console.log(darkstop_markers);
         if (darkstop_marker_id in darkstop_markers) {
 console.log(darkstop_marker_id + " is in darkstop_markers!!!!");
             return;
