@@ -1155,6 +1155,10 @@ function getPokestopPopupContent (item) {
 function getDarkstopPopupContent (item) {
     var content = '<div class="darkstop-popup">';
   
+    content += 'id: ' + item.id + '<br>';
+    content += 'URL: ' + item.url + '<br>';
+    content += 'lat: ' + item.lat + '<br>';
+    content += 'lon: ' + item.lon + '<br>';
     content += 'Started: ' + item.incident_start + '<br>';
     content += 'Ends: ' + item.incident_expiration;
     content += '</div>';
