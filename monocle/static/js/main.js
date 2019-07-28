@@ -1814,8 +1814,8 @@ function addDarkstopsToMap (data, map) {
     data.forEach(function (item) {
         var darkstop_marker_id = "darkstop-" + item.id;
         var diff = (item.incident_expiration - new Date().getTime() / 1000);
-console.log("diff: " + diff);
-console.log("item.id: " + item.id);
+console.log("diff: " + diff + " for " + item.id);
+
         if ( diff < 0 ) { // Darkstop ended remove marker
             darkstop_marker = DarkstopMarker(item);
             darkstop_marker.removeFrom(overlays.Darkstops);
