@@ -1816,10 +1816,10 @@ function addDarkstopsToMap (data, map) {
         var existing = darkstop_markers["darkstop-" + item.id];
 console.log("existing: " + existing);
         
-        //if (typeof existing !== 'undefined') {
+        if (typeof existing !== 'undefined') {
             existing.removeFrom(overlays.Darkstops);
             darkstop_markers[item.id] = undefined;
-        //}
+        }
         
         var darkstop_marker_id = "darkstop-" + item.id;
         var diff = (item.incident_expiration - new Date().getTime() / 1000);
