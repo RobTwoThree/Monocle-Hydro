@@ -4537,6 +4537,7 @@ function updateDarkstopTime() {
         var current_time = new Date().getTime() / 1000;
         if ($(this).data('expire') < current_time) {
             $(this).css('background-color', 'rgba(204, 0, 0, 0.7)'); // Red
+            $(".darkstopmarker").css('visibility', 'hidden');
         }
     });
 }
