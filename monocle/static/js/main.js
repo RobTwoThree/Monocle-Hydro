@@ -2389,7 +2389,7 @@ map.whenReady(function () {
     //    getParks();
     //})
     
-    getScanAreaCoords();
+    //getScanAreaCoords();
     if (_DisplaySpawnpointsLayer === 'True') {
         getSpawnPoints();
         getWorkers();
