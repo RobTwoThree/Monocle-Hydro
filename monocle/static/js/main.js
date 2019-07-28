@@ -1814,11 +1814,7 @@ function addPokestopsToMap (data, map) {
 function addDarkstopsToMap (data, map) {
     data.forEach(function (item) {
         var existing = darkstop_markers[item.id];
-
-        if (typeof existing == 'undefined') {
-            existing.removeFrom(overlays.Darkstops);
-            darkstop_markers[item.id] = undefined;
-        }
+console.log("existing: " + existing);
         
         var darkstop_marker_id = "darkstop-" + item.id;
         var diff = (item.incident_expiration - new Date().getTime() / 1000);
