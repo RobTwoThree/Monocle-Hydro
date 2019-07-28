@@ -1114,12 +1114,26 @@
      float: left;
 }
 
+.visited_darkstop_image_container {
+     float: left;
+}
+
 .quest_complete_button_text {
     font-size: 65%;
     text-align: center;
 }
 
+.darkstop_complete_button_text {
+    font-size: 65%;
+    text-align: center;
+}
+
 .quest_complete_button {
+    display: block;
+    max-width: 50px;
+}
+
+.darkstop_complete_button {
     display: block;
     max-width: 50px;
 }
