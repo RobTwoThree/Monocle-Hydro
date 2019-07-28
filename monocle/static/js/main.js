@@ -1823,7 +1823,7 @@ console.log("item.id: " + item.id);
 console.log("darkstop removed: " + item.id);
         } else {
 
-console.log(darkstop_markers);
+//console.log(darkstop_markers);
             if (darkstop_marker_id in darkstop_markers) {
 console.log(darkstop_marker_id + " is in darkstop_markers!!!!");
                 return;
@@ -1845,12 +1845,12 @@ console.log("adding darkstop_marker_id: " + darkstop_marker_id);
             //}
         }
     });
-
+/*
     for (var k in darkstop_markers) {
         var m = darkstop_markers[k];
         console.log("m.raw.id: " + m.raw.id);
     }
-  
+*/
     updateDarkstopTime();
     if (_updateDarkstopTimeInterval === null){
         _updateDarkstopTimeInterval = setInterval(updateDarkstopTime, 1000);
