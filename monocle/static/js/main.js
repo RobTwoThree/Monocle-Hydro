@@ -1803,9 +1803,9 @@ function addDarkstopsToMap (data, map) {
         darkstop_marker = DarkstopMarker(item);
 
         var darkstop_marker_id = item.id;
-        //if (darkstop_marker_id in darkstop_markers) {
-        //    return;
-        //}
+        if (darkstop_marker_id in darkstop_markers) {
+            return;
+        }
 
         //if (darkstop_marker.overlay !== "hide_quests"){
             darkstop_marker.addTo(overlays.Darkstops);
