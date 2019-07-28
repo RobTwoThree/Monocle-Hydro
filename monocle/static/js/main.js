@@ -1841,7 +1841,7 @@ console.log("adding darkstop_marker_id: " + darkstop_marker_id);
             
             darkstop_marker.addTo(overlays.Darkstops);
             darkstop_marker.raw.id = darkstop_marker_id;
-            darkstop_markers["darkstop-" + raw.id] = darkstop_marker;
+            darkstop_markers["darkstop-" + item.id] = darkstop_marker;
             //}
         }
     });
