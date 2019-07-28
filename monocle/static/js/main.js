@@ -1814,7 +1814,11 @@ function addDarkstopsToMap (data, map) {
         if (darkstop_marker_id in darkstop_markers) {
             return;
         }
-
+        
+        for (m in darkstop_markers) {
+            console.log("marker: " + m.id);
+        }
+                 }
         //if (darkstop_marker.overlay !== "hide_quests"){
             darkstop_marker.addTo(overlays.Darkstops);
             darkstop_marker.raw.id = "darkstop_filter-"+darkstop_marker_id;
