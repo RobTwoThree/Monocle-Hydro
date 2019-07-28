@@ -4380,13 +4380,13 @@ if ( getPreference("RAIDS_LAYER") === "display" ) {
 } else {
     map.removeLayer(overlays.Raids);
 }
-
+/*
 if ( getPreference("PARKS_IN_S2_CELLS_LAYER") === "display" ) {
     map.addLayer(overlays.Parks_In_S2_Cells);
 } else {
     map.removeLayer(overlays.Parks_In_S2_Cells);
 }
-
+*/
 if ( getPreference("QUESTS_LAYER") === "display_quests" ) {
     map.addLayer(overlays.Quests);
 } else {
@@ -4404,7 +4404,7 @@ if ( getPreference("EX_ELIGIBLE_LAYER") === "display" ) {
 } else {
     map.removeLayer(overlays.EX_Gyms);
 }
-
+/*
 if ( getPreference("WEATHER_LAYER") === "display" ) {
     map.addLayer(overlays.Weather);
 } else {
@@ -4416,7 +4416,7 @@ if ( getPreference("SCAN_AREA_LAYER") === "display" ) {
 } else {
     map.removeLayer(overlays.ScanArea);
 }
-
+*/
 if ( getPreference("FILTERED_POKEMON_LAYER") === "display" ) {
     map.addLayer(overlays.FilteredPokemon);
 } else {
