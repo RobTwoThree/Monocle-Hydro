@@ -575,7 +575,7 @@ var DarkstopIcon = L.Icon.extend({
     createIcon: function() {
         var div = document.createElement('div');
         div.innerHTML =
-            '<div class="darkstopmarker" data-id="' + this.options.id + '">' +
+            '<div class="darkstopmarker" data-id="' + this.options.pokestop_id + '">' +
                 '<div class="darkstop_icon_container">' +
                     '<img class="darkstop_icon" src="' + _DarkstopIconUrl + '">' +
                 '</div>' +
