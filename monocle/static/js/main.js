@@ -4536,6 +4536,7 @@ function updateDarkstopTime() {
     
         var current_time = new Date().getTime() / 1000;
         if ($(this).data('expire') < current_time) {
+            $(this).css('visibility', 'hidden'); // Hide timer when expired
             $(this).parent().css('visibility', 'hidden'); // Hide marker when expired
         }
     });
