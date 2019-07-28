@@ -1485,7 +1485,7 @@ console.log("diff: " + diff);
 console.log("darkstop_marker.raw.id: " + darkstop_marker.raw.id);
     if ( diff < 0 ) { // Darkstop ended remove marker
         darkstop_marker.removeFrom(overlays.Darkstops);
-        markers[darkstop_marker.raw.id] = undefined;
+        markers["darkstop-" + darkstop_marker.raw.id] = undefined;
 console.log("darkstop removed: " + darkstop_marker.raw.id);
     }
   
