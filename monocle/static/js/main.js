@@ -1087,7 +1087,7 @@ function markPokestopComplete ( pokestop_id ) {
 function markDarkstopComplete ( darkstop_id ) {
     for(var k in darkstop_markers) {
         var m = darkstop_markers[k];
-console("onclick, m.id = " + m.id + ", m.raw.id=" + m.raw.id);
+console.log("onclick, m.id = " + m.id + ", m.raw.id=" + m.raw.id);
         if ( m.id == darkstop_id ) {
             m.overlay = "FilteredDarkstops";
             m.addTo(hidden_overlays.FilteredDarkstops);
