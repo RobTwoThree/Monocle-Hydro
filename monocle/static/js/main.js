@@ -1828,6 +1828,7 @@ console.log("m.raw.id: " + m.raw.id);
             darkstop_marker = DarkstopMarker(item);
             darkstop_marker.removeFrom(overlays.Darkstops);
             overlays.Darkstops.removeLayer(darkstop_marker);
+            overlays.Darkstops.refreshClusters(darkstop_marker);
             darkstop_markers["darkstop-" + item.id] = undefined;
 console.log(darkstop_markers);
         } else {
