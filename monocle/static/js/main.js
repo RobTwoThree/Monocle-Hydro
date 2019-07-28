@@ -1154,13 +1154,12 @@ function getPokestopPopupContent (item) {
 
 function getDarkstopPopupContent (item) {
     var content = '<div class="darkstop-popup">';
-  
+
+    content += '<div class="darkstop_image_container"><img class="darkstop_image" src="' + item.url + '"></div>';
     content += 'id: ' + item.id + '<br>';
-    content += 'URL: ' + item.url + '<br>';
-    content += 'lat: ' + item.lat + '<br>';
-    content += 'lon: ' + item.lon + '<br>';
     content += 'Started: ' + item.incident_start + '<br>';
     content += 'Ends: ' + item.incident_expiration;
+    content += '<br><a href="https://www.google.com/maps/?daddr='+ item.lat + ','+ item.lon + '" target="_blank" title="See in Google Maps">Get directions</a>';
     content += '</div>';
 
     return content;
@@ -1816,12 +1815,11 @@ function addDarkstopsToMap (data, map) {
         darkstop_marker = DarkstopMarker(item);
 
         var darkstop_marker_id = "darkstop-" + item.id;
-console.log("darkstop_marker_id: " + darkstop_marker_id);
-console.log("darkstop_markers: " + darkstop_markers);
+
         if (darkstop_marker_id in darkstop_markers) {
             return;
         }
-        
+console.log("adding darkstop_marker_id: " + darkstop_marker_id);
 //        for (var k in darkstop_markers) {
 //            var m = darkstop_markers[k];
 //            console.log("m.raw.id: " + m.raw.id);
@@ -1837,7 +1835,7 @@ console.log("darkstop_markers: " + darkstop_markers);
         var m = darkstop_markers[k];
         console.log("m.raw.id: " + m.raw.id);
     }
-    
+  
     updateDarkstopTime();
     if (_updateDarkstopTimeInterval === null){
         _updateDarkstopTimeInterval = setInterval(updateDarkstopTime, 1000);
