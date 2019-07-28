@@ -1822,16 +1822,22 @@ console.log("darkstop_markers: " + darkstop_markers);
             return;
         }
         
-        for (var k in darkstop_markers) {
-            var m = darkstop_markers[k];
-            console.log("m.raw.id: " + m.raw.id);
-        }
+//        for (var k in darkstop_markers) {
+//            var m = darkstop_markers[k];
+//            console.log("m.raw.id: " + m.raw.id);
+//        }
         
         //if (darkstop_marker.overlay !== "hide_quests"){
             darkstop_marker.addTo(overlays.Darkstops);
             darkstop_marker.raw.id = darkstop_marker_id;
         //}
     });
+
+    for (var k in darkstop_markers) {
+        var m = darkstop_markers[k];
+        console.log("m.raw.id: " + m.raw.id);
+    }
+    
     updateDarkstopTime();
     if (_updateDarkstopTimeInterval === null){
         _updateDarkstopTimeInterval = setInterval(updateDarkstopTime, 1000);
