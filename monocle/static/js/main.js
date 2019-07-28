@@ -1815,12 +1815,14 @@ function addDarkstopsToMap (data, map) {
         darkstop_marker = DarkstopMarker(item);
 
         var darkstop_marker_id = "darkstop-" + item.id;
+        var raw_id = item_id;
 console.log(darkstop_markers);
         if (darkstop_marker_id in darkstop_markers) {
 console.log(darkstop_marker_id + " is in darkstop_markers!!!!");
             return;
         }
 console.log("adding darkstop_marker_id: " + darkstop_marker_id);
+console.log("raw_id = " + raw_id);
 //        for (var k in darkstop_markers) {
 //            var m = darkstop_markers[k];
 //            console.log("m.raw.id: " + m.raw.id);
