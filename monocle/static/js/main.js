@@ -1472,22 +1472,22 @@ function DarkstopMarker (raw) {
 
     darkstop_marker.raw = raw;
   
-    darkstop_markers["darkstop-" + raw.id] = darkstop_marker;
+//    darkstop_markers["darkstop-" + raw.id] = darkstop_marker;
     darkstop_marker.on('popupopen',function popupopen (event) {
         event.popup.options.autoPan = true; // Pan into view once
         event.popup.setContent(getDarkstopPopupContent(event.target.raw));
         event.popup.options.autoPan = false; // Don't fight user panning
     });
-  
+/*
     var diff = (darkstop_marker.raw.incident_expiration - new Date().getTime() / 1000);
 console.log("diff: " + diff);
 console.log("darkstop_marker.raw.id: " + darkstop_marker.raw.id);
     if ( diff < 0 ) { // Darkstop ended remove marker
         darkstop_marker.removeFrom(overlays.Darkstops);
-        markers["darkstop-" + darkstop_marker.raw.id] = undefined;
+        darkstop_markers["darkstop-" + darkstop_marker.raw.id] = undefined;
 console.log("darkstop removed: " + darkstop_marker.raw.id);
     }
-  
+*/
     darkstop_marker.bindPopup();
     return darkstop_marker;
 }
@@ -1813,25 +1813,37 @@ function addPokestopsToMap (data, map) {
 function addDarkstopsToMap (data, map) {
     data.forEach(function (item) {
         var darkstop_marker_id = "darkstop-" + item.id;
+        var diff = (item.incident_expiration - new Date().getTime() / 1000);
+console.log("diff: " + diff);
+console.log("item.id: " + item.id);
+        if ( diff < 0 ) { // Darkstop ended remove marker
+            darkstop_marker = DarkstopMarker(item);
+            darkstop_marker.removeFrom(overlays.Darkstops);
+            darkstop_markers["darkstop-" + item.id] = undefined;
+console.log("darkstop removed: " + item.id);
+        } else {
 
 console.log(darkstop_markers);
-        if (darkstop_marker_id in darkstop_markers) {
+            if (darkstop_marker_id in darkstop_markers) {
 console.log(darkstop_marker_id + " is in darkstop_markers!!!!");
-            return;
-        }
-        
-        
+                return;
+            }
+            
+            
 console.log("adding darkstop_marker_id: " + darkstop_marker_id);
-        darkstop_marker = DarkstopMarker(item);
-//        for (var k in darkstop_markers) {
-//            var m = darkstop_markers[k];
-//            console.log("m.raw.id: " + m.raw.id);
-//        }
-        
-        //if (darkstop_marker.overlay !== "hide_quests"){
+            darkstop_marker = DarkstopMarker(item);
+    //        for (var k in darkstop_markers) {
+    //            var m = darkstop_markers[k];
+    //            console.log("m.raw.id: " + m.raw.id);
+    //        }
+            
+            //if (darkstop_marker.overlay !== "hide_quests"){
+            
             darkstop_marker.addTo(overlays.Darkstops);
             darkstop_marker.raw.id = darkstop_marker_id;
-        //}
+            darkstop_markers["darkstop-" + raw.id] = darkstop_marker;
+            //}
+        }
     });
 
     for (var k in darkstop_markers) {
