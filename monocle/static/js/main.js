@@ -687,7 +687,7 @@ if (_DisplaySpawnpointsLayer === 'True') {
 var hidden_overlays = {
     FilteredRaids: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
     FilteredGyms: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
-    FilteredQuests: L.markerClusterGroup({ disableClusteringAtZoom: 12 })
+    FilteredQuests: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
     FilteredDarkstops: L.markerClusterGroup({ disableClusteringAtZoom: 12 })
 };
 
