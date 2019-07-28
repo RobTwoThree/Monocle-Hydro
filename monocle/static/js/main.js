@@ -1088,7 +1088,7 @@ function markDarkstopComplete ( darkstop_id ) {
     for(var k in darkstop_markers) {
         var m = darkstop_markers[k];
 console.log("onclick, m.id = " + m.id + ", m.raw.id=" + m.raw.id);
-        if ( m.id == darkstop_id ) {
+        if (( typeof m !== 'undefined') && ( m.raw.id == darkstop_id )) {
             m.overlay = "FilteredDarkstops";
             m.addTo(hidden_overlays.FilteredDarkstops);
             m.removeFrom(overlays.Darkstops);
