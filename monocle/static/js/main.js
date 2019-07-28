@@ -1086,7 +1086,7 @@ function markPokestopComplete ( pokestop_id ) {
 
 function markDarkstopComplete ( darkstop_id ) {
     for(var k in darkstop_markers) {
-        var m = darksto_markers[k];
+        var m = darkstop_markers[k];
 
         if ( m.raw.id == darkstop_id ) {
             m.overlay = "FilteredDarkstops";
@@ -1172,6 +1172,7 @@ function getDarkstopPopupContent (item) {
                        '<img class="darkstop_complete_button" src="static/img/check_mark.png" onclick=markDarkstopComplete("' + item.id + '")>' +
                    '</div>' +
                '</div>';
+    content += '<br>';
     content += '<b>Started: </b>' + convertToTwelveHourTime(item.incident_start) + '<br>';
     content += '<b>Ends: </b>' + convertToTwelveHourTime(item.incident_expiration);
     content += '<br><a href="https://www.google.com/maps/?daddr='+ item.lat + ','+ item.lon + '" target="_blank" title="See in Google Maps">Get directions</a>';
