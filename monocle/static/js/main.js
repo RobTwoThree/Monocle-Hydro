@@ -574,7 +574,7 @@ var DarkstopIcon = L.Icon.extend({
     createIcon: function() {
         var div = document.createElement('div');
         div.innerHTML =
-            '<div class="darktopmarker">' +
+            '<div class="darkstopmarker">' +
                 '<div class="darkstop_icon_container">' +
                     '<img class="darkstop_icon" src="' + _DarkstopIconUrl + '">' +
                 '</div>' +
@@ -1815,7 +1815,7 @@ function addDarkstopsToMap (data, map) {
     data.forEach(function (item) {
         var existing = darkstop_markers[item.id];
 
-        if (typeof existing !== 'undefined') {
+        if (typeof existing == 'undefined') {
             existing.removeFrom(overlays.Darkstops);
             darkstop_markers[item.id] = undefined;
         }
