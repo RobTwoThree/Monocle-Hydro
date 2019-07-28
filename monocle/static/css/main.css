@@ -799,6 +799,7 @@
     height: 50px;
     top: -35px;
     text-align: center;
+    visibility: visible;
 }
 
 .fortmarker {
