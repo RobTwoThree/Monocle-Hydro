@@ -1810,8 +1810,9 @@ function addDarkstopsToMap (data, map) {
     data.forEach(function (item) {
         darkstop_marker = DarkstopMarker(item);
 
-        var darkstop_marker_id = item.id;
+        var darkstop_marker_id = "darkstop-" + item.id;
 console.log("darkstop_marker_id: " + darkstop_marker_id);
+console.log("darkstop_markers: " + darkstop_markers);
         if (darkstop_marker_id in darkstop_markers) {
             return;
         }
