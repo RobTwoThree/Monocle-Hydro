@@ -1476,6 +1476,13 @@ function DarkstopMarker (raw) {
         event.popup.options.autoPan = false; // Don't fight user panning
     });
   
+    var diff = (darkstop_marker.raw.incident_expiration - new Date().getTime() / 1000);
+  
+    if ( ( darkstop_marker.raw.id != undefined ) && ( diff < 0 )) { // Darkstop ended remove marker
+        darketop_marker.removeFrom(overlays.Darkstops);
+        markers[darkstop_marker.raw.id] = undefined;
+    }
+  
     darkstop_marker.bindPopup();
     return darkstop_marker;
 }
