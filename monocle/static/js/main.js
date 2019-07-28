@@ -1157,8 +1157,8 @@ function getDarkstopPopupContent (item) {
 
     content += '<div class="darkstop_image_container"><img class="darkstop_image" src="' + item.url + '"></div>';
     content += 'id: ' + item.id + '<br>';
-    content += 'Started: ' + item.incident_start + '<br>';
-    content += 'Ends: ' + item.incident_expiration;
+    content += 'Started: ' + convertToTwelveHourTime(item.incident_start) + '<br>';
+    content += 'Ends: ' + convertToTwelveHourTime(item.incident_expiration);
     content += '<br><a href="https://www.google.com/maps/?daddr='+ item.lat + ','+ item.lon + '" target="_blank" title="See in Google Maps">Get directions</a>';
     content += '</div>';
 
