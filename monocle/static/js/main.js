@@ -1816,10 +1816,10 @@ function addDarkstopsToMap (data, map) {
         var existing = darkstop_markers["darkstop-" + item.id];
 console.log("existing: " + existing);
         
-        if (typeof existing !== 'undefined') {
-            existing.removeFrom(overlays.Darkstops);
-            darkstop_markers[item.id] = undefined;
-        }
+//        if (typeof existing !== 'undefined') {
+//            existing.removeFrom(overlays.Darkstops);
+//            darkstop_markers[item.id] = undefined;
+//        }
         
         var darkstop_marker_id = "darkstop-" + item.id;
         var diff = (item.incident_expiration - new Date().getTime() / 1000);
@@ -1833,8 +1833,8 @@ console.log("removing darkstop: " + item.id);
 console.log("m.raw.id: " + m.raw.id);
             }
 */
-            darkstop_marker = DarkstopMarker(item);
-            darkstop_marker.removeFrom(overlays.Darkstops);
+            //darkstop_marker = DarkstopMarker(item);
+            existing.removeFrom(overlays.Darkstops);
             darkstop_markers["darkstop-" + item.id] = undefined;
 console.log(darkstop_markers);
         } else {
