@@ -1472,7 +1472,7 @@ function DarkstopMarker (raw) {
 
     darkstop_marker.raw = raw;
   
-    darkstop_markers[raw.id] = darkstop_marker;
+    darkstop_markers["darkstop-" + raw.id] = darkstop_marker;
     darkstop_marker.on('popupopen',function popupopen (event) {
         event.popup.options.autoPan = true; // Pan into view once
         event.popup.setContent(getDarkstopPopupContent(event.target.raw));
