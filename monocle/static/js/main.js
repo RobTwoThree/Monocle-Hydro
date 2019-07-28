@@ -575,7 +575,7 @@ var DarkstopIcon = L.Icon.extend({
     createIcon: function() {
         var div = document.createElement('div');
         div.innerHTML =
-            '<div class="darkstopmarker">' +
+            '<div class="darkstopmarker" data-id="' + this.options.id + '">' +
                 '<div class="darkstop_icon_container">' +
                     '<img class="darkstop_icon" src="' + _DarkstopIconUrl + '">' +
                 '</div>' +
@@ -4538,7 +4538,7 @@ function updateDarkstopTime() {
         if ($(this).data('expire') < current_time) {
             //$(this).css('background-color', 'rgba(204, 0, 0, 0.7)'); // Red
             $(this).css('visibility', 'hidden'); // Hide when expired
-            //$(".darkstopmarker").css('visibility', 'hidden');
+            //$(".darkstopmarker").data('id').css('visibility', 'hidden');
         }
     });
 }
