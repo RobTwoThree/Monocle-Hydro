@@ -1817,7 +1817,7 @@ function addDarkstopsToMap (data, map) {
 console.log("diff: " + diff + " for " + item.id);
 
         if ( diff < 0 ) { // Darkstop ended remove marker
-console.log("rmoving darkstop: " + item.id);
+console.log("removing darkstop: " + item.id);
             for (var k in darkstop_markers) {
                 var m = darkstop_markers[k];
 console.log("m.raw.id: " + m.raw.id);
