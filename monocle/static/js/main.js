@@ -4541,11 +4541,12 @@ function updateDarkstopTime() {
             $(this).css('background-color', 'rgba(204, 0, 0, 0.7)'); // Warning, 1 minute left
         }
         if ($(this).data('expire') < current_time) {
+            var expired_marker = darkstop_markers[$(this).parent().data('id')];
             $(this).css('visibility', 'hidden'); // Hide timer when expired
             $(this).parent().css('visibility', 'hidden'); // Hide marker when expired
 console.log("id: " + $(this).parent().data('id'));
-console.log(darkstop_markers[$(this).parent().data('id')]);
-            map.removeLayer(darkstop_markers[$(this).parent().data('id')]);
+console.log(expired_marker);            
+            expired_marker.removeFrom(overlays.Darkstops);
         }
     });
 }
