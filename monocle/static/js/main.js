@@ -4543,6 +4543,8 @@ function updateDarkstopTime() {
         if ($(this).data('expire') < current_time) {
             $(this).css('visibility', 'hidden'); // Hide timer when expired
             $(this).parent().css('visibility', 'hidden'); // Hide marker when expired
+console.log("id: " + $(this).parent().data('id'));
+            //map.removeLayer(darkstop_markers[$(this).parent().data('id')]);
         }
     });
 }
