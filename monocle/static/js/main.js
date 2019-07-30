@@ -1824,6 +1824,7 @@ function addDarkstopsToMap (data, map) {
         if (( diff < 0 ) && ( typeof existing !== 'undefined' )) { // Darkstop ended remove marker
             existing.removeFrom(overlays.Darkstops);
             darkstop_markers["darkstop-" + item.id] = undefined;
+            overlays.Darkstops.refreshClusters()
         } else {
             // If darkstop_marker already added, ignore
             if (darkstop_marker_id in darkstop_markers) {
