@@ -1244,6 +1244,7 @@ function getGruntTypeText (incident_grunt_type) {
 
 function getDarkstopPopupContent (item) {
     var content = '<div class="darkstop-popup">';
+    var grunt_type_text = getGruntTypeText(item.incident_grunt_type);
   
     content += '<div class="darkstop_image_container"><img class="darkstop_image" src="' + item.url + '"></div>';
     content += '<b>Team GO Rocket has turned the ' + item.name + ' Pokestop</b><br>';
@@ -1258,7 +1259,7 @@ function getDarkstopPopupContent (item) {
     content += '<b>Started: </b>' + convertToTwelveHourTime(item.incident_start) + '<br>';
     content += '<b>Ends: </b>' + convertToTwelveHourTime(item.incident_expiration) + '<br>';
     content += '<b>Grunt Type: </b><br>';
-    content += '<div class="type_icons"><img id="type_30x30" class="type_30x30-' + getGruntTypeText(incident_grunt_type).toLowerCase() + '" src="static/img/blank_1x1.png"></div>';
+    content += '<div class="type_icons"><img id="type_30x30" class="type_30x30-' + grunt_type_text.toLowerCase() + '" src="static/img/blank_1x1.png"></div>';
     content += '<br><a href="https://www.google.com/maps/?daddr='+ item.lat + ','+ item.lon + '" target="_blank" title="See in Google Maps">Get directions</a>';
     content += '</div>';
 
