@@ -579,6 +579,9 @@ var DarkstopIcon = L.Icon.extend({
                 '<div class="darkstop_icon_container">' +
                     '<img class="darkstop_icon" src="' + _DarkstopIconUrl + '">' +
                 '</div>' +
+                '<div class="type_icons_30x30">' +
+                    '<img id="type_30x30" class="type_30x30-' + grunt_type_text.toLowerCase() + '"src="static/img/blank_1x1.png">' +
+                '</div>' +
                 '<div class="darkstop_remaining_text" data-expire="' + this.options.incident_expiration + '">' + this.options.incident_expiration + '</div>' +
             '</div>';
         return div;
