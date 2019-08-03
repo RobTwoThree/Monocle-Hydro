@@ -294,6 +294,7 @@ def get_darkstop_markers():
             'updated': darkstop.updated,
             'incident_start': darkstop.incident_start,
             'incident_expiration': darkstop.incident_expiration,
+            'incident_grunt_type': darkstop.incident_grunt_type,
             'last_modified': darkstop.last_modified,
             'last_updated': darkstop.last_updated,
             'lure_expiration': darkstop.lure_expiration,
