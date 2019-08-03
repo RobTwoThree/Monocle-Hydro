@@ -1097,6 +1097,7 @@ def get_darkstops(session):
             ps.updated,
             ps.incident_start,
             ps.incident_expiration,
+            ps.incident_grunt_type,
             ps.last_modified,
             ps.last_updated,
             ps.lure_expiration,
