@@ -427,7 +427,7 @@ var RaidIcon = L.Icon.extend({
                             }
                             break;
                         case 103: // Handle Alolan Exeggutor
-                            if (this.options.raid_pokemon_form == 77) {
+                            if (this.options.raid_pokemon_form == 78) {
                                 image_id += '_00';
                             } else {
                                 image_id += '_61';
@@ -479,6 +479,13 @@ var RaidIcon = L.Icon.extend({
                                 image_id += '_61_01_shiny';
                             } else {
                                 image_id += '_01_shiny';
+                            }
+                            break;
+                        case 103: // Handle Alolan Exeggutor
+                            if (this.options.raid_pokemon_form == 78) {
+                                image_id += '_00_shiny';
+                            } else {
+                                image_id += '_61_shiny';
                             }
                             break;
                         case 105: // Handle Alolan Marowak
