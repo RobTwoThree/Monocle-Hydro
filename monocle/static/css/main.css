@@ -198,6 +198,7 @@
 .darkstop_popup-icon_container {
     display: inline-block;
     text-align: center;
+    width: 200px;
 }
 
 .quest_item-icon_container{
