@@ -574,6 +574,8 @@ var DarkstopIcon = L.Icon.extend({
     },
     createIcon: function() {
         var div = document.createElement('div');
+        var grunt_type_text = getGruntTypeText(this.options.incident_grunt_type);
+        
         div.innerHTML =
             '<div class="darkstopmarker" data-id="darkstop-' + this.options.pokestop_id + '" data-expire="' + this.options.incident_expiration + '">' +
                 '<div class="darkstop_icon_container">' +
@@ -1571,7 +1573,7 @@ function PokestopMarker (raw) {
 }
 
 function DarkstopMarker (raw) {
-    var darkstop_icon = new DarkstopIcon({pokestop_id: raw.id, incident_start: raw.incident_start, incident_expiration: raw.incident_expiration});
+    var darkstop_icon = new DarkstopIcon({pokestop_id: raw.id, incident_start: raw.incident_start, incident_expiration: raw.incident_expiration, incident_grunt_type: raw.incident_grunt_type});
     var darkstop_marker = L.marker([raw.lat, raw.lon], {icon: darkstop_icon, opacity: 1, zIndexOffset: 1000});
 
     darkstop_marker.raw = raw;
