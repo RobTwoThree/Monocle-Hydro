@@ -958,6 +958,14 @@
     visibility: hidden;
 }
 
+.type_icons_30x30 {
+    text-align: center;
+    width: 30px;
+    position: absolute;
+    top: 0px;
+    visibility: visible;
+}
+
 .type_icons_above_iv {
     text-align: center;
     width: 48px;
