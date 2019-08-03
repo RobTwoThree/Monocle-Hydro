@@ -1821,9 +1821,7 @@ function addDarkstopsToMap (data, map) {
         var darkstop_marker_id = "darkstop-" + item.id;
         var diff = (item.incident_expiration - new Date().getTime() / 1000);
 
-        if (( diff < 0 ) && ( typeof existing !== 'undefined' )) { // Darkstop ended remove marker
-//            existing.removeFrom(overlays.Darkstops);
-//            darkstop_markers["darkstop-" + item.id] = undefined;
+        if (( diff < 0 ) && ( typeof existing !== 'undefined' )) { // Darkstop ended refresh clusters
             overlays.Darkstops.refreshClusters(); // Refresh clusters when marker is removed
         } else {
             // If darkstop_marker already added, ignore
@@ -4542,10 +4540,6 @@ function updateDarkstopTime() {
         }
         if ($(this).data('expire') < current_time) {
             var expired_marker = darkstop_markers[$(this).parent().data('id')];
-//            $(this).css('visibility', 'hidden'); // Hide timer when expired
-//            $(this).parent().css('visibility', 'hidden'); // Hide marker when expired
-//console.log("id: " + $(this).parent().data('id'));
-//console.log(expired_marker);
             expired_marker.removeFrom(overlays.Darkstops); // Remove marker when expired
         }
     });
