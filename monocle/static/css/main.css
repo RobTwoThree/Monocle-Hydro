@@ -961,7 +961,7 @@
 .type_icons_30x30 {
     text-align: center;
     width: 30px;
-    position: absolute;
+    position: relative;
     top: 0px;
     visibility: visible;
 }
