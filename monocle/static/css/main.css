@@ -962,6 +962,7 @@
     text-align: center;
     width: 30px;
     position: relative;
+    display: inline-block;
     top: 0px;
     visibility: visible;
 }
