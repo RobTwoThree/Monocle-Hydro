@@ -1,0 +1,126 @@
+#type_30x30 {
+    background-image: url(../img/spritesheet-types-30x30.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin: auto
+}
+
+.type_30x30-bug {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -5px;
+}
+
+.type_30x30-dark {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -5px;
+}
+
+.type_30x30-dragon {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -5px;
+}
+
+.type_30x30-electric {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -5px;
+}
+
+.type_30x30-fairy {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -45px;
+}
+
+.type_30x30-fighting {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -45px;
+}
+
+.type_30x30-fire {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -45px;
+}
+
+.type_30x30-flying {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -45px;
+}
+
+.type_30x30-ghost {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -85px;
+}
+
+.type_30x30-grass {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -85px;
+}
+
+.type_30x30-ground {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -85px;
+}
+
+.type_30x30-ice {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -85px;
+}
+
+.type_30x30-normal {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -125px;
+}
+
+.type_30x30-poison {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -125px;
+}
+
+.type_30x30-psychic {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -125px;
+}
+
+.type_30x30-random {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -125px;
+}
+
+.type_30x30-rock {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -5px;
+}
+
+.type_30x30-steel {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -45px;
+}
+
+.type_30x30-unknown {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -85px;
+}
+
+.type_30x30-water {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -125px;
+}

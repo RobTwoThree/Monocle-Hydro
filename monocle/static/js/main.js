@@ -1160,9 +1160,91 @@ function getPokestopPopupContent (item) {
     return content;
 }
 
+function getGruntTypeText (incident_grunt_type) {
+    var grunt_type_text = '';
+  
+    switch(incident_grunt_type) {
+        case 4:
+        case 5:
+            grunt_type_text = 'Random'
+            break
+        case 6:
+        case 7:
+            grunt_type_text = 'Bug'
+            break
+        case 8:
+        case 9:
+            grunt_type_text = 'Ghost'
+            break
+        case 10:
+        case 11:
+            grunt_type_text = 'Dark'
+            break
+        case 12:
+        case 13:
+            grunt_type_text = 'Dragon'
+            break
+        case 14:
+        case 15:
+            grunt_type_text = 'Fairy'
+            break
+        case 16:
+        case 17:
+            grunt_type_text = 'Fighting'
+            break
+        case 18:
+        case 19:
+            grunt_type_text = 'Fire'
+            break
+        case 20:
+        case 21:
+            grunt_type_text = 'Flying'
+            break
+        case 22:
+        case 23:
+            grunt_type_text = 'Grass'
+            break
+        case 24:
+        case 25:
+            grunt_type_text = 'Ground'
+            break
+        case 26:
+        case 27:
+            grunt_type_text = 'Ice'
+            break
+        case 28:
+        case 29:
+            grunt_type_text = 'Metal'
+            break
+        case 30:
+        case 31:
+            grunt_type_text = 'Normal'
+            break
+        case 32:
+        case 33:
+            grunt_type_text = 'Poison'
+            break
+        case 34:
+        case 35:
+            grunt_type_text = 'Psychic'
+            break
+        case 36:
+        case 37:
+            grunt_type_text = 'Rock'
+            break
+        case 38:
+        case 39:
+            grunt_type_text = 'Water'
+            break
+        default:
+            grunt_type_text = 'Unknown'
+    }
+    return grunt_type_text;
+}
+
 function getDarkstopPopupContent (item) {
     var content = '<div class="darkstop-popup">';
-
+  
     content += '<div class="darkstop_image_container"><img class="darkstop_image" src="' + item.url + '"></div>';
     content += '<b>Team GO Rocket has turned the ' + item.name + ' Pokestop</b><br>';
     content += '<div class="teamR_image_container"><img class="teamR_image" src="' + _teamRLogo + '"></div>';
@@ -1175,7 +1257,8 @@ function getDarkstopPopupContent (item) {
     content += '<br>';
     content += '<b>Started: </b>' + convertToTwelveHourTime(item.incident_start) + '<br>';
     content += '<b>Ends: </b>' + convertToTwelveHourTime(item.incident_expiration) + '<br>';
-    content += '<b>Grunt Type: </b>' + item.incident_grunt_type;
+    content += '<b>Grunt Type: </b><br>';
+    content += '<div class="type_icons"><img id="type_30x30" class="type_30x30-' + getGruntTypeText(incident_grunt_type).toLowerCase() + '" src="static/img/blank_1x1.png"></div>';
     content += '<br><a href="https://www.google.com/maps/?daddr='+ item.lat + ','+ item.lon + '" target="_blank" title="See in Google Maps">Get directions</a>';
     content += '</div>';
 
