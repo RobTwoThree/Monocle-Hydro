@@ -76,6 +76,18 @@ var PokemonIcon = L.Icon.extend({
         }
                                 
         switch ( pokemon_icon_id ){
+            case 1: // Handle Bulbasaur Evo form
+            case 2:
+            case 3:
+            case 4: // Handle Charmander Evo form
+            case 5:
+            case 6:
+            case 7: // Handle Squirtle Evo form
+            case 8:
+            case 9:
+            case 129: // Handle Magikarp form
+                form = '00';
+                break;
             case 19: // Handle Alolan Rattata form
                 switch ( this.options.form ){
                     case 46:
