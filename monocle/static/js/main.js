@@ -1,5 +1,5 @@
 var _last_pokemon_id = 0;
-var _pokemon_count = 488;
+var _pokemon_count = 649;
 var _pokemon_count_gen_1 = 151;
 var _pokemon_count_gen_2 = 251;
 var _pokemon_count_gen_3 = 386;
@@ -61,11 +61,7 @@ var PokemonIcon = L.Icon.extend({
         var div = document.createElement('div');
         var form_text = '';
         var pokemon_icon_id = this.options.iconID;
-        if ( this.options.form === 0 ) {
-            form = '00';
-        } else {
-            form = this.options.form;
-        }
+        var form = '00'; // Default all forms to 00
  
         if ( _alolan_forms.includes(pokemon_icon_id) ) {
             if ( this.options.form !== 0 ) {
@@ -76,28 +72,6 @@ var PokemonIcon = L.Icon.extend({
         }
                                 
         switch ( pokemon_icon_id ){
-            case 1: // Handle Bulbasaur Evo form
-            case 2:
-            case 3:
-            case 4: // Handle Charmander Evo form
-            case 5:
-            case 6:
-            case 7: // Handle Squirtle Evo form
-            case 8:
-            case 9:
-            case 60: // Handle Poliwag Evo form
-            case 61:
-            case 62:
-            case 123: // Handle Scyther form
-            case 129: // Handle Magikarp form
-            case 258: // Handle Mudkip Evo form
-            case 259:
-            case 260:
-            case 280: // Handle Ralts Evo form
-            case 281:
-            case 282:
-                form = '00';
-                break;
             case 19: // Handle Alolan Rattata form
                 switch ( this.options.form ){
                     case 46:
