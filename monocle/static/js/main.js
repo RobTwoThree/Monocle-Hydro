@@ -85,7 +85,17 @@ var PokemonIcon = L.Icon.extend({
             case 7: // Handle Squirtle Evo form
             case 8:
             case 9:
+            case 61: // Handle Polywhirl Evo form
+            case 62:
+            case 63:
+            case 123: // Handle Scyther form
             case 129: // Handle Magikarp form
+            case 258: // Handle Mudkip Evo form
+            case 259:
+            case 260:
+            case 280: // Handle Ralts Evo form
+            case 281:
+            case 282:
                 form = '00';
                 break;
             case 19: // Handle Alolan Rattata form
