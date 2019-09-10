@@ -1105,13 +1105,13 @@ function getRaidPopupContent (item) {
         case 386: // Handle Deoxys
             switch (item.raid_pokemon_form) {
                 case 33:
-                    raid_boss_form_name = 'Defense Form  ';
-                    break;
-                case 34:
                     raid_boss_form_name = 'Normal Form  ';
                     break;
-                case 35:
+                case 34:
                     raid_boss_form_name = 'Attack Form  ';
+                    break;
+                case 35:
+                    raid_boss_form_name = 'Defense Form  ';
                     break;
                 case 36:
                     raid_boss_form_name = 'Speed Form  ';
