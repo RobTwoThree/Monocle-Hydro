@@ -407,7 +407,6 @@ var RaidIcon = L.Icon.extend({
     createIcon: function() {
         var div = document.createElement('div');
         var sponsor = '';
-        var image_id = '_00'; // Default form to 00
 
         // Woah woah woah. Copying again?
         if (this.options.external_id.includes(".")) {
@@ -490,7 +489,7 @@ var RaidIcon = L.Icon.extend({
                             }
                             break;
                         default:
-                            image_id += '_' + this.options.raid_pokemon_form;
+                            image_id += '_00';
                     }
                 } else {
                     image_id += '_00';
@@ -934,6 +933,24 @@ function getRaidPopupContent (item) {
                         image_id += '_10';
                     }
                     break;
+                case 386: // Handle Deoxys
+                    switch (item.raid_pokemon_form) {
+                        case 33:
+                            image_id += '_11';
+                            break;
+                        case 34:
+                            image_id += '_12';
+                            break;
+                        case 35:
+                            image_id += '_13';
+                            break;
+                        case 36:
+                            image_id += '_14';
+                            break;
+                        default:
+                            image_id += '_00';
+                    }
+                    break;
                 case 412: // Handle Burmy Forms
                     switch (item.raid_pokemon_form) {
                         case 118:
@@ -950,7 +967,7 @@ function getRaidPopupContent (item) {
                     }
                     break;
                 default:
-                    image_id += '_' + item.raid_pokemon_form;
+                    image_id += '_00';
             }
         } else {
             image_id += '_00';
@@ -1083,6 +1100,24 @@ function getRaidPopupContent (item) {
                 raid_boss_form_name = 'Armored ';
             } else {
                 raid_boss_form_name = '';
+            }
+            break;
+        case 386: // Handle Deoxys
+            switch (item.raid_pokemon_form) {
+                case 33:
+                    raid_boss_form_name = 'Defense Form  ';
+                    break;
+                case 34:
+                    raid_boss_form_name = 'Normal Form  ';
+                    break;
+                case 35:
+                    raid_boss_form_name = 'Attack Form  ';
+                    break;
+                case 36:
+                    raid_boss_form_name = 'Speed Form  ';
+                    break;
+                default:
+                    raid_boss_form_name = '';
             }
             break;
         default:
