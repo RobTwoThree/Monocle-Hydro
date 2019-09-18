@@ -927,10 +927,10 @@ function getRaidPopupContent (item) {
                     }
                     break;
                 case 150: // Handle Armored MewTwo
-                    if (item.raid_pokemon_form == 00) {
+                    if (item.raid_pokemon_form == 133) {
                         image_id += '_10';
                     } else {
-                        image_id += '_10';
+                        image_id += '_00';
                     }
                     break;
                 case 386: // Handle Deoxys
