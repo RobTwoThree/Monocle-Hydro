@@ -2854,7 +2854,7 @@ function onOverLayRemove(e) {
 
         hide_darkstop_button.addClass("active");
         display_darkstop_button.removeClass("active");
-        setPreference("DARKSTOPS_LAYER",'display_darkstops');
+        setPreference("DARKSTOPS_LAYER",'hide_darkstops');
     }
   
     if (e.name == 'EX_Gyms') {
