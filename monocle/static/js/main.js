@@ -200,7 +200,7 @@ var PokemonIcon = L.Icon.extend({
             { spritesheet = 'g4v3-sprite'; }
 
             if (_spritesheet_g5.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g5v3-sprite'; }
+            { spritesheet = 'g5v4-sprite'; }
 
             if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
             { spritesheet = 'gXv2-sprite'; }
@@ -221,7 +221,7 @@ var PokemonIcon = L.Icon.extend({
             { spritesheet = 'g4v3-sprite'; }
             
             if (_spritesheet_g5.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g5v3-sprite'; }
+            { spritesheet = 'g5v4-sprite'; }
 
             if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
             { spritesheet = 'gXv2-sprite'; }
@@ -242,7 +242,7 @@ var PokemonIcon = L.Icon.extend({
             { spritesheet = 'g4v3-sprite'; }
             
             if (_spritesheet_g5.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g5v3-sprite'; }
+            { spritesheet = 'g5v4-sprite'; }
 
             if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
             { spritesheet = 'gXv2-sprite'; }
@@ -4448,19 +4448,19 @@ function populateSettingsPanels(){
         if (getPreference("icon_theme_buttons") === 'og') {
             if (_spritesheet_g5.indexOf(i) > -1)
             {
-                spritesheet = 'g5v3-sprite';
+                spritesheet = 'g5v4-sprite';
                 sprite_suffix = '_00';
             }
         } else if (getPreference("icon_theme_buttons") === 'cart') {
             if (_spritesheet_g5.indexOf(i) > -1)
             {
-                spritesheet = 'g5v3-sprite';
+                spritesheet = 'g5v4-sprite';
                 sprite_suffix = '';
             }
         } else if (getPreference("icon_theme_buttons") === 'shiny') {
             if (_spritesheet_g5.indexOf(i) > -1)
             {
-                spritesheet = 'g5v3-sprite';
+                spritesheet = 'g5v4-sprite';
                 sprite_suffix = '_00';
             }
         }
