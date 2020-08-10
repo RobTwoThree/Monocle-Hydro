@@ -1001,7 +1001,8 @@ function getRaidPopupContent (item) {
                     }
                     break;
                 case 201: // Handle Unown
-                    image_id += '_' + 10 + parseInt(item.raid_pokemon_form);
+                    var form_id = 10 + parseInt(item.raid_pokemon_form);
+                    image_id += '_' + form_id;
                     break;
                 case 412: // Handle Burmy Forms
                     switch (item.raid_pokemon_form) {
