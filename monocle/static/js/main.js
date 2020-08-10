@@ -2580,7 +2580,7 @@ map.whenReady(function () {
     });
 
     // This auto centers map based on user's location
-    autoCenter();
+    //autoCenter();
 
     //getWeather();
     getExGyms();
