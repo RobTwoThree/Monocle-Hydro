@@ -455,6 +455,9 @@ var RaidIcon = L.Icon.extend({
                                 image_id += '_00';
                             }
                             break;
+                        case 201: // Handle Unown
+                            image_id += '_' + 10 + this.options.raid_pokemon_form;
+                            break;
                         case 386: // Handle Deoxys
                             switch (this.options.raid_pokemon_form) {
                                 case 33:
@@ -527,6 +530,9 @@ var RaidIcon = L.Icon.extend({
                             } else {
                                 image_id += '_00_shiny';
                             }
+                            break;
+                        case 201: // Handle Unown
+                            image_id += '_' + 10 + this.options.raid_pokemon_form + '_shiny';
                             break;
                         case 412: // Handle Burmy Forms
                             switch (this.options.raid_pokemon_form) {
@@ -933,6 +939,9 @@ function getRaidPopupContent (item) {
                         image_id += '_00';
                     }
                     break;
+                case 201: // Handle Unown
+                    image_id += '_' + 10 + item.raid_pokemon_form;
+                    break;
                 case 386: // Handle Deoxys
                     switch (item.raid_pokemon_form) {
                         case 33:
@@ -990,6 +999,9 @@ function getRaidPopupContent (item) {
                     } else {
                         image_id += '_00_shiny';
                     }
+                    break;
+                case 201: // Handle Unown
+                    image_id += '_' + 10 + item.raid_pokemon_form;
                     break;
                 case 412: // Handle Burmy Forms
                     switch (item.raid_pokemon_form) {
