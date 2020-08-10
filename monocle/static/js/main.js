@@ -2575,7 +2575,7 @@ map.whenReady(function () {
             map.removeLayer(_LocationRadar);
         }
         map.setZoom(currentZoom);
-        map.on('locationfound', onLocationFound);
+        //map.on('locationfound', onLocationFound);
         $('.hide-marker').show(); //Show hide My Location marker
     });
 
