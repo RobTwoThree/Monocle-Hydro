@@ -2583,8 +2583,8 @@ map.whenReady(function () {
         $('.hide-marker').show(); //Show hide My Location marker
     });
 
-    // This auto centers map based on user's location
-    autoCenter();
+    // This auto centers map based on user's location. Turned off to enable url centering
+    //autoCenter();
 
     //getWeather();
     getExGyms();
