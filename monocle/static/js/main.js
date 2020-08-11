@@ -2496,6 +2496,10 @@ var params = {};
 window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
                              params[key] = value;
                              });
+console.log("params.lat" + parseFloat(params.lat) );
+console.log("params.lon" + parseFloat(params.lon) );
+console.log("params.zoom" + parseFloat(params.zoom) );
+
 if(parseFloat(params.lat) && parseFloat(params.lon)){
     var map = new L.Map('main-map', {
                       center: [params.lat, params.lon],
