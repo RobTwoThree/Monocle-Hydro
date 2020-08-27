@@ -12,7 +12,7 @@ var _spritesheet_g3 = [];
 var _spritesheet_g4 = [];
 var _spritesheet_g5 = [];
 var _spritesheet_gX = [];
-var _raids_count = 5;
+var _raids_count = 6;
 var _raids_labels = ['Normal', 'Normal', 'Rare', 'Rare', 'Legendary'];
 var _WorkerIconUrl = 'static/monocle-icons/assets/ball.png';
 var _PokestopIconUrl = 'static/img/pokestop_stroked.png?001';
@@ -427,6 +427,13 @@ var RaidIcon = L.Icon.extend({
             if ( getPreference("icon_theme_buttons") === 'og' ) {
                 if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
                     switch (this.options.raid_pokemon_id) {
+                        case 3: // Handle Mega Venusaur
+                        case 6: // Handle Mega Charizard
+                        case 9: // Handle Mega Blastoise
+                        case 15: // Handle Mega Beedrill
+                        case 18: // Handle Mega Pidgeot
+                            image_id += this.options.raid_pokemon_form;
+                            break;
                         case 26: // Handle Alolan Raichu
                             if (this.options.raid_pokemon_form == 50) {
                                 image_id += '_61_01';
@@ -504,6 +511,13 @@ var RaidIcon = L.Icon.extend({
             } else if ( getPreference("icon_theme_buttons") === 'shiny' ) {
                 if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
                     switch (this.options.raid_pokemon_id) {
+                        case 3: // Handle Mega Venusaur
+                        case 6: // Handle Mega Charizard
+                        case 9: // Handle Mega Blastoise
+                        case 15: // Handle Mega Beedrill
+                        case 18: // Handle Mega Pidgeot
+                            image_id += this.options.raid_pokemon_form + '_shiny';
+                            break;
                         case 26: // Handle Alolan Raichu
                             if (this.options.raid_pokemon_form == 50) {
                                 image_id += '_61_01_shiny';
@@ -1055,16 +1069,18 @@ function getRaidPopupContent (item) {
         content += '</div>';
     }
   
-    if (item.raid_level === 5) {
-        content += '<b>Level 5 Raid</b>'
+    if (item.raid_level === 6) {
+        content += '<b>MEGA Raid</b>';
+    } else if (item.raid_level === 5) {
+        content += '<b>Level 5 Raid</b>';
     } else if (item.raid_level === 4) {
-        content += '<b>Level 4 Raid</b>'
+        content += '<b>Level 4 Raid</b>';
     } else if (item.raid_level === 3 ) {
-        content += '<b>Level 3 Raid</b>'
+        content += '<b>Level 3 Raid</b>';
     } else if (item.raid_level === 2 ) {
-        content += '<b>Level 2 Raid</b>'
+        content += '<b>Level 2 Raid</b>';
     } else if (item.raid_level === 1 ) {
-        content += '<b>Level 1 Raid</b>'
+        content += '<b>Level 1 Raid</b>';
     }
     if (item.gym_name != null) {
         content += '<br><b>' + item.gym_name + ' Gym</b>';
@@ -1097,6 +1113,41 @@ function getRaidPopupContent (item) {
     var raid_boss_form_name = '';
 
     switch (item.raid_pokemon_id) {
+        case 3: // Handle Mega Venusaur
+            if (item.raid_pokemon_form == 169) {
+                raid_boss_form_name = 'Mega ';
+            } else {
+                raid_boss_form_name = '';
+            }
+            break;
+        case 6: // Handle Mega Charizard
+            if (item.raid_pokemon_form == 178) {
+                raid_boss_form_name = 'Mega ';
+            } else {
+                raid_boss_form_name = '';
+            }
+            break;
+        case 9: // Handle Mega Blastoise
+            if (item.raid_pokemon_form == 187) {
+                raid_boss_form_name = 'Mega ';
+            } else {
+                raid_boss_form_name = '';
+            }
+            break;
+        case 15: // Handle Mega Beedrill
+            if (item.raid_pokemon_form == 51) {
+                raid_boss_form_name = 'Mega ';
+            } else {
+                raid_boss_form_name = '';
+            }
+            break;
+        case 18: // Handle Mega Pidgeot
+            if (item.raid_pokemon_form == 51) {
+                raid_boss_form_name = 'Mega ';
+            } else {
+                raid_boss_form_name = '';
+            }
+            break;
         case 26: // Handle Alolan Raichu
             if (item.raid_pokemon_form == 50) {
                 raid_boss_form_name = 'Alolan ';
@@ -4151,9 +4202,14 @@ function populateSettingsPanels(){
             '<h5>Raid Level Filters</h5><br>';
   
     for (var i = 1; i <= 5; i++){
+        if (i == 5) {
+            lvl = '5 & Mega';
+        } else {
+            lvl = i;
+        }
         var partHtml =
             '<div class="text-center">' +
-                '<div class="raid_filter_label"><b>Level ' + i + '  </b></div>' +
+                '<div class="raid_filter_label"><b>Level ' + lvl + '  </b></div>' +
                 '<div class="raid_filter_container">' +
                 '<div id="raid_filter_button_group" class="btn-group" role="group" data-group="raid_filter-' + i + '">' +
                     '<button type="button" class="btn btn-default" data-raid_id="' + i + '" data-value="display_raid">Display</button>' +
