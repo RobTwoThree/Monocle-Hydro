@@ -900,7 +900,7 @@ function getRaidPopupContent (item) {
             var raid_boss_move_1 = 'TBD';
             var raid_boss_move_2 = 'TBD';
         }else{
-            var raid_boss_name = item.raid_pokemon_name + ' (#' + item.raid_pokemon_id + ')';
+            var raid_boss_name = item.raid_pokemon_name;
             var raid_boss_cp = item.raid_pokemon_cp;
             var raid_boss_move_1 = item.raid_pokemon_move_1;
             var raid_boss_move_2 = item.raid_pokemon_move_2;
@@ -1216,7 +1216,7 @@ function getRaidPopupContent (item) {
     }
   
   
-    content += '<br><b>Boss:</b> ' + raid_boss_form_name + raid_boss_name + raid_boss_suffix +
+    content += '<br><b>Boss:</b> ' + raid_boss_form_name + raid_boss_name + raid_boss_suffix + ' (#' + item.raid_pokemon_id + ')' +
                '<br><b>CP:</b> ' + raid_boss_cp +
                '<br><b>Quick Move:</b> ' + raid_boss_move_1 +
                '<br><b>Charge Move:</b> ' + raid_boss_move_2 +
