@@ -411,7 +411,7 @@ var RaidIcon = L.Icon.extend({
         // Woah woah woah. Copying again?
         if (this.options.external_id.includes(".")) {
         } else {
-            if (this.options.raid_gym_name === "Starbucks") {
+            if (this.options.raid_gym_name.includes("Starbucks")) {
                 sponsor = 'starbucks';
             } else {
                 sponsor = 'sprint';
@@ -1106,7 +1106,7 @@ function getRaidPopupContent (item) {
       
         // Copying my code?
         if (!item.external_id.includes(".")) {
-            if (item.gym_name === "Starbucks") {
+            if (item.gym_name.includes("Starbucks")) {
                 content += '<br><img class="sponsor_icon" src="static/monocle-icons/raids/starbucks.png">';
             } else {
                 content += '<br><img class="sponsor_icon" src="static/monocle-icons/raids/sprint.png">';
@@ -1456,7 +1456,7 @@ function getFortPopupContent (item) {
       
         // Copying my code? HAHA!
         if (!item.external_id.includes(".")) {
-            if (item.gym_name === "Starbucks") {
+            if (item.gym_name.includes("Starbucks")) {
                 content += '<br><img class="sponsor_icon" src="static/monocle-icons/raids/starbucks.png">';
             } else {
                 content += '<br><img class="sponsor_icon" src="static/monocle-icons/raids/sprint.png">';
@@ -1487,7 +1487,7 @@ function getFortPopupContent (item) {
 
             // Copying my code? HAHA!
             if (!item.external_id.includes(".")) {
-                if (item.gym_name === "Starbucks") {
+                if (item.gym_name.includes("Starbucks")) {
                     content += '<br><img class="sponsor_icon" src="static/monocle-icons/raids/starbucks.png">';
                 } else {
                     content += '<br><img class="sponsor_icon" src="static/monocle-icons/raids/sprint.png">';
