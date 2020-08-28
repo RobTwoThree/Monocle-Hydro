@@ -432,7 +432,7 @@ var RaidIcon = L.Icon.extend({
                         case 9: // Handle Mega Blastoise
                         case 15: // Handle Mega Beedrill
                         case 18: // Handle Mega Pidgeot
-                            image_id += this.options.raid_pokemon_form;
+                            image_id += '_' + this.options.raid_pokemon_form;
                             break;
                         case 26: // Handle Alolan Raichu
                             if (this.options.raid_pokemon_form == 50) {
@@ -516,7 +516,7 @@ var RaidIcon = L.Icon.extend({
                         case 9: // Handle Mega Blastoise
                         case 15: // Handle Mega Beedrill
                         case 18: // Handle Mega Pidgeot
-                            image_id += this.options.raid_pokemon_form + '_shiny';
+                            image_id += '_' + this.options.raid_pokemon_form + '_shiny';
                             break;
                         case 26: // Handle Alolan Raichu
                             if (this.options.raid_pokemon_form == 50) {
