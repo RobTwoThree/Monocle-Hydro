@@ -349,7 +349,7 @@ var AltFortIcon = L.Icon.extend({
         } else {
             if (this.options.gym_name.includes("Starbucks")) {
                 sponsor = 'starbucks';
-            } else {
+            } else if (this.options.gym_name.includes("Sprint")){
                 sponsor = 'sprint';
             }
         }
@@ -413,7 +413,7 @@ var RaidIcon = L.Icon.extend({
         } else {
             if (this.options.raid_gym_name.includes("Starbucks")) {
                 sponsor = 'starbucks';
-            } else {
+            } else if (this.options.raid_gym_name.includes("Sprint")){
                 sponsor = 'sprint';
             }
         }
@@ -1108,7 +1108,7 @@ function getRaidPopupContent (item) {
         if (!item.external_id.includes(".")) {
             if (item.gym_name.includes("Starbucks")) {
                 content += '<br><img class="sponsor_icon" src="static/monocle-icons/raids/starbucks.png">';
-            } else {
+            } else if (item.gym_name.includes("Sprint")){
                 content += '<br><img class="sponsor_icon" src="static/monocle-icons/raids/sprint.png">';
             }
         }
@@ -1468,7 +1468,7 @@ function getFortPopupContent (item) {
         if (!item.external_id.includes(".")) {
             if (item.gym_name.includes("Starbucks")) {
                 content += '<br><img class="sponsor_icon" src="static/monocle-icons/raids/starbucks.png">';
-            } else {
+            } else if (item.gym_name.includes("Sprint")) {
                 content += '<br><img class="sponsor_icon" src="static/monocle-icons/raids/sprint.png">';
             }
         }
@@ -1499,7 +1499,7 @@ function getFortPopupContent (item) {
             if (!item.external_id.includes(".")) {
                 if (item.gym_name.includes("Starbucks")) {
                     content += '<br><img class="sponsor_icon" src="static/monocle-icons/raids/starbucks.png">';
-                } else {
+                } else if (item.gym_name.includes("Sprint")) {
                     content += '<br><img class="sponsor_icon" src="static/monocle-icons/raids/sprint.png">';
                 }
             }
