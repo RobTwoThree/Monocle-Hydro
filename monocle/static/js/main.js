@@ -927,6 +927,13 @@ function getRaidPopupContent (item) {
     if ( getPreference("icon_theme_buttons") === 'og' ) {
         if ((item.raid_pokemon_form != 0) && (item.raid_pokemon_form != null)) {
             switch (item.raid_pokemon_id) {
+                case 3: // Handle Mega Venusaur
+                case 6: // Handle Mega Charizard
+                case 9: // Handle Mega Blastoise
+                case 15: // Handle Mega Beedrill
+                case 18: // Handle Mega Pidgeot
+                    image_id += '_' + item.raid_pokemon_form;
+                    break;
                 case 26: // Handle Alolan Raichu
                     if (item.raid_pokemon_form == 50) {
                         image_id += '_61_01';
@@ -1003,6 +1010,13 @@ function getRaidPopupContent (item) {
     } else if ( getPreference("icon_theme_buttons") === 'shiny') {
         if ((item.raid_pokemon_form != 0) && (item.raid_pokemon_form != null)) {
             switch (item.raid_pokemon_id) {
+                case 3: // Handle Mega Venusaur
+                case 6: // Handle Mega Charizard
+                case 9: // Handle Mega Blastoise
+                case 15: // Handle Mega Beedrill
+                case 18: // Handle Mega Pidgeot
+                    image_id += '_' + item.raid_pokemon_form + '_shiny';
+                    break;
                 case 26: // Handle Alolan Raichu
                     if (item.raid_pokemon_form == 50) {
                         image_id += '_61_01_shiny';
