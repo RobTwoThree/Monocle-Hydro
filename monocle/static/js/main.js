@@ -1125,6 +1125,7 @@ function getRaidPopupContent (item) {
     }
   
     var raid_boss_form_name = '';
+    var raid_boss_suffix = '';
 
     switch (item.raid_pokemon_id) {
         case 3: // Handle Mega Venusaur
@@ -1137,8 +1138,10 @@ function getRaidPopupContent (item) {
         case 6: // Handle Mega Charizard
             if (item.raid_pokemon_form == 178) {
                 raid_boss_form_name = 'Mega ';
+                raid_boss_suffix = ' X';
             } else {
                 raid_boss_form_name = '';
+                raid_boss_suffix = '';
             }
             break;
         case 9: // Handle Mega Blastoise
@@ -1203,10 +1206,11 @@ function getRaidPopupContent (item) {
             break;
         default:
             raid_boss_form_name = '';
+            raid_boss_suffix = '';
     }
   
   
-    content += '<br><b>Boss:</b> ' + raid_boss_form_name + raid_boss_name +
+    content += '<br><b>Boss:</b> ' + raid_boss_form_name + raid_boss_name + raid_boss_suffix +
                '<br><b>CP:</b> ' + raid_boss_cp +
                '<br><b>Quick Move:</b> ' + raid_boss_move_1 +
                '<br><b>Charge Move:</b> ' + raid_boss_move_2 +
