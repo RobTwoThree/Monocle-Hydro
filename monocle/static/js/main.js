@@ -1135,13 +1135,19 @@ function getRaidPopupContent (item) {
                 raid_boss_form_name = '';
             }
             break;
-        case 6: // Handle Mega Charizard
-            if (item.raid_pokemon_form == 178) {
-                raid_boss_form_name = 'Mega ';
-                raid_boss_suffix = ' X';
-            } else {
-                raid_boss_form_name = '';
-                raid_boss_suffix = '';
+        case 6: // Handle Mega Charizard X
+            switch (item.raid_pokemon_form){
+                case 178:
+                    raid_boss_form_name = 'Mega ';
+                    raid_boss_suffix = ' X';
+                    break;
+                case 179:
+                    raid_boss_form_name = 'Mega ';
+                    raid_boss_suffix = ' Y';
+                    break;
+                default:
+                    raid_boss_form_name = '';
+                    raid_boss_suffix = '';
             }
             break;
         case 9: // Handle Mega Blastoise
