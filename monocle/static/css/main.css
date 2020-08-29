@@ -842,6 +842,7 @@
 .raid_filter_label {
     display: inline-table;
     text-align: right;
+    padding-right: 10px;
     width: 125px;
 }
 
