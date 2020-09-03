@@ -666,7 +666,7 @@ var PokestopIcon = L.Icon.extend({
                     image_src = 'static/img/stardust_painted.png';
                     break;
                 case 12: // Energy
-                    image_src = 'static/img/blastoise_mega_energy.png'; // Temporary
+                    image_src = 'static/img/mega_energy_blastoise.png'; // Temporary
                     break;
                 default:
                     image_src = 'static/img/unknown.png';
@@ -1302,7 +1302,7 @@ function getPokestopPopupContent (item) {
                 image_src = 'static/img/stardust_painted.png';
                 break;
             case 12: // Energy
-                image_src = 'static/img/blastoise_mega_energy.png'; // Temporary
+                image_src = 'static/img/mega_energy_blastoise.png'; // Temporary
                 break;
             default:
                 image_src = 'static/img/unknown.png';
@@ -2359,7 +2359,7 @@ function addQuestsToSettings (data) {
                     image_src = 'static/img/stardust_painted.png';
                     break;
                 case 12: // Engergy
-                    image_src = 'static/img/blastoise_mega_energy.png'; // Temporary
+                    image_src = 'static/img/mega_energy_blastoise.png'; // Temporary
                     break;
                 default:
                     image_src = 'static/img/unknown.png';
