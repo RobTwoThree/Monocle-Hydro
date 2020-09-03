@@ -665,6 +665,9 @@ var PokestopIcon = L.Icon.extend({
                 case 3: // Stardust
                     image_src = 'static/img/stardust_painted.png';
                     break;
+                case 12: // Energy
+                    image_src = 'static/img/Item_mega.png'; // Temporary
+                    break;
                 default:
                     image_src = 'static/img/unknown.png';
                 
@@ -1297,6 +1300,9 @@ function getPokestopPopupContent (item) {
                 break;
             case 3: // Stardust
                 image_src = 'static/img/stardust_painted.png';
+                break;
+            case 12: // Energy
+                image_src = 'static/img/Item_mega.png'; // Temporary
                 break;
             default:
                 image_src = 'static/img/unknown.png';
