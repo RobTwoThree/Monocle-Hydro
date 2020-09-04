@@ -413,6 +413,7 @@ class Raid(Base):
     time_end = Column(Integer)
     cp = Column(Integer)
     form = Column(SmallInteger)
+    evolution = Column(SmallInteger)
 
 
 class Mystery(Base):
