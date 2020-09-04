@@ -1438,7 +1438,7 @@ function getPokestopPopupContent (item) {
                         break;
                     default:
                         image_src = 'static/img/mega_energy_unknown.png';
-                        image_src = 'Unknown Mega Energy';
+                        image_name = 'Unknown Mega Energy';
                 }
                 break;
             default:
