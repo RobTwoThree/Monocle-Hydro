@@ -431,8 +431,10 @@ var RaidIcon = L.Icon.extend({
                             switch (this.options.raid_evolution) {
                                 case 2: // Charizard X
                                     image_id += '_178';
+                                    break;
                                 case 3: // Charizard Y
                                     image_id += '_179';
+                                    break;
                                 default:
                                     image_id += '_00';
                             }
@@ -440,6 +442,7 @@ var RaidIcon = L.Icon.extend({
                             switch (this.options.raid_evolution) {
                                 case 1: // Mega Venusaur
                                     image_id += '_169';
+                                    break;
                                 default:
                                     image_id += '_00';
                             }
@@ -447,6 +450,7 @@ var RaidIcon = L.Icon.extend({
                             switch (this.options.raid_evolution) {
                                 case 1: // Mega Blastoise
                                     image_id += '_187';
+                                    break;
                                 default:
                                     image_id += '_00';
                             }
@@ -535,8 +539,10 @@ var RaidIcon = L.Icon.extend({
                             switch (this.options.raid_evolution) {
                                 case 2: // Charizard X
                                     image_id += '_178_shiny';
+                                    break;
                                 case 3: // Charizard Y
                                     image_id += '_179_shiny';
+                                    break;
                                 default:
                                     image_id += '_00_shiny';
                             }
@@ -544,6 +550,7 @@ var RaidIcon = L.Icon.extend({
                             switch (this.options.raid_evolution) {
                                 case 1: // Mega Venusaur
                                     image_id += '_169_shiny';
+                                    break;
                                 default:
                                     image_id += '_00_shiny';
                             }
@@ -551,6 +558,7 @@ var RaidIcon = L.Icon.extend({
                             switch (this.options.raid_evolution) {
                                 case 1: // Mega Blastoise
                                     image_id += '_187_shiny';
+                                    break;
                                 default:
                                     image_id += '_00_shiny';
                             }
@@ -974,8 +982,10 @@ function getRaidPopupContent (item) {
                     switch (item.raid_evolution) {
                         case 2: // Charizard X
                             image_id += '_178';
+                            break;
                         case 3: // Charizard Y
                             image_id += '_179';
+                            break;
                         default:
                             image_id += '_0' + item.raid_pokemon_form;
                     }
@@ -983,6 +993,7 @@ function getRaidPopupContent (item) {
                     switch (item.raid_evolution) {
                         case 1: // Mega Venusaur
                             image_id += '_169';
+                            break;
                         default:
                             image_id += '_00';
                     }
@@ -990,6 +1001,7 @@ function getRaidPopupContent (item) {
                     switch (item.raid_evolution) {
                         case 1: // Mega Blastoise
                             image_id += '_187';
+                            break;
                         default:
                             image_id += '_00';
                     }
@@ -1077,8 +1089,10 @@ function getRaidPopupContent (item) {
                     switch (item.raid_evolution) {
                         case 2: // Charizard X
                             image_id += '_178_shiny';
+                            break;
                         case 3: // Charizard Y
                             image_id += '_179_shiny';
+                            break;
                         default:
                             image_id += '_0' + item.raid_pokemon_form + '_shiny';
                     }
@@ -1086,6 +1100,7 @@ function getRaidPopupContent (item) {
                     switch (item.raid_evolution) {
                         case 1: // Mega Venusaur
                             image_id += '_169_shiny';
+                            break;
                         default:
                             image_id += '_00_shiny';
                     }
@@ -1093,6 +1108,7 @@ function getRaidPopupContent (item) {
                     switch (item.raid_evolution) {
                         case 1: // Mega Blastoise
                             image_id += '_187_shiny';
+                            break;
                         default:
                             image_id += '_00_shiny';
                     }
