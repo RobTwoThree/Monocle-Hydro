@@ -3863,7 +3863,7 @@ function moveQuestToLayer(key, layer, pokemon_id) {
         }
     }
 
-    if ( pokemon_id != 0 ){
+    if ( pokemon_id != 0 || pokemon_id != 3 || pokemon_id != 6 || pokemon_id != 9 ){ // Hacked for Mega filters
         $("#pokemon_quests div.btn-group").each(function(){
             var item = $(this);
             var group = item.data('group');
