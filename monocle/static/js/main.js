@@ -731,7 +731,7 @@ var PokestopIcon = L.Icon.extend({
                             image_src = 'static/img/mega_energy_blastoise.png';
                             break;
                         default:
-                            image_src = 'static/img/mega_energy_venusaur.png';
+                            image_src = 'static/img/mega_energy_unknown.png';
                     
                     }
                     break;
@@ -1409,7 +1409,7 @@ function getPokestopPopupContent (item) {
                '</div>';
     content += '<br><b>Task:</b> ' + item.quest_task;
   
-    if (item.pokemon_id === 0){
+    if (item.quest_reward_type_raw === 2 || item.quest_reward_type_raw === 3 || item.quest_reward_type_raw === 12){
         var image_name = '';
         var str_item_id = '' + item.item_id;
         var pad = '0000';
@@ -1437,7 +1437,8 @@ function getPokestopPopupContent (item) {
                         image_name = 'Mega Blastoise Energy';
                         break;
                     default:
-                        image_src = 'static/img/mega_energy_venusaur.png';
+                        image_src = 'static/img/mega_energy_unknown.png';
+                        image_src = 'Unknown Mega Energy';
                 }
                 break;
             default:
@@ -2506,7 +2507,7 @@ function addQuestsToSettings (data) {
                             image_src = 'static/img/mega_energy_blastoise.png';
                             break;
                         default:
-                            image_src = 'static/img/mega_energy_venusaur.png';
+                            image_src = 'static/img/mega_energy_unknown.png';
                     }
                     break;
                 default:
