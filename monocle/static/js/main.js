@@ -720,7 +720,20 @@ var PokestopIcon = L.Icon.extend({
                     image_src = 'static/img/stardust_painted.png';
                     break;
                 case 12: // Energy
-                    image_src = 'static/img/mega_energy_blastoise.png'; // Temporary
+                    switch (this.options.pokemon_id) {
+                        case 3:
+                            image_src = 'static/img/mega_energy_venusaur.png';
+                            break;
+                        case 6:
+                            image_src = 'static/img/mega_energy_charizard.png';
+                            break;
+                        case 9:
+                            image_src = 'static/img/mega_energy_blastoise.png';
+                            break;
+                        default:
+                            image_src = 'static/img/mega_energy_venusaur.png';
+                    
+                    }
                     break;
                 default:
                     image_src = 'static/img/unknown.png';
@@ -1410,14 +1423,29 @@ function getPokestopPopupContent (item) {
                 image_src = 'static/img/stardust_painted.png';
                 break;
             case 12: // Energy
-                image_src = 'static/img/mega_energy_blastoise.png'; // Temporary
+                switch (item.pokemon_id) {
+                    case 3:
+                        image_src = 'static/img/mega_energy_venusaur.png';
+                        image_name = 'Mega Venusaur Energy';
+                        break;
+                    case 6:
+                        image_src = 'static/img/mega_energy_charizard.png';
+                        image_name = 'Mega Charizard Energy';
+                        break;
+                    case 9:
+                        image_src = 'static/img/mega_energy_blastoise.png';
+                        image_name = 'Mega Blastoise Energy';
+                        break;
+                    default:
+                        image_src = 'static/img/mega_energy_venusaur.png';
+                }
                 break;
             default:
                 image_src = 'static/img/unknown.png';
             
         }
     
-        content += '<br><b>Reward:</b> ' + item.item_amount + 'x<br>';
+        content += '<br><b>Reward:</b> ' + item.item_amount + 'x<br><b>' + image_name + '</b><br>';
         content += '<div class="quest_item-icon_container"><img class="quest_popup_item_icon" src="' + image_src + '"></div>';
     } else {
         var pokemon_form = '00';
