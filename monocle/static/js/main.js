@@ -3535,7 +3535,7 @@ $('#settings').on('click', '.settings-panel button', function () {
         
         for(var k in quest_markers) {
             var m = quest_markers[k];
-            if ( m.raw.pokemon_id !== 0 ) {
+            if ( m.raw.pokemon_id !== 0 && m.raw.pokemon_id !== 3 && m.raw.pokemon_id !== 6 && m.raw.pokemon_id !== 9 ) {
                 if ( value === 'display_pokemon_quests' ) {
                     m.overlay = "Quests";
                     m.addTo(overlays.Quests);
@@ -3565,7 +3565,7 @@ $('#settings').on('click', '.settings-panel button', function () {
 
         for(var k in quest_markers) {
             var m = quest_markers[k];
-            if ( m.raw.pokemon_id === 0 ) {
+            if ( m.raw.pokemon_id === 0 || m.raw.pokemon_id === 3 || m.raw.pokemon_id === 6 || m.raw.pokemon_id === 9 ) {
                 if ( value === 'display_item_quests' ) {
                     m.overlay = "Quests";
                     m.addTo(overlays.Quests);
