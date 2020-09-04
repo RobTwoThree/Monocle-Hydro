@@ -707,7 +707,7 @@ var PokestopIcon = L.Icon.extend({
         var div = document.createElement('div');
         var image_src = '';
         
-        if (this.options.pokemon_id === 0){
+        if (this.options.quest_reward_type_raw === 2 || this.options.quest_reward_type_raw === 3 || this.options.quest_reward_type_raw === 12 ){
             var str_item_id = '' + this.options.item_id;
             var pad = '0000';
             var image_id = pad.substring(0, pad.length - str_item_id.length) + str_item_id;
