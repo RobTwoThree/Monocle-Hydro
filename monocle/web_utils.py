@@ -161,6 +161,7 @@ def get_raid_markers(names=POKEMON, moves=MOVES):
                 'raid_pokemon_name': names[raid.pokemon_id],
                 'raid_pokemon_cp': raid.cp,
                 'raid_pokemon_form': raid.form,
+                'raid_evolution': raid.evolution,
                 'raid_pokemon_move_1': moves[raid.move_1],
                 'raid_pokemon_move_2': moves[raid.move_2],
                 'lat': fort.lat,

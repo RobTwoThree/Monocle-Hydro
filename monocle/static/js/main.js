@@ -427,9 +427,29 @@ var RaidIcon = L.Icon.extend({
             if ( getPreference("icon_theme_buttons") === 'og' ) {
                 if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
                     switch (this.options.raid_pokemon_id) {
-                        case 3: // Handle Mega Venusaur
                         case 6: // Handle Mega Charizard
+                            switch (this.options.raid_evolution) {
+                                case 2: // Charizard X
+                                    image_id += '_178';
+                                case 3: // Charizard Y
+                                    image_id += '_179';
+                                default:
+                                    image_id += '_00';
+                            }
+                        case 3: // Handle Mega Venusaur
+                            switch (this.options.raid_evolution) {
+                                case 1: // Mega Venusaur
+                                    image_id += '_169';
+                                default:
+                                    image_id += '_00';
+                            }
                         case 9: // Handle Mega Blastoise
+                            switch (this.options.raid_evolution) {
+                                case 1: // Mega Blastoise
+                                    image_id += '_187';
+                                default:
+                                    image_id += '_00';
+                            }
                         case 15: // Handle Mega Beedrill
                         case 18: // Handle Mega Pidgeot
                             image_id += '_' + this.options.raid_pokemon_form;
@@ -511,9 +531,29 @@ var RaidIcon = L.Icon.extend({
             } else if ( getPreference("icon_theme_buttons") === 'shiny' ) {
                 if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
                     switch (this.options.raid_pokemon_id) {
-                        case 3: // Handle Mega Venusaur
                         case 6: // Handle Mega Charizard
+                            switch (this.options.raid_evolution) {
+                                case 2: // Charizard X
+                                    image_id += '_178_shiny';
+                                case 3: // Charizard Y
+                                    image_id += '_179_shiny';
+                                default:
+                                    image_id += '_00_shiny';
+                            }
+                        case 3: // Handle Mega Venusaur
+                            switch (this.options.raid_evolution) {
+                                case 1: // Mega Venusaur
+                                    image_id += '_169_shiny';
+                                default:
+                                    image_id += '_00_shiny';
+                            }
                         case 9: // Handle Mega Blastoise
+                            switch (this.options.raid_evolution) {
+                                case 1: // Mega Blastoise
+                                    image_id += '_187_shiny';
+                                default:
+                                    image_id += '_00_shiny';
+                            }
                         case 15: // Handle Mega Beedrill
                         case 18: // Handle Mega Pidgeot
                             image_id += '_' + this.options.raid_pokemon_form + '_shiny';
@@ -930,9 +970,29 @@ function getRaidPopupContent (item) {
     if ( getPreference("icon_theme_buttons") === 'og' ) {
         if ((item.raid_pokemon_form != 0) && (item.raid_pokemon_form != null)) {
             switch (item.raid_pokemon_id) {
-                case 3: // Handle Mega Venusaur
                 case 6: // Handle Mega Charizard
+                    switch (item.raid_evolution) {
+                        case 2: // Charizard X
+                            image_id += '_178';
+                        case 3: // Charizard Y
+                            image_id += '_179';
+                        default:
+                            image_id += '_0' + item.raid_pokemon_form;
+                    }
+                case 3: // Handle Mega Venusaur
+                    switch (item.raid_evolution) {
+                        case 1: // Mega Venusaur
+                            image_id += '_169';
+                        default:
+                            image_id += '_00';
+                    }
                 case 9: // Handle Mega Blastoise
+                    switch (item.raid_evolution) {
+                        case 1: // Mega Blastoise
+                            image_id += '_187';
+                        default:
+                            image_id += '_00';
+                    }
                 case 15: // Handle Mega Beedrill
                 case 18: // Handle Mega Pidgeot
                     image_id += '_' + item.raid_pokemon_form;
@@ -1013,9 +1073,29 @@ function getRaidPopupContent (item) {
     } else if ( getPreference("icon_theme_buttons") === 'shiny') {
         if ((item.raid_pokemon_form != 0) && (item.raid_pokemon_form != null)) {
             switch (item.raid_pokemon_id) {
-                case 3: // Handle Mega Venusaur
                 case 6: // Handle Mega Charizard
+                    switch (item.raid_evolution) {
+                        case 2: // Charizard X
+                            image_id += '_178_shiny';
+                        case 3: // Charizard Y
+                            image_id += '_179_shiny';
+                        default:
+                            image_id += '_0' + item.raid_pokemon_form + '_shiny';
+                    }
+                case 3: // Handle Mega Venusaur
+                    switch (item.raid_evolution) {
+                        case 1: // Mega Venusaur
+                            image_id += '_169_shiny';
+                        default:
+                            image_id += '_00_shiny';
+                    }
                 case 9: // Handle Mega Blastoise
+                    switch (item.raid_evolution) {
+                        case 1: // Mega Blastoise
+                            image_id += '_187_shiny';
+                        default:
+                            image_id += '_00_shiny';
+                    }
                 case 15: // Handle Mega Beedrill
                 case 18: // Handle Mega Pidgeot
                     image_id += '_' + item.raid_pokemon_form + '_shiny';
@@ -1132,19 +1212,19 @@ function getRaidPopupContent (item) {
 
     switch (item.raid_pokemon_id) {
         case 3: // Handle Mega Venusaur
-            if (item.raid_pokemon_form == 169) {
+            if (item.raid_evolution == 1) {
                 raid_boss_form_name = 'Mega ';
             } else {
                 raid_boss_form_name = '';
             }
             break;
         case 6: // Handle Mega Charizard X and Y
-            switch (item.raid_pokemon_form){
-                case 178:
+            switch (item.raid_evolution){
+                case 2:
                     raid_boss_form_name = 'Mega ';
                     raid_boss_suffix = ' X';
                     break;
-                case 179:
+                case 3:
                     raid_boss_form_name = 'Mega ';
                     raid_boss_suffix = ' Y';
                     break;
@@ -1154,7 +1234,7 @@ function getRaidPopupContent (item) {
             }
             break;
         case 9: // Handle Mega Blastoise
-            if (item.raid_pokemon_form == 187) {
+            if (item.raid_evolution == 1) {
                 raid_boss_form_name = 'Mega ';
             } else {
                 raid_boss_form_name = '';
@@ -1783,7 +1863,7 @@ function RaidMarker (raw) {
         }
     }
   
-    var raid_boss_icon = new RaidIcon({raid_pokemon_id: raw.raid_pokemon_id, raid_pokemon_form: raw.raid_pokemon_form, raid_level: raw.raid_level, raid_ends_at: raw.raid_end, raid_starts_at: raw.raid_battle, raid_gym_name: raw.gym_name, external_id: raw.external_id});
+    var raid_boss_icon = new RaidIcon({raid_pokemon_id: raw.raid_pokemon_id, raid_pokemon_form: raw.raid_pokemon_form, raid_evolution: raw.raid_evolution, raid_level: raw.raid_level, raid_ends_at: raw.raid_end, raid_starts_at: raw.raid_battle, raid_gym_name: raw.gym_name, external_id: raw.external_id});
     var raid_marker = L.marker([raw.lat, raw.lon], {icon: raid_boss_icon, opacity: 1, zIndexOffset: 5000});
 
     if (raw.hide_raid) {
