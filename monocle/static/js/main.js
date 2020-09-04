@@ -2472,7 +2472,7 @@ function addQuestsToSettings (data) {
         // Populate a quest object list of all the types for use in other places
         quest_filters_list[quest_marker_id] = item;
 
-        if ( item.pokemon_id === 0 ) {
+        if ( item.quest_reward_type_raw === 2 || item.quest_reward_type_raw === 3 || item.quest_reward_type_raw === 12  ) {
             var image_name = '';
             var str_item_id = '' + item.item_id;
             var pad = '0000';
@@ -2495,7 +2495,19 @@ function addQuestsToSettings (data) {
                     image_src = 'static/img/stardust_painted.png';
                     break;
                 case 12: // Engergy
-                    image_src = 'static/img/mega_energy_blastoise.png'; // Temporary
+                    switch (item.pokemon_id) {
+                        case 3:
+                            image_src = 'static/img/mega_energy_venusaur.png';
+                            break;
+                        case 6:
+                            image_src = 'static/img/mega_energy_charizard.png';
+                            break;
+                        case 9:
+                            image_src = 'static/img/mega_energy_blastoise.png';
+                            break;
+                        default:
+                            image_src = 'static/img/mega_energy_venusaur.png';
+                    }
                     break;
                 default:
                     image_src = 'static/img/unknown.png';
