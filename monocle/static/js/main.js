@@ -4385,13 +4385,13 @@ function populateSettingsPanels(){
   
     for (var i = 1; i <= 6; i++){
         if (i == 6) {
-            lvl = 'Mega';
+            lvl = 'Mega Raid';
         } else {
-            lvl = i;
+            lvl = 'Level ' + i;
         }
         var partHtml =
             '<div class="text-center">' +
-                '<div class="raid_filter_label"><b>Level ' + lvl + '  </b></div>' +
+                '<div class="raid_filter_label"><b>' + lvl + '  </b></div>' +
                 '<div class="raid_filter_container">' +
                 '<div id="raid_filter_button_group" class="btn-group" role="group" data-group="raid_filter-' + i + '">' +
                     '<button type="button" class="btn btn-default" data-raid_id="' + i + '" data-value="display_raid">Display</button>' +
