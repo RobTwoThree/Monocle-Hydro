@@ -4383,9 +4383,9 @@ function populateSettingsPanels(){
     var raidsHtml =
             '<h5>Raid Level Filters</h5><br>';
   
-    for (var i = 1; i <= 5; i++){
-        if (i == 5) {
-            lvl = '5 & Mega';
+    for (var i = 1; i <= 6; i++){
+        if (i == 6) {
+            lvl = 'Mega';
         } else {
             lvl = i;
         }
@@ -4834,7 +4834,7 @@ function setSettingsDefaults(){
     for (var i = 1; i <= _pokemon_count; i++){
         _defaultSettings['filter-'+i] = (_defaultSettings['TRASH_IDS'].indexOf(i) > -1) ? "trash" : "pokemon";
     };
-    for (var i = 1; i <= 5; i++) {
+    for (var i = 1; i <= 6; i++) {
         _defaultSettings['raid_filter-'+i] = (_defaultSettings['RAID_IDS'].indexOf(i) > -1) ? "hide_raid" : "display_raid";
     };
 
