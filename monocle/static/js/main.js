@@ -457,8 +457,16 @@ var RaidIcon = L.Icon.extend({
                                     image_id += '_00';
                             }
                             break;
-                        case 15: // Handle Mega Beedrill
                         case 18: // Handle Mega Pidgeot
+                            switch (this.options.raid_evolution) {
+                                case 1: // Mega Pidgeot
+                                    image_id += '_51';
+                                    break;
+                                default:
+                                    image_id += '_00';
+                            }
+                            break;
+                        case 15: // Handle Mega Beedrill
                             image_id += '_' + this.options.raid_pokemon_form;
                             break;
                         case 26: // Handle Alolan Raichu
@@ -568,8 +576,16 @@ var RaidIcon = L.Icon.extend({
                                     image_id += '_00_shiny';
                             }
                             break;
-                        case 15: // Handle Mega Beedrill
                         case 18: // Handle Mega Pidgeot
+                            switch (this.options.raid_evolution) {
+                                case 1: // Mega Pidgeot
+                                    image_id += '_51_shiny';
+                                    break;
+                                default:
+                                    image_id += '_00_shiny';
+                            }
+                            break;
+                        case 15: // Handle Mega Beedrill
                             image_id += '_' + this.options.raid_pokemon_form + '_shiny';
                             break;
                         case 26: // Handle Alolan Raichu
@@ -1027,8 +1043,16 @@ function getRaidPopupContent (item) {
                             image_id += '_00';
                     }
                     break;
-                case 15: // Handle Mega Beedrill
                 case 18: // Handle Mega Pidgeot
+                    switch (item.raid_evolution) {
+                        case 1: // Mega Pidgeot
+                            image_id += '_51';
+                            break;
+                        default:
+                            image_id += '_00';
+                    }
+                    break;
+                case 15: // Handle Mega Beedrill
                     image_id += '_' + item.raid_pokemon_form;
                     break;
                 case 26: // Handle Alolan Raichu
@@ -1137,8 +1161,16 @@ function getRaidPopupContent (item) {
                             image_id += '_00_shiny';
                     }
                     break;
-                case 15: // Handle Mega Beedrill
                 case 18: // Handle Mega Pidgeot
+                    switch (item.raid_evolution) {
+                        case 1: // Mega Pidgeot
+                            image_id += '_51_shiny';
+                            break;
+                        default:
+                            image_id += '_00_shiny';
+                    }
+                    break;
+                case 15: // Handle Mega Beedrill
                     image_id += '_' + item.raid_pokemon_form + '_shiny';
                     break;
                 case 26: // Handle Alolan Raichu
@@ -1282,14 +1314,14 @@ function getRaidPopupContent (item) {
             }
             break;
         case 15: // Handle Mega Beedrill
-            if (item.raid_pokemon_form == 51) {
+            if (item.raid_evolution == 1) {
                 raid_boss_form_name = 'Mega ';
             } else {
                 raid_boss_form_name = '';
             }
             break;
         case 18: // Handle Mega Pidgeot
-            if (item.raid_pokemon_form == 51) {
+            if (item.raid_evolution == 1) {
                 raid_boss_form_name = 'Mega ';
             } else {
                 raid_boss_form_name = '';
