@@ -425,7 +425,7 @@ var RaidIcon = L.Icon.extend({
             var image_id = this.options.raid_pokemon_id;
 
             if ( getPreference("icon_theme_buttons") === 'og' ) {
-                if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
+                if (this.options.raid_evolution == 1) {
                     switch (this.options.raid_pokemon_id) {
                         case 6: // Handle Mega Charizard
                             switch (this.options.raid_evolution) {
@@ -469,6 +469,11 @@ var RaidIcon = L.Icon.extend({
                                     image_id += '_00';
                             }
                             break;
+                        default:
+                            image_id += '_00';
+                    }
+                } else if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
+                    switch (this.options.raid_pokemon_id) {
                         case 26: // Handle Alolan Raichu
                             if (this.options.raid_pokemon_form == 50) {
                                 image_id += '_61_01';
@@ -544,7 +549,7 @@ var RaidIcon = L.Icon.extend({
             } else if ( getPreference("icon_theme_buttons") === 'cart' ) {
                 image_id += '_cart';
             } else if ( getPreference("icon_theme_buttons") === 'shiny' ) {
-                if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
+                if (this.options.raid_evolution == 1) {
                     switch (this.options.raid_pokemon_id) {
                         case 6: // Handle Mega Charizard
                             switch (this.options.raid_evolution) {
@@ -588,6 +593,11 @@ var RaidIcon = L.Icon.extend({
                                     image_id += '_00_shiny';
                             }
                             break;
+                        default:
+                            image_id += '_00_shiny';
+                    }
+                } else if ((this.options.raid_pokemon_form != 0) && (this.options.raid_pokemon_form != null)) {
+                    switch (this.options.raid_pokemon_id) {
                         case 26: // Handle Alolan Raichu
                             if (this.options.raid_pokemon_form == 50) {
                                 image_id += '_61_01_shiny';
@@ -1011,7 +1021,7 @@ function getRaidPopupContent (item) {
     var image_id = item.raid_pokemon_id;
   
     if ( getPreference("icon_theme_buttons") === 'og' ) {
-        if ((item.raid_pokemon_form != 0) && (item.raid_pokemon_form != null)) {
+        if (item.raid_evolution == 1){
             switch (item.raid_pokemon_id) {
                 case 6: // Handle Mega Charizard
                     switch (item.raid_evolution) {
@@ -1055,6 +1065,11 @@ function getRaidPopupContent (item) {
                             image_id += '_00';
                     }
                     break;
+                default:
+                    image_id += '_00';
+            }
+        } else if ((item.raid_pokemon_form != 0) && (item.raid_pokemon_form != null)) {
+            switch (item.raid_pokemon_id) {
                 case 26: // Handle Alolan Raichu
                     if (item.raid_pokemon_form == 50) {
                         image_id += '_61_01';
@@ -1129,7 +1144,7 @@ function getRaidPopupContent (item) {
     } else if ( getPreference("icon_theme_bottons") === 'cart') {
         image_id += '_cart';
     } else if ( getPreference("icon_theme_buttons") === 'shiny') {
-        if ((item.raid_pokemon_form != 0) && (item.raid_pokemon_form != null)) {
+        if (item.raid_evolution == 1) {
             switch (item.raid_pokemon_id) {
                 case 6: // Handle Mega Charizard
                     switch (item.raid_evolution) {
@@ -1173,6 +1188,11 @@ function getRaidPopupContent (item) {
                             image_id += '_00_shiny';
                     }
                     break;
+                default:
+                    image_id += '_00_shiny';
+            }
+        } else if ((item.raid_pokemon_form != 0) && (item.raid_pokemon_form != null)) {
+            switch (item.raid_pokemon_id) {
                 case 26: // Handle Alolan Raichu
                     if (item.raid_pokemon_form == 50) {
                         image_id += '_61_01_shiny';
