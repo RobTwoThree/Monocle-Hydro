@@ -469,6 +469,15 @@ var RaidIcon = L.Icon.extend({
                                     image_id += '_00';
                             }
                             break;
+                        case 229: // Handle Mega Houndoom
+                            switch (this.options.raid_evolution) {
+                                case 1: // Mega Houndoom
+                                    image_id += '_51';
+                                    break;
+                                default:
+                                    image_id += '_00';
+                            }
+                            break;
                         default:
                             image_id += '_00';
                     }
@@ -587,6 +596,15 @@ var RaidIcon = L.Icon.extend({
                         case 18: // Handle Mega Pidgeot
                             switch (this.options.raid_evolution) {
                                 case 1: // Mega Pidgeot
+                                    image_id += '_51_shiny';
+                                    break;
+                                default:
+                                    image_id += '_00_shiny';
+                            }
+                            break;
+                        case 229: // Handle Mega Houndoom
+                            switch (this.options.raid_evolution) {
+                                case 1: // Mega Houndoom
                                     image_id += '_51_shiny';
                                     break;
                                 default:
@@ -1065,6 +1083,15 @@ function getRaidPopupContent (item) {
                             image_id += '_00';
                     }
                     break;
+                case 229: // Handle Mega Houndoom
+                    switch (item.raid_evolution) {
+                        case 1: // Mega Houndoom
+                            image_id += '_51';
+                            break;
+                        default:
+                            image_id += '_00';
+                    }
+                    break;
                 default:
                     image_id += '_00';
             }
@@ -1182,6 +1209,15 @@ function getRaidPopupContent (item) {
                 case 18: // Handle Mega Pidgeot
                     switch (item.raid_evolution) {
                         case 1: // Mega Pidgeot
+                            image_id += '_51_shiny';
+                            break;
+                        default:
+                            image_id += '_00_shiny';
+                    }
+                    break;
+                case 229: // Handle Mega Houndoom
+                    switch (item.raid_evolution) {
+                        case 1: // Mega Houndoom
                             image_id += '_51_shiny';
                             break;
                         default:
@@ -1341,6 +1377,13 @@ function getRaidPopupContent (item) {
             }
             break;
         case 18: // Handle Mega Pidgeot
+            if (item.raid_evolution == 1) {
+                raid_boss_form_name = 'Mega ';
+            } else {
+                raid_boss_form_name = '';
+            }
+            break;
+        case 229: // Handle Mega Houndoom
             if (item.raid_evolution == 1) {
                 raid_boss_form_name = 'Mega ';
             } else {
@@ -2547,7 +2590,7 @@ function addQuestsToSettings (data) {
                 case 3: // Stardust
                     image_src = 'static/img/stardust_painted.png';
                     break;
-                case 12: // Engergy
+                case 12: // Energy
                     switch (item.pokemon_id) {
                         case 3:
                             image_src = 'static/img/mega_energy_venusaur.png';
