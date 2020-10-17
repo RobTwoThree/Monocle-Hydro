@@ -2860,7 +2860,7 @@ console.log("default region = " + region);
     }
 console.log("region set to = " + region);
     if (region != 0) {
-        setFilteredPokemonLayerDisplay(region);
+        setFilteredPokemonLayerDisplay('Unova');
         moveToLayer(p_id, 'pokemon');
     }
 }
