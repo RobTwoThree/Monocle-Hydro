@@ -2900,44 +2900,31 @@ if (_DisplaySpawnpointsLayer === 'True') {
 
 if(parseInt(params.p_id)) {
     var p_id = parseInt(params.p_id);
-    var region = 0;
 
-console.log("p_id " + p_id);
-console.log("default region = " + region);
+//console.log("p_id " + p_id);
+//console.log("default region = " + region);
 
     switch (true) {
         case (p_id <= _pokemon_count_gen_1):
-            map.addLayer(overlays.Kanto);
-            setPreference("POKEMON_GEN1_LAYER", 'display')
-            region = 1;
+            setPreference("POKEMON_GEN1_LAYER", 'display');
             break;
         case (p_id > _pokemon_count_gen_1 && p_id <= _pokemon_count_gen_2):
-            map.addLayer(overlays.Johto);
-            setPreference("POKEMON_GEN2_LAYER", 'display')
-            region = 2;
+            setPreference("POKEMON_GEN2_LAYER", 'display');
             break;
         case (p_id > _pokemon_count_gen_2 && p_id <= _pokemon_count_gen_3):
-            map.addLayer(overlays.Hoenn);
-            setPreference("POKEMON_GEN3_LAYER", 'display')
-            region = 3;
+            setPreference("POKEMON_GEN3_LAYER", 'display');
             break;
         case (p_id > _pokemon_count_gen_3 && p_id <= _pokemon_count_gen_4):
-            map.addLayer(overlays.Sinnoh);
-            setPreference("POKEMON_GEN4_LAYER", 'display')
-            region = 4;
+            setPreference("POKEMON_GEN4_LAYER", 'display');
             break;
         case (p_id > _pokemon_count_gen_4 && p_id <= _pokemon_count_gen_5):
-            map.addLayer(overlays.Unova);
-            setPreference("POKEMON_GEN5_LAYER", 'display')
-            region = 5;
+            setPreference("POKEMON_GEN5_LAYER", 'display');
             break;
         default:
-            region = 0;
+            setPreference("POKEMON_GEN5_LAYER", 'display');
     }
-console.log("region set to = " + region);
-    if (region != 0) {
-        moveToLayer(p_id, 'pokemon');
-    }
+
+    moveToLayer(p_id, 'pokemon');
 }
 
 var control = L.control.layers(null, overlays).addTo(map);
