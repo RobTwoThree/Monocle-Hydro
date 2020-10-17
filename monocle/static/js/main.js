@@ -2841,23 +2841,23 @@ console.log("default region = " + region);
 
     switch (true) {
         case (p_id <= _pokemon_count_gen_1):
-            map.addLayer(overlays.Kanto);
+            //map.addLayer(overlays.Kanto);
             region = 1;
             break;
         case (p_id > _pokemon_count_gen_1 && p_id <= _pokemon_count_gen_2):
-            map.addLayer(overlays.Johto);
+            //map.addLayer(overlays.Johto);
             region = 2;
             break;
         case (p_id > _pokemon_count_gen_2 && p_id <= _pokemon_count_gen_3):
-            map.addLayer(overlays.Hoenn);
+            //map.addLayer(overlays.Hoenn);
             region = 3;
             break;
         case (p_id > _pokemon_count_gen_3 && p_id <= _pokemon_count_gen_4):
-            map.addLayer(overlays.Sinnoh);
+            //map.addLayer(overlays.Sinnoh);
             region = 4;
             break;
         case (p_id > _pokemon_count_gen_4 && p_id <= _pokemon_count_gen_5):
-            map.addLayer(overlays.Unova);
+            //map.addLayer(overlays.Unova);
             region = 5;
             break;
         default:
