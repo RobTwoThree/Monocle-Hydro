@@ -2832,43 +2832,6 @@ window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) 
 //console.log("params.lon" + parseFloat(params.lon) );
 //console.log("params.zoom" + parseFloat(params.zoom) );
 
-if(parseInt(params.p_id)) {
-    var p_id = parseInt(params.p_id);
-    var region = 0;
-
-console.log("p_id " + p_id);
-console.log("default region = " + region);
-
-    switch (true) {
-        case (p_id <= _pokemon_count_gen_1):
-            //map.addLayer(overlays.Kanto);
-            region = 1;
-            break;
-        case (p_id > _pokemon_count_gen_1 && p_id <= _pokemon_count_gen_2):
-            //map.addLayer(overlays.Johto);
-            region = 2;
-            break;
-        case (p_id > _pokemon_count_gen_2 && p_id <= _pokemon_count_gen_3):
-            //map.addLayer(overlays.Hoenn);
-            region = 3;
-            break;
-        case (p_id > _pokemon_count_gen_3 && p_id <= _pokemon_count_gen_4):
-            //map.addLayer(overlays.Sinnoh);
-            region = 4;
-            break;
-        case (p_id > _pokemon_count_gen_4 && p_id <= _pokemon_count_gen_5):
-            //map.addLayer(overlays.Unova);
-            region = 5;
-            break;
-        default:
-            region = 0;
-    }
-console.log("region set to = " + region);
-    if (region != 0) {
-        moveToLayer(p_id, 'pokemon');
-    }
-}
-
 if(parseFloat(params.lat) && parseFloat(params.lon)){
     var map = new L.Map('main-map', {
                       center: [params.lat, params.lon],
@@ -2934,6 +2897,43 @@ if (_DisplayFilteredPokemonLayer === 'True') {
 if (_DisplaySpawnpointsLayer === 'True') {
     map.addLayer(overlays.Spawns);
     map.addLayer(overlays.Workers); }
+
+if(parseInt(params.p_id)) {
+    var p_id = parseInt(params.p_id);
+    var region = 0;
+
+console.log("p_id " + p_id);
+console.log("default region = " + region);
+
+    switch (true) {
+        case (p_id <= _pokemon_count_gen_1):
+            map.addLayer(overlays.Kanto);
+            region = 1;
+            break;
+        case (p_id > _pokemon_count_gen_1 && p_id <= _pokemon_count_gen_2):
+            map.addLayer(overlays.Johto);
+            region = 2;
+            break;
+        case (p_id > _pokemon_count_gen_2 && p_id <= _pokemon_count_gen_3):
+            map.addLayer(overlays.Hoenn);
+            region = 3;
+            break;
+        case (p_id > _pokemon_count_gen_3 && p_id <= _pokemon_count_gen_4):
+            map.addLayer(overlays.Sinnoh);
+            region = 4;
+            break;
+        case (p_id > _pokemon_count_gen_4 && p_id <= _pokemon_count_gen_5):
+            map.addLayer(overlays.Unova);
+            region = 5;
+            break;
+        default:
+            region = 0;
+    }
+console.log("region set to = " + region);
+    if (region != 0) {
+        moveToLayer(p_id, 'pokemon');
+    }
+}
 
 var control = L.control.layers(null, overlays).addTo(map);
 
