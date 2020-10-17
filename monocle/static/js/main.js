@@ -2908,22 +2908,27 @@ console.log("default region = " + region);
     switch (true) {
         case (p_id <= _pokemon_count_gen_1):
             map.addLayer(overlays.Kanto);
+            setPreference("POKEMON_GEN1_LAYER", 'display')
             region = 1;
             break;
         case (p_id > _pokemon_count_gen_1 && p_id <= _pokemon_count_gen_2):
             map.addLayer(overlays.Johto);
+            setPreference("POKEMON_GEN2_LAYER", 'display')
             region = 2;
             break;
         case (p_id > _pokemon_count_gen_2 && p_id <= _pokemon_count_gen_3):
             map.addLayer(overlays.Hoenn);
+            setPreference("POKEMON_GEN3_LAYER", 'display')
             region = 3;
             break;
         case (p_id > _pokemon_count_gen_3 && p_id <= _pokemon_count_gen_4):
             map.addLayer(overlays.Sinnoh);
+            setPreference("POKEMON_GEN4_LAYER", 'display')
             region = 4;
             break;
         case (p_id > _pokemon_count_gen_4 && p_id <= _pokemon_count_gen_5):
             map.addLayer(overlays.Unova);
+            setPreference("POKEMON_GEN5_LAYER", 'display')
             region = 5;
             break;
         default:
