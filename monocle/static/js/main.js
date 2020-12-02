@@ -5,12 +5,14 @@ var _pokemon_count_gen_2 = 251;
 var _pokemon_count_gen_3 = 386;
 var _pokemon_count_gen_4 = 493;
 var _pokemon_count_gen_5 = 649;
+var _pokemon_count_gen_6 = 685;
 var _alolan_forms = [19,20,26,27,28,37,38,50,51,52,53,74,75,76,88,89,103,105];
 var _spritesheet_g1 = [];
 var _spritesheet_g2 = [];
 var _spritesheet_g3 = [];
 var _spritesheet_g4 = [];
 var _spritesheet_g5 = [];
+var _spritesheet_g6 = [];
 var _spritesheet_gX = [];
 var _raids_count = 6;
 var _raids_labels = ['Normal', 'Normal', 'Rare', 'Rare', 'Legendary'];
@@ -31,6 +33,7 @@ for (var i = _pokemon_count_gen_1 + 1; i <= _pokemon_count_gen_2; i++) { _sprite
 for (var i = _pokemon_count_gen_2 + 1; i <= _pokemon_count_gen_3; i++) { _spritesheet_g3.push(i); }
 for (var i = _pokemon_count_gen_3 + 1; i <= _pokemon_count_gen_4; i++) { _spritesheet_g4.push(i); }
 for (var i = _pokemon_count_gen_4 + 1; i <= _pokemon_count_gen_5; i++) { _spritesheet_g5.push(i); }
+for (var i = _pokemon_count_gen_5 + 1; i <= _pokemon_count_gen_6; i++) { _spritesheet_g6.push(i); }
 _spritesheet_gX = [808,809];
 
 
@@ -835,6 +838,7 @@ if (_DisplaySpawnpointsLayer === 'True') {
         Hoenn: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Sinnoh: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Unova: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
+        Kalos: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Gyms: L.markerClusterGroup({ disableClusteringAtZoom: 8 }),
         Raids: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Quests: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
@@ -851,6 +855,7 @@ if (_DisplaySpawnpointsLayer === 'True') {
         Hoenn: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Sinnoh: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Unova: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
+        Kalos: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Gyms: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Raids: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
         Quests: L.markerClusterGroup({ disableClusteringAtZoom: 12 }),
@@ -886,6 +891,7 @@ monitor(overlays.Johto, true)
 monitor(overlays.Hoenn, true)
 monitor(overlays.Sinnoh, true)
 monitor(overlays.Unova, true)
+monitor(overlays.Kalos, true)
 monitor(overlays.Gyms, false)
 monitor(overlays.Raids, false)
 //monitor(overlays.Parks_In_S2_Cells, false)
@@ -1833,6 +1839,8 @@ function PokemonMarker (raw) {
             marker.overlay = 'Sinnoh';
         } else if ( (raw.pokemon_id >= 494) && (raw.pokemon_id <= 649)) {
             marker.overlay = 'Unova';
+        } else if ( (raw.pokemon_id >= 650) && (raw.pokemon_id <= 685)) {
+            marker.overlay = 'Kalos';
         }
     }
     var userPreference = getPreference('filter-'+raw.pokemon_id);
@@ -1847,6 +1855,8 @@ function PokemonMarker (raw) {
             marker.overlay = 'Sinnoh';
         } else if ( (raw.pokemon_id >= 494) && (raw.pokemon_id <= 649)) {
             marker.overlay = 'Unova';
+        } else if ( (raw.pokemon_id >= 650) && (raw.pokemon_id <= 685)) {
+            marker.overlay = 'Kalos';
         }
     }else if (userPreference === 'trash'){
         marker.overlay = 'FilteredPokemon';
@@ -1901,7 +1911,13 @@ function PokemonMarker (raw) {
                 overlays.Unova.removeLayer(marker);
                 overlays.Unova.refreshClusters(marker);
             }
-            
+
+            if ( marker.overlay === "Kalos" ) {
+                overlays.Kalos.removeLayer(marker);
+                overlays.Kalos.refreshClusters(marker);
+            }
+
+
             if ( marker.overlay === "FilteredPokemon" ) {
                 overlays.FilteredPokemon.removeLayer(marker);
                 overlays.FilteredPokemon.refreshClusters(marker);
@@ -2643,7 +2659,7 @@ function addQuestsToSettings (data) {
 }
 
 function getPokemon () {
-    if (overlays.Kanto.hidden && overlays.Johto.hidden && overlays.Hoenn.hidden && overlays.Sinnoh.hidden && overlays.Unova.hidden && overlays.FilteredPokemon.hidden) {
+    if (overlays.Kanto.hidden && overlays.Johto.hidden && overlays.Hoenn.hidden && overlays.Sinnoh.hidden && overlays.Unova.hidden && overlays.Kalos.hidden && overlays.FilteredPokemon.hidden) {
         return;
     }
     new Promise(function (resolve, reject) {
@@ -2666,6 +2682,9 @@ function getPokemon () {
         }
         if ( !overlays.Unova.hidden ) {
             overlays.Unova.refreshClusters();
+        }
+        if ( !overlays.Kalos.hidden ) {
+            overlays.Kalos.refreshClusters();
         }
     });
 }
@@ -2875,7 +2894,9 @@ if (_DisplayPokemonLayer === 'True') {
     map.addLayer(overlays.Johto);
     map.addLayer(overlays.Hoenn);
     map.addLayer(overlays.Sinnoh);
-    map.addLayer(overlays.Unova);}
+    map.addLayer(overlays.Unova);
+    map.addLayer(overlays.Kalos);
+    }
 if (_DisplayGymsLayer === 'True') {
     map.addLayer(overlays.Gyms); }
 if (_DisplayRaidsLayer === 'True') {
@@ -2920,8 +2941,11 @@ if(parseInt(params.p_id)) {
         case (p_id > _pokemon_count_gen_4 && p_id <= _pokemon_count_gen_5):
             setPreference("POKEMON_GEN5_LAYER", 'display');
             break;
+        case (p_id > _pokemon_count_gen_5 && p_id <= _pokemon_count_gen_6):
+            setPreference("POKEMON_GEN6_LAYER", 'display');
+            break;
         default:
-            setPreference("POKEMON_GEN5_LAYER", 'display');
+            setPreference("POKEMON_GEN6_LAYER", 'display');
     }
 
     moveToLayer(p_id, 'pokemon');
@@ -3041,6 +3065,16 @@ function onOverLayAdd(e) {
         hide_button.removeClass("active")
         display_button.addClass("active");
         setPreference("POKEMON_GEN5_LAYER",'display');
+    }
+
+    if (e.name == 'Kalos') {
+        var hide_button = $("#pokemon_gen6_layer button[data-value='hide']");
+        var display_button = $("#pokemon_gen6_layer button[data-value='display']");
+      
+        boostedPokemonDisplay();
+        hide_button.removeClass("active")
+        display_button.addClass("active");
+        setPreference("POKEMON_GEN6_LAYER",'display');
     }
 
     if (e.name == 'Gyms') {
@@ -3181,6 +3215,15 @@ function onOverLayRemove(e) {
         hide_button.addClass("active");
         display_button.removeClass("active");
         setPreference("POKEMON_GEN5_LAYER",'hide');
+    }
+
+    if (e.name == 'Kalos') {
+        var hide_button = $("#pokemon_gen6_layer button[data-value='hide']");
+        var display_button = $("#pokemon_gen6_layer button[data-value='display']");
+      
+        hide_button.addClass("active");
+        display_button.removeClass("active");
+        setPreference("POKEMON_GEN6_LAYER",'hide');
     }
 
     if (e.name == 'Gyms') {
@@ -3789,6 +3832,12 @@ $('#settings').on('click', '.settings-panel button', function () {
         setPreference(key, value);
     }
 
+    if (key.indexOf('gen6_buttons') > -1){
+        setGen6Buttons(value);
+    }else{
+        setPreference(key, value);
+    }
+
     if (key.indexOf('pokemon_tasks_buttons') > -1){
         setPokemonQuestButtons(value);
     }else{
@@ -3854,7 +3903,13 @@ $('#settings').on('click', '.settings-panel button', function () {
     } else {
         setPreference(key, value);
     }
- 
+
+    if (key.indexOf('POKEMON_GEN6_LAYER') > -1){
+        setPokemonGen6LayerDisplay(value);
+    } else {
+        setPreference(key, value);
+    }
+
     if (key.indexOf('GYMS_LAYER') > -1){
         setGymLayerDisplay(value);
     } else {
@@ -3934,6 +3989,9 @@ function moveToLayer(id, layer){
                 } else if ( (m.raw.pokemon_id >= 494) && (m.raw.pokemon_id <= 649)) {
                     m.overlay = 'Unova';
                     m.addTo(overlays.Unova);
+                } else if ( (m.raw.pokemon_id >= 650) && (m.raw.pokemon_id <= 685)) {
+                    m.overlay = 'Kalos';
+                    m.addTo(overlays.Kalos);
                 }
             }else if (layer === 'trash') {
                 m.overlay = 'FilteredPokemon';
@@ -4323,6 +4381,15 @@ function setPokemonGen5LayerDisplay(value) {
     }
 }
 
+function setPokemonGen6LayerDisplay(value) {
+    setPreference("POKEMON_GEN6_LAYER", value)
+    if ( value === "display" ) {
+        map.addLayer(overlays.Kalos);
+    } else {
+        map.removeLayer(overlays.Kalos);
+    }
+}
+
 function setGymLayerDisplay(value) {
     setPreference("GYMS_LAYER", value)
     if ( value === "display" ) {
@@ -4473,6 +4540,15 @@ function setGen5Buttons(value){
         $('.gen_5').css('display', '');
     } else if (value === "collapse_gen5") {
         $('.gen_5').css('display', 'none');
+    }
+}
+
+function setGen6Buttons(value){
+    setPreference("gen6_buttons", value);
+    if (value == "display_gen6") {
+        $('.gen_6').css('display', '');
+    } else if (value === "collapse_gen6") {
+        $('.gen_6').css('display', 'none');
     }
 }
 
@@ -4869,7 +4945,73 @@ function populateSettingsPanels(){
     pokemonHtml +=
             '</div>';
     // Close Gen 5 Div Container
+
+    // Generation divider
+    pokemonHtml +=
+            '<hr />' +
+            '<div class="gen_label"><b>Kalos  </b></div>' +
+            '<div class="btn-group" role="group" data-group="gen6_buttons">' +
+                '<button type="button" class="btn btn-default" data-value="display_gen6">Display Filters</button>' +
+                '<button type="button" class="btn btn-default" data-value="collapse_gen6">Collapse</button>' +
+            '</div>';
+
+    // Open Gen 6 Div Container
+    pokemonHtml +=
+            '<div class="gen_6" data-group="gen_6_group">';
+
+    pokemonHtml +=
+            '<hr />' +
+            '<div data-group="hide_gen_6">' +
+                '<button type="button" class="btn btn-default" data-value="pokemon">Show Generation 6</button>   ' +
+                '<button type="button" class="btn btn-default" data-value="trash">Hide Generation 6</button>' +
+            '</div><br>';
+
+    for (var i = _pokemon_count_gen_5 + 1; i <= _pokemon_count_gen_6; i++){
+        var spritesheet = 'sprite';
+
+        if (getPreference("icon_theme_buttons") === 'og') {
+            if (_spritesheet_g6.indexOf(i) > -1)
+            {
+                spritesheet = 'g6v1-sprite';
+                sprite_suffix = '_00';
+            }
+        } else if (getPreference("icon_theme_buttons") === 'cart') {
+            if (_spritesheet_g6.indexOf(i) > -1)
+            {
+                spritesheet = 'g6v1-sprite';
+                sprite_suffix = '';
+            }
+        } else if (getPreference("icon_theme_buttons") === 'shiny') {
+            if (_spritesheet_g6.indexOf(i) > -1)
+            {
+                spritesheet = 'g6v1-sprite';
+                sprite_suffix = '_00';
+            }
+        }
+
+        var partHtml =
+            '<div class="filter_buttons_group">' +
+                '<div class="filter_container">' +
+                    '<div class="filter_sprite_container">' +
+                        '<div id="menu" class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '"><span class="' + spritesheet + '-' + getPreference("icon_theme_buttons") + '-' + i + sprite_suffix + '"></span></div>' +
+                    '</div>' +
+                    '<div class="filter_button_container">' +
+                        '<div class="btn-group" role="group" data-group="filter-' + i + '">' +
+                            '<button type="button" class="btn btn-default" data-id="' + i + '" data-value="pokemon">Display</button>' +
+                            '<button type="button" class="btn btn-default" data-id="' + i + '" data-value="trash">Hide</button>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="pokemon_name_container">' + pokemon_name_type[i][1] + ' (#' + i + ')</div>' +
+                '</div>' +
+            '</div>';
+
+        pokemonHtml += partHtml
+    }
   
+    pokemonHtml +=
+            '</div>';
+    // Close Gen 6 Div Container
+    
     raids_container.html(raidsHtml);
     pokemon_container.html(pokemonHtml);
   
@@ -4889,6 +5031,7 @@ function setSettingsDefaults(){
     _defaultSettings['gen3_buttons'] = "display_gen3";
     _defaultSettings['gen4_buttons'] = "display_gen4";
     _defaultSettings['gen5_buttons'] = "display_gen5";
+    _defaultSettings['gen6_buttons'] = "display_gen6";
     _defaultSettings['pokemon_tasks'] = "display_pokemon_tasks";
     _defaultSettings['item_tasks'] = "collapse_item_tasks";
     _defaultSettings['show_sponsored_gym_logo'] = "display_sponsored_gym_logo";
@@ -4902,12 +5045,14 @@ function setSettingsDefaults(){
         _defaultSettings['POKEMON_GEN3_LAYER'] = "display";
         _defaultSettings['POKEMON_GEN4_LAYER'] = "display";
         _defaultSettings['POKEMON_GEN5_LAYER'] = "display";
+        _defaultSettings['POKEMON_GEN6_LAYER'] = "display";
     } else {
         _defaultSettings['POKEMON_GEN1_LAYER'] = "hide";
         _defaultSettings['POKEMON_GEN2_LAYER'] = "hide";
         _defaultSettings['POKEMON_GEN3_LAYER'] = "hide";
         _defaultSettings['POKEMON_GEN4_LAYER'] = "hide";
         _defaultSettings['POKEMON_GEN5_LAYER'] = "hide";
+        _defaultSettings['POKEMON_GEN6_LAYER'] = "hide";
     }
     if (_DisplayGymsLayer === 'True') {
         _defaultSettings['GYMS_LAYER'] = "display";
@@ -5034,6 +5179,12 @@ if ((getPreference("gen5_buttons") === "display_gen5")) {
     $('.gen_5').css('display', 'none');
 }
 
+if ((getPreference("gen6_buttons") === "display_gen6")) {
+    $('.gen_6').css('display', '');
+} else {
+    $('.gen_6').css('display', 'none');
+}
+
 if ((getPreference("item_tasks") === "display_item_tasks")) {
     var collapse_button = $("#quest_items_filters_group button[data-value='collapse_item_tasks']");
     var display_button = $("#quest_items_filters_group button[data-value='display_item_tasks']");
@@ -5103,6 +5254,12 @@ if ( getPreference("POKEMON_GEN5_LAYER") === "display" ) {
     map.addLayer(overlays.Unova);
 } else {
     map.removeLayer(overlays.Unova);
+}
+
+if ( getPreference("POKEMON_GEN6_LAYER") === "display" ) {
+    map.addLayer(overlays.Kalos);
+} else {
+    map.removeLayer(overlays.Kalos);
 }
 
 if ( getPreference("GYMS_LAYER") === "display" ) {
