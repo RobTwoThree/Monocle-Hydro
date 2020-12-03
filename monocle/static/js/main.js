@@ -3696,7 +3696,25 @@ $('#settings').on('click', '.settings-panel button', function () {
         });
         item.removeClass("active");
     }
- 
+
+    if (key === "hide_gen_6") {
+        for (var id = _pokemon_count_gen_5 + 1; id <= _pokemon_count_gen_6; id++){
+            moveToLayer(id, value);
+        }
+
+        $("#settings div.btn-group").each(function(){
+        var item = $(this);
+        var key = item.data('group');
+        var value = getPreference(key);
+        if (value === false)
+            value = "0";
+        else if (value === true)
+            value = "1";
+        item.children("button").removeClass("active").filter("[data-value='"+value+"']").addClass("active");
+        });
+        item.removeClass("active");
+    }
+
     // Show or display all pokemon quest tasks
     if (key === "all_pokemon_quests") {
         var value = item.data('value');
