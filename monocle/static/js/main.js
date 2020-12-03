@@ -1,5 +1,5 @@
 var _last_pokemon_id = 0;
-var _pokemon_count = 649;
+var _pokemon_count = 685;
 var _pokemon_count_gen_1 = 151;
 var _pokemon_count_gen_2 = 251;
 var _pokemon_count_gen_3 = 386;
