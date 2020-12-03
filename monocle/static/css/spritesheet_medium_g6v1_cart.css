@@ -1,0 +1,123 @@
+.g6v1-sprite-cart span {
+    background-image: url(../img/spritesheet_medium_g6v1_cart.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+#menu.g6v1-sprite-cart span {
+    float: left;
+}
+
+.g6v1-sprite-cart-650_00 {
+    width: 72px;
+    height: 72px;
+    background-position: 0 0;
+}
+
+.g6v1-sprite-cart-651_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -72px 0;
+}
+
+.g6v1-sprite-cart-652_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -144px 0;
+}
+
+.g6v1-sprite-cart-653_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -216px 0;
+}
+
+.g6v1-sprite-cart-654_00 {
+    width: 72px;
+    height: 72px;
+    background-position: 0 -72px;
+}
+
+.g6v1-sprite-cart-655_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -72px -72px;
+}
+
+.g6v1-sprite-cart-656_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -144px -72px;
+}
+
+.g6v1-sprite-cart-657_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -216px -72px;
+}
+
+.g6v1-sprite-cart-658_00 {
+    width: 72px;
+    height: 72px;
+    background-position: 0 -144px;
+}
+
+.g6v1-sprite-cart-659_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -72px -144px;
+}
+
+.g6v1-sprite-cart-660_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -144px -144px;
+}
+
+.g6v1-sprite-cart-661_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -216px -144px;
+}
+
+.g6v1-sprite-cart-662_00 {
+    width: 72px;
+    height: 72px;
+    background-position: 0 -216px;
+}
+
+.g6v1-sprite-cart-663_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -72px -216px;
+}
+
+.g6v1-sprite-cart-664_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -144px -216px;
+}
+
+.g6v1-sprite-cart-667_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -216px -216px;
+}
+
+.g6v1-sprite-cart-668_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -288px 0;
+}
+
+.g6v1-sprite-cart-677_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -288px -72px;
+}
+
+.g6v1-sprite-cart-678_00 {
+    width: 72px;
+    height: 72px;
+    background-position: -288px -144px;
+}
