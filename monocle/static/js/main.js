@@ -1848,7 +1848,7 @@ function PokemonMarker (raw) {
             marker.overlay = 'Sinnoh';
         } else if ( (raw.pokemon_id >= 494) && (raw.pokemon_id <= 649)) {
             marker.overlay = 'Unova';
-        } else if ( (raw.pokemon_id >= 650) && (raw.pokemon_id <= 685)) {
+        } else if ( (raw.pokemon_id >= 650) && (raw.pokemon_id <= _pokemon_count_gen_6)) {
             marker.overlay = 'Kalos';
         }
     }
@@ -1864,7 +1864,7 @@ function PokemonMarker (raw) {
             marker.overlay = 'Sinnoh';
         } else if ( (raw.pokemon_id >= 494) && (raw.pokemon_id <= 649)) {
             marker.overlay = 'Unova';
-        } else if ( (raw.pokemon_id >= 650) && (raw.pokemon_id <= 685)) {
+        } else if ( (raw.pokemon_id >= 650) && (raw.pokemon_id <= _pokemon_count_gen_6)) {
             marker.overlay = 'Kalos';
         }
     }else if (userPreference === 'trash'){
@@ -4016,7 +4016,7 @@ function moveToLayer(id, layer){
                 } else if ( (m.raw.pokemon_id >= 494) && (m.raw.pokemon_id <= 649)) {
                     m.overlay = 'Unova';
                     m.addTo(overlays.Unova);
-                } else if ( (m.raw.pokemon_id >= 650) && (m.raw.pokemon_id <= 685)) {
+                } else if ( (m.raw.pokemon_id >= 650) && (m.raw.pokemon_id <= _pokemon_count_gen_6)) {
                     m.overlay = 'Kalos';
                     m.addTo(overlays.Kalos);
                 }
