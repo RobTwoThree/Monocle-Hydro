@@ -1,11 +1,11 @@
 var _last_pokemon_id = 0;
-var _pokemon_count = 685;
+var _pokemon_count = 721;
 var _pokemon_count_gen_1 = 151;
 var _pokemon_count_gen_2 = 251;
 var _pokemon_count_gen_3 = 386;
 var _pokemon_count_gen_4 = 493;
 var _pokemon_count_gen_5 = 649;
-var _pokemon_count_gen_6 = 685;
+var _pokemon_count_gen_6 = 721;
 var _alolan_forms = [19,20,26,27,28,37,38,50,51,52,53,74,75,76,88,89,103,105];
 var _spritesheet_g1 = [];
 var _spritesheet_g2 = [];
@@ -206,7 +206,7 @@ var PokemonIcon = L.Icon.extend({
             { spritesheet = 'g5v5-sprite'; }
 
             if (_spritesheet_g6.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g6v1-sprite'; }
+            { spritesheet = 'g6v2-sprite'; }
 
             if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
             { spritesheet = 'gXv2-sprite'; }
@@ -230,7 +230,7 @@ var PokemonIcon = L.Icon.extend({
             { spritesheet = 'g5v5-sprite'; }
 
             if (_spritesheet_g6.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g6v1-sprite'; }
+            { spritesheet = 'g6v2-sprite'; }
 
             if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
             { spritesheet = 'gXv2-sprite'; }
@@ -254,7 +254,7 @@ var PokemonIcon = L.Icon.extend({
             { spritesheet = 'g5v5-sprite'; }
 
             if (_spritesheet_g6.indexOf(this.options.iconID) > -1)
-            { spritesheet = 'g6v1-sprite'; }
+            { spritesheet = 'g6v2-sprite'; }
             
             if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
             { spritesheet = 'gXv2-sprite'; }
@@ -685,7 +685,7 @@ var RaidIcon = L.Icon.extend({
             div.innerHTML =
                 '<div class="raidmarker">' +
                     '<div class="boss_raid_container">' +
-                        '<img class="boss_during_raid" src="static/monocle-icons/larger-icons/' + image_id + '.png?105" />' +
+                        '<img class="boss_during_raid" src="static/monocle-icons/larger-icons/' + image_id + '.png?106" />' +
                     '</div>' +
                     '<div class="raid_platform_container">' +
                         '<img class="pre_raid_icon" src="static/monocle-icons/raids/raid_start_level_' + this.options.raid_level + '.png?201" />' +
@@ -809,11 +809,11 @@ var PokestopIcon = L.Icon.extend({
             var pokemon_form = '00';
             
             if ( getPreference("icon_theme_buttons") === 'og' ) {
-                image_src = 'static/monocle-icons/larger-icons/' + this.options.pokemon_id + '_' + pokemon_form + '.png?105';
+                image_src = 'static/monocle-icons/larger-icons/' + this.options.pokemon_id + '_' + pokemon_form + '.png?106';
             } else if ( getPreference("icon_theme_buttons") === 'cart' ) {
-                image_src = 'static/monocle-icons/larger-icons/' + this.options.pokemon_id + '_cart.png?105';
+                image_src = 'static/monocle-icons/larger-icons/' + this.options.pokemon_id + '_cart.png?106';
             } else if ( getPreference("icon_theme_buttons") === 'shiny' ) {
-                image_src = 'static/monocle-icons/larger-icons/' + this.options.pokemon_id + '_' + pokemon_form + '_shiny.png?105';
+                image_src = 'static/monocle-icons/larger-icons/' + this.options.pokemon_id + '_' + pokemon_form + '_shiny.png?106';
             }
             
             
@@ -1285,7 +1285,7 @@ function getRaidPopupContent (item) {
         }
     }
     if (item.raid_pokemon_id !== 0) {
-        content += '<div class="raid_popup-icon_container"><img class="boss-icon" src="static/monocle-icons/larger-icons/' + image_id + '.png?105">';
+        content += '<div class="raid_popup-icon_container"><img class="boss-icon" src="static/monocle-icons/larger-icons/' + image_id + '.png?106">';
         if (item.gym_team > 0) {
             if (item.gym_team === 1 ) {
                 content += '<img class="team-logo" src="static/img/mystic.png">';
@@ -1564,11 +1564,11 @@ function getPokestopPopupContent (item) {
         content += '<br><b>Reward:</b><br>';
       
         if ( getPreference("icon_theme_buttons") === 'og' ) {
-            content += '<div class="pokestop_popup-icon_container"><img class="quest_popup_pokemon_icon" src="static/monocle-icons/larger-icons/' + item.pokemon_id + '_' + pokemon_form + '.png?105"></div>';
+            content += '<div class="pokestop_popup-icon_container"><img class="quest_popup_pokemon_icon" src="static/monocle-icons/larger-icons/' + item.pokemon_id + '_' + pokemon_form + '.png?106"></div>';
         } else if ( getPreference("icon_theme_buttons") === 'cart' ) {
-            content += '<div class="pokestop_popup-icon_container"><img class="quest_popup_pokemon_icon" src="static/monocle-icons/larger-icons/' + item.pokemon_id + '_cart.png?105"></div>';
+            content += '<div class="pokestop_popup-icon_container"><img class="quest_popup_pokemon_icon" src="static/monocle-icons/larger-icons/' + item.pokemon_id + '_cart.png?106"></div>';
         } else if ( getPreference("icon_theme_buttons") === 'shiny' ) {
-            content += '<div class="pokestop_popup-icon_container"><img class="quest_popup_pokemon_icon" src="static/monocle-icons/larger-icons/' + item.pokemon_id + '_' + pokemon_form + '_shiny.png?105"></div>';
+            content += '<div class="pokestop_popup-icon_container"><img class="quest_popup_pokemon_icon" src="static/monocle-icons/larger-icons/' + item.pokemon_id + '_' + pokemon_form + '_shiny.png?106"></div>';
         }
       
     }
@@ -1704,9 +1704,9 @@ function getFortPopupContent (item) {
     }
  
     if (item.pokemon_id !== 0) {
-        content += '<div class="fort_popup-icon_container"><img class="guard-icon" src="static/monocle-icons/larger-icons/' + item.pokemon_id + icon_suffix + '.png?105">';
+        content += '<div class="fort_popup-icon_container"><img class="guard-icon" src="static/monocle-icons/larger-icons/' + item.pokemon_id + icon_suffix + '.png?106">';
     } else {
-        content += '<div class="fort_popup-icon_container"><img class="no-guard-icon" src="static/img/question_mark.png?105">';
+        content += '<div class="fort_popup-icon_container"><img class="no-guard-icon" src="static/img/question_mark.png?106">';
     }
     if (item.team === 0) {
         content += '<b>An empty Gym!</b>';
@@ -2648,11 +2648,11 @@ function addQuestsToSettings (data) {
             questsHtml_pokemon += '</div>';
 
             if ( getPreference("icon_theme_buttons") === 'og' ) {
-                questsHtml_pokemon += '<div class="quest_filters quest_left_column"><div class="quest_settings_pokemon_icon_container"><img class="quest_settings_pokemon_icon" src="static/monocle-icons/larger-icons/'  + item.pokemon_id + '_00.png?105"></div></div>';
+                questsHtml_pokemon += '<div class="quest_filters quest_left_column"><div class="quest_settings_pokemon_icon_container"><img class="quest_settings_pokemon_icon" src="static/monocle-icons/larger-icons/'  + item.pokemon_id + '_00.png?106"></div></div>';
             } else if ( getPreference("icon_theme_buttons") === 'cart' ) {
-                questsHtml_pokemon += '<div class="quest_filters quest_left_column"><div class="quest_settings_pokemon_icon_container"><img class="quest_settings_pokemon_icon" src="static/monocle-icons/larger-icons/'  + item.pokemon_id + '_cart.png?105"></div></div>';
+                questsHtml_pokemon += '<div class="quest_filters quest_left_column"><div class="quest_settings_pokemon_icon_container"><img class="quest_settings_pokemon_icon" src="static/monocle-icons/larger-icons/'  + item.pokemon_id + '_cart.png?106"></div></div>';
             } else if ( getPreference("icon_theme_buttons") === 'shiny' ) {
-                questsHtml_pokemon += '<div class="quest_filters quest_left_column"><div class="quest_settings_pokemon_icon_container"><img class="quest_settings_pokemon_icon" src="static/monocle-icons/larger-icons/'  + item.pokemon_id + '_00_shiny.png?105"></div></div>';
+                questsHtml_pokemon += '<div class="quest_filters quest_left_column"><div class="quest_settings_pokemon_icon_container"><img class="quest_settings_pokemon_icon" src="static/monocle-icons/larger-icons/'  + item.pokemon_id + '_00_shiny.png?106"></div></div>';
             }
 
             
@@ -4999,19 +4999,19 @@ function populateSettingsPanels(){
         if (getPreference("icon_theme_buttons") === 'og') {
             if (_spritesheet_g6.indexOf(i) > -1)
             {
-                spritesheet = 'g6v1-sprite';
+                spritesheet = 'g6v2-sprite';
                 sprite_suffix = '_00';
             }
         } else if (getPreference("icon_theme_buttons") === 'cart') {
             if (_spritesheet_g6.indexOf(i) > -1)
             {
-                spritesheet = 'g6v1-sprite';
+                spritesheet = 'g6v2-sprite';
                 sprite_suffix = '';
             }
         } else if (getPreference("icon_theme_buttons") === 'shiny') {
             if (_spritesheet_g6.indexOf(i) > -1)
             {
-                spritesheet = 'g6v1-sprite';
+                spritesheet = 'g6v2-sprite';
                 sprite_suffix = '_00';
             }
         }

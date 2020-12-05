@@ -1,0 +1,141 @@
+.g6v2-sprite-shiny span {
+    background-image: url(../img/spritesheet_medium_g6v2_shiny.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+#menu.g6v2-sprite-shiny span {
+    float: left;
+}
+
+.g6v2-sprite-shiny-650_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: 0 0;
+}
+
+.g6v2-sprite-shiny-651_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -72px 0;
+}
+
+.g6v2-sprite-shiny-652_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -144px 0;
+}
+
+.g6v2-sprite-shiny-653_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -216px 0;
+}
+
+.g6v2-sprite-shiny-654_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: 0 -72px;
+}
+
+.g6v2-sprite-shiny-655_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -72px -72px;
+}
+
+.g6v2-sprite-shiny-656_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -144px -72px;
+}
+
+.g6v2-sprite-shiny-657_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -216px -72px;
+}
+
+.g6v2-sprite-shiny-658_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: 0 -144px;
+}
+
+.g6v2-sprite-shiny-659_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -72px -144px;
+}
+
+.g6v2-sprite-shiny-660_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -144px -144px;
+}
+
+.g6v2-sprite-shiny-661_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -216px -144px;
+}
+
+.g6v2-sprite-shiny-662_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: 0 -216px;
+}
+
+.g6v2-sprite-shiny-663_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -72px -216px;
+}
+
+.g6v2-sprite-shiny-664_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -144px -216px;
+}
+
+.g6v2-sprite-shiny-667_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -216px -216px;
+}
+
+.g6v2-sprite-shiny-668_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -288px 0;
+}
+
+.g6v2-sprite-shiny-677_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -288px -72px;
+}
+
+.g6v2-sprite-shiny-678_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -288px -144px;
+}
+
+.g6v2-sprite-shiny-707_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -288px -216px;
+}
+
+.g6v2-sprite-shiny-714_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: 0 -288px;
+}
+
+.g6v2-sprite-shiny-715_00_shiny {
+    width: 72px;
+    height: 72px;
+    background-position: -72px -288px;
+}
