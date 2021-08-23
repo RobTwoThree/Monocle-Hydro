@@ -212,6 +212,9 @@ var PokemonIcon = L.Icon.extend({
 
             if (_spritesheet_g6.indexOf(this.options.iconID) > -1)
             { spritesheet = 'g6v3-sprite'; }
+            
+            if (_spritesheet_g8.indexOf(this.options.iconID) > -1)
+            { spritesheet = 'g8v1-sprite'; }
 
             if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
             { spritesheet = 'gXv2-sprite'; }
@@ -237,6 +240,9 @@ var PokemonIcon = L.Icon.extend({
             if (_spritesheet_g6.indexOf(this.options.iconID) > -1)
             { spritesheet = 'g6v3-sprite'; }
 
+            if (_spritesheet_g8.indexOf(this.options.iconID) > -1)
+            { spritesheet = 'g8v1-sprite'; }
+            
             if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
             { spritesheet = 'gXv2-sprite'; }
         } else if (getPreference("icon_theme_buttons") === 'shiny') {
@@ -260,6 +266,9 @@ var PokemonIcon = L.Icon.extend({
 
             if (_spritesheet_g6.indexOf(this.options.iconID) > -1)
             { spritesheet = 'g6v3-sprite'; }
+            
+            if (_spritesheet_g8.indexOf(this.options.iconID) > -1)
+            { spritesheet = 'g8v1-sprite'; }
             
             if (_spritesheet_gX.indexOf(this.options.iconID) > -1)
             { spritesheet = 'gXv2-sprite'; }
