@@ -10,3 +10,4 @@ check_key.sh
 check_key_to_log.sh
 import_accounts_single_instance.sh
 *.swp
+accounts.example.csv
