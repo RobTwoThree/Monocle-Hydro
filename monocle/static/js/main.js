@@ -29,7 +29,7 @@ var _LocationRadar;
 // Why you stealing my code?
 var _dark = L.tileLayer(_DarkMapProviderUrl, {opacity: _DarkMapOpacity, attribution: _DarkMapProviderAttribution});
 var _light = L.tileLayer(_LightMapProviderUrl, {opacity: _LightMapOpacity, attribution: _LightMapProviderAttribution});
-// You should ask next time.
+// You should ask next time bruh.
 
 // Load spritesheet ranges
 for (var i = 0; i <= _pokemon_count_gen_1; i++) { _spritesheet_g1.push(i); }
