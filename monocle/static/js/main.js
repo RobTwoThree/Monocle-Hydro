@@ -359,7 +359,7 @@ var FortIcon = L.Icon.extend({
         div.innerHTML =
             '<div class="fortmarker">' +
                 '<div class="fort_container">' +
-                    '<img class="fort_icon" src="static/monocle-icons/forts/' + this.options.fort_team + '.png?202" />' +
+                    '<img class="fort_icon" src="static/monocle-icons/forts/' + this.options.fort_team + '.png?203" />' +
                 '</div>' +
                 '<div class="fort_slots_container">' +
                     '<img class="fort_slots_icon" src="static/img/num_' + this.options.open_slots + '.png" />' +
@@ -393,7 +393,7 @@ var AltFortIcon = L.Icon.extend({
         div.innerHTML =
             '<div class="fortmarker">' +
                 '<div class="fort_container">' +
-                    '<img class="fort_icon" src="static/monocle-icons/forts/' + this.options.fort_team + '.png?202" />' +
+                    '<img class="fort_icon" src="static/monocle-icons/forts/' + this.options.fort_team + '.png?203" />' +
                 '</div>' +
                 '<div class="fort_slots_container">' +
                     '<img class="fort_slots_icon" src="static/img/num_' + this.options.open_slots + '.png" />' +
@@ -712,7 +712,7 @@ var RaidIcon = L.Icon.extend({
                         '<img class="boss_during_raid" src="static/monocle-icons/larger-icons/' + image_id + '.png?106" />' +
                     '</div>' +
                     '<div class="raid_platform_container">' +
-                        '<img class="pre_raid_icon" src="static/monocle-icons/raids/raid_start_level_' + this.options.raid_level + '.png?202" />' +
+                        '<img class="pre_raid_icon" src="static/monocle-icons/raids/raid_start_level_' + this.options.raid_level + '.png?203" />' +
                     '</div>';
             if (sponsor !== '') {
                 div.innerHTML +=
@@ -730,7 +730,7 @@ var RaidIcon = L.Icon.extend({
             div.innerHTML =
                 '<div class="raidmarker">' +
                     '<div class="pre_raid_container">' +
-                        '<img class="pre_raid_icon" src="static/monocle-icons/raids/raid_level_' + this.options.raid_level + '.png?202" />' +
+                        '<img class="pre_raid_icon" src="static/monocle-icons/raids/raid_level_' + this.options.raid_level + '.png?203" />' +
                     '</div>';
             if (sponsor !== '') {
                 div.innerHTML +=
