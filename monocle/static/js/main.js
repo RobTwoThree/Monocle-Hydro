@@ -1327,7 +1327,7 @@ function getRaidPopupContent (item) {
         }
         content += '</div>';
     } else {
-        content += '<div class="raid_popup-icon_container"><img class="egg-icon" src="static/monocle-icons/raids/egg_level_' + item.raid_level + '.png">';
+        content += '<div class="raid_popup-icon_container"><img class="egg-icon" src="static/monocle-icons/raids/egg_level_' + item.raid_level + '.png?204">';
         if (item.gym_team > 0) {
             if (item.gym_team === 1 ) {
                 content += '<img class="team-logo" src="static/img/mystic.png">';
