@@ -223,7 +223,7 @@ ITEM_LIMITS = {
     1:    0,  # Poké Ball
     2:    0,  # Great Ball
     3:    5,  # Ultra Ball
-    4:    10,  # Master Ball
+    4:    10,  # Main Ball
     101:   0,  # Potion
     102:   0,  # Super Potion
     103:   0,  # Hyper Potion

@@ -730,7 +730,7 @@ class Worker:
 
     async def account_promotion(self):
         if self.player_level and self.player_level >= 30:
-            self.log.warning('Congratulations {} has reached Lv.30. Moving it out of low-level slave pool', self.username)
+            self.log.warning('Congratulations {} has reached Lv.30. Moving it out of low-level subordinate pool', self.username)
             await sleep(1, loop=LOOP)
             await self.remove_account(flag='level30')
 
@@ -1769,7 +1769,7 @@ class Worker:
             log_message = "Removing {} due to temp disabled. Level - {}".format(self.username, self.player_level)
         elif flag == 'level30':
             self.account['graduated'] = True
-            log_message = "Removing {} from slave pool due to graduation to Lv.30. Level - {}".format(self.username, self.player_level)
+            log_message = "Removing {} from subordinate pool due to graduation to Lv.30. Level - {}".format(self.username, self.player_level)
             send_webhook = False
         elif flag == 'level1':
             self.account['demoted'] = True
