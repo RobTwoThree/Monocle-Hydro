@@ -1,6 +1,6 @@
 geopy>=1.11.0
 protobuf>=3.0.0
-flask==2.0.1
+flask==2.3.2
 sqlalchemy==1.4.15
 alembic>=0.9.5
 #aiopogo>=2.0.2,<2.1
