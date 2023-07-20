@@ -23,7 +23,7 @@ setup(
         'sqlalchemy>=1.1.0',
         'aiopogo>=2.0.2,<2.1',
         'polyline>=1.3.1',
-        'aiohttp>=2.1,<2.3',
+        'aiohttp>=2.1,<3.9',
         'pogeo==0.3.*',
         'cyrandom>=0.1.2'
     ],
